@@ -1,0 +1,30 @@
+format: jb-article
+root: intro
+sections:
+- file: syllabus/index
+  title: Syllabus
+  sections:
+  - file: syllabus/about-course
+  - file: syllabus/tools
+  - file: syllabus/grading
+  - file: syllabus/course_map
+  - file: syllabus/uri_resources
+  - file: syllabus/uri_statements
+- file: notes/index
+  sections:
+- file: assignments/index
+  sections:
+- file: portfolio/index
+  sections:
+- file: faq/index
+  sections:
+  - file: faq/syllabus
+  - file: faq/github
+  - file: faq/debugging
+- file: resources/index
+  sections:
+  - file: resources/tips
+  - file: resources/python
+  - file: resources/cheatsheet
+  - file: resources/datasets
+  - file: lessons/index
