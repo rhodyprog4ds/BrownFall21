@@ -67,7 +67,7 @@ On the [BrightSpace calendar](https://brightspace.uri.edu/d2l/le/calendar/101136
 ```
 ````
 
-The course will meet MWF 1-1:50pm on Zoom. Every class will include participatory live coding (instructor types, students follow along)) instruction and small exercises for you to progress toward level 1 achievements of the new skills introduced in class that day.
+The course will meet MWF 3-3:50pm in Chafee Social Sci Center  235. Every class will include participatory live coding (instructor types, students follow along)) instruction and small exercises for you to progress toward level 1 achievements of the new skills introduced in class that day.
 
 Programming assignments that will be due each week Tuesday by 11:59pm.
 

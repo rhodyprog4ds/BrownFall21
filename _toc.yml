@@ -6,8 +6,8 @@ parts:
     - file: syllabus/index
     - file: syllabus/about-course
     - file: syllabus/tools
-    - file: syllabus/grading
     - file: syllabus/course_map
+    - file: syllabus/grading
     - file: syllabus/uri_resources
     - file: syllabus/uri_statements
   - caption: Notes
