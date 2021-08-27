@@ -1,5 +1,5 @@
 # Book settings
-title: Programming for Data Science at URI Fall 2020
+title: Programming for Data Science at URI Fall 2021
 author: Professor Sarah M Brown
 logo: logo.png
 
@@ -16,7 +16,7 @@ html:
   # extra_navbar              : Download complete <a href="">PDF</a> # Will be displayed underneath the
 
 repository:
-  url                       : https://github.com/rhodyprog4ds/BrownFall20/  # The URL to your book's repository
+  url                       : https://github.com/rhodyprog4ds/BrownFall21/  # The URL to your book's repository
   path_to_book              : ""  # A path to your book's folder, relative to the repository root.
   branch                    : main  # Which branch of the repository should be used when creating links
 
