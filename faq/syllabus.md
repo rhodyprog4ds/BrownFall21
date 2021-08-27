@@ -11,5 +11,5 @@ If you do not submit (or earn no achievements from) your portfolio, the maximum 
 
 
 ```{dropdown} Can I submit this assignment late if ...?
-No, late assignments are not accepted. Your grade is based on the skills, not the assignments. All skills are assessed in at least two [assignments](assignment-skills), so missing any one will not hurt your grade. If you need an accommodation because you cannot submit multiple assignments, contact Dr. Brown.
+Late assignments are not accepted, however, your grade is based on the skills, not the assignments. All skills are assessed in at least two [assignments](assignment-skills), so missing any one will not hurt your grade. If you need an accommodation because you cannot submit multiple assignments, contact Dr. Brown.
 ```

@@ -28,4 +28,4 @@ parts:
     - file: resources/python
     - file: resources/cheatsheet
     - file: resources/datasets
-    - file: lessons/index
+    - file: letters/index
