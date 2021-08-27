@@ -142,7 +142,7 @@ If you achieve level 3 on 14 of the skills, but only level 1 on one of the skill
 <!-- The letter grade can be computed as follows -->
 
 ```{code-cell} ipython3
-:tags: ['hide-input']
+:tags: ['remove-input']
 def compute_grade(num_level1,num_level2,num_level3):
     '''
     Computes a grade for CSC/DSP310 from numbers of achievements at each level
