@@ -67,7 +67,7 @@ Each level of achievement corresponds to a phase in your learning of the skill:
 While attending synchronous class sessions, there will be understanding checks and in class exercises.
 Completing in class exercises and correctly answering questions in class can earn level 1 achievements.
 In class questions will be administered through the classroom chat platform Prismia.chat; these records will be used to update your skill progression.
-You can also earn level 1 achievements from adding annotation to a section of the class notes. 
+You can also earn level 1 achievements from adding annotation to a section of the class notes.
 
 #### Assignments
 
@@ -139,9 +139,10 @@ For example, if you achieve level 2 on all of the skills and level 3 on 7 skills
 
 If you achieve level 3 on 14 of the skills, but only level 1 on one of the skills, that will be a B-, because the minimum number of level 2 achievements for a B is 15. In this scenario the total number of achievements is 14 at level 3, 14 at level 2 and 15 at level 3, because you have to earn achievements within a skill in sequence.
 
-The letter grade can be computed as follows
+<!-- The letter grade can be computed as follows -->
 
 ```{code-cell} ipython3
+:tags: ['hide-input']
 def compute_grade(num_level1,num_level2,num_level3):
     '''
     Computes a grade for CSC/DSP310 from numbers of achievements at each level
