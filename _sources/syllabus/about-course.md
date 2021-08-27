@@ -37,7 +37,7 @@ Creating an [issue on the repository](https://github.com/rhodyprog4ds/BrownFall2
 ### About your instructor
 
 Name: Dr. Sarah Brown
-Office hours:  TBA via zoom, link in BrightSpace
+Office hours:  TBA via zoom, link on BrightSpace
 
 
 Dr. Brown is a new Assistant Professor of Computer Science, who does research on how social context changes machine learning. Dr. Brown earned a PhD in Electrical Engineering from Northeastern University, completed a postdoctoral fellowship at University of California Berkeley, and worked as a postdoctoral research associate at Brown University before joining URI. At Brown University, Dr. Brown taught the Data and Society course for the Master's in Data Science Program.

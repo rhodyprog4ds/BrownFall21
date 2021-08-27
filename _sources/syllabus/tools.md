@@ -9,37 +9,29 @@ All of the tools below are either:
 
 
 
+    ````{margin}
+    ```{important}
+
+    TL;DR [^tldr]
+
+      - check Brightspace
+      - Log in to Prismia Chat
+      - Make a GitHub Account
+      - Install Python
+      - Install Git
+    ```
+    ````
 ### BrightSpace
 
-This will be the central location from which you can access all other materials.
-Any links that are for private discussion among those enrolled in the course will be available only from our course [Brightspace site](https://brightspace.uri.edu/d2l/home/101136).
-This is also where your grades will appear.
-
-### Zoom
-
 ````{margin}
-```{important}
-
-TL;DR [^tldr]
-
-  - check Brightspace
-  - Install Zoom
-  - Setup your URI Zoom Account
-  - Log in to Prismia Chat
-  - Make a GitHub Account
-  - Install Python
-  - Install Git
+```{note}
+Seeing the BrightSpace site requires loging in with your URI SSO and being enrolled in the course
 ```
 ````
-[^tldr]: Too long; didn't read.
+This will be the central location from which you can access all other materials.
+Any links that are for private discussion among those enrolled in the course will be available only from our course [Brightspace site](https://brightspace.uri.edu/d2l/home/158179).
 
-This is where we will meet for synchronous class sessions. You will find the link to class zoom sessions on Brightspace.
-
-URI provides all faculty, staff, and students with a paid Zoom account. It *can* run in your browser or on a mobile device, but you will be able to participate in class best if you download the [Zoom client](https://zoom.us/download) on your computer. Please [log in](https://uri-edu.zoom.us/) and [configure your account](https://uri-edu.zoom.us/profile).  Please add a photo of yourself to your account so that we can still see your likeness in some form when your camera is off. You may also wish to use a virtual background and you are welcome to do so.  
-
-Class will be interactive, so if you cannot be in a quiet place at class time, headphones with a built in microphone are strongly recommended.
-
-For help, you can access the [instructions provided by IT](https://web.uri.edu/itservicedesk/zoom-at-uri/).
+This is also where your grades will appear.
 
 
 
@@ -53,12 +45,14 @@ On Prismia, all students see the instructor's messages, but only the Instructor 
 ### Course Manual
 
 The course manual will have content including the class policies, scheduling, class notes, assignment information, and additional resources.
-This will be linked from Brightspace and available publicly online at [rhodyprog4ds.github.io/BrownFall20/](https://rhodyprog4ds.github.io/BrownFall20/).
+This will be linked from Brightspace and available publicly online at [rhodyprog4ds.github.io/BrownFall21/](https://rhodyprog4ds.github.io/BrownFall21/).
 Links to the course reference text and code documentation will also be included here in the assignments and class notes.
 
 ### GitHub Classroom
 
-You will need a GitHub Account. If you do not already have one, please create one by the first day of class.
+You will need a [GitHub](https://github.com/) Account. If you do not already have one, please [create one](https://github.com/signup) by the first day of class. If you have one, but have not used it recently, you may need to update your password and login credentials as the [Authentication rules](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github) changed over the summer.  In order to use the command line, you will need to [create a Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) for each device you use.
+
+
 There will be a link to our class GitHub Classroom on Brightspace.
 
 <!-- ### GradeScope
@@ -70,7 +64,7 @@ Programming As -->
 This a programming course, so you will need a programming environment. In order to complete assignments you need the items listed in the requirements list. The easiest way to meet these requirements is to follow the recommendations below. I will provide instruction assuming that you have followed the recommendations.
 
 Requirements:
-- Python with scientific computing packages (numpy, scipy, jupyter, pandas, etc)
+- Python with scientific computing packages (numpy, scipy, jupyter, pandas, seaborn, sklearn)
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - A web browser compatible with Jupyter Notebooks
 <!-- - Openrefine -->
@@ -90,7 +84,7 @@ Recommendation:
 Optional:
 ````{margin}
 ```{note}
-I use atom, but I decided to use it by downloading both Atom and Sublime and trying different things in each for a week. I liked Atom better after that and I've stuck with it since. I used Atom to write all of the content in this syllabus.
+I use [atom](https://atom.io/), but I decided to use it by downloading both Atom and Sublime and trying different things in each for a week. I liked Atom better after that and I've stuck with it since. I used Atom to write all of the content in this syllabus. VScode will also work, if needed
 ```
 ````
 - Text Editor: you may want a text editor outside of the Jupyter environment. Jupyter can edit markdown files (that you'll need for your portfolio), in browser, but it is more common to use a text editor like Atom or Sublime for this purpose.
@@ -98,6 +92,22 @@ I use atom, but I decided to use it by downloading both Atom and Sublime and try
 
 ### Textbook
 
-The text for this class is a reference book and iwll not be a source of assignments. It will be a helpful reference and you may be directed there for answers to questions or alternate explanations ot topics.
+The text for this class is a reference book and will not be a source of assignments. It will be a helpful reference and you may be directed there for answers to questions or alternate explanations ot topics.
 
 Python for Data Science is available free [online](https://jakevdp.github.io/PythonDataScienceHandbook/):
+
+
+
+
+
+### Zoom (backup only, Fall 2021 is in person)
+
+[^tldr]: Too long; didn't read.
+
+This is where we will meet if for any reason we cannot be in person. You will find the link to class zoom sessions on Brightspace.
+
+URI provides all faculty, staff, and students with a paid Zoom account. It *can* run in your browser or on a mobile device, but you will be able to participate in class best if you download the [Zoom client](https://zoom.us/download) on your computer. Please [log in](https://uri-edu.zoom.us/) and [configure your account](https://uri-edu.zoom.us/profile).  Please add a photo of yourself to your account so that we can still see your likeness in some form when your camera is off. You may also wish to use a virtual background and you are welcome to do so.  
+
+Class will be interactive, so if you cannot be in a quiet place at class time, headphones with a built in microphone are strongly recommended.
+
+For help, you can access the [instructions provided by IT](https://web.uri.edu/itservicedesk/zoom-at-uri/).
