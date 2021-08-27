@@ -4,8 +4,9 @@ We will use a variety of tools to conduct class and to facilitate your programmi
 
 
 All of the tools and resources below are either:
-    - paid for by URI **OR**
-    - freely available online.
+
+  - paid for by URI **OR**
+  - freely available online.
 
 
 
@@ -38,7 +39,7 @@ This is also where your grades will appear.
 
 ### Prismia chat
 
-Our class link for Prismia chat is available on Brightspace.
+Our class link for [Prismia chat](https://prismia.chat/) is available on Brightspace.
 We will use this for chatting and in-class understanding checks.
 
 On Prismia, all students see the instructor's messages, but only the Instructor and TA see student responses. 
