@@ -1,26 +1,28 @@
 ## Tools and Resources
 
-We will use a variety of tools to conduct class and to facilitate your programming. You will need a computer with Linux, MacOS, or Windows. It is unlikely that a tablet or Chromebook will be able to do all of the things required in this course.
+We will use a variety of tools to conduct class and to facilitate your programming. You will need a computer with Linux, MacOS, or Windows. It is unlikely that a tablet will be able to do all of the things required in this course. A Chromebook may work, especially with developer tools turned on. Ask Dr. Brown if you need help getting access to an adequate computer.
 
 
-All of the tools below are either:
-    - paid for by URI or
-    - freely available online.
+All of the tools and resources below are either:
+
+  - paid for by URI **OR**
+  - freely available online.
 
 
 
-    ````{margin}
-    ```{important}
+````{margin}
+```{important}
 
-    TL;DR [^tldr]
+TL;DR [^tldr]
 
-      - check Brightspace
-      - Log in to Prismia Chat
-      - Make a GitHub Account
-      - Install Python
-      - Install Git
-    ```
-    ````
+  - check Brightspace
+  - Log in to Prismia Chat
+  - Make a GitHub Account
+  - Install Python
+  - Install Git
+```
+````
+
 ### BrightSpace
 
 ````{margin}
@@ -37,7 +39,7 @@ This is also where your grades will appear.
 
 ### Prismia chat
 
-Our class link for Prismia chat is available on Brightspace.
+Our class link for [Prismia chat](https://prismia.chat/) is available on Brightspace.
 We will use this for chatting and in-class understanding checks.
 
 On Prismia, all students see the instructor's messages, but only the Instructor and TA see student responses. 
