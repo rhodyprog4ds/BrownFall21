@@ -77,6 +77,10 @@ all Git instructions will be given as instructions for the command line interfac
 ```
 ````
 
+```{note}
+Everything in this class will be tested with the up to date (or otherwise specified) version of Jupyter Notebooks. Google Colab is similar, but not the same and some things may not work there. It is an okay backup, but should not be your primary work environment. 
+```
+
 Recommendation:
 - Install python via [Anaconda](https://www.anaconda.com/products/individual)
 - if you use Windows, install Git with [GitBash](https://gitforwindows.org/) ([video instructions](https://youtu.be/339AEqk9c-8)).

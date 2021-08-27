@@ -13,9 +13,6 @@ parts:
   - caption: Notes
     chapters:
       - file: notes/index
-  - caption: Assignments
-    chapters:
-      - file: assignments/index
   - caption: FAQ
     chapters:
     - file: faq/index
@@ -28,4 +25,10 @@ parts:
     - file: resources/python
     - file: resources/cheatsheet
     - file: resources/datasets
-    - file: letters/index
+    - url: https://rhodyprog4ds.github.io/BrownFall20/letters/
+      title: Advice from FA2020 Students
+
+
+# - caption: Assignments
+# chapters:
+# - file: assignments/index
