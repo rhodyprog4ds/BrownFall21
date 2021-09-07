@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>Formatting Tips &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -228,12 +228,9 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/portfolio/index.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/portfolio/index.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/portfolio/formatting.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -250,10 +247,10 @@
     <div class="dropdown-buttons sourcebuttons">
         
         <a class="issues-button"
-            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fportfolio/index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fportfolio/formatting.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/portfolio/index.md"><button
+        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/portfolio/formatting.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -268,23 +265,6 @@
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/rhodyprog4ds/BrownFall21/main?urlpath=tree/portfolio/index.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
@@ -296,16 +276,56 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#upcoming-checks">
-   Upcoming Checks
+  <a class="reference internal nav-link" href="#organization">
+   Organization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-files">
+   Data Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#structure-of-plain-markdown">
+   Structure of plain markdown
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#file-naming">
+   File Naming
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syncing-markdown-and-ipynb-files">
+   Syncing markdown and ipynb files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-annotations-with-formatting-or-margin-notes">
+   Adding annotations with formatting or margin notes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links">
+   Links
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configurations">
+   Configurations
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#portfolio-1">
-     Portfolio 1
+    <a class="reference internal nav-link" href="#show-errors-and-continue">
+     Show errors and continue
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-additional-packages">
+   Using additional packages
+  </a>
  </li>
 </ul>
 
@@ -318,56 +338,114 @@
         
               <div>
                 
-  <div class="section" id="portfolio">
-<h1>Portfolio<a class="headerlink" href="#portfolio" title="Permalink to this headline">¶</a></h1>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/ipykernel_launcher.py:26: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
-/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/ipykernel_launcher.py:31: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+  <div class="section" id="formatting-tips">
+<h1>Formatting Tips<a class="headerlink" href="#formatting-tips" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is all based on you having accepted the portfolio assignment on github and
+having a cloned copy of the template. If you are not enrolled or the initial
+assignment has not been issued, you can view <a class="reference external" href="https://github.com/rhodyprog4ds/portfolio">the template on GitHub</a></p>
+</div>
+<p>Your portfolio is a <a class="reference external" href="https://jupyterbook.org/intro.html">jupyter book</a>. This means a few things:</p>
+<ul class="simple">
+<li><p>it uses <a class="reference external" href="https://jupyterbook.org/reference/cheatsheet.html">myst markdown</a></p></li>
+<li><p>it will run and compile Jupyter notebooks</p></li>
+</ul>
+<p>This page will cover a few basic tips.</p>
+<div class="section" id="organization">
+<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
+<p>The summary of for the <code class="docutils literal notranslate"><span class="pre">part</span></code> or whole submission, should match the skills to the chapters.  Which prompt you’re addressing is not important, the  prompts are a <em>starting point</em> not the end goal of your portfolio.</p>
+</div>
+<div class="section" id="data-files">
+<h2>Data Files<a class="headerlink" href="#data-files" title="Permalink to this headline">¶</a></h2>
+<p>Also note that for your portfolio to build, you will have to:</p>
+<ul class="simple">
+<li><p>include the data files in the repository and use a relative path OR</p></li>
+<li><p>load via url</p></li>
+</ul>
+<p>using a full local path <strong>will not work</strong> and will render your portfolio unreadable.</p>
+</div>
+<div class="section" id="structure-of-plain-markdown">
+<h2>Structure of plain markdown<a class="headerlink" href="#structure-of-plain-markdown" title="Permalink to this headline">¶</a></h2>
+<p>Use a heading like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Heading of page</span>
+</pre></div>
+</div>
+<p>in the file and it will appear in the sidebar.</p>
+</div>
+<div class="section" id="file-naming">
+<h2>File Naming<a class="headerlink" href="#file-naming" title="Permalink to this headline">¶</a></h2>
+<p>It is best practice to name files without spaces.
+Each <code class="docutils literal notranslate"><span class="pre">chapter</span></code> or file should have a descriptive file name (<code class="docutils literal notranslate"><span class="pre">with_no_spaces</span></code>) and descriptive title for it.</p>
+</div>
+<div class="section" id="syncing-markdown-and-ipynb-files">
+<h2>Syncing markdown and ipynb files<a class="headerlink" href="#syncing-markdown-and-ipynb-files" title="Permalink to this headline">¶</a></h2>
+<p>To sync feedback received to your runnable notebook files, change the related GitHub Actions file: <code class="docutils literal notranslate"><span class="pre">.github/workflows/</span></code>
+In the step named convert that looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">convert</span>
+  <span class="n">run</span><span class="p">:</span> <span class="o">|</span>
+      <span class="n">jupytext</span> <span class="o">*/*.</span><span class="n">ipynb</span> <span class="o">--</span><span class="n">to</span> <span class="n">myst</span>
+</pre></div>
+</div>
+<p>change it to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">convert</span>
+  <span class="n">run</span><span class="p">:</span> <span class="o">|</span>
+      <span class="n">jupytext</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">formats</span> <span class="n">ipynb</span><span class="p">,</span><span class="n">md</span> <span class="o">*/*.</span><span class="n">ipynb</span>  <span class="c1"># Turn .ipynb into a paired ipynb/py notebook</span>
+      <span class="n">jupytext</span> <span class="o">--</span><span class="n">sync</span> <span class="o">*/*.</span><span class="n">ipynb</span>                  <span class="c1"># Update whichever of .ipynb/notebook.md is outdated</span>
+</pre></div>
+</div>
+<p>This means if you accept suggestion commits from the the <code class="docutils literal notranslate"><span class="pre">.md</span></code> file, the action will upate your <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file. If you update your <code class="docutils literal notranslate"><span class="pre">.ipynb</span> <span class="pre">file</span></code> the action will update the .md file.</p>
+</div>
+<div class="section" id="adding-annotations-with-formatting-or-margin-notes">
+<h2>Adding annotations with formatting or margin notes<a class="headerlink" href="#adding-annotations-with-formatting-or-margin-notes" title="Permalink to this headline">¶</a></h2>
+<p>You can either install <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/install.html">jupytext</a> and convert locally or upload /push a notebook to your repository and let GitHub convert.<br />
+Then edit the .md file with a <a class="reference internal" href="../syllabus/tools.html#texteditor"><span class="std std-ref">text editor</span></a> of your choice. You can run by uploading if you don’t have jupytext installed, or locally if you have installed jupytext or jupyterbook.</p>
+<p>In your .md file use backticks to mark <a class="reference external" href="https://jupyterbook.org/content/content-blocks.html">special content blocks</a></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{note}
+Here is a note!
+```
+</pre></div>
+</div>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{warning}
+Here is a warning!
+```
+</pre></div>
+</div>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{tip}
+Here is a tip!
+```
+</pre></div>
+</div>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{margin}
+Here is a margin note!
+```
+</pre></div>
+</div>
+<p>For a complete list of options, see <a class="reference external" href="https://sphinx-book-theme.readthedocs.io/en/latest/reference/demo.html#admonitions">the <code class="docutils literal notranslate"><span class="pre">sphinx-book-theme</span></code> documentation</a>.</p>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<p>Markdown syntax for links</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">text</span> <span class="n">to</span> <span class="n">show</span><span class="p">](</span><span class="n">path</span><span class="o">/</span><span class="ow">or</span><span class="o">/</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configurations">
+<h2>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h2>
+<p>Things like the menus and links at the top are controlled as <a class="reference external" href="https://jupyterbook.org/customize/config.html">settings</a>, in <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>. The following are some things that you might change in your configuration file.</p>
+<div class="section" id="show-errors-and-continue">
+<span id="keeperrors"></span><h3>Show errors and continue<a class="headerlink" href="#show-errors-and-continue" title="Permalink to this headline">¶</a></h3>
+<p>To show errors and continue running the rest, add the following to your configuration file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execution settings</span>
+<span class="n">execute</span><span class="p">:</span>
+  <span class="n">allow_errors</span>              <span class="p">:</span> <span class="n">true</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>This section of the site has a set of portfolio prompts and this page has instructions for portfolio submissions.</p>
-<p>Starting in week 3 it is recommended that you spend some time each week working on items for your portfolio, that way when it’s time to submit you only have a little bit to add before submission.</p>
-<p>The portfolio is your only chance to earn Level 3 achievements, however, if you have not earned a level 2 for any of the skills in a given check, you could earn level 2 then instead.
-The prompts provide a starting point, but remember that to earn achievements, you’ll be evaluated by the rubric.
-You can see the full rubric for all portfolios in the <a class="reference internal" href="../syllabus/achievements.html#portfolioskills"><span class="std std-ref">syllabus</span></a>.
-Your portfolio is also an opportunity to be creative, explore things, and answer your own questions that we haven’t answered in class to dig deeper on the topics we’re covering.
-Use the feedback you get on assignments to inspire your portfolio.</p>
-<p>Each submission should include an introduction and a number of ‘chapters’.  The grade will be based on both that you demonstrate skills through your chapters that are inspired by the prompts and that your summary demonstrates that you <em>know</em> you learned the skills. See the <a class="reference internal" href="formatting.html"><span class="doc std std-doc">formatting tips</span></a> for advice on how to structure files.</p>
-<p>On each chapter(for a file) of your portfolio, you should identify which skills by their keyword, you are applying.</p>
-<p>You can view a (fake) example <a class="reference external" href="https://github.com/rhodyprog4ds/portfolio-brownsarahm">in this repository</a> as a <a class="reference external" href="https://github.com/rhodyprog4ds/portfolio-brownsarahm/blob/gh-pages/portfolio.pdf">pdf</a> or as a <a class="reference external" href="https://rhodyprog4ds.github.io/portfolio-brownsarahm/intro.html">rendered website</a></p>
-<div class="section" id="upcoming-checks">
-<h2>Upcoming Checks<a class="headerlink" href="#upcoming-checks" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="portfolio-1">
-<h3>Portfolio 1<a class="headerlink" href="#portfolio-1" title="Permalink to this headline">¶</a></h3>
-<p>More information to follow</p>
-<!--
-```{code-cell} ipython3
-:tags: [remove-input]
-
-portfolio_df['Level 3'][portfolio_df['P2']==1].reset_index().set_index('keyword')
-```
-
-
-
-
-The third submission will be graded on the following criteria and due on December 4:
-
-```{code-cell} ipython3
-:tags: [remove-input]
-
-portfolio_df['Level 3'][portfolio_df['P3']==1].reset_index().set_index('keyword')
-```
-
-
-```{code-cell} ipython3
-:tags: [remove-input]
-
-portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword')
-```
- --></div>
+<div class="section" id="using-additional-packages">
+<h2>Using additional packages<a class="headerlink" href="#using-additional-packages" title="Permalink to this headline">¶</a></h2>
+<p>You’ll have to add any additional packages you use (beyond pandas and seaborn) to the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file in your portfolio.</p>
 </div>
 </div>
 

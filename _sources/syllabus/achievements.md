@@ -3,15 +3,15 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.10.0
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
 ---
 
-## Learning Objective, Schedule, and Rubric
+# Data Science Achievements
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -40,10 +40,16 @@ rubric_df = yml_df('../_data/rubric.yml')
 rubric_df.set_index('keyword', inplace=True)
 ```
 
+In this course there are 5 learning outcomes that I expect you to achieve by
+the end of the semester.  To get there, you'll focus on 15 smaller achievements
+that will be the basis of your grade.  This section will describe how the topics
+covered, the learning outcomes, and the achievements are covered over time. In
+the next section, you'll see how these achievements turn into grades.
 
-### Learning Outcomes
 
-There are five learning outcomes for this course.
+## Learning Outcomes
+
+By the end of the semester
 
 
 ```{code-cell} ipython3
@@ -59,7 +65,7 @@ display(Markdown('  \n'.join(outcome_list)))
 We will build your skill in the `process` and `communicate` outcomes over the whole semester. The middle three skills will correspond roughly to the content taught for each of the first three portfolio checks.  
 
 (schedule)=
-### Schedule
+## Schedule
 
 ````{margin}
 ```{note}
@@ -67,7 +73,7 @@ On the [BrightSpace calendar](https://brightspace.uri.edu/d2l/le/calendar/101136
 ```
 ````
 
-The course will meet MWF 3-3:50pm in Chafee Social Sci Center  235. Every class will include participatory live coding (instructor types, students follow along)) instruction and small exercises for you to progress toward level 1 achievements of the new skills introduced in class that day.
+The course will meet MWF 3-3:50pm in Chafee Social Sci Center  235. Every class will include participatory live coding (instructor types code while explaining, students follow along)) instruction and small exercises for you to progress toward level 1 achievements of the new skills introduced in class that day.
 
 Programming assignments that will be due each week Tuesday by 11:59pm.
 
@@ -81,11 +87,11 @@ schedule_df.replace({None:'TBD'})
 schedule_df[['topics','skills']]
 ```
 
-(skill-rubric)=
-### Skill Rubric
+(achievement-definitions)=
+## Achievement Definitions
 
 
-The skill rubric describes how your participation, assignments, and portfolios will be assessed to earn each achievement. The keyword for each skill is a short name that will be used to refer to skills throughout the course materials; the full description of the skill is in this table.
+The table below describes how your participation, assignments, and portfolios will be assessed to earn each achievement. The keyword for each skill is a short name that will be used to refer to skills throughout the course materials; the full description of the skill is in this table.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
