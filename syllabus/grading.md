@@ -11,26 +11,24 @@ kernelspec:
   name: python3
 ---
 
-## Grading
+# Grading
 
 This section of the syllabus describes the principles and mechanics of the grading for the course.
 This course will be graded on a basis of a set of *skills* (described in detail the next section of the syllabus). This is in contrast to more common grading on a basis of points earned through assignments.
 
 +++
 
-### Principles of Grading
+## Principles of Grading
 
 Learning happens through practice and feedback. My goal as a teacher is for you to learn. The grading in this course is based on your learning of the material, rather than your completion of the activities that are assigned.
 
 
 This course is designed to encourage you to work steadily at learning the material and demonstrating your new knowledge. There are no single points of failure, where you lose points that cannot be recovered. Also, you cannot cram anything one time and then forget it. The material will build and you have to demonstrate that you retained things.
 
-- Earning a C in this class is intended to be easier than typical grading. I expect everyone to get at least a C.
-<!-- , which means you have a general understanding of Data Science and could have an educated conversation about all of the topics we cover. -->
-- Earning a B in this class is intended to be very accessible, you can make a lot of mistakes along the way as you learn, as long as you learn by the end.
-<!-- Earning a B means that you could solve simple data science problems on your own and complete parts of more complex problems as instructed by, for example, a supervisor in an internship or entry level job.  -->
-- Earning an A in this class will be challenging, but is possible even with making mistakes while you learn.
-<!-- Earning an A means that you could solve moderately complex problems independently and discus the quality of others' data science solutions.  -->
+- Earning a C in this class means you have a general understanding of Data Science and could participate in a basic conversation about all of the topics we cover. I expect everyone to reach this level.
+- Earning a B means that you could solve simple data science problems on your own and complete parts of more complex problems as instructed by, for example, a supervisor in an internship or entry level job. This is a very accessible goal, it does not require you to get anything on the first try or to explore topics on your own. I expect most students to reach this level.
+- Earning an A means that you could solve moderately complex problems independently and discus the quality of others' data science solutions. This class will be challenging, it requires you to explore topics a little deeper than we cover them in class, but unlike typical grading it does not require all of your assignments to be near perfect.
+<!-- Earning an A  -->
 
 
 
@@ -59,7 +57,7 @@ Each level of achievement corresponds to a phase in your learning of the skill:
   - To earn level 2 achievements you will need to demonstrate understanding of the concepts and the ability to apply them with instruction after earning the level 1 achievement for that skill. You can earn level 2 achievements in assignments or portfolio submissions.
   - To earn level 3 achievements you will be required to consistently execute each skill and demonstrate deep understanding of the course material, after achieving level 2 in that skill. You can earn level 3 achievements only through your portfolio submissions.
 
-
+For each skill these are defined in the [Achievement Definition Table](achievement-definitions)
 
 
 #### Participation
@@ -223,12 +221,10 @@ You may visit office hours to discuss assignments that you did not complete on t
 No late work will be graded.
 Every skill will be assessed through more than one assignment, so missing assignments occasionally *may* not hurt your grade. If you do not submit any assignments that cover a given skill, you may earn the level 2 achievement in that skill through a portfolio check, but you will not be able to earn the level 3 achievement in that skill.
 
-
+<!--
 ### Examples
 
-```{important}
-The following will make more sense after you read the next section of the syllabus and see the skills rubric sections.
-```
+
 
 If you always attend and get everything correct, you will earn and A and you won't need to submit the 4th portfolio check or assignment 13.
 
@@ -259,4 +255,9 @@ This student was content with getting a B and chose to not submit a portfolio.
 ![exampleBstruggle](../img/example_B_struggle.png)
 
 In this example, the student struggled to understand in class and on assignments. Assignments were submitted that showed some understanding, but all had some serious mistakes, so only level 1 achievements were earned from assignments.
-The student wanted to get a B and worked hard to get the level 2 achievements on the portfolio checks.
+The student wanted to get a B and worked hard to get the level 2 achievements on the portfolio checks. -->
+
+
+## Ram Tokens
+
+Ram Tokens in this course will be used as a currency for extra effort.  You can earn Ram Tokens by doing work that supports your learning or class activities, but do not directly demonstrate skill. You can spend Ram Tokens to get extra grading.  This will be mostly applicable to Portfolio Checks.  In Checks 3 & 4, some achievements will not be eligible for grading as per the [table](portfolioskills).  However, you can exchange Ram Tokens to
