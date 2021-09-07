@@ -96,7 +96,7 @@
   gradingTime:
 - week: 13
   clo: communicate
-  topics: Topic Modeling
+  topics: Images Analysis
   skills: [unstructured, tools]
   assignments:
   activities: [live coding, exercises]
