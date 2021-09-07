@@ -3,10 +3,10 @@ root: index
 parts:
   - caption: Syllabus
     chapters:
-    - file: syllabus/index
-    - file: syllabus/about-course
+    # - file: syllabus/index
+    - file: syllabus/about
     - file: syllabus/tools
-    - file: syllabus/course_map
+    - file: syllabus/achievements
     - file: syllabus/grading
     - file: syllabus/uri_resources
     - file: syllabus/uri_statements

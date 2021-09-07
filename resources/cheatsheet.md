@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 ---
 
+
 # Cheatsheet
 
 Patterns and examples of how to use common tips in class
