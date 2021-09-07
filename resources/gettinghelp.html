@@ -270,6 +270,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asking-questions">
+   Asking Questions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#describing-what-you-have-so-far">
+   Describing what you have so far
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#understanding-errors">
+   Understanding Errors
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -280,14 +303,34 @@
                 
   <div class="section" id="getting-help-with-programming">
 <h1>Getting Help with Programming<a class="headerlink" href="#getting-help-with-programming" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="asking-questions">
+<h2>Asking Questions<a class="headerlink" href="#asking-questions" title="Permalink to this headline">¶</a></h2>
 <p><img alt="comic on asking questions, that summarizes blog post" src="img/questions" /></p>
 <p>One of my favorit resources that desicribes how to ask good questions is
 <a class="reference external" href="https://jvns.ca/blog/good-questions/">this blog post</a> by Julia Evans, a developer
 who writes comics about the things she learns in the course of her work and
 publisher of <a class="reference external" href="https://wizardzines.com/">wizard zines</a>.</p>
+</div>
+<div class="section" id="describing-what-you-have-so-far">
+<h2>Describing what you have so far<a class="headerlink" href="#describing-what-you-have-so-far" title="Permalink to this headline">¶</a></h2>
 <p>Stackoverflow is a common place for programmers to post and answer questions.<br />
 As such, they have written a good
 <a class="reference external" href="https://stackoverflow.com/help/minimal-reproducible-example">guide on creating a minimal, reproducible example</a>.</p>
+<p>Creating a minimal reproducible example may even help you debug your own code,
+but if it does not, it will definitely make it easier for another person to
+understand what you have, what your goal is, and what’s working.</p>
+</div>
+<div class="section" id="understanding-errors">
+<h2>Understanding Errors<a class="headerlink" href="#understanding-errors" title="Permalink to this headline">¶</a></h2>
+<p>Error messages from the compiler are not always straight forward.</p>
+<p>The TraceBack can be a really long list of errors that seem like they are not even
+from your code.  It will trace back to all of the places that the error occured.
+It is often about how you called the functions from a library, but the compiler
+cannot tell that.</p>
+<p>One thing to try, is <a class="reference external" href="https://friendly-traceback.github.io/docs/index.html">friendly traceback</a>
+a python package that is designed to make that error message text more clear and
+help you figure out what to do next.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
