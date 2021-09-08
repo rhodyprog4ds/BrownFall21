@@ -55,11 +55,7 @@ Links to the course reference text and code documentation will also be included 
 You will need a [GitHub](https://github.com/) Account. If you do not already have one, please [create one](https://github.com/signup) by the first day of class. If you have one, but have not used it recently, you may need to update your password and login credentials as the [Authentication rules](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github) changed over the summer.  In order to use the command line, you will need to [create a Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) for each device you use.
 
 
-There will be a link to our class GitHub Classroom on Brightspace.
 
-<!-- ### GradeScope
-
-Programming As -->
 (prorgrammin-env)=
 ### Programming Environment
 
@@ -96,6 +92,11 @@ I use [atom](https://atom.io/), but I decided to use it by downloading both Atom
 ````
 - Text Editor: you may want a text editor outside of the Jupyter environment. Jupyter can edit markdown files (that you'll need for your portfolio), in browser, but it is more common to use a text editor like Atom or Sublime for this purpose.
 
+
+Video install instructions for Anaconda:
+- [Windows](https://www.youtube.com/watch?v=xxQ0mzZ8UvA)
+- [Mac](https://www.youtube.com/watch?v=TcSAln46u9U)
+- I don't have a video for linux, but it's a little more straight forward. 
 
 ### Textbook
 
