@@ -65,7 +65,7 @@ Programming As -->
 
 This a programming course, so you will need a programming environment. In order to complete assignments you need the items listed in the requirements list. The easiest way to meet these requirements is to follow the recommendations below. I will provide instruction assuming that you have followed the recommendations.
 
-Requirements:
+#### Requirements:
 - Python with scientific computing packages (numpy, scipy, jupyter, pandas, seaborn, sklearn)
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - A web browser compatible with Jupyter Notebooks
@@ -77,11 +77,11 @@ all Git instructions will be given as instructions for the command line interfac
 ```
 ````
 
-```{note}
-Everything in this class will be tested with the up to date (or otherwise specified) version of Jupyter Notebooks. Google Colab is similar, but not the same and some things may not work there. It is an okay backup, but should not be your primary work environment. 
+```{warning}
+Everything in this class will be tested with the up to date (or otherwise specified) version of Jupyter Notebooks. Google Colab is similar, but not the same, and some things may not work there. It is an okay backup, but should not be your primary work environment.
 ```
 
-Recommendation:
+#### Recommendation:
 - Install python via [Anaconda](https://www.anaconda.com/products/individual)
 - if you use Windows, install Git with [GitBash](https://gitforwindows.org/) ([video instructions](https://youtu.be/339AEqk9c-8)).
 - if you use MacOS, install Git with the Xcode Command Line Tools. On Mavericks (10.9) or above you can do this by trying to run git from the Terminal the very first time.`git --version`
@@ -89,7 +89,8 @@ Recommendation:
 (texteditor)=
 Optional:
 ````{margin}
-```{note}
+```{admonition} A tip from Dr. Brown
+:class: tip
 I use [atom](https://atom.io/), but I decided to use it by downloading both Atom and Sublime and trying different things in each for a week. I liked Atom better after that and I've stuck with it since. I used Atom to write all of the content in this syllabus. VScode will also work, if needed
 ```
 ````
