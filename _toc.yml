@@ -12,7 +12,7 @@ parts:
     - file: syllabus/uri_statements
   - caption: Notes
     chapters:
-      - file: notes/index
+      - file: notes/2021-09-08
   - caption: FAQ
     chapters:
     - file: faq/index
