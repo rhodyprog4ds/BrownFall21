@@ -22,6 +22,8 @@ parts:
   - caption: Resources
     chapters:
     - file: resources/tips
+    - file: resources/learning
+    - file: resources/gettinghelp
     - file: resources/python
     - file: resources/cheatsheet
     - file: resources/datasets

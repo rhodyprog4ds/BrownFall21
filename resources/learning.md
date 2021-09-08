@@ -5,13 +5,14 @@ Learning two things at once is more complex.
 In this page, I break down how I expect learning to work for this class.
 
 
+
+## Why this way?
+```{margin}
 A new book that might be of interest if you find programming classes hard is
 [the Programmers Brain](https://www.manning.com/books/the-programmers-brain#toc)
 As of 2020-09-07, it is available for free by clicking on chapters at that linked
-table of contents section. 
-
-
-## Why this way?
+table of contents section.
+```
 
 Learning to program requires iterative practice.
 It does not require memorizing all of the specific commands, but instead learning the basic patterns.  
@@ -45,6 +46,8 @@ While you review your notes and the annotated course notes, you should also read
 In the annotated notes, there will often be extra questions or ideas on how to extend and practice the concepts.  Try these out.
 
 If you find anything hard to understand or unclear, write it down to bring to class the next day.  
+
+There will be additional drills posted to Prismia chat for you to try.
 
 ## Assignments
 
