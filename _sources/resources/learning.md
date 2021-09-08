@@ -4,6 +4,8 @@ This is a programming intensive course and it's about data science.  This course
 Learning two things at once is more complex.
 In this page, I break down how I expect learning to work for this class.
 
+Remember the goal is to avoid this:
+![man throwing computer monitor in anger, clip from The IT Crowd](https://i.gifer.com/5SNC.gif)
 
 
 ## Why this way?
@@ -60,9 +62,9 @@ assignments will be in the class notes, which is another reason to read them aft
 
 ## Portfolios
 
-In assignments, your goal it so extend and apply the concepts taught in class and
+In portfolios, your goal is to extend and apply the concepts taught in class and
 practiced in assignments to solve more realistic problms.  You may also reflect
-on your learning in order to demonstrate deep understadning.  These will require
+on your learning in order to demonstrate deep understanding.  These will require
 significant reading beyond what we cover in class.
 
 <!-- ## Building skill in computational thinking
