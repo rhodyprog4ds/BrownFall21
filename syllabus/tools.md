@@ -33,8 +33,9 @@ Seeing the BrightSpace site requires loging in with your URI SSO and being enrol
 This will be the central location from which you can access all other materials.
 Any links that are for private discussion among those enrolled in the course will be available only from our course [Brightspace site](https://brightspace.uri.edu/d2l/home/158179).
 
-This is also where your grades will appear.
+This is also where your grades will appear and how I will post announcements.
 
+For announcements, you can [customize](https://documentation.brightspace.com/EN/le/announcements/learner/enable_notifications_in_announcements.htm) how you receive them.
 
 
 ### Prismia chat
@@ -96,7 +97,7 @@ I use [atom](https://atom.io/), but I decided to use it by downloading both Atom
 Video install instructions for Anaconda:
 - [Windows](https://www.youtube.com/watch?v=xxQ0mzZ8UvA)
 - [Mac](https://www.youtube.com/watch?v=TcSAln46u9U)
-- I don't have a video for linux, but it's a little more straight forward. 
+- I don't have a video for linux, but it's a little more straight forward.
 
 ### Textbook
 
