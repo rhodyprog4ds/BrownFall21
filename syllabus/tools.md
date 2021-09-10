@@ -82,6 +82,7 @@ Everything in this class will be tested with the up to date (or otherwise specif
 - Install python via [Anaconda](https://www.anaconda.com/products/individual)
 - if you use Windows, install Git with [GitBash](https://gitforwindows.org/) ([video instructions](https://youtu.be/339AEqk9c-8)).
 - if you use MacOS, install Git with the Xcode Command Line Tools. On Mavericks (10.9) or above you can do this by trying to run git from the Terminal the very first time.`git --version`
+- if you use chrome OS, refer to this pdf file: file:///home/chronos/u-1f0b530b8bb20c773cee66a2ceffc46503914ea3/MyFiles/Downloads/How%20to%20Install%20Anaconda%20Python%20onto%20a%20Chromebook.pdf
 
 (texteditor)=
 Optional:
