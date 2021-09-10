@@ -4,6 +4,8 @@ This is a programming intensive course and it's about data science.  This course
 Learning two things at once is more complex.
 In this page, I break down how I expect learning to work for this class.
 
+Remember the goal is to avoid this:
+![man throwing computer monitor in anger, clip from The IT Crowd](https://i.gifer.com/5SNC.gif)
 
 
 ## Why this way?
@@ -29,7 +31,7 @@ My goal is to use class time so that you can be successful with _minimal frustra
 while working outside of class time.
 ```
 
-Programming requires both practical skills and abstract concepts. During class time, we will cover the practical aspects and introduce the basic concepts. You will get to see the basic practical details and real examples of debugging during class sessions. Learning to debug something you've never encountered before and setting up your programming envrionment, for example are _high frustration_ activities, when you're learning, because you don't know what you don't know.  On the other hand, diving deeper into options and more complex applications of what you have already known, while challenging, is something I'm confident that you can all be successful at with minimal frustration once you've seen basic ideas in class. My goal is that you can repeat the patterns and processes we use in class outside of class to complete assignments, while acknowledging that you will definitely have to look things up and read documentation outside of class.  
+Programming requires both practical skills and abstract concepts. During class time, we will cover the practical aspects and introduce the basic concepts. You will get to see the basic practical details and real examples of debugging during class sessions. Learning to debug something you've never encountered before and setting up your programming envrionment, for example, are _high frustration_ activities, when you're learning, because you don't know what you don't know.  On the other hand, diving deeper into options and more complex applications of what you have already seen in class, while challenging, is something I'm confident that you can all be successful at with minimal frustration once you've seen basic ideas in class. My goal is that you can repeat the patterns and processes we use in class outside of class to complete assignments, while acknowledging that you will definitely have to look things up and read documentation outside of class.  
 
 Each class will open with some time to review what was covered in the last session before adding new material.
 
@@ -60,9 +62,9 @@ assignments will be in the class notes, which is another reason to read them aft
 
 ## Portfolios
 
-In assignments, your goal it so extend and apply the concepts taught in class and
+In portfolios, your goal is to extend and apply the concepts taught in class and
 practiced in assignments to solve more realistic problms.  You may also reflect
-on your learning in order to demonstrate deep understadning.  These will require
+on your learning in order to demonstrate deep understanding.  These will require
 significant reading beyond what we cover in class.
 
 <!-- ## Building skill in computational thinking

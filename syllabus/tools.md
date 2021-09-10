@@ -33,8 +33,9 @@ Seeing the BrightSpace site requires loging in with your URI SSO and being enrol
 This will be the central location from which you can access all other materials.
 Any links that are for private discussion among those enrolled in the course will be available only from our course [Brightspace site](https://brightspace.uri.edu/d2l/home/158179).
 
-This is also where your grades will appear.
+This is also where your grades will appear and how I will post announcements.
 
+For announcements, you can [customize](https://documentation.brightspace.com/EN/le/announcements/learner/enable_notifications_in_announcements.htm) how you receive them.
 
 
 ### Prismia chat
@@ -55,17 +56,13 @@ Links to the course reference text and code documentation will also be included 
 You will need a [GitHub](https://github.com/) Account. If you do not already have one, please [create one](https://github.com/signup) by the first day of class. If you have one, but have not used it recently, you may need to update your password and login credentials as the [Authentication rules](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github) changed over the summer.  In order to use the command line, you will need to [create a Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) for each device you use.
 
 
-There will be a link to our class GitHub Classroom on Brightspace.
 
-<!-- ### GradeScope
-
-Programming As -->
 (prorgrammin-env)=
 ### Programming Environment
 
 This a programming course, so you will need a programming environment. In order to complete assignments you need the items listed in the requirements list. The easiest way to meet these requirements is to follow the recommendations below. I will provide instruction assuming that you have followed the recommendations.
 
-Requirements:
+#### Requirements:
 - Python with scientific computing packages (numpy, scipy, jupyter, pandas, seaborn, sklearn)
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - A web browser compatible with Jupyter Notebooks
@@ -77,11 +74,11 @@ all Git instructions will be given as instructions for the command line interfac
 ```
 ````
 
-```{note}
-Everything in this class will be tested with the up to date (or otherwise specified) version of Jupyter Notebooks. Google Colab is similar, but not the same and some things may not work there. It is an okay backup, but should not be your primary work environment. 
+```{warning}
+Everything in this class will be tested with the up to date (or otherwise specified) version of Jupyter Notebooks. Google Colab is similar, but not the same, and some things may not work there. It is an okay backup, but should not be your primary work environment.
 ```
 
-Recommendation:
+#### Recommendation:
 - Install python via [Anaconda](https://www.anaconda.com/products/individual)
 - if you use Windows, install Git with [GitBash](https://gitforwindows.org/) ([video instructions](https://youtu.be/339AEqk9c-8)).
 - if you use MacOS, install Git with the Xcode Command Line Tools. On Mavericks (10.9) or above you can do this by trying to run git from the Terminal the very first time.`git --version`
@@ -89,12 +86,18 @@ Recommendation:
 (texteditor)=
 Optional:
 ````{margin}
-```{note}
+```{admonition} A tip from Dr. Brown
+:class: tip
 I use [atom](https://atom.io/), but I decided to use it by downloading both Atom and Sublime and trying different things in each for a week. I liked Atom better after that and I've stuck with it since. I used Atom to write all of the content in this syllabus. VScode will also work, if needed
 ```
 ````
 - Text Editor: you may want a text editor outside of the Jupyter environment. Jupyter can edit markdown files (that you'll need for your portfolio), in browser, but it is more common to use a text editor like Atom or Sublime for this purpose.
 
+
+Video install instructions for Anaconda:
+- [Windows](https://www.youtube.com/watch?v=xxQ0mzZ8UvA)
+- [Mac](https://www.youtube.com/watch?v=TcSAln46u9U)
+- I don't have a video for linux, but it's a little more straight forward.
 
 ### Textbook
 

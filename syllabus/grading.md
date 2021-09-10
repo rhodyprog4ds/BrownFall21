@@ -188,6 +188,7 @@ def compute_grade(num_level1,num_level2,num_level3):
     return grade
 ```
 
+For example you can run the code like this in a cell to see the output
 ```{code-cell} ipython3
 compute_grade(15,15,15)
 ```
@@ -195,6 +196,8 @@ compute_grade(15,15,15)
 ```{code-cell} ipython3
 compute_grade(14,14,14)
 ```
+
+Or use `assert` to test it formally
 
 ```{code-cell} ipython3
 assert compute_grade(14,14,14) == 'C-'
@@ -225,12 +228,7 @@ If you submit work that is not complete, however, it will be assessed and receiv
 
 Building your Data Science Portfolio should be an ongoing process, where you commit work to your portfolio frequently. If something comes up and you cannot finish all that you would like assessed by the deadline, open an `Extension Request` issue on your repository.
 
-```
-## Extension Request
-
-```
-
-In this section, include:
+In this issue, include:
 1. A new deadline proposal
 1. What additional work you plan to add
 1. Why the extension is important to your learning
@@ -280,4 +278,6 @@ The student wanted to get a B and worked hard to get the level 2 achievements on
 
 ## Ram Tokens
 
-Ram Tokens in this course will be used as a currency for extra effort.  You can earn Ram Tokens by doing work that supports your learning or class activities, but do not directly demonstrate achievements. You can spend Ram Tokens to get extra grading.  This will be mostly applicable to Portfolio Checks.  In Checks 3 & 4, some achievements will not be eligible for grading as per the [table](portfolioskills).  However, you can exchange Ram Tokens to make more achievements eligible for assessment.  This system rewards you for putting in consistent effort, even if it takes you many tries to understand a concept. 
+Ram Tokens in this course will be used as a currency for extra effort.  You can earn Ram Tokens by doing work that supports your learning or class activities, but do not directly demonstrate achievements. You can spend Ram Tokens to get extra grading.  This will be mostly applicable to Portfolio Checks.  In Checks 3 & 4, some achievements will not be eligible for grading as per the [table](portfolioskills).  However, you can exchange Ram Tokens to make more achievements eligible for assessment.  This system rewards you for putting in consistent effort, even if it takes you many tries to understand a concept.
+
+To accumulate Ram Tokens, you submit a 'Deposit' to the [Ram Token Bank](https://forms.gle/5pQdNmVeSvGkvbeN9) with a link to what you did to earn a token. To apply Ram tokens for extra grading, submit the same form, with a link to the assignment and add the
