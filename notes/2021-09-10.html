@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Sources &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>Jupyter Notebook Tour &amp; Python Review &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="cheatsheet.html" />
+    <link rel="next" title="FAQ" href="../faq/index.html" />
+    <link rel="prev" title="Welcome to Programming to Data Science" href="2021-09-08.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -130,14 +131,14 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/2021-09-08.html">
+  <a class="reference internal" href="2021-09-08.html">
    Welcome to Programming to Data Science
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notes/2021-09-10.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Jupyter Notebook Tour &amp; Python Review
   </a>
  </li>
@@ -174,29 +175,29 @@
   Resources
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="tips.html">
+  <a class="reference internal" href="../resources/tips.html">
    General Tips and Resources
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="learning.html">
+  <a class="reference internal" href="../resources/learning.html">
    How to Study in this class
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="gettinghelp.html">
+  <a class="reference internal" href="../resources/gettinghelp.html">
    Getting Help with Programming
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="python.html">
+  <a class="reference internal" href="../resources/python.html">
    References on Python
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/datasets.html">
    Data Sources
   </a>
  </li>
@@ -244,9 +245,12 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../_sources/notes/2021-09-10.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/resources/datasets.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notes/2021-09-10.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -263,10 +267,10 @@
     <div class="dropdown-buttons sourcebuttons">
         
         <a class="issues-button"
-            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fresources/datasets.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fnotes/2021-09-10.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/resources/datasets.md"><button
+        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/notes/2021-09-10.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -281,6 +285,23 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rhodyprog4ds/BrownFall21/main?urlpath=tree/notes/2021-09-10.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -294,16 +315,52 @@
         
               <div>
                 
-  <div class="section" id="data-sources">
-<h1>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="jupyter-notebook-tour-python-review">
+<h1>Jupyter Notebook Tour &amp; Python Review<a class="headerlink" href="#jupyter-notebook-tour-python-review" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/index.php">UCI Data Repository</a></p></li>
-<li><p><a class="reference external" href="https://github.com/jdorfman/awesome-json-datasets">Json Datasets</a></p></li>
-<li><p><a class="reference external" href="http://2016.padjo.org/tutorials/sqlite-data-starterpacks/#toc-social-security-administration-baby-names-1980-through-2015">Databases</a></p></li>
-<li><p><a class="reference external" href="https://datasetsearch.research.google.com/">Google Dataset Search</a></p></li>
-<li><p><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle</a></p></li>
+<li><p>heleo</p></li>
+<li><p>bye</p></li>
 </ul>
-<p>If you have others please share by creating a pull request or issue on this repo (from the GitHub logo at the top right, <code class="docutils literal notranslate"><span class="pre">suggest</span> <span class="pre">edit</span></code>).</p>
+<ol class="simple">
+<li><p>step 1</p></li>
+<li><p>kfj</p></li>
+<li><p>sdkfjsflkj</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span><span class="o">+</span><span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;sarah&#39;</span>
+<span class="mi">4</span><span class="o">+</span><span class="mi">5</span>
+<span class="n">name</span> <span class="o">*</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sarahsarahsarah&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Assignment 1
+Assignment 1:</p>
+<p>setup your portfolio
+check that you understand the grading
+review Python basics
+practice with git and GitHub :github:</p>
+<p><img alt="comic" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/phd_versioning.png" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/project_folder.svg" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/git_repository.svg" /></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -319,7 +376,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./resources"
+            path: "./notes"
         },
         predefinedOutput: true
     }
@@ -336,14 +393,23 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="cheatsheet.html" title="previous page">
+        <a class="left-prev" href="2021-09-08.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">&lt;no title&gt;</p>
+                <p class="prevnext-title">Welcome to Programming to Data Science</p>
             </div>
         </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="../faq/index.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">FAQ</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
