@@ -1,9 +1,47 @@
-# GitHub FAQ
+# Git and GitHub FAQ
+
+
+<!--
+````{dropdown}
+
+````
+ -->
+
+````{dropdown} My command line says I cannot use a password
+
+GitHub has [strong rules](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github) about authentication
+You need to use SSH with a public/private key; HTTPS with a [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) or use the [GitHub CLI](https://cli.github.com/) [auth](https://cli.github.com/manual/gh_auth_login)
+
+````
+
+````{dropdown} My .ipynb file isn't showing in the staging area or didn't push
+.ipynb files are json, so, unlike plain code files, they don't play well with
+version control.  
+
+Your portfolio has `*/*.ipynb` in the `.gitignore` file, so that these files do
+not end up in your repository.  Instead, you'll convert your notebooks to
+[Myst Markdown](https://myst-parser.readthedocs.io/en/latest/) with
+[jupytext](https://jupytext.readthedocs.io/) via a
+[precommit hook](https://jupytext.readthedocs.io/en/latest/using-pre-commit.html).
+
+Your portfolio has the code to do this already, what you should do is make sure
+that `pre-commit` is installed and then run `pre-commit install`  
+(see your portfolio's READMER.md file for more detial)
+
+If this doesn't work, you can follow the alterntive in the porfolio readme.
+
+If that doesn't work, and you have time before the deadline, create an issue to
+get help.  
+
+As a last resort, use the jupyter interface to download (File > Download as > ...)your notebook as `.md`
+if avialable or `.py` if not and then move that file from your Downloads folder
+to your repository.  We'll set up another workflow for future work
+````
 
 
 ````{dropdown} My portfolio won't compile
 
-If there's an error your notebook it can't complete running. You can allow it to run if the error is on purpose by changing settings as mentioned on the [formatting](portfolio/formatting) page. 
+If there's an error your notebook it can't complete running. You can allow it to run if the error is on purpose by changing settings as mentioned on the [formatting](portfolio/formatting) page.
 
 ````
 
