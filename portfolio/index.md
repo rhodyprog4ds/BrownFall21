@@ -77,7 +77,7 @@ Each submission should include an introduction and a number of 'chapters'.  The 
 
 On each chapter(for a file) of your portfolio, you should identify which skills by their keyword, you are applying.
 
-You can view a (fake) example [in this repository](https://github.com/rhodyprog4ds/portfolio-brownsarahm) as a [pdf](https://github.com/rhodyprog4ds/portfolio-brownsarahm/blob/gh-pages/portfolio.pdf) or as a [rendered website](https://rhodyprog4ds.github.io/portfolio-brownsarahm/intro.html)
+You can view a (fake) example [in this repository](https://github.com/rhodyprog4ds/portfolio-example) as a [pdf](https://github.com/rhodyprog4ds/portfolio-example/blob/gh-pages/portfolio.pdf) or as a [rendered website](https://rhodyprog4ds.github.io/portfolio-example/intro.html)
 
 ## Upcoming Checks
 
