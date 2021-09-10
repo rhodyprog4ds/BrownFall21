@@ -96,7 +96,7 @@ I use [atom](https://atom.io/), but I decided to use it by downloading both Atom
 
 Video install instructions for Anaconda:
 - [Windows](https://www.youtube.com/watch?v=xxQ0mzZ8UvA)
-- [Mac](https://www.youtube.com/watch?v=TcSAln46u9U)
+- [Mac](https://www.youtube.com/watch?v=TcSAln46u9U) (link for if you'd like to install python via environment: https://opensource.com/article/19/5/python-3-default-mac )
 - I don't have a video for linux, but it's a little more straight forward.
 
 ### Textbook
