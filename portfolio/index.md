@@ -64,8 +64,8 @@ portfolio_df = rubric_df[portfolio_cols]
 
 This section of the site has a set of portfolio prompts and this page has instructions for portfolio submissions.  
 
-Starting in week 3 it is recommended that you spend some time each week working on items for your portfolio, that way when it's time to submit you only have a little bit to add before submission.
 
+Starting in week 3 it is recommended that you spend some time each week working on items for your portfolio, that way when it's time to submit you only have a little bit to add before submission.
 The portfolio is your only chance to earn Level 3 achievements, however, if you have not earned a level 2 for any of the skills in a given check, you could earn level 2 then instead.
 The prompts provide a starting point, but remember that to earn achievements, you'll be evaluated by the rubric.
 You can see the full rubric for all portfolios in the [syllabus](portfolioskills).

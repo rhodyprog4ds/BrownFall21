@@ -1,6 +1,6 @@
 # Assignment 1: Portfolio Setup, Data Science, and Python
 
-__Due: 2020-09-11__
+__Due: 2020-09-12__
 
 ## Objective & Evaluation
 
@@ -17,14 +17,24 @@ To do this click Issues at the top, the green "New Issue" button and then type a
 ````
 
 Your task is to:
-1. Install required software
-1. Setup your portfolio, by [accepting the assignment](https://classroom.github.com/a/45lmUGiA) and following the instructions in the README file on your repository.
-1. Add your own definition of data science to the introduction of your portfolio, in `about/index.md`
+1. Install required software from the Tools & Resource page
+1. Create your portfolio, by [accepting the assignment](https://classroom.github.com/a/45lmUGiA)
+1. Learn about your portfolio from the README file on your repository.
+1. edit `_config.yml` to set your name as author and  change the logo if you wish
+1. Fill in `about/index.md` with information about yourself(not evaluated, but useful) and your own definition of data science (graded for **level 1 process**)
+1. Install some additional python packages with: `pip install pip install -r requirements.txt` (this is a python operation, os use anaconda prompt on Windows) form inside the portfolio folder
+1. Configure [precommit]() with `pre-commit install`. If this step doesn't work, see the portfolio README under "Using your Jupyter Book Portfolio"
 1. Add a Jupyter notebook called `grading.ipynb` to the `about` folder and write a function that computes a grade for this course, with the following docstring. Include:
--  a Markdown cell with a heading
-- your function called `compute_grade`
-- three calls to your function that verify it returns the correct value for different number of badges that produce at three different letter grades.
+
+    -  a Markdown cell with a heading
+    - your function called `compute_grade`
+    - three calls to your function that verify it returns the correct value for different number of badges that produce at three different letter grades.
+    - a basic function that uses conditionals in python will earn **level 1 python**
+    - to earn **level 2 python** use pythonic code to write a loop that checks your funtions, or you can learn level 2 python on a future assignment
 1. Add the line `  - file: about/grading` in your `_toc.yml` file.
+
+```{important}
+remember to add, commit, and push your changes so we can see them
 
 ```
     '''
