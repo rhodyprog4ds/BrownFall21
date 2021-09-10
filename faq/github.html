@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GitHub FAQ &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>Git and GitHub FAQ &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -173,7 +173,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   GitHub FAQ
+   Git and GitHub FAQ
   </a>
  </li>
  <li class="toctree-l1">
@@ -307,9 +307,48 @@
         
               <div>
                 
-  <div class="section" id="github-faq">
-<h1>GitHub FAQ<a class="headerlink" href="#github-faq" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="git-and-github-faq">
+<h1>Git and GitHub FAQ<a class="headerlink" href="#git-and-github-faq" title="Permalink to this headline">¶</a></h1>
+<!--
+````{dropdown}
+
+````
+ -->
 <details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+My command line says I cannot use a password<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">GitHub has <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github">strong rules</a> about authentication
+You need to use SSH with a public/private key; HTTPS with a <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">Personal Access Token</a> or use the <a class="reference external" href="https://cli.github.com/">GitHub CLI</a> <a class="reference external" href="https://cli.github.com/manual/gh_auth_login">auth</a></p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+My .ipynb file isn’t showing in the staging area or didn’t push<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">.ipynb files are json, so, unlike plain code files, they don’t play well with
+version control.</p>
+<p class="card-text">Your portfolio has <code class="docutils literal notranslate"><span class="pre">*/*.ipynb</span></code> in the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file, so that these files do
+not end up in your repository.  Instead, you’ll convert your notebooks to
+<a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">Myst Markdown</a> with
+<a class="reference external" href="https://jupytext.readthedocs.io/">jupytext</a> via a
+<a class="reference external" href="https://jupytext.readthedocs.io/en/latest/using-pre-commit.html">precommit hook</a>.</p>
+<p class="card-text">Your portfolio has the code to do this already, what you should do is make sure
+that <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> is installed and then run <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">install</span></code><br />
+(see your portfolio’s READMER.md file for more detial)</p>
+<p class="card-text">If this doesn’t work, you can follow the alterntive in the porfolio readme.</p>
+<p class="card-text">If that doesn’t work, and you have time before the deadline, create an issue to
+get help.</p>
+<p class="card-text">As a last resort, use the jupyter interface to download (File &gt; Download as &gt; …)your notebook as <code class="docutils literal notranslate"><span class="pre">.md</span></code>
+if avialable or <code class="docutils literal notranslate"><span class="pre">.py</span></code> if not and then move that file from your Downloads folder
+to your repository.  We’ll set up another workflow for future work</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
 My portfolio won’t compile<div class="summary-down docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>

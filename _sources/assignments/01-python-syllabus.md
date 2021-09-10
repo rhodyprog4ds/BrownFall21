@@ -16,6 +16,10 @@ To do this click Issues at the top, the green "New Issue" button and then type a
 ```
 ````
 
+```{important}
+If you have trouble, check the GitHub FAQ on the left before e-mailing
+````
+
 Your task is to:
 1. Install required software from the Tools & Resource page
 1. Create your portfolio, by [accepting the assignment](https://classroom.github.com/a/45lmUGiA)
@@ -23,7 +27,7 @@ Your task is to:
 1. edit `_config.yml` to set your name as author and  change the logo if you wish
 1. Fill in `about/index.md` with information about yourself(not evaluated, but useful) and your own definition of data science (graded for **level 1 process**)
 1. Install some additional python packages with: `pip install pip install -r requirements.txt` (this is a python operation, os use anaconda prompt on Windows) form inside the portfolio folder
-1. Configure [precommit]() with `pre-commit install`. If this step doesn't work, see the portfolio README under "Using your Jupyter Book Portfolio"
+1. Configure precommit to help keep your repo clean with `pre-commit install`. If this step doesn't work, see the portfolio README under "Using your Jupyter Book Portfolio"
 1. Add a Jupyter notebook called `grading.ipynb` to the `about` folder and write a function that computes a grade for this course, with the following docstring. Include:
 
     -  a Markdown cell with a heading
@@ -35,6 +39,7 @@ Your task is to:
 
 ```{important}
 remember to add, commit, and push your changes so we can see them
+````
 
 ```
     '''
@@ -62,6 +67,7 @@ Here are some sample tests you could run to confirm that your function works cor
 your function can have a different name than `compute_grade`, but make sure it's your function name, with those parameter values in your tests.
 ```
 
+
 ```{note}
 when the value of the expression after `assert` is `True`, it will look like nothing happened. `assert` is used for testing
 ```
@@ -85,7 +91,7 @@ assert compute_grade(15,15,6) =='B+'
 ## Submission Instructions
 
 Create a Jupyter Notebook with your function in your portfolio folder
-commit and pushing the changes.
+commit and push the changes.
 
 In your browser, view the `gh-pages` branch to see your compiled submission, as `portfolio.pdf` or by viewing your website.
 

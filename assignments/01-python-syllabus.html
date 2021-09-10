@@ -173,7 +173,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../faq/github.html">
-   GitHub FAQ
+   Git and GitHub FAQ
   </a>
  </li>
  <li class="toctree-l1">
@@ -314,6 +314,11 @@
    To Do
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submission-instructions">
+   Submission Instructions
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -342,6 +347,10 @@
 <p>To do this click Issues at the top, the green “New Issue” button and then type away.</p>
 </div>
 </div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you have trouble, check the GitHub FAQ on the left before e-mailing</p>
+</div>
 <p>Your task is to:</p>
 <ol class="simple">
 <li><p>Install required software from the Tools &amp; Resource page</p></li>
@@ -350,7 +359,7 @@
 <li><p>edit <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> to set your name as author and  change the logo if you wish</p></li>
 <li><p>Fill in <code class="docutils literal notranslate"><span class="pre">about/index.md</span></code> with information about yourself(not evaluated, but useful) and your own definition of data science (graded for <strong>level 1 process</strong>)</p></li>
 <li><p>Install some additional python packages with: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code> (this is a python operation, os use anaconda prompt on Windows) form inside the portfolio folder</p></li>
-<li><p>Configure <span class="xref myst">precommit</span> with <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">install</span></code>. If this step doesn’t work, see the portfolio README under “Using your Jupyter Book Portfolio”</p></li>
+<li><p>Configure precommit to help keep your repo clean with <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">install</span></code>. If this step doesn’t work, see the portfolio README under “Using your Jupyter Book Portfolio”</p></li>
 <li><p>Add a Jupyter notebook called <code class="docutils literal notranslate"><span class="pre">grading.ipynb</span></code> to the <code class="docutils literal notranslate"><span class="pre">about</span></code> folder and write a function that computes a grade for this course, with the following docstring. Include:</p>
 <ul class="simple">
 <li><p>a Markdown cell with a heading</p></li>
@@ -366,66 +375,60 @@
 <p class="admonition-title">Important</p>
 <p>remember to add, commit, and push your changes so we can see them</p>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;&#39;&#39;
-Computes a grade for CSC/DSP310 from numbers of achievements at each level
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Computes a grade for CSC/DSP310 from numbers of achievements at each level</span>
 
-Parameters:
-------------
-num_level1 : int
-  number of level 1 achievements earned
-num_level2 : int
-  number of level 2 achievements earned
-num_level3 : int
-  number of level 3 achievements earned
+<span class="sd">    Parameters:</span>
+<span class="sd">    ------------</span>
+<span class="sd">    num_level1 : int</span>
+<span class="sd">      number of level 1 achievements earned</span>
+<span class="sd">    num_level2 : int</span>
+<span class="sd">      number of level 2 achievements earned</span>
+<span class="sd">    num_level3 : int</span>
+<span class="sd">      number of level 3 achievements earned</span>
 
-Returns:
---------
-letter_grade : string
-  letter grade with possible modifier (+/-)
-&#39;&#39;&#39;
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    letter_grade : string</span>
+<span class="sd">      letter grade with possible modifier (+/-)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-Here are some sample tests you could run to confirm that your function works correctly:
-````{margin}
-```{warning}
-your function can have a different name than `compute_grade`, but make sure it&#39;s your function name, with those parameter values in your tests.
-</pre></div>
+<p>Here are some sample tests you could run to confirm that your function works correctly:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>your function can have a different name than <code class="docutils literal notranslate"><span class="pre">compute_grade</span></code>, but make sure it’s your function name, with those parameter values in your tests.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>when the value of the expression after <code class="docutils literal notranslate"><span class="pre">assert</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, it will look like nothing happened. <code class="docutils literal notranslate"><span class="pre">assert</span></code> is used for testing</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-```
-assert compute_grade(15,15,15) == &#39;A&#39;
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span>
 
-assert compute_grade(15,15,13) == &#39;A-&#39;
+<span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;A-&#39;</span>
 
-assert compute_grade(15,14,14) == &#39;B-&#39;
+<span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;B-&#39;</span>
 
-assert compute_grade(14,14,14) == &#39;C-&#39;
+<span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;C-&#39;</span>
 
-assert compute_grade(4,3,1) == &#39;D&#39;
+<span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;D&#39;</span>
 
-assert compute_grade(15,15,6) ==&#39;B+&#39;
-```
-
-
-## Submission Instructions
-
-Create a Jupyter Notebook with your function in your portfolio folder
-commit and pushing the changes.
-
-In your browser, view the `gh-pages` branch to see your compiled submission, as `portfolio.pdf` or by viewing your website.
-
-There will be a pull request on your repository that is made by GitHub classroom, [request a review](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review) from `@brownsarahm`.
-
-&lt;!-- ## Solutions
-
-One solution is added to the [Detailed Mechanics](grade:calculation) part of the Grading section of the syllabus. --&gt;
+<span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="o">==</span><span class="s1">&#39;B+&#39;</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="submission-instructions">
+<h2>Submission Instructions<a class="headerlink" href="#submission-instructions" title="Permalink to this headline">¶</a></h2>
+<p>Create a Jupyter Notebook with your function in your portfolio folder
+commit and push the changes.</p>
+<p>In your browser, view the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch to see your compiled submission, as <code class="docutils literal notranslate"><span class="pre">portfolio.pdf</span></code> or by viewing your website.</p>
+<p>There will be a pull request on your repository that is made by GitHub classroom, <a class="reference external" href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review">request a review</a> from <code class="docutils literal notranslate"><span class="pre">&#64;brownsarahm</span></code>.</p>
+<!-- ## Solutions
+
+One solution is added to the [Detailed Mechanics](grade:calculation) part of the Grading section of the syllabus. -->
 </div>
 </div>
 

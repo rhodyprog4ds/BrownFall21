@@ -173,7 +173,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../faq/github.html">
-   GitHub FAQ
+   Git and GitHub FAQ
   </a>
  </li>
  <li class="toctree-l1">
@@ -319,6 +319,48 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-jupyter-notebook-tour">
+   A jupyter notebook tour
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notebook-reminders">
+     Notebook Reminders
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#just-enough-git-for-assignment-1">
+   Just enough Git for Assignment 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assignment-1">
+     Assignment 1:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-version-control">
+     Why Version control
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-on-git">
+   More on git
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -329,15 +371,55 @@
                 
   <div class="section" id="jupyter-notebook-tour-python-review">
 <h1>Jupyter Notebook Tour &amp; Python Review<a class="headerlink" href="#jupyter-notebook-tour-python-review" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-jupyter-notebook-tour">
+<h2>A jupyter notebook tour<a class="headerlink" href="#a-jupyter-notebook-tour" title="Permalink to this headline">¶</a></h2>
+<p>Launch a <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html"><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code></a>:</p>
 <ul class="simple">
-<li><p>heleo</p></li>
-<li><p>bye</p></li>
+<li><p>on Windows, use anaconda terminal</p></li>
+<li><p>on Mac/Linux, use terminal</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">where</span><span class="o">/</span><span class="n">you</span><span class="o">/</span><span class="n">save</span><span class="o">/</span><span class="n">notes</span>
+<span class="n">jupyter</span> <span class="n">notebook</span>
+</pre></div>
+</div>
+<p>A Jupyter notebook has two modes. When you first open, it is in command mode. The border is blue in command mode.</p>
+<p><img alt="screenshot of a code cell in command mode" src="../_images/command_mode.png" /></p>
+<p>When you press a key in command mode it works like a shortcut. For example <code class="docutils literal notranslate"><span class="pre">p</span></code> shows the command search menu.</p>
+<p><img alt="screenshot of the command menu" src="../_images/command_menu.png" /></p>
+<p>If you press <code class="docutils literal notranslate"><span class="pre">enter</span></code> (or <code class="docutils literal notranslate"><span class="pre">return</span></code>)  or click on the highlighted cell, which is the boxes we can type in,  it changes to edit mode. The border is green in edit mode</p>
+<p><img alt="screenshot of a code cell in edit mode" src="../_images/code_cell.png" /></p>
+<p>There are two type of cells that we will used: code and markdown. You can change that in command mode with <code class="docutils literal notranslate"><span class="pre">y</span></code> for code and <code class="docutils literal notranslate"><span class="pre">m</span></code> for markdown or on the cell type menu at the top of the notebook.</p>
+<p><img alt="screenshot of the cell type menu" src="../_images/cell_type_menu.png" /></p>
+<p>++</p>
+<p>This is a markdown cell</p>
+<ul class="simple">
+<li><p>we can make</p></li>
+<li><p>itemized lists of</p></li>
+<li><p>bullet points</p></li>
 </ul>
 <ol class="simple">
-<li><p>step 1</p></li>
-<li><p>kfj</p></li>
-<li><p>sdkfjsflkj</p></li>
+<li><p>and we can make nubmered</p></li>
+<li><p>lists, and not have to worry</p></li>
+<li><p>about renumbering them</p></li>
+<li><p>if we add a step in the middle later</p></li>
 </ol>
+<div class="section" id="notebook-reminders">
+<h3>Notebook Reminders<a class="headerlink" href="#notebook-reminders" title="Permalink to this headline">¶</a></h3>
+<p>Blue border is command mode, green border is edit mode</p>
+<p>use Escape to get to command mode</p>
+<p>Common command mode actions:</p>
+<ul class="simple">
+<li><p>m: switch cell to markdown</p></li>
+<li><p>y: switch cell to code</p></li>
+<li><p>a: add a cell above</p></li>
+<li><p>b: add a cell below</p></li>
+<li><p>c: copy cell</p></li>
+<li><p>v: paste the cell</p></li>
+<li><p>0 + 0: restart kernel</p></li>
+<li><p>p: command menu</p></li>
+</ul>
+<p>use enter/return to get to edit mode</p>
+<p>In code cells, we can use a python interpreter, for example as a calculator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span><span class="o">+</span><span class="mi">6</span>
@@ -350,6 +432,7 @@
 </div>
 </div>
 </div>
+<p>It prints out the last line of code that it ran, even though it executes all of them</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;sarah&#39;</span>
@@ -364,15 +447,111 @@
 </div>
 </div>
 </div>
-<p>Assignment 1
-Assignment 1:</p>
-<p>setup your portfolio
-check that you understand the grading
-review Python basics
-practice with git and GitHub :github:</p>
-<p><img alt="comic" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/phd_versioning.png" /></p>
-<p><img alt="" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/project_folder.svg" /></p>
-<p><img alt="" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/git_repository.svg" /></p>
+</div>
+</div>
+<div class="section" id="just-enough-git-for-assignment-1">
+<h2>Just enough Git for Assignment 1<a class="headerlink" href="#just-enough-git-for-assignment-1" title="Permalink to this headline">¶</a></h2>
+<p>For a little more python review, see my <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall20/notes/2020-09-11.html">2020 CSC310 notes</a> this is just enough for this assignment.</p>
+<div class="section" id="assignment-1">
+<h3>Assignment 1:<a class="headerlink" href="#assignment-1" title="Permalink to this headline">¶</a></h3>
+<p>Goals for this assignment</p>
+<ul class="simple">
+<li><p>setup your portfolio</p></li>
+<li><p>check that you understand the grading</p></li>
+<li><p>review Python basics</p></li>
+<li><p>practice with git and GitHub</p></li>
+</ul>
+</div>
+<div class="section" id="why-version-control">
+<h3>Why Version control<a class="headerlink" href="#why-version-control" title="Permalink to this headline">¶</a></h3>
+<p>We often want to keep track of the dfferent versions in case we want to go back, but this can be painful:</p>
+<p><img alt="PhD Comic with file names changing from final.doc to final_rev.2.doc to final_rev.6.COMMENTS.doc to FINAL_rev.8.comments5.CORRECTIONS.doc to FINAL_rev.18.comments7.corrections9.MORE.30.doc to FINAL_rev.22.comments49.corrections.10.#&#64;$%WHYDIDICOMETOGRADSCHOOL????.doc" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/phd_versioning.png" /></p>
+<p>We typically organize projects in folder
+<img alt="a cartoon of a folder with files and folders in it, the files have curly brackets on them, to symbolize being code" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/project_folder.svg" /></p>
+<p>A repository is a folder with a hidden directory named <code class="docutils literal notranslate"><span class="pre">.git</span></code>
+<img alt="a cartoon of a folder with files and folders in it, the files have curly brackets on them, to symbolize being code, and a grayed file to symbolize that it's hidden, named .git and a stack  in it" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/git_repository.svg" /></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">git</span></code> applicaiton manages that hidden directory, we don’t write to it directly, which
+is why we keep it hidden.</p>
+<p>Git is a distributed system, you have a local version and a remote version.
+<img alt="a cloud labeled github.com with a repository icon in it and a laptop cartoon with a repository icon in it, connected by an arrow" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/git_distributed.svg" /></p>
+<p>Once a repository exists on GitHub, we get a local copy by cloning it after we
+get its address from the GitHub interface, by clicking on the green code butto that is below the menu area to the right.  It’s at the top right corner of the list of files in the repository.</p>
+<p><img alt="a screen shot of the GitHub" src="img/get_clone_url" /></p>
+<p>For this part, use GitBash on windows or terminal otherwise:
+If you set up a Personal Access Token you can use the https version</p>
+<!--
+```{warning}
+the `%%bash` is an ipython magic function, we''l see more of them next class. However,
+this one doesn't work on windows by default.  It [looks like there's a way](https://stackoverflow.com/questions/16281910/ipython-notebook-bash-magic-error) but I haven't tested it.
+```
+-->
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These notes can be downloaded as an actual notebook, click the <i class="fab fa-github"></i> GitHub logo
+at the top of the page and choose .ipynb.  The following is not runnabel in the notebook as is.</p>
+</div>
+</div>
+<p>After <code class="docutils literal notranslate"><span class="pre">cd/to/where/you/want/your/repo/locally</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/rhodyprog4ds/portfolio-example
+</pre></div>
+</div>
+<p>If you set up ssh keys you use that instead</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">rhodyprog4ds</span><span class="o">/</span><span class="n">portfolio</span><span class="o">-</span><span class="n">example</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Once it’s cloned, then you can navigate into the new folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">portfolio</span><span class="o">-</span><span class="n">example</span>
+</pre></div>
+</div>
+<p>Then you can change files, for example adding to the intro.</p>
+<p>Some common actions in Git, you’ll want.</p>
+<p>Check on the status of your repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+<p>Add files to the staging area:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">filename</span>
+</pre></div>
+</div>
+<p>Add all changes to the staging area:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>Commit your changes to the respotiry:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;a message that will help your future self know what this part is&#39;</span>
+</pre></div>
+</div>
+<p>Push your changes to GitHub</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+<p>Pull  changes from GitHub</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+<p>You can also go through these same basic steps: add, commit, push</p>
+<!--
+````{margin}
+this does a little bit
+````
+
+```
+echo -e " This portoflio is an example" >> intro.md
+ -->
+</div>
+</div>
+<div class="section" id="more-on-git">
+<h2>More on git<a class="headerlink" href="#more-on-git" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://guides.github.com/activities/hello-world/">GitHub Hello World</a></p></li>
+<li><p><a class="reference external" href="https://swcarpentry.github.io/git-novice/">Software Carpentry Git Novice Lesson</a></p></li>
+</ul>
+<p>Also, in Spring 2022, I’m teaching a section of CSC392: Topics in Computing,
+Introduction to Computer Systems, that will cover tools of the trade (git, bash, etc)
+and how they all work in great detail.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
