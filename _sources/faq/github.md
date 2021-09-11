@@ -7,6 +7,28 @@
 ````
  -->
 
+
+````{dropdown} The content I added to my portfolio isn't in the pdf
+
+There was an error in the original `_toc.yml` file, change yours to match the following:
+
+```
+format: jb-book
+root: intro
+parts:
+  - caption: About
+    chapters:
+    - file: about/index
+    - file: about/grading
+#  - caption: Check 1
+#    chapters:
+#    - file: submission_1_intro
+```
+````
+
+
+
+
 ````{dropdown} My command line says I cannot use a password
 
 GitHub has [strong rules](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github) about authentication
