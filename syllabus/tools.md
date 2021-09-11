@@ -82,6 +82,32 @@ Everything in this class will be tested with the up to date (or otherwise specif
 - Install python via [Anaconda](https://www.anaconda.com/products/individual)
 - if you use Windows, install Git with [GitBash](https://gitforwindows.org/) ([video instructions](https://youtu.be/339AEqk9c-8)).
 - if you use MacOS, install Git with the Xcode Command Line Tools. On Mavericks (10.9) or above you can do this by trying to run git from the Terminal the very first time.`git --version`
+- if you use Chrome OS, follow these instructions:
+1. Find Linux (Beta) in your settings and turn that on.
+2. Once the download finishes a Linux terminal will open, then enter the commands: sudo 
+apt-get update and sudo apt-get upgrade. These commands will ensure you are up to 
+date.
+3. Use the command sudo apt -t stretch-backports install tmux to install tmux.
+4. Next you will install nodejs, to do this, use the following commands in order, curl -sL 
+https://deb.nodesource.com/setup_14.x | sudo -E bash – then sudo apt-get install -y 
+nodejs and lastly sudo apt-get install -y build-essential.
+5. Next install Anaconda’s Python from the website provided by the instructor and use the 
+top download link under the Linux options.
+6. You will then see a .sh file in your downloads, move this into your Linux files.
+7. Make sure you are in your home directory (something like home/YOURUSERNAME), 
+do this by using the pwd command.
+8. Use the bash command followed by the file name of the installer you just downloaded to 
+start the installation.
+9. Next you will add Anaconda to your Linux PATH, do this by using the vim .bashrc
+command to enter the .bashrc file, then add the export 
+PATH=/home/YOURUSERNAME/anaconda3/bin/:$PATH line. This can be placed at the 
+end of the file.
+10. Once that is inserted you may close and save the file, to do this hole escape and type :x, 
+then press enter. After doing that you will be returned to the terminal where you will then 
+type the source .bashrc command.
+11. Next, use the jupyter notebook –generate-config command to generate a Jupyter 
+Notebook.
+12. Then just type jupyter lab and a Jupyter Notebook should open up.
 
 (texteditor)=
 Optional:
