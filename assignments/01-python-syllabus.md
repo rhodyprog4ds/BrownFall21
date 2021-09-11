@@ -1,6 +1,11 @@
+---
+substitutions:
+  accept_assignment: [accepting the assignment](https://classroom.github.com/a/45lmUGiA)
+  date : 2020-09-12
+---
 # Assignment 1: Portfolio Setup, Data Science, and Python
 
-__Due: 2020-09-12__
+__Due: {{ date }}__
 
 ## Objective & Evaluation
 
@@ -10,7 +15,7 @@ This assignment is an opportunity to earn level 2 achievements for the `process`
 
 ````{margin}
 ```{note}
-If you get stuck on any of this after accepting the assignment and creating a repository, you can create an issue on your repository, describing what you're stuck on and tag us with `@rhodyprog4ds/fall20instructors`.
+If you get stuck on any of this after accepting the assignment and creating a repository, you can create an issue on your repository, describing what you're stuck on and tag us with `@rhodyprog4ds/{{ ghinstructors }}`.
 
 To do this click Issues at the top, the green "New Issue" button and then type away.
 ```
@@ -22,7 +27,7 @@ If you have trouble, check the GitHub FAQ on the left before e-mailing
 
 Your task is to:
 1. Install required software from the Tools & Resource page
-1. Create your portfolio, by [accepting the assignment](https://classroom.github.com/a/45lmUGiA)
+1. Create your portfolio, by {{ accept_assignment }}
 1. Learn about your portfolio from the README file on your repository.
 1. edit `_config.yml` to set your name as author and  change the logo if you wish
 1. Fill in `about/index.md` with information about yourself(not evaluated, but useful) and your own definition of data science (graded for **level 1 process**)
@@ -34,7 +39,7 @@ Your task is to:
     - your function called `compute_grade`
     - three calls to your function that verify it returns the correct value for different number of badges that produce at three different letter grades.
     - a basic function that uses conditionals in python will earn **level 1 python**
-    - to earn **level 2 python** use pythonic code to write a loop that checks your funtions, or you can learn level 2 python on a future assignment
+    - to earn **level 2 python** use pythonic code to write a loop that tests your function's correctness, by iterating over a list or dictionary. Remember you will have many chances to earn level 2 achievement in python
 1. Add the line `  - file: about/grading` in your `_toc.yml` file.
 
 ```{important}
