@@ -69,11 +69,11 @@ We will build your skill in the `process` and `communicate` outcomes over the wh
 
 ````{margin}
 ```{note}
-On the [BrightSpace calendar](https://brightspace.uri.edu/d2l/le/calendar/101136) page you can get a feed link to add to the calendar of your choice by clicking on the subscribe (star) button on the top right of the page. Class is for 1 hour there because of Brightspace/zoom integration limitations, but that calendar includes the zoom link.
+On the {{ bscalendar }} page you can get a feed link to add to the calendar of your choice by clicking on the subscribe (star) button on the top right of the page. Class is for 1 hour there because of Brightspace/zoom integration limitations, but that calendar includes the zoom link.
 ```
 ````
 
-The course will meet MWF 3-3:50pm in Chafee Social Sci Center  235. Every class will include participatory live coding (instructor types code while explaining, students follow along)) instruction and small exercises for you to progress toward level 1 achievements of the new skills introduced in class that day.
+The course will meet {{ time }} in {{ location }}. Every class will include participatory live coding (instructor types code while explaining, students follow along)) instruction and small exercises for you to progress toward level 1 achievements of the new skills introduced in class that day.
 
 Programming assignments that will be due each week Tuesday by 11:59pm.
 

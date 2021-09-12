@@ -1,4 +1,4 @@
-## Syllabus FAQ
+# Syllabus FAQ
 
 
 
