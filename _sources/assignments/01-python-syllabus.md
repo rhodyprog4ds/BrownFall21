@@ -16,7 +16,7 @@ This assignment is an opportunity to earn level 2 achievements for the `process`
 
 ````{margin}
 ```{note}
-If you get stuck on any of this after accepting the assignment and creating a repository, you can create an issue on your repository, describing what you're stuck on and tag us with `@rhodyprog4ds/{{ ghinstructors }}`.
+If you get stuck on any of this after accepting the assignment and creating a repository, you can create an issue on your repository, describing what you're stuck on and tag us: @rhodypro4dg/{{ ghinstructors }}
 
 To do this click Issues at the top, the green "New Issue" button and then type away.
 ```
@@ -107,7 +107,7 @@ commit and push the changes.
 
 In your browser, view the `gh-pages` branch to see your compiled submission, as `portfolio.pdf` or by viewing your website.
 
-There will be a pull request on your repository that is made by GitHub classroom, [request a review](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review) from `@brownsarahm`.
+There will be a pull request on your repository that is made by GitHub classroom, [request a review](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review) from @rhodypro4dg/{{ ghinstructors }}.
 
 <!-- ## Solutions
 
