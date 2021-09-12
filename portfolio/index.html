@@ -382,9 +382,19 @@
   <div class="section" id="portfolio-dates-and-key-facts">
 <h1>Portfolio Dates and Key Facts<a class="headerlink" href="#portfolio-dates-and-key-facts" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/ipykernel_launcher.py:26: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
-/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/ipykernel_launcher.py:31: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1616</span><span class="o">/</span><span class="mf">311973014.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">rubric_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">rubric_df</span><span class="p">,</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>                       <span class="n">assignment_dummies</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>                       <span class="n">portfolio_dummies</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+
+<span class="ne">NameError</span>: name &#39;assignment_dummies&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -403,7 +413,7 @@ Use the feedback you get on assignments to inspire your portfolio.</p>
 <h2>Upcoming Checks<a class="headerlink" href="#upcoming-checks" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="portfolio-1">
 <h3>Portfolio 1<a class="headerlink" href="#portfolio-1" title="Permalink to this headline">¶</a></h3>
-<p>More information to follow</p>
+<p>The first portfolio check will be due October 15.</p>
 <!--
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -428,7 +438,19 @@ portfolio_df['Level 3'][portfolio_df['P3']==1].reset_index().set_index('keyword'
 
 portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword')
 ```
- --></div>
+ --><div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1616</span><span class="o">/</span><span class="mf">2819809228.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">portfolio_df</span><span class="p">[</span><span class="n">portfolio_df</span><span class="p">[</span><span class="s1">&#39;P1&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;portfolio_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

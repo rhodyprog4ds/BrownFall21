@@ -3,8 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: 0.13
+    jupytext_version: 1.10.3
 kernelspec:
   display_name: Python 3
   language: python
@@ -15,7 +15,6 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
-
 
 import yaml as yml
 import pandas as pd
@@ -42,12 +41,14 @@ rubric_df.rename(columns={'mastery':'Level 3',
               'compentent':'Level 2',
               'aware':'Level 1'}, inplace=True)
 
-assignment_dummies  = pd.get_dummies(rubric_df['assignments'].apply(pd.Series).stack()).sum(level=0)
-assignment_dummies['# Assignments'] = assignment_dummies.sum(axis=1)
-col_rename = {float(i):'A' + str(i) for i in range(1,14)}
-assignment_dummies.rename(columns =col_rename,inplace=True)
+```
 
-portfolio_dummies  = pd.get_dummies(rubric_df['portfolios'].apply(pd.Series).stack()).sum(level=0)
+```{code-cell} ipython3
+:tags: [remove-input]
+
+
+
+portfolio_dummies  = pd.get_dummies(rubric_df['portfolios'].apply(pd.Series).stack()).groupby(level=0).sum()
 col_rename = {float(i):'P' + str(i) for i in range(1,5)}
 portfolio_dummies.rename(columns =col_rename,inplace=True)
 
@@ -83,7 +84,7 @@ You can view a (fake) example [in this repository](https://github.com/rhodyprog4
 
 ### Portfolio 1
 
-More information to follow
+The first portfolio check will be due October 15. 
 <!--
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -109,3 +110,9 @@ portfolio_df['Level 3'][portfolio_df['P3']==1].reset_index().set_index('keyword'
 portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword')
 ```
  -->
+
+```{code-cell} ipython3
+:tags: [remove-input]
+
+portfolio_df[portfolio_df['P1']==1]
+```

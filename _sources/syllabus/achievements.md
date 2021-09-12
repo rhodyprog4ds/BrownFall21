@@ -110,12 +110,12 @@ rubric_df[['skill','Level 1','Level 2','Level 3']]
 :tags: [remove-input]
 
 
-assignment_dummies  = pd.get_dummies(rubric_df['assignments'].apply(pd.Series).stack()).sum(level=0)
+assignment_dummies  = pd.get_dummies(rubric_df['assignments'].apply(pd.Series).stack()).groupby(level=0).sum()
 assignment_dummies['# Assignments'] = assignment_dummies.sum(axis=1)
 col_rename = {float(i):'A' + str(i) for i in range(1,14)}
 assignment_dummies.rename(columns =col_rename,inplace=True)
 
-portfolio_dummies  = pd.get_dummies(rubric_df['portfolios'].apply(pd.Series).stack()).sum(level=0)
+portfolio_dummies  = pd.get_dummies(rubric_df['portfolios'].apply(pd.Series).stack()).groupby(level=0).sum()
 col_rename = {float(i):'P' + str(i) for i in range(1,5)}
 portfolio_dummies.rename(columns =col_rename,inplace=True)
 
