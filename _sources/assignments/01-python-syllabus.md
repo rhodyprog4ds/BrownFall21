@@ -1,6 +1,7 @@
 ---
 substitutions:
-  accept_assignment: [accepting the assignment](https://classroom.github.com/a/45lmUGiA)
+  accept_assignment: |
+    [accepting the assignment](https://classroom.github.com/a/45lmUGiA)
   date : 2020-09-12
 ---
 # Assignment 1: Portfolio Setup, Data Science, and Python

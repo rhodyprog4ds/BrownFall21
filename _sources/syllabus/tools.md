@@ -53,11 +53,11 @@ Links to the course reference text and code documentation will also be included 
 
 ### GitHub Classroom
 
-You will need a [GitHub](https://github.com/) Account. If you do not already have one, please [create one](https://github.com/signup) by the first day of class. If you have one, but have not used it recently, you may need to update your password and login credentials as the [Authentication rules](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github) changed over the summer.  In order to use the command line, you will need to [create a Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) for each device you use.
+You will need a [GitHub](https://github.com/) Account. If you do not already have one, please [create one](https://github.com/signup) by the first day of class. If you have one, but have not used it recently, you may need to update your password and login credentials as the [Authentication rules](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github) changed over the summer.  In order to use the command line with https, you will need to [create a Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) for each device you use. In order to use the command line with SSH, set up your public key.
 
 
 
-(prorgrammin-env)=
+(prorgramming-env)=
 ### Programming Environment
 
 This a programming course, so you will need a programming environment. In order to complete assignments you need the items listed in the requirements list. The easiest way to meet these requirements is to follow the recommendations below. I will provide instruction assuming that you have followed the recommendations.
@@ -65,7 +65,7 @@ This a programming course, so you will need a programming environment. In order 
 #### Requirements:
 - Python with scientific computing packages (numpy, scipy, jupyter, pandas, seaborn, sklearn)
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- A web browser compatible with Jupyter Notebooks
+- A web browser compatible with [Jupyter Notebooks](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/install.html#step-0-the-browser)
 <!-- - Openrefine -->
 
 ````{margin}

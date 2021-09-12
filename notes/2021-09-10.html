@@ -125,6 +125,11 @@
    Policies
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/communication.html">
+   Course Communications
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -152,6 +157,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/01-python-syllabus.html">
    Assignment 1: Portfolio Setup, Data Science, and Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Portfolio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/index.html">
+   Portfolio Dates and Key Facts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/formatting.html">
+   Formatting Tips
   </a>
  </li>
 </ul>
@@ -189,6 +211,11 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../resources/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../resources/tips.html">
    General Tips and Resources
   </a>
@@ -206,6 +233,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../resources/python.html">
    References on Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/cheatsheet.html">
+   Cheatsheet
   </a>
  </li>
  <li class="toctree-l1">
@@ -358,6 +390,11 @@
    More on git
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-on-python">
+   More on Python
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -447,11 +484,14 @@
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For a little more python review, see my <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall20/notes/2020-09-11.html">2020 CSC310 notes</a> this is just enough for this assignment.</p>
+</div>
 </div>
 </div>
 <div class="section" id="just-enough-git-for-assignment-1">
 <h2>Just enough Git for Assignment 1<a class="headerlink" href="#just-enough-git-for-assignment-1" title="Permalink to this headline">¶</a></h2>
-<p>For a little more python review, see my <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall20/notes/2020-09-11.html">2020 CSC310 notes</a> this is just enough for this assignment.</p>
 <div class="section" id="assignment-1">
 <h3>Assignment 1:<a class="headerlink" href="#assignment-1" title="Permalink to this headline">¶</a></h3>
 <p>Goals for this assignment</p>
@@ -464,11 +504,11 @@
 </div>
 <div class="section" id="why-version-control">
 <h3>Why Version control<a class="headerlink" href="#why-version-control" title="Permalink to this headline">¶</a></h3>
-<p>We often want to keep track of the dfferent versions in case we want to go back, but this can be painful:</p>
+<p>We often want to keep track of the different versions in case we want to go back, but this can be painful:</p>
 <p><img alt="PhD Comic with file names changing from final.doc to final_rev.2.doc to final_rev.6.COMMENTS.doc to FINAL_rev.8.comments5.CORRECTIONS.doc to FINAL_rev.18.comments7.corrections9.MORE.30.doc to FINAL_rev.22.comments49.corrections.10.#&#64;$%WHYDIDICOMETOGRADSCHOOL????.doc" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/phd_versioning.png" /></p>
 <p>We typically organize projects in folder
 <img alt="a cartoon of a folder with files and folders in it, the files have curly brackets on them, to symbolize being code" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/project_folder.svg" /></p>
-<p>A repository is a folder with a hidden directory named <code class="docutils literal notranslate"><span class="pre">.git</span></code>
+<p>A <a class="reference internal" href="../resources/glossary.html#term-repository"><span class="xref std std-term">repository</span></a> is a folder with a hidden directory named <code class="docutils literal notranslate"><span class="pre">.git</span></code>
 <img alt="a cartoon of a folder with files and folders in it, the files have curly brackets on them, to symbolize being code, and a grayed file to symbolize that it's hidden, named .git and a stack  in it" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/git_repository.svg" /></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">git</span></code> applicaiton manages that hidden directory, we don’t write to it directly, which
 is why we keep it hidden.</p>
@@ -476,7 +516,7 @@ is why we keep it hidden.</p>
 <img alt="a cloud labeled github.com with a repository icon in it and a laptop cartoon with a repository icon in it, connected by an arrow" src="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/img/git_distributed.svg" /></p>
 <p>Once a repository exists on GitHub, we get a local copy by cloning it after we
 get its address from the GitHub interface, by clicking on the green code butto that is below the menu area to the right.  It’s at the top right corner of the list of files in the repository.</p>
-<p><img alt="a screen shot of the GitHub" src="img/get_clone_url" /></p>
+<p><img alt="a screen shot of the GitHub" src="../_images/get_clone_url.png" /></p>
 <p>For this part, use GitBash on windows or terminal otherwise:
 If you set up a Personal Access Token you can use the https version</p>
 <!--
@@ -519,7 +559,7 @@ at the top of the page and choose .ipynb.  The following is not runnabel in the 
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
 </pre></div>
 </div>
-<p>Commit your changes to the respotiry:</p>
+<p>Commit your changes to the repository:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;a message that will help your future self know what this part is&#39;</span>
 </pre></div>
 </div>
@@ -538,7 +578,7 @@ this does a little bit
 ````
 
 ```
-echo -e " This portoflio is an example" >> intro.md
+echo -e " This portflio is an example" >> intro.md
  -->
 </div>
 </div>
@@ -551,6 +591,10 @@ echo -e " This portoflio is an example" >> intro.md
 <p>Also, in Spring 2022, I’m teaching a section of CSC392: Topics in Computing,
 Introduction to Computer Systems, that will cover tools of the trade (git, bash, etc)
 and how they all work in great detail.</p>
+</div>
+<div class="section" id="more-on-python">
+<h2>More on Python<a class="headerlink" href="#more-on-python" title="Permalink to this headline">¶</a></h2>
+<p>Read <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">Pep 8</a> to see what good style in Python is.</p>
 </div>
 </div>
 

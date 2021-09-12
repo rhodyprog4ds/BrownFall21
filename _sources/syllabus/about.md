@@ -25,9 +25,11 @@ Basic programming skills (CSC201 or CSC211) are a prerequisite to this course. T
 
 ### About this syllabus
 
-This syllabus is a *living*  document and accessible from BrightSpace, as a pdf for download directly online at [rhodyprog4ds.github.io/BrownFall21/syllabus](https://rhodyprog4ds.github.io/BrownFall21/syllabus/). If you choose to download a copy of it, note that it is only a copy. You can get notification of changes from GitHub by "watching" the [repository](https://github.com/rhodyprog4ds/BrownFall21). You can view the date of changes and exactly what changes were made on the Github [commits](https://github.com/rhodyprog4ds/BrownFall21/commits/main) page.
+This syllabus is a *living*  document and accessible from BrightSpace, as a pdf for download directly online at [rhodyprog4ds.github.io/BrownFall21/syllabus](https://rhodyprog4ds.github.io/BrownFall21/syllabus/). If you choose to download a copy of it, note that it is only a copy. You can get notification of changes from GitHub by "watching" the 
+{{ '[repository](https://github.com/rhodyprog4ds/{/{repo})'.format(repo=repo_name) }}
+You can view the date of changes and exactly what changes were made on the Github {{ repo_commits}} page.
 
-Creating an [issue on the repository](https://github.com/rhodyprog4ds/BrownFall20/issues) is also a good way to ask questions about anything in the course it will prompt additions and expand the FAQ section.
+Creating an {{ repo_issue }} is also a good way to ask questions about anything in the course it will prompt additions and expand the FAQ section.
 
 
 ### About your instructor
@@ -40,25 +42,9 @@ Dr. Sarah M Brown is a second year Assistant Professor of Computer Science, who 
 
 You can call me Professor Brown or Dr. Brown, I use she/her pronouns.
 
-The best way to contact me is e-mail or an issue on an assignment repo.
+The best way to contact me is e-mail or an issue on an assignment repo. For more details, see the [Communication Section](communication)
 
-#### For assignment help
 
-- **send in advance, leave time for a response** I check e-mail/github a small number of times per day, during work hours, almost exclusively. You might see me post to this site, post to BrightSpace, or comment on your assignments outside of my normal working hours, but I will not reliably see emails that arrive during those hours. This means that it is important to start assignments early.
-
-#### Using issues
-
-- use issues for content directly related to assignments.  If you push your code to the repository and then open an issue, I can see your code and your question at the same time and download it to run it if I need to debug it
-- use issues for questions about this syllabus or class notes. At the top right there's a GitHub logo <i class="fab fa-github"></i> that allows you to open a issue (for a question) or suggest an edit (eg if you think there's a typo or you find an additional helpful resource related to something)
-
-#### For E-email
-````{margin}
-```{note}
-Whether you use CSC or DSP does not matter.  
-```
-````
-- use e-mail for general inquiries or notifications
-- Please include `[CSC310]` or `[DSP310]` in the subject line of your email along with the topic of your message. This is important, because your messages are important, but I also get a lot of e-mail. Consider these a cheat code to my inbox: I have setup a filter that will flag your e-mail if you use one of those in the subject to ensure that I see it.
 
 
 <!-- ### About online interactions -->
