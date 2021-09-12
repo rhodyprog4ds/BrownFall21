@@ -4,7 +4,7 @@ substitutions:
     [accepting the assignment](https://classroom.github.com/a/45lmUGiA)
   date : 2020-09-12
 ---
-# Assignment 1: Portfolio Setup, Data Science, and Python
+# Portfolio Setup, Data Science, and Python
 
 __Due: {{ date }}__
 
@@ -25,6 +25,11 @@ To do this click Issues at the top, the green "New Issue" button and then type a
 ```{important}
 If you have trouble, check the GitHub FAQ on the left before e-mailing
 ````
+````
+```{warning}
+If you have trouble with the (*)d steps, don't worry, we can help work around these later. To help us out, document the errors as bugs on your repository.
+```
+````
 
 Your task is to:
 1. Install required software from the Tools & Resource page
@@ -32,8 +37,9 @@ Your task is to:
 1. Learn about your portfolio from the README file on your repository.
 1. edit `_config.yml` to set your name as author and  change the logo if you wish
 1. Fill in `about/index.md` with information about yourself(not evaluated, but useful) and your own definition of data science (graded for **level 1 process**)
-1. Install some additional python packages with: `pip install pip install -r requirements.txt` (this is a python operation, os use anaconda prompt on Windows) form inside the portfolio folder
-1. Configure precommit to help keep your repo clean with `pre-commit install`. If this step doesn't work, see the portfolio README under "Using your Jupyter Book Portfolio"
+1. (*) Install some additional python packages with:
+`pip install pip install -r requirements.txt` (this is a python operation, so use anaconda prompt on Windows, if the pip version doesn't work, try it with conda: `conda install --file requirements.txt`) form inside the portfolio folder
+1. (*) Configure precommit to help keep your repo clean with `pre-commit install`. If this step doesn't work, see the portfolio README under "Using your Jupyter Book Portfolio"
 1. Add a Jupyter notebook called `grading.ipynb` to the `about` folder and write a function that computes a grade for this course, with the following docstring. Include:
 
     -  a Markdown cell with a heading
