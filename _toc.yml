@@ -12,10 +12,12 @@ parts:
     - file: syllabus/uri_statements
     - file: syllabus/communication
   - caption: Notes
+    numbered: True
     chapters:
       - file: notes/2021-09-08
       - file: notes/2021-09-10
   - caption: Assignments
+    numbered: True 
     chapters:
     - file: assignments/01-python-syllabus
   - caption: Portfolio
