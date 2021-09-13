@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Getting help, object inspection, loading data &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>3. Getting help, object inspection, loading data &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="2. Jupyter Notebook Tour &amp; Python Review" href="2021-09-10.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -134,7 +136,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -143,6 +145,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-10.html">
    2. Jupyter Notebook Tour &amp; Python Review
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Getting help, object inspection, loading data
   </a>
  </li>
 </ul>
@@ -154,7 +161,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/01-python-syllabus.html">
-   3. Portfolio Setup, Data Science, and Python
+   4. Portfolio Setup, Data Science, and Python
   </a>
  </li>
 </ul>
@@ -355,8 +362,60 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frist-dont-worry-members">
+   3.1. Frist, Don’t Worry members
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-help-in-jupyter">
+   3.2. Getting Help in Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#everything-is-an-object-in-python">
+   3.3. Everything is an Object in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#good-code-is-always-relative">
+   3.4. Good Code is always relative
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#coffee-data">
-   Coffee Data
+   3.5. Coffee Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#follow-up-questions">
+   3.6. Follow Up questions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-questions">
+     3.6.1. General Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clarifying">
+     3.6.2. Clarifying
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grading-questions">
+     3.6.3. Grading Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questions-well-answer-later-this-week">
+     3.6.4. Questions we’ll answer later this week
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-it-yourself">
+   3.7. Try it yourself
   </a>
  </li>
 </ul>
@@ -371,63 +430,37 @@
               <div>
                 
   <div class="section" id="getting-help-object-inspection-loading-data">
-<h1>Getting help, object inspection, loading data<a class="headerlink" href="#getting-help-object-inspection-loading-data" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>Getting help, object inspection, loading data<a class="headerlink" href="#getting-help-object-inspection-loading-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="frist-dont-worry-members">
+<h2><span class="section-number">3.1. </span>Frist, Don’t Worry members<a class="headerlink" href="#frist-dont-worry-members" title="Permalink to this headline">¶</a></h2>
+<p>Class Response Summary:</p>
+<p><img alt="blabla" src="https://media.giphy.com/media/144Q1gg0FkTEVG/giphy.gif?cid=ecf05e47vhdsgtevfrxayhqfecjkvxtldx6sbzii5c2b9x9p&amp;rid=giphy.gif&amp;ct=g" /></p>
+<p><img alt="calm down" src="http://www.quickmeme.com/img/bf/bf3f6a12aab1782649923940fc1ac15d72932a509e2ec3a3a1ecb961b5b97a41.jpg" /></p>
+<p><a class="reference external" href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fbestrandoms.com%2Fget-random-hilarious-computer-science-memes-that-actually-made-us-laugh%3Fsort%3Drank&amp;psig=AOvVaw2XhDW0aCpxrk7FVwU7xNh6&amp;ust=1631646234018000&amp;source=images&amp;cd=vfe&amp;ved=0CAsQjRxqFwoTCLDqwILS_PICFQAAAAAdAAAAABAO">funny CS memes</a></p>
+<p><img alt="Will Smith don't worry meme" src="https://media3.giphy.com/media/mrBEVU9zQIsZa/giphy.gif" /></p>
+<div style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="270" src="https://giphy.com/embed/fPEYW8WAvQMETAkacd/video" width="480"></iframe></div>
+<p><img alt="lebron w tweet &quot;we jsut left a rest stop! Why didnt you go then&quot;" src="https://assets3.thrillist.com/v1/image/2765813/828x610/flatten;crop%3Bjpeg_quality=70" /></p>
+<p><img alt="mandatory alt text" src="https://i.imgur.com/Eq4ANex.jpeg" /></p>
+<p><img alt="I leave my clothes on my bed and chair" src="https://i.chzbgr.com/full/9445143808/h7E7987A0/animal-my-clothes-my-bed-my-chair" /></p>
+</div>
+<div class="section" id="getting-help-in-jupyter">
+<h2><span class="section-number">3.2. </span>Getting Help in Jupyter<a class="headerlink" href="#getting-help-in-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>Python has a <code class="docutils literal notranslate"><span class="pre">print</span></code> function and we can use the help in jupyter to learn about
+how to use it in different ways.</p>
+<p>Given this code excerpt, how could you print out “Sarah_Brown”?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="o">=</span> <span class="s1">&#39;Sarah&#39;</span>
 <span class="n">last</span> <span class="o">=</span> <span class="s1">&#39;Brown&#39;</span>
-
-<span class="c1"># print witn an under score Sarah_Brown</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="n">last</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
-<span class="c1"># shift + tab for help</span>
+<p>We can use jupyter popup help wiht shift +tab or <code class="docutils literal notranslate"><span class="pre">?</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>print?
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sarah_Brown
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="n">last</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sarah Brown
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="n">last</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sarah Brown
-hello
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print<span class="o">?</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Or the base python <code class="docutils literal notranslate"><span class="pre">help</span></code> function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
@@ -448,6 +481,58 @@ print(...)
     flush: whether to forcibly flush the stream.
 </pre></div>
 </div>
+</div>
+</div>
+<p>Notice that function can take multiple arguments and has a
+keyword argument (must be used like <code class="docutils literal notranslate"><span class="pre">argument=value</span></code>) described as  <code class="docutils literal notranslate"><span class="pre">sep='</span> <span class="pre">'</span></code>.
+This means that by default it adds a space</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="n">last</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sarah Brown
+</pre></div>
+</div>
+</div>
+</div>
+<p>But we can change the separator.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="n">last</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+<span class="c1"># shift + tab for help</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sarah_Brown
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that it also defaults to end to use <code class="docutils literal notranslate"><span class="pre">\n</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="n">last</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sarah Brown
+hello
+</pre></div>
+</div>
+</div>
+</div>
+<p>Where does this help information come from?</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can copy code from the notes, try hovering over this</p>
 </div>
 </div>
 <div class="cell docutils container">
@@ -501,6 +586,7 @@ print(...)
 </div>
 </div>
 </div>
+<p>We can apply <code class="docutils literal notranslate"><span class="pre">help</span></code> on the function we wrote</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">compute_grade</span><span class="p">)</span>
@@ -530,6 +616,11 @@ compute_grade(num_level1, num_level2, num_level3)
 </div>
 </div>
 </div>
+<p>It gets the docstring</p>
+</div>
+<div class="section" id="everything-is-an-object-in-python">
+<h2><span class="section-number">3.3. </span>Everything is an Object in Python<a class="headerlink" href="#everything-is-an-object-in-python" title="Permalink to this headline">¶</a></h2>
+<p>we can use the builtin function <code class="docutils literal notranslate"><span class="pre">type</span></code> to inspect them, and get attributes with <code class="docutils literal notranslate"><span class="pre">.</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">compute_grade</span><span class="p">)</span>
@@ -592,6 +683,11 @@ compute_grade(num_level1, num_level2, num_level3)
 </div>
 </div>
 </div>
+<p>When do we use single vs double quotes?</p>
+<ul class="simple">
+<li><p>You can use either, unless you need to put one inside the string then use the
+other.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_sentence</span> <span class="o">=</span> <span class="s2">&quot;The professor&#39;s name is Dr. Brown&quot;</span>
@@ -599,14 +695,14 @@ compute_grade(num_level1, num_level2, num_level3)
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_sentence</span> <span class="o">=</span> <span class="s1">&#39;The professor&#39;</span><span class="n">s</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">Dr</span><span class="o">.</span> <span class="n">Brown</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1612/607286316.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1921/607286316.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="n">my_sentence</span> <span class="o">=</span> <span class="s1">&#39;The professor&#39;</span><span class="n">s</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">Dr</span><span class="o">.</span> <span class="n">Brown</span><span class="s1">&#39;</span>
                                  <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -614,6 +710,7 @@ compute_grade(num_level1, num_level2, num_level3)
 </div>
 </div>
 </div>
+<p>Yes we can escape special characters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_sentence</span> <span class="o">=</span> <span class="s1">&#39;The professor</span><span class="se">\&#39;</span><span class="s1">s name is Dr. Brown&#39;</span>
@@ -621,10 +718,30 @@ compute_grade(num_level1, num_level2, num_level3)
 </div>
 </div>
 </div>
-<p>Python is a fully open source project</p>
-<p>and as such is governed by community standards and conventions.</p>
+<p>but, it’s less readable and not recommended.</p>
+</div>
+<div class="section" id="good-code-is-always-relative">
+<h2><span class="section-number">3.4. </span>Good Code is always relative<a class="headerlink" href="#good-code-is-always-relative" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>In programming for data science, we are often trying to tell a story.</p>
+<div class="tip admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>How might this goal change your code for this class relative to other code
+you have written or could imagine writing?</p>
+</div>
+<p>Python is a fully <a class="reference external" href="https://www.python.org/downloads/source/">open source project</a>
+and as such is governed by <a class="reference external" href="https://www.python.org/community/">community</a> <a class="reference external" href="https://www.python.org/psf/conduct/">standards</a> and <a class="reference external" href="https://www.python.org/dev/peps/">conventions</a>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>Find PEP8 (note that following it is part of earning python achievements)</p>
+</div>
+<p>The <a class="reference external" href="https://docs.python.org/3/">documentation</a> for the full language is online too.</p>
+<p>Guido van Rossum was the first main developer and wrote <a class="reference external" href="https://www.python.org/doc/essays/">essays</a> about python too.</p>
+<p>it’s <a class="reference external" href="https://www.python.org/about/quotes/">pretty popular</a></p>
+</div>
 <div class="section" id="coffee-data">
-<h2>Coffee Data<a class="headerlink" href="#coffee-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5. </span>Coffee Data<a class="headerlink" href="#coffee-data" title="Permalink to this headline">¶</a></h2>
+<p>We’re going to use a dataset about <a class="reference external" href="https://github.com/jldbc/coffee-quality-database/">coffee quality</a> today.</p>
 <p>How was this dataset collected?</p>
 <ul class="simple">
 <li><p>reviewrs added to DB</p></li>
@@ -639,7 +756,12 @@ compute_grade(num_level1, num_level2, num_level3)
 <li><p>csv (Comma Separated Values)</p></li>
 </ul>
 <p>what other information is in this repository?</p>
-<p>Get raw url for the dataset</p>
+<ul class="simple">
+<li><p>the code to scrape</p></li>
+</ul>
+<p>Get raw url for the dataset click on the raw button on the <a class="reference external" href="https://github.com/jldbc/coffee-quality-database/blob/master/data/robusta_ratings_raw.csv">csv page</a>, then copy the url.
+<img alt="a screenshot from github of the data file page with the raw button circled in pink" src="img/fh_raw_file.png" /></p>
+<p>We’ll save that url as a variable to work with it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/robusta_data_cleaned.csv&#39;</span>
@@ -647,6 +769,7 @@ compute_grade(num_level1, num_level2, num_level3)
 </div>
 </div>
 </div>
+<p>We will use a library called Pandas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1381,16 +1504,21 @@ compute_grade(num_level1, num_level2, num_level3)
 <p>28 rows × 44 columns</p>
 </div></div></div>
 </div>
-<div class="cell docutils container">
+<div class="tip admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>Read the data in again, but with the index correct and save it to a variable.</p>
+</div>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffe_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Once we read it in, we van view the first 5 rows with the <code class="docutils literal notranslate"><span class="pre">head</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffe_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1562,7 +1690,173 @@ compute_grade(num_level1, num_level2, num_level3)
 <p>5 rows × 43 columns</p>
 </div></div></div>
 </div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>Remember to comment &amp; annotate your code</p>
+</div>
+</div>
+<div class="section" id="follow-up-questions">
+<h2><span class="section-number">3.6. </span>Follow Up questions<a class="headerlink" href="#follow-up-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-questions">
+<h3><span class="section-number">3.6.1. </span>General Questions<a class="headerlink" href="#general-questions" title="Permalink to this headline">¶</a></h3>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+How do you create code to scrape data from a website and compile it into a csv file?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">We won’t do too much of this in class, we’ll rely mostly on data that’s already
+organized into a data file of some sort.</p>
+<p class="card-text">We will read directly from html tables though. To scrape data that’s not
+structured or only partially structured there are libraries for that.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Will we be using pandas a lot during the semester?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+</div>
+</details></div>
+<div class="section" id="clarifying">
+<h3><span class="section-number">3.6.2. </span>Clarifying<a class="headerlink" href="#clarifying" title="Permalink to this headline">¶</a></h3>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+How do you auto finish your directories<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">in a terminal (and in jupyter and most code environments) you can use the tab
+key to complete things.  We’ll keep coming back to this.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+How do you properly shut down Jupyter Notebook<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Shut down in the browser, close the tabs, then Ctrl+C in the terminal window.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Is pd some sort of variable we set or was it built in?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">pd is an alias that we set when we ran the line <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code></p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+How should I be organized for this class? Keep it all in a single folder? Keep it on GitHub?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">I recommend keeping a folder for class ege CSC310 and then inside there create a
+notes folder where you keep the Notebooks we generate in class each day and
+clone the repository for each assignment in there.  Everyt assignment will have
+a repo that will be on github, but your notes do not need to be in there.</p>
+<p class="card-text">You’ll only add specific things to your portfolio.  More infomation to follow</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+I’m still not sure how to keep everything together in a portfolio for the semester?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Your portfolio will be carefully curated, not everything you do all semester.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+I have questions about the parts of the first assignment,<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">How the grading works is posted in the grading page now.  More information on
+the github stuff to follow.</p>
+</div>
+</details></div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+I am still wondering if I am using anaconda or just normal terminal<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">on Windows: anaconda prompt for python things and GitBash for for git things</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Can I push this code into my portfolio using the anaconda terminal<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Gti probably won’t work on anaconda terminal.</p>
+</div>
+</details></div>
+<div class="section" id="grading-questions">
+<h3><span class="section-number">3.6.3. </span>Grading Questions<a class="headerlink" href="#grading-questions" title="Permalink to this headline">¶</a></h3>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+How do we keep track of which achievements we’ve earned?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">They will get posted to Brightspace in the grade section. I’ll notify you when
+we post and make them visible and you should check that Brightspace matches what
+we say on your code and e-mail if it doesn’t.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+I don’t really have many questions from today, but I was wondering if office hours were posted.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Not yet, still trying to find times, but I will post an announcement when they
+are posted.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Will we always submit homework through the portfolio folder in github?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">It will always be on GitHub, but each assignment will have its own repository</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+I’m just confused as how to view my feedback from the assignment<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">On your</p>
+</div>
+</details></div>
+<div class="section" id="questions-well-answer-later-this-week">
+<h3><span class="section-number">3.6.4. </span>Questions we’ll answer later this week<a class="headerlink" href="#questions-well-answer-later-this-week" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>does each column have a number assigned to it in data frames?</p></li>
+<li><p>Can other data types be imported into a notebook and edited the same way as .csv files?</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="try-it-yourself">
+<h2><span class="section-number">3.7. </span>Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>How could you check if <code class="docutils literal notranslate"><span class="pre">pd</span></code> is built in or if we defined it?</p></li>
+<li><p>If we wanted to see more than 5 rows when printing the head of the dataset how would we do so?</p></li>
+</ul>
 </div>
 </div>
 
@@ -1595,6 +1889,24 @@ compute_grade(num_level1, num_level2, num_level3)
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="2021-09-10.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">2. </span>Jupyter Notebook Tour &amp; Python Review</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">4. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
