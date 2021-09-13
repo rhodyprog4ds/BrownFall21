@@ -40,6 +40,10 @@ df = df[['usage','platform','area','note']]
 display(HTML(df.style.hide_index()._repr_html_()))
 ```
 
+```{note}
+e-mail is last because it's not collaborative; other platforms allow us (Proessor + TA) to collaborate on who responds to things more easily. 
+```
+
 ## By Platform
 
 ```{code-cell}

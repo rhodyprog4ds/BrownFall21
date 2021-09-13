@@ -22,7 +22,7 @@ Also note that for your portfolio to build, you will have to:
 -  include the data files in the repository and use a relative path OR
 -  load via url
 
-using a full local path **will not work** and will render your portfolio unreadable.
+using a full local path(eg that starts with `///file:`) **will not work** and will render your portfolio unreadable.
 
 ## Structure of plain markdown
 
@@ -30,9 +30,13 @@ Use a heading like this:
 
 ```
 # Heading of page
+## Heading 2
+### Heading 3
 ```
 
 in the file and it will appear in the sidebar.
+
+You can also make text *italic* or **bold** with either `*asterics*` or `__underscores__` with `_one for italic_` or `**two for bold**` in either case
 
 
 ## File Naming
@@ -43,7 +47,13 @@ Each `chapter` or file should have a descriptive file name (`with_no_spaces`) an
 
 ## Syncing markdown and ipynb files
 
-To sync feedback received to your runnable notebook files, change the related GitHub Actions file: `.github/workflows/`
+If you have the precommit hook working, git will call a script and convert your notebook files from the ipynb format (which is json like) to Myst Markdown, which is more plain text with some header information.  The markdown format works better with version control, largely because it doesn't contain the outputs.
+
+If you don't get the precommit hook working, but you do get jupytext installed, you can set each file to sync.  
+
+
+
+<!-- To sync feedback received to your runnable notebook files, change the related GitHub Actions file: `.github/workflows/`
 In the step named convert that looks like:
 ```
 - name: convert
@@ -60,7 +70,7 @@ change it to:
       jupytext --sync */*.ipynb                  # Update whichever of .ipynb/notebook.md is outdated
 ```
 
-This means if you accept suggestion commits from the the `.md` file, the action will upate your `.ipynb` file. If you update your `.ipynb file` the action will update the .md file.
+This means if you accept suggestion commits from the the `.md` file, the action will upate your `.ipynb` file. If you update your `.ipynb file` the action will update the .md file. -->
 
 
 ## Adding annotations with formatting or margin notes

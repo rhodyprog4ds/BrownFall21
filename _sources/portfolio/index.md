@@ -80,11 +80,26 @@ On each chapter(for a file) of your portfolio, you should identify which skills 
 
 You can view a (fake) example [in this repository](https://github.com/rhodyprog4ds/portfolio-example) as a [pdf](https://github.com/rhodyprog4ds/portfolio-example/blob/gh-pages/portfolio.pdf) or as a [rendered website](https://rhodyprog4ds.github.io/portfolio-example/intro.html)
 
+## Current
+
+### Check 1
+
+The first portfolio check will be due {{ p1due }}
+
+```{code-cell} ipython3
+:tags: [remove-input]
+
+portfolio_df[portfolio_df['P1']==1]
+```
+
+
 ## Upcoming Checks
 
-### Portfolio 1
+Check 2: {{ p2due }}
+Check 3: {{ p3due }}
+Check 4: {{ p4due }}
 
-The first portfolio check will be due October 15. 
+
 <!--
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -110,9 +125,3 @@ portfolio_df['Level 3'][portfolio_df['P3']==1].reset_index().set_index('keyword'
 portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword')
 ```
  -->
-
-```{code-cell} ipython3
-:tags: [remove-input]
-
-portfolio_df[portfolio_df['P1']==1]
-```

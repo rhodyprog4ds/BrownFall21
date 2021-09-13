@@ -139,12 +139,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../notes/2021-09-08.html">
-   Welcome to Programming to Data Science
+   1. Welcome to Programming to Data Science
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../notes/2021-09-10.html">
-   Jupyter Notebook Tour &amp; Python Review
+   2. Jupyter Notebook Tour &amp; Python Review
   </a>
  </li>
 </ul>
@@ -156,7 +156,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/01-python-syllabus.html">
-   Portfolio Setup, Data Science, and Python
+   3. Portfolio Setup, Data Science, and Python
   </a>
  </li>
 </ul>
@@ -424,15 +424,18 @@ assignment has not been issued, you can view <a class="reference external" href=
 <li><p>include the data files in the repository and use a relative path OR</p></li>
 <li><p>load via url</p></li>
 </ul>
-<p>using a full local path <strong>will not work</strong> and will render your portfolio unreadable.</p>
+<p>using a full local path(eg that starts with <code class="docutils literal notranslate"><span class="pre">///file:</span></code>) <strong>will not work</strong> and will render your portfolio unreadable.</p>
 </div>
 <div class="section" id="structure-of-plain-markdown">
 <h2>Structure of plain markdown<a class="headerlink" href="#structure-of-plain-markdown" title="Permalink to this headline">¶</a></h2>
 <p>Use a heading like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Heading of page</span>
+<span class="c1">## Heading 2</span>
+<span class="c1">### Heading 3</span>
 </pre></div>
 </div>
 <p>in the file and it will appear in the sidebar.</p>
+<p>You can also make text <em>italic</em> or <strong>bold</strong> with either <code class="docutils literal notranslate"><span class="pre">*asterics*</span></code> or <code class="docutils literal notranslate"><span class="pre">__underscores__</span></code> with <code class="docutils literal notranslate"><span class="pre">_one</span> <span class="pre">for</span> <span class="pre">italic_</span></code> or <code class="docutils literal notranslate"><span class="pre">**two</span> <span class="pre">for</span> <span class="pre">bold**</span></code> in either case</p>
 </div>
 <div class="section" id="file-naming">
 <h2>File Naming<a class="headerlink" href="#file-naming" title="Permalink to this headline">¶</a></h2>
@@ -441,21 +444,26 @@ Each <code class="docutils literal notranslate"><span class="pre">chapter</span>
 </div>
 <div class="section" id="syncing-markdown-and-ipynb-files">
 <h2>Syncing markdown and ipynb files<a class="headerlink" href="#syncing-markdown-and-ipynb-files" title="Permalink to this headline">¶</a></h2>
-<p>To sync feedback received to your runnable notebook files, change the related GitHub Actions file: <code class="docutils literal notranslate"><span class="pre">.github/workflows/</span></code>
-In the step named convert that looks like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">convert</span>
-  <span class="n">run</span><span class="p">:</span> <span class="o">|</span>
-      <span class="n">jupytext</span> <span class="o">*/*.</span><span class="n">ipynb</span> <span class="o">--</span><span class="n">to</span> <span class="n">myst</span>
-</pre></div>
-</div>
-<p>change it to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">convert</span>
-  <span class="n">run</span><span class="p">:</span> <span class="o">|</span>
-      <span class="n">jupytext</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">formats</span> <span class="n">ipynb</span><span class="p">,</span><span class="n">md</span> <span class="o">*/*.</span><span class="n">ipynb</span>  <span class="c1"># Turn .ipynb into a paired ipynb/py notebook</span>
-      <span class="n">jupytext</span> <span class="o">--</span><span class="n">sync</span> <span class="o">*/*.</span><span class="n">ipynb</span>                  <span class="c1"># Update whichever of .ipynb/notebook.md is outdated</span>
-</pre></div>
-</div>
-<p>This means if you accept suggestion commits from the the <code class="docutils literal notranslate"><span class="pre">.md</span></code> file, the action will upate your <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file. If you update your <code class="docutils literal notranslate"><span class="pre">.ipynb</span> <span class="pre">file</span></code> the action will update the .md file.</p>
+<p>If you have the precommit hook working, git will call a script and convert your notebook files from the ipynb format (which is json like) to Myst Markdown, which is more plain text with some header information.  The markdown format works better with version control, largely because it doesn’t contain the outputs.</p>
+<p>If you don’t get the precommit hook working, but you do get jupytext installed, you can set each file to sync.</p>
+<!-- To sync feedback received to your runnable notebook files, change the related GitHub Actions file: `.github/workflows/`
+In the step named convert that looks like:
+```
+- name: convert
+  run: |
+      jupytext */*.ipynb --to myst
+```
+
+change it to:
+
+```
+- name: convert
+  run: |
+      jupytext --set-formats ipynb,md */*.ipynb  # Turn .ipynb into a paired ipynb/py notebook
+      jupytext --sync */*.ipynb                  # Update whichever of .ipynb/notebook.md is outdated
+```
+
+This means if you accept suggestion commits from the the `.md` file, the action will upate your `.ipynb` file. If you update your `.ipynb file` the action will update the .md file. -->
 </div>
 <div class="section" id="adding-annotations-with-formatting-or-margin-notes">
 <h2>Adding annotations with formatting or margin notes<a class="headerlink" href="#adding-annotations-with-formatting-or-margin-notes" title="Permalink to this headline">¶</a></h2>
