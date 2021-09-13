@@ -137,10 +137,10 @@ For example, if you achieve level 2 on all of the skills and level 3 on 7 skills
 
 If you achieve level 3 on 14 of the skills, but only level 1 on one of the skills, that will be a B-, because the minimum number of level 2 achievements for a B is 15. In this scenario the total number of achievements is 14 at level 3, 14 at level 2 and 15 at level 3, because you have to earn achievements within a skill in sequence.
 
-<!-- The letter grade can be computed as follows -->
+The letter grade can be computed as follows
 
 ```{code-cell} ipython3
-:tags: ['remove-input']
+
 def compute_grade(num_level1,num_level2,num_level3):
     '''
     Computes a grade for CSC/DSP310 from numbers of achievements at each level
@@ -239,7 +239,7 @@ This request should be no more than 7 sentences.
 
 Portfolio due dates will be announced well in advance and prompts for it will be released weekly.  You should spend some time working on it each week, applying what you've learned so far, from the feedback on previous assignments.  
 
-<!--
+
 ### Examples
 
 
@@ -273,7 +273,7 @@ This student was content with getting a B and chose to not submit a portfolio.
 ![exampleBstruggle](../img/example_B_struggle.png)
 
 In this example, the student struggled to understand in class and on assignments. Assignments were submitted that showed some understanding, but all had some serious mistakes, so only level 1 achievements were earned from assignments.
-The student wanted to get a B and worked hard to get the level 2 achievements on the portfolio checks. -->
+The student wanted to get a B and worked hard to get the level 2 achievements on the portfolio checks.
 
 
 ## Ram Tokens
