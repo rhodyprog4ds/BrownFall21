@@ -16,8 +16,9 @@ parts:
     chapters:
       - file: notes/2021-09-08
       - file: notes/2021-09-10
+      - file: notes/2021-09-13
   - caption: Assignments
-    numbered: True 
+    numbered: True
     chapters:
     - file: assignments/01-python-syllabus
   - caption: Portfolio
