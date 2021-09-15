@@ -24,8 +24,18 @@ import pandas as pd
 from IPython.display import display, Markdown, HTML
 pd.set_option('display.max_colwidth', 0)
 df = pd.read_csv('../_data/communication.csv')
+
+help_df = pd.read_csv('../_data/help_hours.csv')
 ```
 
+## Help Hours
+
+
+```{code-cell}
+:tags: ["remove-input"]
+
+help_df.style.hide_index()
+```
 
 
 We have several different ways to communicate in this course. This section summarizes them
@@ -41,7 +51,7 @@ display(HTML(df.style.hide_index()._repr_html_()))
 ```
 
 ```{note}
-e-mail is last because it's not collaborative; other platforms allow us (Proessor + TA) to collaborate on who responds to things more easily. 
+e-mail is last because it's not collaborative; other platforms allow us (Proessor + TA) to collaborate on who responds to things more easily.
 ```
 
 ## By Platform
