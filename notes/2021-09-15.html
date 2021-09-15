@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pandas DataFrames &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>4. Pandas DataFrames &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="3. Getting help, object inspection, loading data" href="2021-09-13.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -134,7 +136,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -148,6 +150,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-13.html">
    3. Getting help, object inspection, loading data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Pandas DataFrames
   </a>
  </li>
 </ul>
@@ -354,6 +361,34 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-about-loading-libraries">
+   4.1. More about loading libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examining-dataframes">
+   4.2. Examining DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-a-data-frame-programmatically">
+   4.3. Building a Data Frame programmatically
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-classroom">
+   4.4. Questions After Classroom
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -363,7 +398,20 @@
               <div>
                 
   <div class="section" id="pandas-dataframes">
-<h1>Pandas DataFrames<a class="headerlink" href="#pandas-dataframes" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Pandas DataFrames<a class="headerlink" href="#pandas-dataframes" title="Permalink to this headline">¶</a></h1>
+<p>Today, we’re going to explore Data Frames in greater detail. We’ll continue using
+that same coffee dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/robusta_data_cleaned.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="more-about-loading-libraries">
+<h2><span class="section-number">4.1. </span>More about loading libraries<a class="headerlink" href="#more-about-loading-libraries" title="Permalink to this headline">¶</a></h2>
+<p>We can import pandas without the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code> if we want, but then we have to use
+the full name everywhere</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
@@ -380,7 +428,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1690</span><span class="o">/</span><span class="mf">1157008400.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1724</span><span class="o">/</span><span class="mf">1157008400.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">()</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
@@ -395,6 +443,8 @@
 </div>
 </div>
 </div>
+<p>We’ll use <code class="docutils literal notranslate"><span class="pre">pd</span></code> because that’s the more common convention and so that we can type
+fewer characters throughout our code</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -402,13 +452,9 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/robusta_data_cleaned.csv&#39;</span>
-</pre></div>
 </div>
-</div>
-</div>
+<div class="section" id="examining-dataframes">
+<h2><span class="section-number">4.2. </span>Examining DataFrames<a class="headerlink" href="#examining-dataframes" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">coffee_data_url</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -416,6 +462,7 @@
 </div>
 </div>
 </div>
+<p>We can look at the first 5 rows with <code class="docutils literal notranslate"><span class="pre">head</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -590,6 +637,8 @@
 <p>5 rows × 43 columns</p>
 </div></div></div>
 </div>
+<p>Using help, we can see tha that head takes one parameter and has a default value
+of 5, which is why we got 5 rows, but we can get 2 instead</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -692,6 +741,7 @@
 <p>2 rows × 43 columns</p>
 </div></div></div>
 </div>
+<p>We can look at the last rows with <code class="docutils literal notranslate"><span class="pre">tail</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -818,6 +868,7 @@
 <p>3 rows × 43 columns</p>
 </div></div></div>
 </div>
+<p>I told you this was a DataFrame, but we can check with type.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -830,6 +881,7 @@
 </div>
 </div>
 </div>
+<p>We can also exmaine its parts.  It consists of several; first the column headings</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
@@ -853,6 +905,7 @@
 </div>
 </div>
 </div>
+<p>These are a special type called Index</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
@@ -865,6 +918,7 @@
 </div>
 </div>
 </div>
+<p>It also has an index</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
@@ -879,6 +933,7 @@
 </div>
 </div>
 </div>
+<p>and values</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">values</span>
@@ -901,6 +956,7 @@
 </div>
 </div>
 </div>
+<p>it also knows its own shape</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
@@ -913,6 +969,8 @@
 </div>
 </div>
 </div>
+<p>we can use builtin fucntions on our DataFrame too not just its own methods and
+attributes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -925,8 +983,12 @@
 </div>
 </div>
 </div>
-<p>Why does <code class="docutils literal notranslate"><span class="pre">len</span></code> turn green?</p>
-<p>python reserve word</p>
+<p>Why does <code class="docutils literal notranslate"><span class="pre">len</span></code> turn green?
+it’s a python reserve word</p>
+</div>
+<div class="section" id="building-a-data-frame-programmatically">
+<h2><span class="section-number">4.3. </span>Building a Data Frame programmatically<a class="headerlink" href="#building-a-data-frame-programmatically" title="Permalink to this headline">¶</a></h2>
+<p>One way to build a data frame is from a dictionary:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;names&#39;</span><span class="p">:[</span><span class="s1">&#39;Sarah&#39;</span><span class="p">,</span><span class="s1">&#39;Connor&#39;</span><span class="p">,</span><span class="s1">&#39;Kenza&#39;</span><span class="p">],</span>
@@ -1996,6 +2058,29 @@ Name: Owner, dtype: object
 <p>Key points:</p>
 <p><em>write three things to remember from today’s class</em></p>
 </div>
+<div class="section" id="questions-after-classroom">
+<h2><span class="section-number">4.4. </span>Questions After Classroom<a class="headerlink" href="#questions-after-classroom" title="Permalink to this headline">¶</a></h2>
+<p>Class Response Summary:</p>
+<p>How to know which function to use in certain problems or situations</p>
+<p>being able to access the code somewhere without asking to scroll would be nice</p>
+<ul class="simple">
+<li><p>will work on adding most code to prismia, but if I miss some, always ask.</p></li>
+</ul>
+<p>can you use set on a pandas dataframe</p>
+<ul class="simple">
+<li><p>there are better ways to find unique values and remove duplicates in a dataframe</p></li>
+</ul>
+<p>Is there a way to have a set show the duplicates that get discarded?</p>
+<ul class="simple">
+<li><p>no, <code class="docutils literal notranslate"><span class="pre">set</span></code> is casting the data type so it loses information</p></li>
+</ul>
+<p>When will homeworks be posted/due typically</p>
+<ul class="simple">
+<li><p>Posted Wednesday</p></li>
+<li><p>Due the followign Tuesday</p></li>
+</ul>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -2026,6 +2111,24 @@ Name: Owner, dtype: object
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="2021-09-13.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">3. </span>Getting help, object inspection, loading data</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
