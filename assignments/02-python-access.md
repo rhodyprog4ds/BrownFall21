@@ -1,7 +1,7 @@
 ---
 substitutions:
   accept_assignment: |
-    [accept the assignment]()
+    [accept the assignment](https://classroom.github.com/a/damCPljl)
   date : 2020-09-21
 ---
 # Assignment 2: Practicing Python and Accessing Data
