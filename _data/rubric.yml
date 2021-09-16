@@ -17,8 +17,8 @@
 - skill: access data in multiple formats
   keyword: access
   aware: load data from at least one format; identify the most common data formats
-  compentent: Load data for processing from the most common formats; Compare and constrast most common formats
-  mastery: access data from both common and uncommon formats and identify best practices for formats in different contexts
+  compentent: Load data for processing from the most common formats; Compare and constrast most common formats; extract basic subsets of datasets
+  mastery: access data from both common and uncommon formats and identify best practices for formats in different contexts; filter datasets by multiple criteria
   portfolios: [1,2]
   clo: [data]
   assignments: [2,3,4]
@@ -41,8 +41,8 @@
 - skill: Visualize data
   keyword: visualize
   aware: identify plot types, generate basic plots from pandas
-  compentent: generate multiple plot types with complete labeling with pandas and seaborn
-  mastery: generate complex plots with pandas and plotting libraries and customize with matplotlib or additional parameters
+  compentent: generate multiple plot types with complete labeling with pandas and seaborn to answer simple q
+  mastery: generate custom plots with pandas and plotting libraries and customize with matplotlib or additional parameters
   portfolios: [1,2]
   clo: [exploratory]
   assignments: [3,4,6,7,8,9,10,11,12,13]
