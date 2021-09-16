@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Dates and Key Facts &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>Assignment 2: Practicing Python and Accessing Data &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Formatting Tips" href="formatting.html" />
-    <link rel="prev" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -165,7 +163,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/01-python-syllabus.html">
+  <a class="reference internal" href="01-python-syllabus.html">
    1. Portfolio Setup, Data Science, and Python
   </a>
  </li>
@@ -175,14 +173,14 @@
   Portfolio
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/index.html">
    Portfolio Dates and Key Facts
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="formatting.html">
+  <a class="reference internal" href="../portfolio/formatting.html">
    Formatting Tips
   </a>
  </li>
@@ -299,12 +297,9 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/portfolio/index.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/portfolio/index.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/assignments/02-python-access.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -321,10 +316,10 @@
     <div class="dropdown-buttons sourcebuttons">
         
         <a class="issues-button"
-            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fportfolio/index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fassignments/02-python-access.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/portfolio/index.md"><button
+        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/assignments/02-python-access.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -339,23 +334,6 @@
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/rhodyprog4ds/BrownFall21/main?urlpath=tree/portfolio/index.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
@@ -367,20 +345,38 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#current">
-   Current
+  <a class="reference internal nav-link" href="#objective-evaluation">
+   Objective &amp; Evaluation
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-1">
-     Check 1
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#upcoming-checks">
-   Upcoming Checks
+  <a class="reference internal nav-link" href="#find-datasets">
+   Find Datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#store-them-for-loading">
+   Store them for loading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#make-a-dataset-about-your-datasets">
+   Make a dataset about your datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulate-your-datasets">
+   Manipulate your datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploring-data-files">
+   Exploring data files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thinking-ahead">
+   Thinking ahead
   </a>
  </li>
 </ul>
@@ -394,85 +390,128 @@
         
               <div>
                 
-  <div class="section" id="portfolio-dates-and-key-facts">
-<h1>Portfolio Dates and Key Facts<a class="headerlink" href="#portfolio-dates-and-key-facts" title="Permalink to this headline">¶</a></h1>
-<div class="cell tag_remove-input docutils container">
+  <div class="section" id="assignment-2-practicing-python-and-accessing-data">
+<h1>Assignment 2: Practicing Python and Accessing Data<a class="headerlink" href="#assignment-2-practicing-python-and-accessing-data" title="Permalink to this headline">¶</a></h1>
+<p>due : 2020-09-21</p>
+<div class="section" id="objective-evaluation">
+<h2>Objective &amp; Evaluation<a class="headerlink" href="#objective-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>This assignment is an opportunity to earn level 1 and 2 achievements in <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">access</span></code> and begin working toward level 1 for <code class="docutils literal notranslate"><span class="pre">summarize</span></code>. You can also earn level 1 for <code class="docutils literal notranslate"><span class="pre">process</span></code>.</p>
+<p>In this assignment, you’ll practice/ review python skills by manipulating datasets
+and extracting</p>
+<table class="table" id="id1">
+<caption><span class="caption-text">practice python by manipulating data files, load datasets of different types</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Task
+Skills (max level)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>identify possible uses for data in a data science pipeline
+[process (1)]</p></td>
+</tr>
+<tr class="row-odd"><td><p>load data from one file format
+[ access (1)]</p></td>
+</tr>
+<tr class="row-even"><td><p>load data from at least two of  (.csv, .tsv, .dat, database, .json)
+[access (2)]</p></td>
+</tr>
+<tr class="row-odd"><td><p>compare the data formats
+[ access (2)]</p></td>
+</tr>
+<tr class="row-even"><td><p>complete the assignment in python
+[python (1)]</p></td>
+</tr>
+<tr class="row-odd"><td><p>use python data types (eg dictionaries) to prepare information about datasets
+[python (2)]</p></td>
+</tr>
+<tr class="row-even"><td><p>use informative variable names, pythonic iteration, and other common PEP 8 conventions
+[python (2)]</p></td>
+</tr>
+<tr class="row-odd"><td><p>display DataFrame properties
+[summarize (1)]</p></td>
+</tr>
+</tbody>
+</table>
+<p>First, <a class="reference external" href="https://classroom.github.com/a/damCPljl">accept the assignment</a>
+. It contains a notebook with some template structure (and will set you up for grading).</p>
 </div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2386</span><span class="o">/</span><span class="mf">311973014.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">rubric_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">rubric_df</span><span class="p">,</span>
-<span class="ne">----&gt; </span><span class="mi">7</span>                       <span class="n">assignment_dummies</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>                       <span class="n">portfolio_dummies</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
-
-<span class="ne">NameError</span>: name &#39;assignment_dummies&#39; is not defined
-</pre></div>
+<div class="section" id="find-datasets">
+<h2>Find Datasets<a class="headerlink" href="#find-datasets" title="Permalink to this headline">¶</a></h2>
+<p>Find 3 datasets of interest to you that are provided in at least two different file formats. Choose datasets that are not too big, so that they do not take more than a few second to load. At least one dataset, must have non numerical (eg string or boolean) data in at least 1 column.</p>
+<p>In your notebook, create a markdown cell for each notebook that includes:</p>
+<ul class="simple">
+<li><p>heading of the dataset’s name</p></li>
+<li><p>a link to where someone can learn about the dataset</p></li>
+<li><p>a 1-2 sentence summary of what the dataset contains and why it was collected</p></li>
+<li><p>1-2 questions you would like to answer with that dataset.</p></li>
+</ul>
+</div>
+<div class="section" id="store-them-for-loading">
+<h2>Store them for loading<a class="headerlink" href="#store-them-for-loading" title="Permalink to this headline">¶</a></h2>
+<p>Create a list of dictionaries in <code class="docutils literal notranslate"><span class="pre">datasets.py</span></code>, so that there is one dictionary for each dataset with the url, a name, and what function should be used to load the data into a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Urls are strings. The <code class="docutils literal notranslate"><span class="pre">string</span></code> class in python has a lot of helpful methods for manipulating strings, like <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.split"><code class="docutils literal notranslate"><span class="pre">split</span></code></a>.</p>
 </div>
 </div>
 </div>
-<p>This section of the site has a set of portfolio prompts and this page has instructions for portfolio submissions.</p>
-<p>Starting in week 3 it is recommended that you spend some time each week working on items for your portfolio, that way when it’s time to submit you only have a little bit to add before submission.
-The portfolio is your only chance to earn Level 3 achievements, however, if you have not earned a level 2 for any of the skills in a given check, you could earn level 2 then instead.
-The prompts provide a starting point, but remember that to earn achievements, you’ll be evaluated by the rubric.
-You can see the full rubric for all portfolios in the <a class="reference internal" href="../syllabus/achievements.html#portfolioskills"><span class="std std-ref">syllabus</span></a>.
-Your portfolio is also an opportunity to be creative, explore things, and answer your own questions that we haven’t answered in class to dig deeper on the topics we’re covering.
-Use the feedback you get on assignments to inspire your portfolio.</p>
-<p>Each submission should include an introduction and a number of ‘chapters’.  The grade will be based on both that you demonstrate skills through your chapters that are inspired by the prompts and that your summary demonstrates that you <em>know</em> you learned the skills. See the <a class="reference internal" href="formatting.html"><span class="doc std std-doc">formatting tips</span></a> for advice on how to structure files.</p>
-<p>On each chapter(for a file) of your portfolio, you should identify which skills by their keyword, you are applying.</p>
-<p>You can view a (fake) example <a class="reference external" href="https://github.com/rhodyprog4ds/portfolio-example">in this repository</a> as a <a class="reference external" href="https://github.com/rhodyprog4ds/portfolio-example/blob/gh-pages/portfolio.pdf">pdf</a> or as a <a class="reference external" href="https://rhodyprog4ds.github.io/portfolio-example/intro.html">rendered website</a></p>
-<div class="section" id="current">
-<h2>Current<a class="headerlink" href="#current" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="check-1">
-<h3>Check 1<a class="headerlink" href="#check-1" title="Permalink to this headline">¶</a></h3>
-<p>The first portfolio check will be due October 15</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2386</span><span class="o">/</span><span class="mf">2819809228.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">portfolio_df</span><span class="p">[</span><span class="n">portfolio_df</span><span class="p">[</span><span class="s1">&#39;P1&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;portfolio_df&#39; is not defined
-</pre></div>
+<div class="section" id="make-a-dataset-about-your-datasets">
+<h2>Make a dataset about your datasets<a class="headerlink" href="#make-a-dataset-about-your-datasets" title="Permalink to this headline">¶</a></h2>
+<p>Import the list fomr the <code class="docutils literal notranslate"><span class="pre">datasets</span></code> module you created in the step above.
+Then terate over the list of dictionaries, and:</p>
+<ol class="simple">
+<li><p>save it to a local csv using the short name you provided for the dataset as the file name, without writing the index column to the file.</p></li>
+<li><p>record attributes about the dataset as in the table below in a list of lists:</p></li>
+<li><p>Use that to create a DataFrame with the following columns:</p></li>
+</ol>
 </div>
+<div class="section" id="manipulate-your-datasets">
+<h2>Manipulate your datasets<a class="headerlink" href="#manipulate-your-datasets" title="Permalink to this headline">¶</a></h2>
+<p>For one dataset that includes nonnumerical data:</p>
+<ul class="simple">
+<li><p>display the heading and the last 4 rows</p></li>
+<li><p>make and display a new data frame with only the numerical columns (select these programmatically)</p></li>
+</ul>
+<p>For any other dataset:</p>
+<ul class="simple">
+<li><p>display the heading and the first three rows</p></li>
+<li><p>display the datatype for each column</p></li>
+<li><p>Are there any variables where pandas may have read in the data as a datatype that’s not what you expect (eg a numerical column mistaken for strings)? If so, investigate and try to figure out why.</p></li>
+</ul>
+<p>For the third dataset:</p>
+<ul class="simple">
+<li><p>display the first 3 odd rows (eg 1,3,5) of the data for two columns of your choice</p></li>
+</ul>
 </div>
+<div class="section" id="exploring-data-files">
+<h2>Exploring data files<a class="headerlink" href="#exploring-data-files" title="Permalink to this headline">¶</a></h2>
+<p>For each dataset, in a separate section of your notebook titled <code class="docutils literal notranslate"><span class="pre">When</span> <span class="pre">things</span> <span class="pre">go</span> <span class="pre">wrong</span></code>:</p>
+<ul class="simple">
+<li><p>try reading in data with the wrong <code class="docutils literal notranslate"><span class="pre">read_</span></code> function and make notes about what happens.</p></li>
+<li><p>was the format that the data was provided in a good format? why or why not?</p></li>
+<li><p>try to read in the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file that’s included in the template repository (), use the error messages you get to try to fix the file manualy (any text editor, including jupyter can edit a <code class="docutils literal notranslate"><span class="pre">.csv</span></code>), making notes about what changes you made in a markdown cell.</p></li>
+</ul>
 </div>
+<div class="section" id="thinking-ahead">
+<h2>Thinking ahead<a class="headerlink" href="#thinking-ahead" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>his section is not required, but is intended to help you get started thinking
+about ideas for your portflio.  If you complete it, we’ll give your feedback to
+help shape your ideas to get to level 3 achievements.  If you want to focus only
+on level 2 at this moment in time, feel free to skip this part.</p>
 </div>
+<ol class="simple">
+<li><p>When might you prefer one datatype over another?</p></li>
+<li><p>How does PEP 8 standard code help you be collaborative?</p></li>
+<li><p>Learn about <a class="reference external" href="https://arxiv.org/pdf/1803.09010.pdf">Datasheets for Datasets</a> eg this <a class="reference external" href="https://scholar.google.com/scholar?q=datasheets+for+datasets&amp;hl=en&amp;as_sdt=0&amp;as_vis=1&amp;oi=scholart">google scholar result</a> How could something like this impact your work as a datascientist?</p></li>
+</ol>
 </div>
-<div class="section" id="upcoming-checks">
-<h2>Upcoming Checks<a class="headerlink" href="#upcoming-checks" title="Permalink to this headline">¶</a></h2>
-<p>Check 2: November 12
-Check 3: December 5
-Check 4: December 20</p>
-<!--
-```{code-cell} ipython3
-:tags: [remove-input]
-
-portfolio_df['Level 3'][portfolio_df['P2']==1].reset_index().set_index('keyword')
-```
-
-
-
-
-The third submission will be graded on the following criteria and due on December 4:
-
-```{code-cell} ipython3
-:tags: [remove-input]
-
-portfolio_df['Level 3'][portfolio_df['P3']==1].reset_index().set_index('keyword')
-```
-
-
-```{code-cell} ipython3
-:tags: [remove-input]
-
-portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword')
-```
- --></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -488,7 +527,7 @@ portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword'
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./portfolio"
+            path: "./assignments"
         },
         predefinedOutput: true
     }
@@ -504,24 +543,6 @@ portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword'
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="../assignments/01-python-syllabus.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="formatting.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Formatting Tips</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
