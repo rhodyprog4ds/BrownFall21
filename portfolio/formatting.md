@@ -12,6 +12,26 @@ Your portfolio is a [jupyter book](https://jupyterbook.org/intro.html). This mea
 
 This page will cover a few basic tips.
 
+## Managing Files and version
+
+change your `.pre-commit-config.yaml` file to match the following:
+```
+repos:
+-   repo: https://github.com/mwouts/jupytext
+    rev: v1.10.0  # CURRENT_TAG/COMMIT_HASH
+    hooks:
+    - id: jupytext
+      args: [--from, ipynb, --to, myst]
+```
+
+Run Precommit over all the files to actually apply that script to your repo.
+
+
+```
+pre-commit run --all-files
+```
+
+
 ## Organization
 
 The summary of for the `part` or whole submission, should match the skills to the chapters.  Which prompt you're addressing is not important, the  prompts are a *starting point* not the end goal of your portfolio.
