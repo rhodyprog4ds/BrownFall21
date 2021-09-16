@@ -23,23 +23,23 @@ and extracting
 :header-rows: 1
 
 * - Task
-    Skills (max level)
+  - Skills (max level)
 * - identify possible uses for data in a data science pipeline
-    [process (1)]
+  - [process (1)]
 * - load data from one file format
-    [ access (1)]
+  - [ access (1)]
 * - load data from at least two of  (.csv, .tsv, .dat, database, .json)
-    [access (2)]
+  - [access (2)]
 * - compare the data formats
-    [ access (2)]
+  - [ access (2)]
 * - complete the assignment in python
-    [python (1)]
+    - python (1)]
 * - use python data types (eg dictionaries) to prepare information about datasets
-    [python (2)]
+  - [python (2)]
 * - use informative variable names, pythonic iteration, and other common PEP 8 conventions
-    [python (2)]
+  - [python (2)]
 * - display DataFrame properties
-    [summarize (1)]
+  - [summarize (1)]
 ```
 
 First, {{ accept_assignment }}. It contains a notebook with some template structure (and will set you up for grading).
