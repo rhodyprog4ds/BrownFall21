@@ -121,7 +121,7 @@ about ideas for your portflio.  If you complete it, we'll give your feedback to
 help shape your ideas to get to level 3 achievements.  If you want to focus only
 on level 2 at this moment in time, feel free to skip this part.
 ```
-
+_answer these under a separate heading at the end of your notebook_
 
 1. When might you prefer one datatype over another?
 1. How does PEP 8 standard code help you be collaborative?
