@@ -68,7 +68,7 @@ Urls are strings. The `string` class in python has a lot of helpful methods for 
 
 ## Make a dataset about your datasets
 
-Import the list from the `datasets` module you created in the step above.
+Import the list fomr the `datasets` module you created in the step above.
 Then terate over the list of dictionaries, and:  
 
 1. save it to a local csv using the short name you provided for the dataset as the file name, without writing the index column to the file.
@@ -90,11 +90,11 @@ Then terate over the list of dictionaries, and:
   - number of numerical variables in the dataset
 ```
 
+## Manipulate your datasets
 
 For one dataset that includes nonnumerical data:
 - display the heading and the last 4 rows
 - make and display a new data frame with only the numerical columns (select these programmatically)
-- was the format that the data was provided in a good format? why or why not?
 
 
 For any other dataset:
@@ -105,10 +105,12 @@ For any other dataset:
 For the third dataset:
 - display the first 3 odd rows (eg 1,3,5) of the data for two columns of your choice
 
+
 ## Exploring data files
 
 For each dataset, in a separate section of your notebook titled `When things go wrong`:
 - try reading in data with the wrong `read_` function and make notes about what happens.
+- was the format that the data was provided in a good format? why or why not?
 - try to read in the `.csv` file that's included in the template repository (), use the error messages you get to try to fix the file manualy (any text editor, including jupyter can edit a `.csv`), making notes about what changes you made in a markdown cell.
 
 
@@ -116,12 +118,12 @@ For each dataset, in a separate section of your notebook titled `When things go 
 ## Thinking ahead
 
 ```{warning}
-This section is not required, but is intended to help you get started thinking
+his section is not required, but is intended to help you get started thinking
 about ideas for your portflio.  If you complete it, we'll give your feedback to
 help shape your ideas to get to level 3 achievements.  If you want to focus only
 on level 2 at this moment in time, feel free to skip this part.
 ```
-_answer these under a separate heading at the end of your notebook_
+
 
 1. When might you prefer one datatype over another?
 1. How does PEP 8 standard code help you be collaborative?
