@@ -68,7 +68,7 @@ Urls are strings. The `string` class in python has a lot of helpful methods for 
 
 ## Make a dataset about your datasets
 
-Import the list fomr the `datasets` module you created in the step above.
+Import the list from the `datasets` module you created in the step above.
 Then terate over the list of dictionaries, and:  
 
 1. save it to a local csv using the short name you provided for the dataset as the file name, without writing the index column to the file.
