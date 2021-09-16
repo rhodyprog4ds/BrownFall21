@@ -116,7 +116,7 @@ For each dataset, in a separate section of your notebook titled `When things go 
 ## Thinking ahead
 
 ```{warning}
-his section is not required, but is intended to help you get started thinking
+This section is not required, but is intended to help you get started thinking
 about ideas for your portflio.  If you complete it, we'll give your feedback to
 help shape your ideas to get to level 3 achievements.  If you want to focus only
 on level 2 at this moment in time, feel free to skip this part.
