@@ -12,6 +12,12 @@ publisher of [wizard zines](https://wizardzines.com/).
 
 ## Describing what you have so far
 
+````{margin}
+```{note}
+A fun version of this is [rubber duck debugging](https://rubberduckdebugging.com/)
+```
+````
+
 Stackoverflow is a common place for programmers to post and answer questions.  
 As such, they have written a good
 [guide on creating a minimal, reproducible example](https://stackoverflow.com/help/minimal-reproducible-example).
