@@ -4,6 +4,9 @@
 
 ```{glossary}
 
+[DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)
+  a data structure provided by pandas for tabular data in python.
+
 git
   a version control tool; it's a fully open source and always free tool, that can be hosted by anyone or used without a host, locally only.
 
@@ -15,10 +18,10 @@ interpreter
   the translator from human readable python code to something the computer can run.  An interpreted language means you can work with python interactively
 
 kernel
-  in the jupyter environment, [the kernel](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html#kernel) is a language specific computational
+  in the jupyter environment, [the kernel](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html#kernel) is a language specific computational engine
 
 
-pep 8
+PEP 8
   [Python Enhancement Proposal 8](https://www.python.org/dev/peps/pep-0008/), the Style Guide for Python Code
 
 repository
