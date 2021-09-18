@@ -1,0 +1,34 @@
+.admonition-try-it-yourself {
+    border-left-color: rgba(var(--pst-color-info), 1);
+}
+.admonition-try-it-yourself .admonition-title {
+    background-color: rgba(var(--pst-color-info), .1)
+}
+.admonition-try-it-yourself .admonition-title:before {
+    color: rgba(var(--pst-color-info), 1);
+    content: '\f121';
+}
+
+
+.admonition-further-reading {
+    border-left-color: rgba(var(--pst-color-info), 1);
+}
+.admonition-further-reading .admonition-title {
+    background-color: rgba(var(--pst-color-info), .1)
+}
+.admonition-further-reading .admonition-title:before {
+    color: rgba(var(--pst-color-info), 1);
+    content: '\f5da';
+}
+
+
+.admonition-question-from-class {
+    border-left-color: rgba(var(--pst-color-success), 1);
+}
+.admonition-question-from-class .admonition-title {
+    background-color: rgba(var(--pst-color-success), .1)
+}
+.admonition-question-from-class .admonition-title:before {
+    color: rgba(var(--pst-color-success), 1);
+    content: '\f059';
+}

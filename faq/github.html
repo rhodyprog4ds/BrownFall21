@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Git and GitHub FAQ &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>Git and GitHub &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -51,7 +52,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Common Debugging Issues" href="debugging.html" />
+    <link rel="next" title="Code Errors" href="debugging.html" />
     <link rel="prev" title="Syllabus FAQ" href="syllabus.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -215,12 +216,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Git and GitHub FAQ
+   Git and GitHub
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   Common Debugging Issues
+   Code Errors
   </a>
  </li>
 </ul>
@@ -326,7 +327,10 @@
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
-        
+        <a class="repository-button"
+            href="https://github.com/rhodyprog4ds/BrownFall21/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
             href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Ffaq/github.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
@@ -359,8 +363,8 @@
         
               <div>
                 
-  <div class="section" id="git-and-github-faq">
-<h1>Git and GitHub FAQ<a class="headerlink" href="#git-and-github-faq" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="git-and-github">
+<h1>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this headline">¶</a></h1>
 <!--
 ````{dropdown}
 
@@ -437,7 +441,7 @@ Help! I accidentally merged the Feedback Pull Request before my assignment was g
 <div class="summary-up docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
-<p class="card-text">That’s ok. You can fix it.</p>
+<p class="card-text" id="preemptive-merge">That’s ok. You can fix it.</p>
 <p class="card-text">You’ll have to work offline and use GitHub in your browser together for this fix. The following instuctions will work in terminal on Mac or Linux or in GitBash for Windows. (see <span class="xref myst">Programming Environment section on the tools page</span>).</p>
 <p class="card-text">First get the url to clone your repository (unless you already have it cloned then skip ahead): on the main page for your repository, click the green “Code” button, then copy the url that’s show
 <img alt="screenshot of copying .git url" src="../_images/get_clone_url.png" /></p>
@@ -553,7 +557,7 @@ Help! I accidentally merged the Feedback Pull Request before my assignment was g
         <a class="right-next" href="debugging.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Common Debugging Issues</p>
+                <p class="prevnext-title">Code Errors</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
