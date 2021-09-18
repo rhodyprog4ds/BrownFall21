@@ -1,6 +1,7 @@
+(datasets)=
 # Data Sources
 
-This page is a semi-curated source of datasets for use in assignments.  The different sections have datasets that are good for different assignments. 
+This page is a semi-curated source of datasets for use in assignments.  The different sections have datasets that are good for different assignments.
 
 
 (basic-datasets)=

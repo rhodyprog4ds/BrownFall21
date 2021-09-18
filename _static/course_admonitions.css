@@ -35,12 +35,25 @@
 
 
 .admonition-ram-token-opportunity {
-    border-left-color: rgba(var(--pst-color-success), 1);
+    border-left-color: rgba(var(--pst-color-info), 1);
 }
 .admonition-ram-token-opportunity  .admonition-title {
-    background-color: rgba(var(--pst-color-success), .1)
+    background-color: rgba(var(--pst-color-info), .1)
 }
 .admonition-ram-token-opportunity  .admonition-title:before {
-    color: rgba(var(--pst-color-success), 1);
+    color: rgba(var(--pst-color-info), 1);
     content: '\f51e';
+}
+
+
+
+.admonition-think-ahead {
+    border-left-color: rgba(var(--pst-color-success), 1);
+}
+.admonition-think-ahead  .admonition-title {
+    background-color: rgba(var(--pst-color-success), .1)
+}
+.admonition-think-ahead  .admonition-title:before {
+    color: rgba(var(--pst-color-success), 1);
+    content: '\1f4c1';
 }

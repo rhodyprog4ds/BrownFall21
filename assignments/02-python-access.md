@@ -4,7 +4,7 @@ substitutions:
     [accept the assignment](https://classroom.github.com/a/damCPljl)
   date : 2020-09-21
 ---
-# Assignment 2: Practicing Python and Accessing Data
+# Practicing Python and Accessing Data
 
 
 due : {{ date }}
@@ -16,10 +16,10 @@ due : {{ date }}
 This assignment is an opportunity to earn level 1 and 2 achievements in `python` and `access` and begin working toward level 1 for `summarize`. You can also earn level 1 for `process`.
 
 In this assignment, you'll practice/ review python skills by manipulating datasets
-and extracting
+and extracting. The following table summarizes the grading. It supplements the skill definitions from the {ref}`achievement-definitions`.
 
 
-```{list-table} practice python by manipulating data files, load datasets of different types
+```{list-table} rubric for grading
 :header-rows: 1
 
 * - Task
@@ -49,7 +49,7 @@ First, {{ accept_assignment }}. It contains a notebook with some template struct
 
 ````{margin}
 ```{hint}
-The [Datasets page](resources/datasets) has information about data for any assignment.  For this assignment, the {ref}`basic-datasets` section is probably the best place to start. 
+The [Datasets page](datasets) has information about data for any assignment.  For this assignment, the {ref}`basic-datasets` section is probably the best place to start.
 ```
 ````
 
@@ -66,6 +66,10 @@ In your notebook, create a markdown cell for each notebook that includes:
 Create a list of dictionaries in `datasets.py`, so that there is one dictionary for each dataset with the url, a name, and what function should be used to load the data into a `pandas.DataFrame`.
 
 ````{margin}
+```{hint}
+Any `.py` file can become a [module](https://docs.python.org/3/tutorial/modules.html#modules)
+```
+
 ```{tip}
 Urls are strings. The `string` class in python has a lot of helpful methods for manipulating strings, like [`split`](https://docs.python.org/3/library/stdtypes.html#str.split).
 ```
@@ -74,8 +78,8 @@ Urls are strings. The `string` class in python has a lot of helpful methods for 
 
 ## Make a dataset about your datasets
 
-Import the list fomr the `datasets` module you created in the step above.
-Then terate over the list of dictionaries, and:  
+Import the list from the `datasets` module you created in the step above.
+Then iterate over the list of dictionaries, and:  
 
 1. save it to a local csv using the short name you provided for the dataset as the file name, without writing the index column to the file.
 1. record attributes about the dataset as in the table below in a list of lists:
@@ -121,16 +125,19 @@ For each dataset, in a separate section of your notebook titled `When things go 
 
 
 
-## Thinking ahead
 
+
+````{margin}
 ```{warning}
-his section is not required, but is intended to help you get started thinking
+This section is not required, but is intended to help you get started thinking
 about ideas for your portflio.  If you complete it, we'll give your feedback to
 help shape your ideas to get to level 3 achievements.  If you want to focus only
 on level 2 at this moment in time, feel free to skip this part.
 ```
+````
 
-
+```{admonition} Think Ahead
 1. When might you prefer one datatype over another?
 1. How does PEP 8 standard code help you be collaborative?
-1. Learn about [Datasheets for Datasets](https://arxiv.org/pdf/1803.09010.pdf) eg this [google scholar result](https://scholar.google.com/scholar?q=datasheets+for+datasets&hl=en&as_sdt=0&as_vis=1&oi=scholart) How could something like this impact your work as a datascientist?
+1. Learn about [Datasheets for Datasets](https://arxiv.org/pdf/1803.09010.pdf) eg this [google scholar result](https://scholar.google.com/scholar?q=datasheets+for+datasets&hl=en&as_sdt=0&as_vis=1&oi=scholart) How could something like this impact your work as a data scientist?
+```
