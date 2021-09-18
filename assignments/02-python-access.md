@@ -33,7 +33,7 @@ and extracting
 * - compare the data formats
   - [ access (2)]
 * - complete the assignment in python
-    - python (1)]
+  - python (1)]
 * - use python data types (eg dictionaries) to prepare information about datasets
   - [python (2)]
 * - use informative variable names, pythonic iteration, and other common PEP 8 conventions
@@ -76,7 +76,7 @@ Then terate over the list of dictionaries, and:
 1. Use that to create a DataFrame with the following columns:
 
 ```{list-table} Meta Data Description of the DataFrame to build
-:header-rows:0
+:header-rows: 0
 
 * - name
   - a short name for the dataset
