@@ -32,3 +32,15 @@
     color: rgba(var(--pst-color-success), 1);
     content: '\f059';
 }
+
+
+.admonition-ram-token-opportunity {
+    border-left-color: rgba(var(--pst-color-success), 1);
+}
+.admonition-ram-token-opportunity  .admonition-title {
+    background-color: rgba(var(--pst-color-success), .1)
+}
+.admonition-ram-token-opportunity  .admonition-title:before {
+    color: rgba(var(--pst-color-success), 1);
+    content: '\f51e';
+}

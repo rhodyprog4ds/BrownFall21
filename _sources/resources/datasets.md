@@ -1,11 +1,15 @@
 # Data Sources
 
+This page is a semi-curated source of datasets for use in assignments.  The different sections have datasets that are good for different assignments. 
 
+
+(basic-datasets)=
 ## Best for loading directly into a notebook
 - [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday/tree/master/data) inside the folder for each year there is a README file with list of the datasets. These are .csv files
 - [Json Datasets](https://github.com/jdorfman/awesome-json-datasets)
 - [National Center for Education Statistics Digest 2019](https://nces.ed.gov/programs/digest/d19/tables_3.asp) These data tables are available for download as excel and visible on the page.
 - Lots of wikipedia pages have tables in them.
+
 
 ## Requires some more work
 

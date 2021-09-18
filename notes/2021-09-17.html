@@ -19309,10 +19309,10 @@ Name: (Unnamed: 0_level_0, keyword), dtype: object
 </div>
 <div class="section" id="more-practice">
 <h2><span class="section-number">5.9. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<ul class="simple">
 <li><p>What <code class="docutils literal notranslate"><span class="pre">type</span></code> is the shape of a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>?</p></li>
 <li><p>use a list comprehension to create a list that you could use as column names for data that consists of <code class="docutils literal notranslate"><span class="pre">N</span></code> measurements. Set <code class="docutils literal notranslate"><span class="pre">N=5</span></code> for now, but you suspect that the number might change.</p></li>
-</ol>
+</ul>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">4</span>
@@ -19321,28 +19321,25 @@ Name: (Unnamed: 0_level_0, keyword), dtype: object
 </div>
 </div>
 </div>
-<ol class="simple">
+<ul class="simple">
 <li><p>create a list of items with different types, then Create a dictionary with the types as keys using a dictionary comprehension. Dictionary comprehensions are similar to list comprehensions, in their form.</p></li>
-</ol>
+</ul>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">about_prof_brown_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Dr. &#39;</span><span class="p">,</span> <span class="mi">134</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;CSC310&#39;</span><span class="p">,</span><span class="s1">&#39;CSC592&#39;</span><span class="p">,</span><span class="s1">&#39;CSC392&#39;</span><span class="p">]]</span>
-<span class="n">about_prof_brown_dict</span> <span class="o">=</span> <span class="p">{</span><span class="nb">type</span><span class="p">(</span><span class="n">fact</span><span class="p">):</span><span class="n">fact</span><span class="p">}</span> <span class="k">for</span> <span class="n">fact</span> <span class="ow">in</span> <span class="n">about_prof_brown_list</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2420/1212617702.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
-    <span class="n">about_prof_brown_dict</span> <span class="o">=</span> <span class="p">{</span><span class="nb">type</span><span class="p">(</span><span class="n">fact</span><span class="p">):</span><span class="n">fact</span><span class="p">}</span> <span class="k">for</span> <span class="n">fact</span> <span class="ow">in</span> <span class="n">about_prof_brown_list</span><span class="p">}</span>
-                                                <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+
+<span class="n">about_prof_brown_dict</span> <span class="o">=</span> <span class="p">{</span><span class="nb">type</span><span class="p">(</span><span class="n">fact</span><span class="p">):</span><span class="n">fact</span> <span class="k">for</span> <span class="n">fact</span> <span class="ow">in</span> <span class="n">about_prof_brown_list</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="simple">
+<ul class="simple">
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function to print return the first 2 rows of a data frame</p></li>
-</ol>
+</ul>
+<div class="admonition-ram-token-opportunity admonition">
+<p class="admonition-title">Ram Token Opportunity</p>
+<p>Contribute possible practice questions to the notes using the suggest an edit button behind the GitHub menu at the top of the page.</p>
+</div>
 </div>
 </div>
 
