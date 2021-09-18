@@ -456,27 +456,729 @@ the full name everywhere</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">coffee_data_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2266</span><span class="o">/</span><span class="mf">1157008400.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span> 
-<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="ne">TypeError</span>: read_csv() missing 1 required positional argument: &#39;filepath_or_buffer&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Species</th>
+      <th>Owner</th>
+      <th>Country.of.Origin</th>
+      <th>Farm.Name</th>
+      <th>Lot.Number</th>
+      <th>Mill</th>
+      <th>ICO.Number</th>
+      <th>Company</th>
+      <th>Altitude</th>
+      <th>...</th>
+      <th>Color</th>
+      <th>Category.Two.Defects</th>
+      <th>Expiration</th>
+      <th>Certification.Body</th>
+      <th>Certification.Address</th>
+      <th>Certification.Contact</th>
+      <th>unit_of_measurement</th>
+      <th>altitude_low_meters</th>
+      <th>altitude_high_meters</th>
+      <th>altitude_mean_meters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Robusta</td>
+      <td>ankole coffee producers coop</td>
+      <td>Uganda</td>
+      <td>kyangundu cooperative society</td>
+      <td>NaN</td>
+      <td>ankole coffee producers</td>
+      <td>0</td>
+      <td>ankole coffee producers coop</td>
+      <td>1488</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>2</td>
+      <td>June 26th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1488.0</td>
+      <td>1488.0</td>
+      <td>1488.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Robusta</td>
+      <td>nishant gurjer</td>
+      <td>India</td>
+      <td>sethuraman estate kaapi royale</td>
+      <td>25</td>
+      <td>sethuraman estate</td>
+      <td>14/1148/2017/21</td>
+      <td>kaapi royale</td>
+      <td>3170</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>October 31st, 2018</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>3170.0</td>
+      <td>3170.0</td>
+      <td>3170.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estate</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0000</td>
+      <td>sethuraman estate</td>
+      <td>1000m</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>April 29th, 2016</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Robusta</td>
+      <td>ugacof</td>
+      <td>Uganda</td>
+      <td>ugacof project area</td>
+      <td>NaN</td>
+      <td>ugacof</td>
+      <td>0</td>
+      <td>ugacof ltd</td>
+      <td>1212</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>7</td>
+      <td>July 14th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1212.0</td>
+      <td>1212.0</td>
+      <td>1212.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Robusta</td>
+      <td>katuka development trust ltd</td>
+      <td>Uganda</td>
+      <td>katikamu capca farmers association</td>
+      <td>NaN</td>
+      <td>katuka development trust</td>
+      <td>0</td>
+      <td>katuka development trust ltd</td>
+      <td>1200-1300</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>3</td>
+      <td>June 26th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1200.0</td>
+      <td>1300.0</td>
+      <td>1250.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>(self)</td>
+      <td>NaN</td>
+      <td>cafemakers, llc</td>
+      <td>3000'</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>February 28th, 2013</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>3000.0</td>
+      <td>3000.0</td>
+      <td>3000.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>cafemakers</td>
+      <td>750m</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>May 15th, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>Robusta</td>
+      <td>nishant gurjer</td>
+      <td>India</td>
+      <td>sethuraman estate kaapi royale</td>
+      <td>7</td>
+      <td>sethuraman estate</td>
+      <td>14/1148/2017/18</td>
+      <td>kaapi royale</td>
+      <td>3140</td>
+      <td>...</td>
+      <td>Bluish-Green</td>
+      <td>0</td>
+      <td>October 25th, 2018</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>3140.0</td>
+      <td>3140.0</td>
+      <td>3140.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>Robusta</td>
+      <td>nishant gurjer</td>
+      <td>India</td>
+      <td>sethuraman estate</td>
+      <td>RKR</td>
+      <td>sethuraman estate</td>
+      <td>14/1148/2016/17</td>
+      <td>kaapi royale</td>
+      <td>1000</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>August 17th, 2017</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>Robusta</td>
+      <td>ugacof</td>
+      <td>Uganda</td>
+      <td>ishaka</td>
+      <td>NaN</td>
+      <td>nsubuga umar</td>
+      <td>0</td>
+      <td>ugacof ltd</td>
+      <td>900-1300</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>6</td>
+      <td>August 5th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>900.0</td>
+      <td>1300.0</td>
+      <td>1100.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>Robusta</td>
+      <td>ugacof</td>
+      <td>Uganda</td>
+      <td>ugacof project area</td>
+      <td>NaN</td>
+      <td>ugacof</td>
+      <td>0</td>
+      <td>ugacof ltd</td>
+      <td>1095</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>June 26th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1095.0</td>
+      <td>1095.0</td>
+      <td>1095.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>Robusta</td>
+      <td>nishant gurjer</td>
+      <td>India</td>
+      <td>sethuraman estate kaapi royale</td>
+      <td>RC AB</td>
+      <td>sethuraman estate</td>
+      <td>14/1148/2016/12</td>
+      <td>kaapi royale</td>
+      <td>1000</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>August 23rd, 2017</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>cafemakers</td>
+      <td>750m</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>May 19th, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>Robusta</td>
+      <td>kasozi coffee farmers association</td>
+      <td>Uganda</td>
+      <td>kasozi coffee farmers</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>kasozi coffee farmers association</td>
+      <td>1367</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>7</td>
+      <td>July 14th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1367.0</td>
+      <td>1367.0</td>
+      <td>1367.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>Robusta</td>
+      <td>ankole coffee producers coop</td>
+      <td>Uganda</td>
+      <td>kyangundu coop society</td>
+      <td>NaN</td>
+      <td>ankole coffee producers coop union ltd</td>
+      <td>0</td>
+      <td>ankole coffee producers coop</td>
+      <td>1488</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>2</td>
+      <td>July 14th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1488.0</td>
+      <td>1488.0</td>
+      <td>1488.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estate</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0000</td>
+      <td>sethuraman estate</td>
+      <td>1000m</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>April 29th, 2016</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>cafemakers, llc</td>
+      <td>750m</td>
+      <td>...</td>
+      <td>Blue-Green</td>
+      <td>0</td>
+      <td>June 3rd, 2014</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>Robusta</td>
+      <td>kawacom uganda ltd</td>
+      <td>Uganda</td>
+      <td>bushenyi</td>
+      <td>NaN</td>
+      <td>kawacom</td>
+      <td>0</td>
+      <td>kawacom uganda ltd</td>
+      <td>1600</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>June 27th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1600.0</td>
+      <td>1600.0</td>
+      <td>1600.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>Robusta</td>
+      <td>nitubaasa ltd</td>
+      <td>Uganda</td>
+      <td>kigezi coffee farmers association</td>
+      <td>NaN</td>
+      <td>nitubaasa</td>
+      <td>0</td>
+      <td>nitubaasa ltd</td>
+      <td>1745</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>2</td>
+      <td>June 27th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1745.0</td>
+      <td>1745.0</td>
+      <td>1745.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>Robusta</td>
+      <td>mannya coffee project</td>
+      <td>Uganda</td>
+      <td>mannya coffee project</td>
+      <td>NaN</td>
+      <td>mannya coffee project</td>
+      <td>0</td>
+      <td>mannya coffee project</td>
+      <td>1200</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>June 27th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>1200.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>cafemakers</td>
+      <td>750m</td>
+      <td>...</td>
+      <td>Bluish-Green</td>
+      <td>1</td>
+      <td>May 19th, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>cafemakers, llc</td>
+      <td>750m</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>June 20th, 2014</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>United States</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>cafemakers, llc</td>
+      <td>3000'</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>February 28th, 2013</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>3000.0</td>
+      <td>3000.0</td>
+      <td>3000.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>Robusta</td>
+      <td>luis robles</td>
+      <td>Ecuador</td>
+      <td>robustasa</td>
+      <td>Lavado 1</td>
+      <td>our own lab</td>
+      <td>NaN</td>
+      <td>robustasa</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Blue-Green</td>
+      <td>1</td>
+      <td>January 18th, 2017</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>Robusta</td>
+      <td>luis robles</td>
+      <td>Ecuador</td>
+      <td>robustasa</td>
+      <td>Lavado 3</td>
+      <td>own laboratory</td>
+      <td>NaN</td>
+      <td>robustasa</td>
+      <td>40</td>
+      <td>...</td>
+      <td>Blue-Green</td>
+      <td>0</td>
+      <td>January 18th, 2017</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>40.0</td>
+      <td>40.0</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>Robusta</td>
+      <td>james moore</td>
+      <td>United States</td>
+      <td>fazenda cazengo</td>
+      <td>NaN</td>
+      <td>cafe cazengo</td>
+      <td>NaN</td>
+      <td>global opportunity fund</td>
+      <td>795 meters</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>6</td>
+      <td>December 23rd, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>795.0</td>
+      <td>795.0</td>
+      <td>795.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>Robusta</td>
+      <td>cafe politico</td>
+      <td>India</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14-1118-2014-0087</td>
+      <td>cafe politico</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>August 25th, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>Robusta</td>
+      <td>cafe politico</td>
+      <td>Vietnam</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>cafe politico</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>None</td>
+      <td>9</td>
+      <td>August 25th, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>28 rows × 44 columns</p>
+</div></div></div>
 </div>
 <p>We’ll use <code class="docutils literal notranslate"><span class="pre">pd</span></code> because that’s the more common convention and so that we can type
 fewer characters throughout our code</p>
