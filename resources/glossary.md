@@ -1,5 +1,8 @@
 # Glossary
 
+```{admonition} Ram Token Opportunity
+Contribute glossary items and  links for further reading using the suggest an edit button behind the GitHub menu at the top of the page. 
+```
 
 
 ```{glossary}
