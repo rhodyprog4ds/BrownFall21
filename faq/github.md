@@ -1,4 +1,4 @@
-# Git and GitHub FAQ
+# Git and GitHub
 
 
 <!--
@@ -70,7 +70,7 @@ If there's an error your notebook it can't complete running. You can allow it to
 
 
 ````{dropdown} Help! I accidentally merged the Feedback Pull Request before my assignment was graded
-
+(preemptive-merge)=
 
 That's ok. You can fix it.
 
