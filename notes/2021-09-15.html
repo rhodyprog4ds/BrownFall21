@@ -51,7 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="2021-09-17.html" />
+    <link rel="next" title="5. More Loading Data, Indexing, and Iterables" href="2021-09-17.html" />
     <link rel="prev" title="3. Getting help, object inspection, loading data" href="2021-09-13.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -155,6 +155,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    4. Pandas DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-17.html">
+   5. More Loading Data, Indexing, and Iterables
   </a>
  </li>
 </ul>
@@ -458,7 +463,7 @@ the full name everywhere</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2402</span><span class="o">/</span><span class="mf">1157008400.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2266</span><span class="o">/</span><span class="mf">1157008400.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">()</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
@@ -2115,9 +2120,7 @@ Is there a way to have a set show the duplicates that get discarded?<div class="
 <div class="summary-up docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
-<ul class="simple">
-<li><p class="card-text">no, <code class="docutils literal notranslate"><span class="pre">set</span></code> is casting the data type so it loses information</p></li>
-</ul>
+<p class="card-text">no, <code class="docutils literal notranslate"><span class="pre">set</span></code> is casting the data type so it loses information</p>
 </div>
 </details><details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -2164,14 +2167,44 @@ can you use cast a pandas dataframe into a set?<div class="summary-down docutils
 <h2><span class="section-number">4.9. </span>Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Create variables of three different types with facts about yourself. Use descriptive variable names relative to the contents, not their types.</p></li>
-<li><p>Create a list, again with a descriptive name, and print out the types</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- Write a function, `type_extractor` that takes a list and a type and returns the item of that type from the list
-- Test your function on all three items from your dictionary.
-- Use one type of jupyter help on your function, what does it display? If it doesn&#39;t display anything modify your function so that help will work.
-- Make yourself notes in the most memorable way for you about what a DataFrame is.
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;dr&#39;</span> <span class="c1">#string</span>
+<span class="n">office_number</span> <span class="o">=</span> <span class="mi">134</span> <span class="c1"># int</span>
+<span class="n">courses_taught</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Programming for Data Science&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Machine Learning for Science &amp; Society&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Create a list, again with a descriptive name, and print out the types</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">about_prof_brown_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span><span class="p">,</span> <span class="n">office_number</span><span class="p">,</span> <span class="n">courses_taught</span><span class="p">]</span>
+
+<span class="c1"># regular for loop</span>
+<span class="k">for</span> <span class="n">fact</span> <span class="ow">in</span> <span class="n">about_prof_brown_list</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">fact</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;int&#39;&gt;
+&lt;class &#39;list&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Write a function, <code class="docutils literal notranslate"><span class="pre">type_extractor</span></code> that takes a list and a type and returns the item of that type from the list</p></li>
+<li><p>Test your function on all three items from your dictionary.</p></li>
+<li><p>Use one type of jupyter help on your function, what does it display? If it doesn’t display anything modify your function so that help will work.</p></li>
+<li><p>Make yourself notes in the most memorable way for you about what a DataFrame is.</p></li>
+</ul>
 </div>
 </div>
 
@@ -2217,7 +2250,7 @@ can you use cast a pandas dataframe into a set?<div class="summary-down docutils
         <a class="right-next" href="2021-09-17.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">&lt;no title&gt;</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>More Loading Data, Indexing, and Iterables</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
