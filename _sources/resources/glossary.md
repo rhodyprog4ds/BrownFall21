@@ -4,6 +4,9 @@
 
 ```{glossary}
 
+[anonymous function](https://en.wikipedia.org/wiki/Anonymous_function#:~:text=Anonymous%20functions%20are%20often%20arguments,than%20using%20a%20named%20function)
+  a function that's defined on the fly, typically to lighten syntax or return a function within a function. In python, they're defined with the {term}`lambda` keyword.
+
 [DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)
   a data structure provided by pandas for tabular data in python.
 
@@ -20,6 +23,8 @@ interpreter
 kernel
   in the jupyter environment, [the kernel](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html#kernel) is a language specific computational engine
 
+[lambda](https://docs.python.org/3.9/reference/expressions.html#lambda)
+  they keyword used to define an anonymous function; lambda functions are defined with a compact syntax `<name> = lambda <parameters>: <body> `
 
 PEP 8
   [Python Enhancement Proposal 8](https://www.python.org/dev/peps/pep-0008/), the Style Guide for Python Code

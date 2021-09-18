@@ -418,23 +418,28 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-are-objects-printed-in-jupyter">
+   5.5. How are objects printed in jupyter?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-do-we-know-what-to-check">
-   5.5. How do we know what to check?
+   5.6. How do we know what to check?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lambdas-and-dictionaries-for-switching">
-   5.6. Lambdas and Dictionaries for switching
+   5.7. Lambdas and Dictionaries for switching
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#questions-after-class">
-   5.7. Questions after class
+   5.8. Questions after class
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-practice">
-   5.8. More Practice
+   5.9. More Practice
   </a>
  </li>
 </ul>
@@ -753,9 +758,9 @@ their own documentation gets updated at the same time the code does.</p>
 <p>We’ve inspected the dataframe some before, but we can also check the type of each column.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can read more about the <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/basics.html#basics-dtypes">details of data types</a> in Pandas</p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p>You can read more about the <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/basics.html#basics-dtypes">details of data types</a> in Pandas in the documentation</p>
 </div>
 </div>
 <div class="cell docutils container">
@@ -774,8 +779,22 @@ dtype: object
 </div>
 </div>
 </div>
-<p>Question: Why does it have <code class="docutils literal notranslate"><span class="pre">dtype:object</span></code> after the type for each row?</p>
-<p>First to understand this, let’s save the thing we’re curious to a variable so we can examine it multiple ways more easily.</p>
+</div>
+<div class="section" id="how-are-objects-printed-in-jupyter">
+<h2><span class="section-number">5.5. </span>How are objects printed in jupyter?<a class="headerlink" href="#how-are-objects-printed-in-jupyter" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question-from-class admonition">
+<p class="admonition-title">Question from class</p>
+<p>Q: Why does it have <code class="docutils literal notranslate"><span class="pre">dtype:object</span></code> after the type for each row?
+A: the last line is information about the object that is being printed out.</p>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this section is added, it didn’t happen this way in class.  This section, describes <strong>how</strong> I figured out the answer to the question about why that extra line is diplayed.</p>
+</div>
+</div>
+<p>To understand this, let’s save the thing we’re curious to a variable so we can examine it multiple ways more easily.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help_df_types</span> <span class="o">=</span> <span class="n">help_df</span><span class="o">.</span><span class="n">dtypes</span>
@@ -796,7 +815,7 @@ dtype: object
 </div>
 </div>
 </div>
-<p>a <code class="docutils literal notranslate"><span class="pre">Series</span></code> is like a dataframee, but just one row with headings, and then rotated.</p>
+<p>a <span class="xref std std-term">Series</span> is like a DataFrame, but just one row with headings, and then rotated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help_df_types</span><span class="o">.</span><span class="n">shape</span>
@@ -879,7 +898,7 @@ dtype: object
 </div>
 </div>
 <div class="section" id="how-do-we-know-what-to-check">
-<h2><span class="section-number">5.5. </span>How do we know what to check?<a class="headerlink" href="#how-do-we-know-what-to-check" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.6. </span>How do we know what to check?<a class="headerlink" href="#how-do-we-know-what-to-check" title="Permalink to this headline">¶</a></h2>
 <p>we examined the DataFrame so far by (me) knowing what to look for.</p>
 <p>In python objects
 you can progrmamatically find what to look for with the <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> attribute or
@@ -897,7 +916,10 @@ You can access the docstring of a python using the <code class="docutils literal
 <p>In ipython (what we use in jupyter, by default) we can use the <code class="docutils literal notranslate"><span class="pre">?</span></code> for help</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
 <p><a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/python-ipython-diff.html?highlight=help#accessing-help">ipython help</a> read about how it works, if it doesn’t work for you to try to figure out why</p>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -19122,8 +19144,8 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
 </div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition-question-from-class admonition">
+<p class="admonition-title">Question from class</p>
 <p>Python does have <a class="reference external" href="https://book.pythontips.com/en/latest/ternary_operators.html">ternary operators</a> but the dictionary is a more common
 way to achieve this and goal and more common patterns are better for
 readability</p>
@@ -19131,15 +19153,27 @@ readability</p>
 </div>
 </div>
 <div class="section" id="lambdas-and-dictionaries-for-switching">
-<h2><span class="section-number">5.6. </span>Lambdas and Dictionaries for switching<a class="headerlink" href="#lambdas-and-dictionaries-for-switching" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.7. </span>Lambdas and Dictionaries for switching<a class="headerlink" href="#lambdas-and-dictionaries-for-switching" title="Permalink to this headline">¶</a></h2>
 <p>What if we want to print out the first column  for the dataFrame if it has more than 3 columns and the whole thing if it has 3 or less columns?</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p>You can refer to the <a class="reference external" href="https://docs.python.org/3.9/reference/expressions.html#lambda">official documentation</a> on <a class="reference internal" href="../resources/glossary.html#term-lambda"><span class="xref std std-term">lambda</span></a> functions for a brief syntax description or this <a class="reference external" href="https://realpython.com/python-lambda/">tutorial on Real Python</a> for more context, history, and examples.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>We’ll see lambdas again and again. Starting with summarizing data and again when cleaning. Understanding how to use these will help.</p>
+</div>
+</div>
 <p>Two ways of writing a function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># typical way</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># with the def key</span>
 <span class="k">def</span> <span class="nf">first_col_f</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 
+<span class="c1"># lambda (anonymous function)</span>
 <span class="n">first_col_l</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 
 <span class="n">first_col_f</span><span class="p">(</span><span class="n">help_df</span><span class="p">)</span> <span class="o">==</span> <span class="n">first_col_l</span><span class="p">(</span><span class="n">help_df</span><span class="p">)</span>
@@ -19157,6 +19191,11 @@ Name: Day, dtype: bool
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>read the code excerpt above carefully and try to match up the parts of a function: its name, the parameter list, and the body. Try writing your own lambda function.</p>
+<p>Lambdas are an example of an <a class="reference internal" href="../resources/glossary.html#term-anonymous-function"><span class="xref std std-term">anonymous function</span></a></p>
 </div>
 <p>We can put functions in dictionaries, or even define a lambda right in the dictionary.</p>
 <div class="cell docutils container">
@@ -19262,14 +19301,14 @@ Name: (Unnamed: 0_level_0, keyword), dtype: object
 </div>
 </div>
 <div class="section" id="questions-after-class">
-<h2><span class="section-number">5.7. </span>Questions after class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.8. </span>Questions after class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>add a question with a pull request; earn 1-2 ram tokens for submitting a question with the answer (with sources)</p>
 </div>
 </div>
 <div class="section" id="more-practice">
-<h2><span class="section-number">5.8. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.9. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>What <code class="docutils literal notranslate"><span class="pre">type</span></code> is the shape of a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>?</p></li>
 <li><p>use a list comprehension to create a list that you could use as column names for data that consists of <code class="docutils literal notranslate"><span class="pre">N</span></code> measurements. Set <code class="docutils literal notranslate"><span class="pre">N=5</span></code> for now, but you suspect that the number might change.</p></li>
@@ -19287,12 +19326,13 @@ Name: (Unnamed: 0_level_0, keyword), dtype: object
 </ol>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">about_prof_brown_dict</span> <span class="o">=</span> <span class="p">{</span><span class="nb">type</span><span class="p">(</span><span class="n">fact</span><span class="p">):</span><span class="n">fact</span><span class="p">}</span> <span class="k">for</span> <span class="n">fact</span> <span class="ow">in</span> <span class="n">about_prof_brown_list</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">about_prof_brown_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Dr. &#39;</span><span class="p">,</span> <span class="mi">134</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;CSC310&#39;</span><span class="p">,</span><span class="s1">&#39;CSC592&#39;</span><span class="p">,</span><span class="s1">&#39;CSC392&#39;</span><span class="p">]]</span>
+<span class="n">about_prof_brown_dict</span> <span class="o">=</span> <span class="p">{</span><span class="nb">type</span><span class="p">(</span><span class="n">fact</span><span class="p">):</span><span class="n">fact</span><span class="p">}</span> <span class="k">for</span> <span class="n">fact</span> <span class="ow">in</span> <span class="n">about_prof_brown_list</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2370/1953963119.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2420/1212617702.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
     <span class="n">about_prof_brown_dict</span> <span class="o">=</span> <span class="p">{</span><span class="nb">type</span><span class="p">(</span><span class="n">fact</span><span class="p">):</span><span class="n">fact</span><span class="p">}</span> <span class="k">for</span> <span class="n">fact</span> <span class="ow">in</span> <span class="n">about_prof_brown_list</span><span class="p">}</span>
                                                 <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -19301,7 +19341,7 @@ Name: (Unnamed: 0_level_0, keyword), dtype: object
 </div>
 </div>
 <ol class="simple">
-<li><p>Create a lambda funcation to print return the first 2 rows of a data frame</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function to print return the first 2 rows of a data frame</p></li>
 </ol>
 </div>
 </div>
