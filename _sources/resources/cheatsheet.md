@@ -17,7 +17,7 @@ kernelspec:
 Patterns and examples of how to use common tips in class
 
 
-## Axes
+## Axes 
 
 ```{code-cell} ipython3
 :tags: ["remove-input"]
@@ -34,7 +34,7 @@ df = pd.DataFrame(data = data,
 
 df
 ```
-
+This data frame is originally 3 rows, 2 columns.  So summing across rows will give us a {term}`Series` of length 3 (one per row) and long columns will give length 2, (one per column). Setting up our toy dataset to not be a square was important so that we can use it to check which way is which.
 
 ```{code-cell} ipython3
 df.sum(axis=0)
@@ -54,7 +54,7 @@ df.apply(sum,axis=0)
 df.apply(sum,axis=1)
 ```
 
-
+## Indexing
 
 ```{code-cell} ipython3
 df['A'][1]
