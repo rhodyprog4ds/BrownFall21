@@ -46,7 +46,7 @@ and when you build your portfolio it will render like this:
 * - python
   - basics
   - more efficient patterns
-  - pep8 patterns and common conventions, 
+  - pep8 patterns and common conventions,
 * - access
   - that datasets are collated on kaggle
   - how to load data for analysis
