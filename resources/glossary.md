@@ -13,6 +13,9 @@ Contribute glossary items and  links for further reading using the suggest an ed
 [DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)
   a data structure provided by pandas for tabular data in python.
 
+[dictionary](https://docs.python.org/3/glossary.html#term-dictionary)
+  a mapping array that matches keys to values.
+
 git
   a version control tool; it's a fully open source and always free tool, that can be hosted by anyone or used without a host, locally only.
 
@@ -22,6 +25,12 @@ GitHub
 
 interpreter
   the translator from human readable python code to something the computer can run.  An interpreted language means you can work with python interactively
+
+iterate over
+  To do the same thing to each item in an {term}`iterable` data structure, typically, an iterable type
+
+[iterable](https://docs.python.org/3/glossary.html#term-iterable)
+  any object in python that can return its members one at a time. The most common example is a list, but there are others.
 
 kernel
   in the jupyter environment, [the kernel](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html#kernel) is a language specific computational engine
