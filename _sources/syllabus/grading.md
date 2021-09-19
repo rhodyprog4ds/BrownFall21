@@ -240,13 +240,12 @@ This request should be no more than 7 sentences.
 Portfolio due dates will be announced well in advance and prompts for it will be released weekly.  You should spend some time working on it each week, applying what you've learned so far, from the feedback on previous assignments.  
 
 
-### Examples
-
+### Grading Examples
 
 
 If you always attend and get everything correct, you will earn and A and you won't need to submit the 4th portfolio check or assignment 13.
 
-#### Getting A Without Perfection
+#### Getting  an A Without Perfection
 
 
 ![exampleA](../img/example_A.png)
@@ -280,4 +279,4 @@ The student wanted to get a B and worked hard to get the level 2 achievements on
 
 Ram Tokens in this course will be used as a currency for extra effort.  You can earn Ram Tokens by doing work that supports your learning or class activities, but do not directly demonstrate achievements. You can spend Ram Tokens to get extra grading.  This will be mostly applicable to Portfolio Checks.  In Checks 3 & 4, some achievements will not be eligible for grading as per the [table](portfolioskills).  However, you can exchange Ram Tokens to make more achievements eligible for assessment.  This system rewards you for putting in consistent effort, even if it takes you many tries to understand a concept.
 
-To accumulate Ram Tokens, you submit a 'Deposit' to the [Ram Token Bank: http://drsmb.co/ramtoken](http://drsmb.co/ramtoken) with a link to what you did to earn a token. To apply Ram tokens for extra grading, submit the same form, with a link to the assignment and add the
+To accumulate Ram Tokens, you submit a 'Deposit' to the [Ram Token Bank: http://drsmb.co/ramtoken](http://drsmb.co/ramtoken) with a link to what you did to earn a token. To apply Ram tokens for extra grading, submit the same form, with a link to the assignment and add the Ramtoken label to the Feedback PR. 
