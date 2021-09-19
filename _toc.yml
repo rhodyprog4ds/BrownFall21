@@ -27,6 +27,7 @@ parts:
   - caption: Portfolio
     chapters:
     - file: portfolio/index
+    - file: portfolio/intro_reflection
     - file: portfolio/formatting
   - caption: FAQ
     chapters:
@@ -37,12 +38,13 @@ parts:
   - caption: Resources
     chapters:
     - file: resources/glossary
-    - file: resources/tips
-    - file: resources/learning
-    - file: resources/gettinghelp
     - file: resources/python
     - file: resources/cheatsheet
     - file: resources/datasets
+    - file: resources/tips
+    - file: resources/learning
+    - file: resources/gettinghelp
+    - file: resources/terminal
     - url: https://rhodyprog4ds.github.io/BrownFall20/letters/
       title: Advice from FA2020 Students
 

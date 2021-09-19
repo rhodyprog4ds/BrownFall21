@@ -3,7 +3,7 @@
 ```{tableofcontents}
 ```
 
-## Why not simplify this?
+## Why all this work?
 
 Managing environments is **one of the hardest parts of programming** so, as instructors,
 we often design our courses around not having to do it.  In this class, however,
@@ -39,6 +39,7 @@ having environment issues, as long as you ask for help in a timely matter.
 If, for example, you come to me in week 5 and have never got an any environment
 working and you're trying for the first time, your grade will be hurt because
 you will be very far behind at that point.
+Ask for help early and often. 
 ```
 
 
