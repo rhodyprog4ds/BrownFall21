@@ -1,5 +1,7 @@
 # Getting Help with Programming
 
+
+
 ## Asking Questions
 
 ![comic on asking questions, that summarizes blog post](../img/questions.png)
@@ -41,3 +43,11 @@ To understand what the traceback is, how to read one, and common examples, see [
 One thing to try, is [friendly traceback](https://friendly-traceback.github.io/docs/index.html)
 a python package that is designed to make that error message text more clear and
 help you figure out what to do next.
+
+`````{admonition} Ram Token Opportunity
+If you try out friendly traceback and find it helpful, add a testimonial here. using
+````
+```{epigraph}
+```
+````
+`````
