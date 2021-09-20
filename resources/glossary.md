@@ -22,12 +22,15 @@ git
 GitHub
   a hosting service for git repositories
 
+index
+  (verb) to index into a data structure means to pick out specified items, for example index into a list or a index into a data frame. Indexing usually invovlees square brackets `[]`
+  (noun) the index of a dataframe is like a column, but it can be used to refer to the rows. It's the list of names for the rows.
 
 interpreter
   the translator from human readable python code to something the computer can run.  An interpreted language means you can work with python interactively
 
-iterate over
-  To do the same thing to each item in an {term}`iterable` data structure, typically, an iterable type
+iterate
+  To do the same thing to each item in an {term}`iterable` data structure, typically, an iterable type. Iterating is usually described as iterate over some data structure and typically uses the `for` keyword
 
 [iterable](https://docs.python.org/3/glossary.html#term-iterable)
   any object in python that can return its members one at a time. The most common example is a list, but there are others.
