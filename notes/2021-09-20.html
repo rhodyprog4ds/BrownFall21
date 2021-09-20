@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EDA &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>Exploratory Data Analysis &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -387,6 +387,56 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-frame-from-lists-of-lists">
+   Data Frame from lists of Lists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summarizing-data">
+   Summarizing Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-about-the-nonnumerical-variables">
+   What about the nonnumerical variables?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-questions">
+     General Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clarifying">
+     Clarifying
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coure-admin-and-assignment-questions">
+     Coure Admin and Assignment Questions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   More Practice
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -395,19 +445,24 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="exploratory-data-analysis">
+<h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="section" id="data-frame-from-lists-of-lists">
+<h2>Data Frame from lists of Lists<a class="headerlink" href="#data-frame-from-lists-of-lists" title="Permalink to this headline">¶</a></h2>
+<p>On Friday, we collectively made a list of strings</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load http://drsmb.co/310read</span>
 
 <span class="c1"># share a sentence or a few words about how class is going or</span>
-<span class="c1"># one takeaway you have from class so far. </span>
+<span class="c1"># one takeaway you have from class so far.</span>
 <span class="c1">#  and attribute with a name affter a hyphen(-)</span>
 <span class="c1"># You can remain anonymous (this page &amp; the notes will be fully public)</span>
 <span class="c1"># by attributing it to a celebrity or psuedonym, but include *some* sort of attribution</span>
@@ -434,17 +489,60 @@
 </div>
 </div>
 </div>
-<p>Challenge: Create a DataFrame with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sentence&#39;</span><span class="p">,</span><span class="s1">&#39;attribution&#39;</span><span class="p">]</span>
+<p>We can check that by using type, first on the whole thing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">sentence_list</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>hints:</p>
-<ul class="simple">
-<li><p>use the DataFrame constructor</p></li>
-<li><p>use a list comprehension</p></li>
-<li><p>strings have a split method</p></li>
-</ul>
-<p>when you have your DataFrame, paste the code for it on prismia. If you have questions,ask there or out loud.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<p>And then we can index into the list. Lists can be indexed by integers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_list</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Good straight forward - Adam&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>is one item from the list and then check its type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">sentence_list</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we’ll convert our list of strings, to a list of lists with a list
+comprehension.  This will <a class="reference internal" href="../resources/glossary.html#term-iterate"><span class="xref std std-term">iterate</span></a> over each string in that list and
+apply the string method <code class="docutils literal notranslate"><span class="pre">split</span></code>.  Since we passed the parameter <code class="docutils literal notranslate"><span class="pre">'-'</span></code>, it will
+split at that character.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-question-from-class admonition">
+<p class="admonition-title">Question From Class</p>
+<p>The split method will split at every occurence of the character passed.</p>
+</div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it Yourself</p>
+<p>Try splitting based on a different character (eg <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>). What happens?</p>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">sent_attr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">sent_attr</span> <span class="ow">in</span> <span class="n">sentence_list</span><span class="p">]</span>
@@ -478,6 +576,85 @@
 </div>
 </div>
 </div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-question-from-class admonition">
+<p class="admonition-title">Question From Class</p>
+<p>While the list comprehension <a class="reference internal" href="../resources/glossary.html#term-iterate"><span class="xref std std-term">iterate</span></a> over each string in that list, because
+it’s a list, in order to <a class="reference internal" href="../resources/glossary.html#term-index"><span class="xref std std-term">index</span></a> into it, we have to use an integer.</p>
+<p>Iterating is taking each member in an object in turn, indexing is picking out a
+specified item. Iterating typically is done with the <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword (either in
+a loop or a comprehension), indexing is done with <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+</div>
+</div>
+<p>If we save it to a variable, we can analyze it better, for example indexing it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_lists</span> <span class="o">=</span> <span class="p">[</span><span class="n">sent_attr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">sent_attr</span> <span class="ow">in</span> <span class="n">sentence_list</span><span class="p">]</span>
+<span class="n">list_of_lists</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Programming is a Practice. &#39;, &#39; Dr. Sarah Brown&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a list, which we can check with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">list_of_lists</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we take one item from that, it’s a string</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_lists</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; Dr. Sarah Brown&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The list of lists is the same length as our original sentence_list, because it
+was made from that.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">sentence_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_lists</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we can pass our list of lists to the DataFrame constructor and set the
+column headings with the <code class="docutils literal notranslate"><span class="pre">columns</span></code> parameter, which accepts a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">sent_attr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">sent_attr</span> <span class="ow">in</span> <span class="n">sentence_list</span><span class="p">],</span>
@@ -598,63 +775,15 @@
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_lists</span> <span class="o">=</span> <span class="p">[</span><span class="n">sent_attr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">sent_attr</span> <span class="ow">in</span> <span class="n">sentence_list</span><span class="p">]</span>
-</pre></div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>We built the list of lists here
+with a  list comprehension because it’s only a few items, but for a list of
+longer lists, you might use a for loop and <code class="docutils literal notranslate"><span class="pre">append</span></code></p>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_lists</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Programming is a Practice. &#39;, &#39; Dr. Sarah Brown&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_lists</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; Dr. Sarah Brown&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">sentence_list</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_lists</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="eda">
-<h1>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="summarizing-data">
+<h2>Summarizing Data<a class="headerlink" href="#summarizing-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/robusta_data_cleaned.csv&#39;</span>
@@ -663,9 +792,12 @@
 </div>
 </div>
 </div>
+<p>So far, we’ve loaded data in a few different ways and then we’ve examined
+DataFrames as a data structure, looking at what different attributes they have
+and what some of the methods are, and how to get data into them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -832,563 +964,12 @@
       <td>1300.0</td>
       <td>1250.0</td>
     </tr>
-    <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>Robusta</td>
-      <td>andrew hetzel</td>
-      <td>India</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>(self)</td>
-      <td>NaN</td>
-      <td>cafemakers, llc</td>
-      <td>3000'</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>0</td>
-      <td>February 28th, 2013</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>3000.0</td>
-      <td>3000.0</td>
-      <td>3000.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>7</td>
-      <td>Robusta</td>
-      <td>andrew hetzel</td>
-      <td>India</td>
-      <td>sethuraman estates</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>cafemakers</td>
-      <td>750m</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>0</td>
-      <td>May 15th, 2015</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>750.0</td>
-      <td>750.0</td>
-      <td>750.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>8</td>
-      <td>Robusta</td>
-      <td>nishant gurjer</td>
-      <td>India</td>
-      <td>sethuraman estate kaapi royale</td>
-      <td>7</td>
-      <td>sethuraman estate</td>
-      <td>14/1148/2017/18</td>
-      <td>kaapi royale</td>
-      <td>3140</td>
-      <td>...</td>
-      <td>Bluish-Green</td>
-      <td>0</td>
-      <td>October 25th, 2018</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>3140.0</td>
-      <td>3140.0</td>
-      <td>3140.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>9</td>
-      <td>Robusta</td>
-      <td>nishant gurjer</td>
-      <td>India</td>
-      <td>sethuraman estate</td>
-      <td>RKR</td>
-      <td>sethuraman estate</td>
-      <td>14/1148/2016/17</td>
-      <td>kaapi royale</td>
-      <td>1000</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>0</td>
-      <td>August 17th, 2017</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>1000.0</td>
-      <td>1000.0</td>
-      <td>1000.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>10</td>
-      <td>Robusta</td>
-      <td>ugacof</td>
-      <td>Uganda</td>
-      <td>ishaka</td>
-      <td>NaN</td>
-      <td>nsubuga umar</td>
-      <td>0</td>
-      <td>ugacof ltd</td>
-      <td>900-1300</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>6</td>
-      <td>August 5th, 2015</td>
-      <td>Uganda Coffee Development Authority</td>
-      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
-      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
-      <td>m</td>
-      <td>900.0</td>
-      <td>1300.0</td>
-      <td>1100.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>11</td>
-      <td>Robusta</td>
-      <td>ugacof</td>
-      <td>Uganda</td>
-      <td>ugacof project area</td>
-      <td>NaN</td>
-      <td>ugacof</td>
-      <td>0</td>
-      <td>ugacof ltd</td>
-      <td>1095</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>1</td>
-      <td>June 26th, 2015</td>
-      <td>Uganda Coffee Development Authority</td>
-      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
-      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
-      <td>m</td>
-      <td>1095.0</td>
-      <td>1095.0</td>
-      <td>1095.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>12</td>
-      <td>Robusta</td>
-      <td>nishant gurjer</td>
-      <td>India</td>
-      <td>sethuraman estate kaapi royale</td>
-      <td>RC AB</td>
-      <td>sethuraman estate</td>
-      <td>14/1148/2016/12</td>
-      <td>kaapi royale</td>
-      <td>1000</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>0</td>
-      <td>August 23rd, 2017</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>1000.0</td>
-      <td>1000.0</td>
-      <td>1000.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>13</td>
-      <td>Robusta</td>
-      <td>andrew hetzel</td>
-      <td>India</td>
-      <td>sethuraman estates</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>cafemakers</td>
-      <td>750m</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>1</td>
-      <td>May 19th, 2015</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>750.0</td>
-      <td>750.0</td>
-      <td>750.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>14</td>
-      <td>Robusta</td>
-      <td>kasozi coffee farmers association</td>
-      <td>Uganda</td>
-      <td>kasozi coffee farmers</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>kasozi coffee farmers association</td>
-      <td>1367</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>7</td>
-      <td>July 14th, 2015</td>
-      <td>Uganda Coffee Development Authority</td>
-      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
-      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
-      <td>m</td>
-      <td>1367.0</td>
-      <td>1367.0</td>
-      <td>1367.0</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>15</td>
-      <td>Robusta</td>
-      <td>ankole coffee producers coop</td>
-      <td>Uganda</td>
-      <td>kyangundu coop society</td>
-      <td>NaN</td>
-      <td>ankole coffee producers coop union ltd</td>
-      <td>0</td>
-      <td>ankole coffee producers coop</td>
-      <td>1488</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>2</td>
-      <td>July 14th, 2015</td>
-      <td>Uganda Coffee Development Authority</td>
-      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
-      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
-      <td>m</td>
-      <td>1488.0</td>
-      <td>1488.0</td>
-      <td>1488.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>16</td>
-      <td>Robusta</td>
-      <td>andrew hetzel</td>
-      <td>India</td>
-      <td>sethuraman estate</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0000</td>
-      <td>sethuraman estate</td>
-      <td>1000m</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>0</td>
-      <td>April 29th, 2016</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>1000.0</td>
-      <td>1000.0</td>
-      <td>1000.0</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>17</td>
-      <td>Robusta</td>
-      <td>andrew hetzel</td>
-      <td>India</td>
-      <td>sethuraman estates</td>
-      <td>NaN</td>
-      <td>sethuraman estates</td>
-      <td>NaN</td>
-      <td>cafemakers, llc</td>
-      <td>750m</td>
-      <td>...</td>
-      <td>Blue-Green</td>
-      <td>0</td>
-      <td>June 3rd, 2014</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>750.0</td>
-      <td>750.0</td>
-      <td>750.0</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>18</td>
-      <td>Robusta</td>
-      <td>kawacom uganda ltd</td>
-      <td>Uganda</td>
-      <td>bushenyi</td>
-      <td>NaN</td>
-      <td>kawacom</td>
-      <td>0</td>
-      <td>kawacom uganda ltd</td>
-      <td>1600</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>1</td>
-      <td>June 27th, 2015</td>
-      <td>Uganda Coffee Development Authority</td>
-      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
-      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
-      <td>m</td>
-      <td>1600.0</td>
-      <td>1600.0</td>
-      <td>1600.0</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>19</td>
-      <td>Robusta</td>
-      <td>nitubaasa ltd</td>
-      <td>Uganda</td>
-      <td>kigezi coffee farmers association</td>
-      <td>NaN</td>
-      <td>nitubaasa</td>
-      <td>0</td>
-      <td>nitubaasa ltd</td>
-      <td>1745</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>2</td>
-      <td>June 27th, 2015</td>
-      <td>Uganda Coffee Development Authority</td>
-      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
-      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
-      <td>m</td>
-      <td>1745.0</td>
-      <td>1745.0</td>
-      <td>1745.0</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>20</td>
-      <td>Robusta</td>
-      <td>mannya coffee project</td>
-      <td>Uganda</td>
-      <td>mannya coffee project</td>
-      <td>NaN</td>
-      <td>mannya coffee project</td>
-      <td>0</td>
-      <td>mannya coffee project</td>
-      <td>1200</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>1</td>
-      <td>June 27th, 2015</td>
-      <td>Uganda Coffee Development Authority</td>
-      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
-      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
-      <td>m</td>
-      <td>1200.0</td>
-      <td>1200.0</td>
-      <td>1200.0</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>21</td>
-      <td>Robusta</td>
-      <td>andrew hetzel</td>
-      <td>India</td>
-      <td>sethuraman estates</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>cafemakers</td>
-      <td>750m</td>
-      <td>...</td>
-      <td>Bluish-Green</td>
-      <td>1</td>
-      <td>May 19th, 2015</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>750.0</td>
-      <td>750.0</td>
-      <td>750.0</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>22</td>
-      <td>Robusta</td>
-      <td>andrew hetzel</td>
-      <td>India</td>
-      <td>sethuraman estates</td>
-      <td>NaN</td>
-      <td>sethuraman estates</td>
-      <td>NaN</td>
-      <td>cafemakers, llc</td>
-      <td>750m</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>0</td>
-      <td>June 20th, 2014</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>750.0</td>
-      <td>750.0</td>
-      <td>750.0</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>23</td>
-      <td>Robusta</td>
-      <td>andrew hetzel</td>
-      <td>United States</td>
-      <td>sethuraman estates</td>
-      <td>NaN</td>
-      <td>sethuraman estates</td>
-      <td>NaN</td>
-      <td>cafemakers, llc</td>
-      <td>3000'</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>0</td>
-      <td>February 28th, 2013</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>3000.0</td>
-      <td>3000.0</td>
-      <td>3000.0</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>24</td>
-      <td>Robusta</td>
-      <td>luis robles</td>
-      <td>Ecuador</td>
-      <td>robustasa</td>
-      <td>Lavado 1</td>
-      <td>our own lab</td>
-      <td>NaN</td>
-      <td>robustasa</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Blue-Green</td>
-      <td>1</td>
-      <td>January 18th, 2017</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>25</td>
-      <td>Robusta</td>
-      <td>luis robles</td>
-      <td>Ecuador</td>
-      <td>robustasa</td>
-      <td>Lavado 3</td>
-      <td>own laboratory</td>
-      <td>NaN</td>
-      <td>robustasa</td>
-      <td>40</td>
-      <td>...</td>
-      <td>Blue-Green</td>
-      <td>0</td>
-      <td>January 18th, 2017</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>40.0</td>
-      <td>40.0</td>
-      <td>40.0</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>26</td>
-      <td>Robusta</td>
-      <td>james moore</td>
-      <td>United States</td>
-      <td>fazenda cazengo</td>
-      <td>NaN</td>
-      <td>cafe cazengo</td>
-      <td>NaN</td>
-      <td>global opportunity fund</td>
-      <td>795 meters</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>6</td>
-      <td>December 23rd, 2015</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>795.0</td>
-      <td>795.0</td>
-      <td>795.0</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>27</td>
-      <td>Robusta</td>
-      <td>cafe politico</td>
-      <td>India</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>14-1118-2014-0087</td>
-      <td>cafe politico</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Green</td>
-      <td>1</td>
-      <td>August 25th, 2015</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>28</td>
-      <td>Robusta</td>
-      <td>cafe politico</td>
-      <td>Vietnam</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>cafe politico</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>None</td>
-      <td>9</td>
-      <td>August 25th, 2015</td>
-      <td>Specialty Coffee Association</td>
-      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
-      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
-      <td>m</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
   </tbody>
 </table>
-<p>28 rows × 44 columns</p>
+<p>5 rows × 44 columns</p>
 </div></div></div>
 </div>
+<p>Now, we can actually start to analyze the data itself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1635,6 +1216,7 @@
 <p>8 rows × 21 columns</p>
 </div></div></div>
 </div>
+<p>We can also select one variable at a time</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1655,6 +1237,9 @@ Name: Balance, dtype: float64
 </div>
 </div>
 </div>
+<p>To dig in on what the quantiles really mean, we can compute one manually.</p>
+<p>First, we sort the data, then for the 25%, we select the point in index 6 because
+becaues there are 28 values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">balance_sorted</span> <span class="o">=</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
@@ -1668,6 +1253,22 @@ Name: Balance, dtype: float64
 </div>
 </div>
 </div>
+<p>We can also extract each of those statistics individually, by name.  The quantiles
+are tricky, we can’t ust <code class="docutils literal notranslate"><span class="pre">.25%()</span></code> to get the 25% percentile, we have to use the
+<code class="docutils literal notranslate"><span class="pre">quantile</span></code> method and pass it a value between 0 and 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.5600000000000005
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also pass other values</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.8</span><span class="p">)</span>
@@ -1693,6 +1294,10 @@ Name: Balance, dtype: float64
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="what-about-the-nonnumerical-variables">
+<h2>What about the nonnumerical variables?<a class="headerlink" href="#what-about-the-nonnumerical-variables" title="Permalink to this headline">¶</a></h2>
+<p>For example the color</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1710,6 +1315,7 @@ Name: Color, dtype: object
 </div>
 </div>
 </div>
+<p>We can get the prevalence of each one with <code class="docutils literal notranslate"><span class="pre">value_counts</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -1726,29 +1332,13 @@ Name: Color, dtype: int64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it Yourself</p>
+<p>Note <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> does not count the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values, but <code class="docutils literal notranslate"><span class="pre">count</span></code> counts all of the
+not missing values and the shape of the DataFrame is the total number of rows.
+How can you get the number of missing Colors?</p>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Unnamed: 0&#39;, &#39;Species&#39;, &#39;Owner&#39;, &#39;Country.of.Origin&#39;, &#39;Farm.Name&#39;,
-       &#39;Lot.Number&#39;, &#39;Mill&#39;, &#39;ICO.Number&#39;, &#39;Company&#39;, &#39;Altitude&#39;, &#39;Region&#39;,
-       &#39;Producer&#39;, &#39;Number.of.Bags&#39;, &#39;Bag.Weight&#39;, &#39;In.Country.Partner&#39;,
-       &#39;Harvest.Year&#39;, &#39;Grading.Date&#39;, &#39;Owner.1&#39;, &#39;Variety&#39;,
-       &#39;Processing.Method&#39;, &#39;Fragrance...Aroma&#39;, &#39;Flavor&#39;, &#39;Aftertaste&#39;,
-       &#39;Salt...Acid&#39;, &#39;Bitter...Sweet&#39;, &#39;Mouthfeel&#39;, &#39;Uniform.Cup&#39;,
-       &#39;Clean.Cup&#39;, &#39;Balance&#39;, &#39;Cupper.Points&#39;, &#39;Total.Cup.Points&#39;, &#39;Moisture&#39;,
-       &#39;Category.One.Defects&#39;, &#39;Quakers&#39;, &#39;Color&#39;, &#39;Category.Two.Defects&#39;,
-       &#39;Expiration&#39;, &#39;Certification.Body&#39;, &#39;Certification.Address&#39;,
-       &#39;Certification.Contact&#39;, &#39;unit_of_measurement&#39;, &#39;altitude_low_meters&#39;,
-       &#39;altitude_high_meters&#39;, &#39;altitude_mean_meters&#39;],
-      dtype=&#39;object&#39;)
-</pre></div>
-</div>
-</div>
-</div>
+<p>What country is most prevalent in this dataset?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -1765,6 +1355,165 @@ Name: Country.of.Origin, dtype: int64
 </pre></div>
 </div>
 </div>
+</div>
+<p>We can get the name of the most common country out of this Series using <code class="docutils literal notranslate"><span class="pre">idmax</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;India&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-from-class admonition">
+<p class="admonition-title">Question From Class</p>
+<p>Q: Can we calculate the mode to find the most prevalent?
+A: Yes. We can also use the mode function, which works on both numerical or nonnumerical
+values.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    India
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="questions-after-class">
+<h2>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-questions">
+<h3>General Questions<a class="headerlink" href="#general-questions" title="Permalink to this headline">¶</a></h3>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+How to know what functions are compatible with other functions<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Best place to find all the individual functions based on the .describe() function<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Each one goes by the same name, mostly, but that also the Pandas documentation is the bes way to find more information on every pandas method.</p>
+</div>
+</details></div>
+<div class="section" id="clarifying">
+<h3>Clarifying<a class="headerlink" href="#clarifying" title="Permalink to this headline">¶</a></h3>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Is sent_attr in the DataFrame loop its own variable that we assign, or is it a base Python function?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">That’s a variable that we created, it’s equivalent to a loop variable.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Difference between %load and how we’ve been importing links to datasets in previous classes?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">the pandas functions read data in and put it specifically into a DataFrame.</p>
+<p class="card-text">The load magic reads a file in and basically pastes it into the jupyter cell.
+This one doesn’t actually put the data into memory in python.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+When I ran [sent_attr.split(‘-’) for sent_attr in sentence_list] in Jupyter, I got a nameerror<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">I also did at first, because I hadn’t yet run the cell above so <code class="docutils literal notranslate"><span class="pre">sentence_list</span></code> was not defined.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Why do we use the value quantile instead of using quartile since we can use mean to find mean?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">It’s just the name of the method.</p>
+</div>
+</details></div>
+<div class="section" id="coure-admin-and-assignment-questions">
+<h3>Coure Admin and Assignment Questions<a class="headerlink" href="#coure-admin-and-assignment-questions" title="Permalink to this headline">¶</a></h3>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+when are the achievements we earn in class going to be inputted in brightspace?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Assignment achievements will be posted after grading is complete. Level 1s from class will be posted most weeks on Friday or over the weekend.  Right now we’re a little behind as we get everything set up.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+is there anything we have to do for the assignment after commiting the changes to<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">the files?
+Yes, after committing, push.  Once you can see your files on the GitHub website
+interface, we can see them for grading</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+When we push the homework are we pushing it to the portfolio?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">No. when you accept the assignment it will create a new repository for that
+assignment. That’s why it’s importtant to accept each assignment.</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+are there panda functions to read files other than CSV?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Yes! See the hint on  <a class="reference internal" href="../assignments/02-python-access.html"><span class="doc std std-doc">assignment 2</span></a> for more information on this</p>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Still a little unsure about what the num_numerical specifically is, is it just the number of numerical columns?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Yes the number of numerical columns.</p>
+</div>
+</details></div>
+</div>
+<div class="section" id="more-practice">
+<h2>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Produce a table with the mean for each score.</p></li>
+<li><p>Which variables have the most missing data?</p></li>
+<li><p>What’s the total number of bags of coffee produced?</p></li>
+<li><p>Which ratings have similar ranges? (max, min)</p></li>
+<li><p>Which rating are most consistent across coffees?</p></li>
+<li><p>What score cutoff could you apply in order to select the top 10 best for Balance?</p></li>
+</ol>
 </div>
 </div>
 
