@@ -139,7 +139,7 @@ rubric_df[assignment_cols]
 ```
 
 ```{warning}
-**process** achievements are accumulated a little slower. Prior to portfolio check 1, only level 1 can be earned.  Portfolio check 1 is the first chance to earn level 2 for process, then level 3 can be earned on portfolio check 2 or later. 
+**process** achievements are accumulated a little slower. Prior to portfolio check 1, only level 1 can be earned.  Portfolio check 1 is the first chance to earn level 2 for process, then level 3 can be earned on portfolio check 2 or later.
 ```
 
 (portfolioskills)=

@@ -11,9 +11,9 @@
   aware: Identify basic components of data science
   compentent: Describe and define each stage of the data science process
   mastery: Compare different ways that data science can facilitate decision making
-  portfolios: [2,3,10,11]
+  portfolios: [2,3,4]
   clo: [process]
-  assignments: [1,2]
+  assignments: [1,2,10,11]
 - skill: access data in multiple formats
   keyword: access
   aware: load data from at least one format; identify the most common data formats
