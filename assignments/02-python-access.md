@@ -84,7 +84,7 @@ The [pandas IO](https://pandas.pydata.org/docs/reference/io.html) page has infor
 ## Make a dataset about your datasets
 
 Import the list from the `datasets` module you created in the step above.
-Then {term}`iterate over` the list of dictionaries, and:  
+Then {term}`iterate` over the list of dictionaries, and:  
 
 1. save it to a local csv using the short name you provided for the dataset as the file name, without writing the index column to the file.
 1. record attributes about the dataset as in the table below in a list of lists:
