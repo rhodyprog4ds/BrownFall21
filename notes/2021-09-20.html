@@ -1,0 +1,1825 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDA &#8212; Programming for Data Science at URI Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/310_2021.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Programming for Data Science at URI Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   About this Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/about.html">
+   Basic Facts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/tools.html">
+   Tools and Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/achievements.html">
+   Data Science Achievements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/grading.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/uri_resources.html">
+   Support
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/uri_statements.html">
+   Policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/communication.html">
+   Course Communications
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-08.html">
+   1. Welcome to Programming to Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-10.html">
+   2. Jupyter Notebook Tour &amp; Python Review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-13.html">
+   3. Getting help, object inspection, loading data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-15.html">
+   4. Pandas DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-17.html">
+   5. More Loading Data, Indexing, and Iterables
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/01-python-syllabus.html">
+   1. Portfolio Setup, Data Science, and Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/02-python-access.html">
+   2. Practicing Python and Accessing Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Portfolio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/index.html">
+   Portfolio Dates and Key Facts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/intro_reflection.html">
+   Submission Introductions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/formatting.html">
+   Formatting Tips
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/index.html">
+   FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/syllabus.html">
+   Syllabus FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/github.html">
+   Git and GitHub
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/debugging.html">
+   Code Errors
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/python.html">
+   References on Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/cheatsheet.html">
+   Cheatsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/datasets.html">
+   Data Sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/tips.html">
+   General Tips and Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/learning.html">
+   How to Study in this class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/gettinghelp.html">
+   Getting Help with Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/terminal.html">
+   Terminals and Environments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall20/letters/">
+   Advice from FA2020 Students
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notes/2021-09-20.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notes/2021-09-20.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rhodyprog4ds/BrownFall21/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fnotes/2021-09-20.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/notes/2021-09-20.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rhodyprog4ds/BrownFall21/main?urlpath=tree/notes/2021-09-20.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load http://drsmb.co/310read</span>
+
+<span class="c1"># share a sentence or a few words about how class is going or</span>
+<span class="c1"># one takeaway you have from class so far. </span>
+<span class="c1">#  and attribute with a name affter a hyphen(-)</span>
+<span class="c1"># You can remain anonymous (this page &amp; the notes will be fully public)</span>
+<span class="c1"># by attributing it to a celebrity or psuedonym, but include *some* sort of attribution</span>
+<span class="n">sentence_list</span> <span class="o">=</span> <span class="p">[</span>
+<span class="s1">&#39;Programming is a Practice. - Dr. Sarah Brown&#39;</span><span class="p">,</span>
+<span class="s2">&quot;So far it&#39;s going pretty good. - Matt&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Pretty good pace, Github is still a little confusing is all - A&#39;</span><span class="p">,</span>
+<span class="s2">&quot;Class is going well, I&#39;m really excited for the new skills that I will attain through this course. - Diondra&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Good straight forward - Adam&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Good pace and engaging - Jacob&#39;</span><span class="p">,</span>
+<span class="s1">&#39;I like cheese - Anon&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Going well, I enjoy python - Aiden&#39;</span><span class="p">,</span>
+<span class="s2">&quot;Class is going very well, I&#39;m excited to learn more about manipulating data sets - Greg&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Really enjoying the class so far, Clear instructions and outcomes - Michael&#39;</span><span class="p">,</span>
+<span class="s1">&#39;So far this class is going well, very engaging lectures. - Anon&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Great pace and notes have been really useful - Brandon&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Good pace and easy to follow - Muhammad&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Class is going well and engaging, but also a little difficult getting into the swing of things - Isaiah&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Well paced, informative, and helpful - Vinnie&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Spectacular -Michael Jackson&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Very interesting! I am enjoying it a lot so far. Getting to experience pandas as well as using github/jupyter has been cool. One thing I would change though is slowing down the pace a bit. - Max&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Challenge: Create a DataFrame with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sentence&#39;</span><span class="p">,</span><span class="s1">&#39;attribution&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>hints:</p>
+<ul class="simple">
+<li><p>use the DataFrame constructor</p></li>
+<li><p>use a list comprehension</p></li>
+<li><p>strings have a split method</p></li>
+</ul>
+<p>when you have your DataFrame, paste the code for it on prismia. If you have questions,ask there or out loud.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">sent_attr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">sent_attr</span> <span class="ow">in</span> <span class="n">sentence_list</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Programming is a Practice. &#39;, &#39; Dr. Sarah Brown&#39;],
+ [&quot;So far it&#39;s going pretty good. &quot;, &#39; Matt&#39;],
+ [&#39;Pretty good pace, Github is still a little confusing is all &#39;, &#39; A&#39;],
+ [&quot;Class is going well, I&#39;m really excited for the new skills that I will attain through this course. &quot;,
+  &#39; Diondra&#39;],
+ [&#39;Good straight forward &#39;, &#39; Adam&#39;],
+ [&#39;Good pace and engaging &#39;, &#39; Jacob&#39;],
+ [&#39;I like cheese &#39;, &#39; Anon&#39;],
+ [&#39;Going well, I enjoy python &#39;, &#39; Aiden&#39;],
+ [&quot;Class is going very well, I&#39;m excited to learn more about manipulating data sets &quot;,
+  &#39; Greg&#39;],
+ [&#39;Really enjoying the class so far, Clear instructions and outcomes &#39;,
+  &#39; Michael&#39;],
+ [&#39;So far this class is going well, very engaging lectures. &#39;, &#39; Anon&#39;],
+ [&#39;Great pace and notes have been really useful &#39;, &#39; Brandon&#39;],
+ [&#39;Good pace and easy to follow &#39;, &#39; Muhammad&#39;],
+ [&#39;Class is going well and engaging, but also a little difficult getting into the swing of things &#39;,
+  &#39; Isaiah&#39;],
+ [&#39;Well paced, informative, and helpful &#39;, &#39; Vinnie&#39;],
+ [&#39;Spectacular &#39;, &#39;Michael Jackson&#39;],
+ [&#39;Very interesting! I am enjoying it a lot so far. Getting to experience pandas as well as using github/jupyter has been cool. One thing I would change though is slowing down the pace a bit. &#39;,
+  &#39; Max&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">sent_attr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">sent_attr</span> <span class="ow">in</span> <span class="n">sentence_list</span><span class="p">],</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sentence&#39;</span><span class="p">,</span><span class="s1">&#39;attribution&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sentence</th>
+      <th>attribution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Programming is a Practice.</td>
+      <td>Dr. Sarah Brown</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>So far it's going pretty good.</td>
+      <td>Matt</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pretty good pace, Github is still a little con...</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Class is going well, I'm really excited for th...</td>
+      <td>Diondra</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Good straight forward</td>
+      <td>Adam</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Good pace and engaging</td>
+      <td>Jacob</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>I like cheese</td>
+      <td>Anon</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Going well, I enjoy python</td>
+      <td>Aiden</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Class is going very well, I'm excited to learn...</td>
+      <td>Greg</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Really enjoying the class so far, Clear instru...</td>
+      <td>Michael</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>So far this class is going well, very engaging...</td>
+      <td>Anon</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Great pace and notes have been really useful</td>
+      <td>Brandon</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Good pace and easy to follow</td>
+      <td>Muhammad</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Class is going well and engaging, but also a l...</td>
+      <td>Isaiah</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Well paced, informative, and helpful</td>
+      <td>Vinnie</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Spectacular</td>
+      <td>Michael Jackson</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Very interesting! I am enjoying it a lot so fa...</td>
+      <td>Max</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_lists</span> <span class="o">=</span> <span class="p">[</span><span class="n">sent_attr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">sent_attr</span> <span class="ow">in</span> <span class="n">sentence_list</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_lists</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Programming is a Practice. &#39;, &#39; Dr. Sarah Brown&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_lists</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; Dr. Sarah Brown&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">sentence_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_lists</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="eda">
+<h1>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/robusta_data_cleaned.csv&#39;</span>
+<span class="n">coffee_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">coffee_data_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Species</th>
+      <th>Owner</th>
+      <th>Country.of.Origin</th>
+      <th>Farm.Name</th>
+      <th>Lot.Number</th>
+      <th>Mill</th>
+      <th>ICO.Number</th>
+      <th>Company</th>
+      <th>Altitude</th>
+      <th>...</th>
+      <th>Color</th>
+      <th>Category.Two.Defects</th>
+      <th>Expiration</th>
+      <th>Certification.Body</th>
+      <th>Certification.Address</th>
+      <th>Certification.Contact</th>
+      <th>unit_of_measurement</th>
+      <th>altitude_low_meters</th>
+      <th>altitude_high_meters</th>
+      <th>altitude_mean_meters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Robusta</td>
+      <td>ankole coffee producers coop</td>
+      <td>Uganda</td>
+      <td>kyangundu cooperative society</td>
+      <td>NaN</td>
+      <td>ankole coffee producers</td>
+      <td>0</td>
+      <td>ankole coffee producers coop</td>
+      <td>1488</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>2</td>
+      <td>June 26th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1488.0</td>
+      <td>1488.0</td>
+      <td>1488.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Robusta</td>
+      <td>nishant gurjer</td>
+      <td>India</td>
+      <td>sethuraman estate kaapi royale</td>
+      <td>25</td>
+      <td>sethuraman estate</td>
+      <td>14/1148/2017/21</td>
+      <td>kaapi royale</td>
+      <td>3170</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>October 31st, 2018</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>3170.0</td>
+      <td>3170.0</td>
+      <td>3170.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estate</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0000</td>
+      <td>sethuraman estate</td>
+      <td>1000m</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>April 29th, 2016</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Robusta</td>
+      <td>ugacof</td>
+      <td>Uganda</td>
+      <td>ugacof project area</td>
+      <td>NaN</td>
+      <td>ugacof</td>
+      <td>0</td>
+      <td>ugacof ltd</td>
+      <td>1212</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>7</td>
+      <td>July 14th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1212.0</td>
+      <td>1212.0</td>
+      <td>1212.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Robusta</td>
+      <td>katuka development trust ltd</td>
+      <td>Uganda</td>
+      <td>katikamu capca farmers association</td>
+      <td>NaN</td>
+      <td>katuka development trust</td>
+      <td>0</td>
+      <td>katuka development trust ltd</td>
+      <td>1200-1300</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>3</td>
+      <td>June 26th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1200.0</td>
+      <td>1300.0</td>
+      <td>1250.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>(self)</td>
+      <td>NaN</td>
+      <td>cafemakers, llc</td>
+      <td>3000'</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>February 28th, 2013</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>3000.0</td>
+      <td>3000.0</td>
+      <td>3000.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>cafemakers</td>
+      <td>750m</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>May 15th, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>Robusta</td>
+      <td>nishant gurjer</td>
+      <td>India</td>
+      <td>sethuraman estate kaapi royale</td>
+      <td>7</td>
+      <td>sethuraman estate</td>
+      <td>14/1148/2017/18</td>
+      <td>kaapi royale</td>
+      <td>3140</td>
+      <td>...</td>
+      <td>Bluish-Green</td>
+      <td>0</td>
+      <td>October 25th, 2018</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>3140.0</td>
+      <td>3140.0</td>
+      <td>3140.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>Robusta</td>
+      <td>nishant gurjer</td>
+      <td>India</td>
+      <td>sethuraman estate</td>
+      <td>RKR</td>
+      <td>sethuraman estate</td>
+      <td>14/1148/2016/17</td>
+      <td>kaapi royale</td>
+      <td>1000</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>August 17th, 2017</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>Robusta</td>
+      <td>ugacof</td>
+      <td>Uganda</td>
+      <td>ishaka</td>
+      <td>NaN</td>
+      <td>nsubuga umar</td>
+      <td>0</td>
+      <td>ugacof ltd</td>
+      <td>900-1300</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>6</td>
+      <td>August 5th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>900.0</td>
+      <td>1300.0</td>
+      <td>1100.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>Robusta</td>
+      <td>ugacof</td>
+      <td>Uganda</td>
+      <td>ugacof project area</td>
+      <td>NaN</td>
+      <td>ugacof</td>
+      <td>0</td>
+      <td>ugacof ltd</td>
+      <td>1095</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>June 26th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1095.0</td>
+      <td>1095.0</td>
+      <td>1095.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>Robusta</td>
+      <td>nishant gurjer</td>
+      <td>India</td>
+      <td>sethuraman estate kaapi royale</td>
+      <td>RC AB</td>
+      <td>sethuraman estate</td>
+      <td>14/1148/2016/12</td>
+      <td>kaapi royale</td>
+      <td>1000</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>August 23rd, 2017</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>cafemakers</td>
+      <td>750m</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>May 19th, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>Robusta</td>
+      <td>kasozi coffee farmers association</td>
+      <td>Uganda</td>
+      <td>kasozi coffee farmers</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>kasozi coffee farmers association</td>
+      <td>1367</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>7</td>
+      <td>July 14th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1367.0</td>
+      <td>1367.0</td>
+      <td>1367.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>Robusta</td>
+      <td>ankole coffee producers coop</td>
+      <td>Uganda</td>
+      <td>kyangundu coop society</td>
+      <td>NaN</td>
+      <td>ankole coffee producers coop union ltd</td>
+      <td>0</td>
+      <td>ankole coffee producers coop</td>
+      <td>1488</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>2</td>
+      <td>July 14th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1488.0</td>
+      <td>1488.0</td>
+      <td>1488.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estate</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0000</td>
+      <td>sethuraman estate</td>
+      <td>1000m</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>April 29th, 2016</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>cafemakers, llc</td>
+      <td>750m</td>
+      <td>...</td>
+      <td>Blue-Green</td>
+      <td>0</td>
+      <td>June 3rd, 2014</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>Robusta</td>
+      <td>kawacom uganda ltd</td>
+      <td>Uganda</td>
+      <td>bushenyi</td>
+      <td>NaN</td>
+      <td>kawacom</td>
+      <td>0</td>
+      <td>kawacom uganda ltd</td>
+      <td>1600</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>June 27th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1600.0</td>
+      <td>1600.0</td>
+      <td>1600.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>Robusta</td>
+      <td>nitubaasa ltd</td>
+      <td>Uganda</td>
+      <td>kigezi coffee farmers association</td>
+      <td>NaN</td>
+      <td>nitubaasa</td>
+      <td>0</td>
+      <td>nitubaasa ltd</td>
+      <td>1745</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>2</td>
+      <td>June 27th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1745.0</td>
+      <td>1745.0</td>
+      <td>1745.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>Robusta</td>
+      <td>mannya coffee project</td>
+      <td>Uganda</td>
+      <td>mannya coffee project</td>
+      <td>NaN</td>
+      <td>mannya coffee project</td>
+      <td>0</td>
+      <td>mannya coffee project</td>
+      <td>1200</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>June 27th, 2015</td>
+      <td>Uganda Coffee Development Authority</td>
+      <td>e36d0270932c3b657e96b7b0278dfd85dc0fe743</td>
+      <td>03077a1c6bac60e6f514691634a7f6eb5c85aae8</td>
+      <td>m</td>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>1200.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>cafemakers</td>
+      <td>750m</td>
+      <td>...</td>
+      <td>Bluish-Green</td>
+      <td>1</td>
+      <td>May 19th, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>India</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>cafemakers, llc</td>
+      <td>750m</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>June 20th, 2014</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>Robusta</td>
+      <td>andrew hetzel</td>
+      <td>United States</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>sethuraman estates</td>
+      <td>NaN</td>
+      <td>cafemakers, llc</td>
+      <td>3000'</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>February 28th, 2013</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>3000.0</td>
+      <td>3000.0</td>
+      <td>3000.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>Robusta</td>
+      <td>luis robles</td>
+      <td>Ecuador</td>
+      <td>robustasa</td>
+      <td>Lavado 1</td>
+      <td>our own lab</td>
+      <td>NaN</td>
+      <td>robustasa</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Blue-Green</td>
+      <td>1</td>
+      <td>January 18th, 2017</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>Robusta</td>
+      <td>luis robles</td>
+      <td>Ecuador</td>
+      <td>robustasa</td>
+      <td>Lavado 3</td>
+      <td>own laboratory</td>
+      <td>NaN</td>
+      <td>robustasa</td>
+      <td>40</td>
+      <td>...</td>
+      <td>Blue-Green</td>
+      <td>0</td>
+      <td>January 18th, 2017</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>40.0</td>
+      <td>40.0</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>Robusta</td>
+      <td>james moore</td>
+      <td>United States</td>
+      <td>fazenda cazengo</td>
+      <td>NaN</td>
+      <td>cafe cazengo</td>
+      <td>NaN</td>
+      <td>global opportunity fund</td>
+      <td>795 meters</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>6</td>
+      <td>December 23rd, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>795.0</td>
+      <td>795.0</td>
+      <td>795.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>Robusta</td>
+      <td>cafe politico</td>
+      <td>India</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14-1118-2014-0087</td>
+      <td>cafe politico</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>August 25th, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>Robusta</td>
+      <td>cafe politico</td>
+      <td>Vietnam</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>cafe politico</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>None</td>
+      <td>9</td>
+      <td>August 25th, 2015</td>
+      <td>Specialty Coffee Association</td>
+      <td>ff7c18ad303d4b603ac3f8cff7e611ffc735e720</td>
+      <td>352d0cf7f3e9be14dad7df644ad65efc27605ae2</td>
+      <td>m</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>28 rows × 44 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Number.of.Bags</th>
+      <th>Harvest.Year</th>
+      <th>Fragrance...Aroma</th>
+      <th>Flavor</th>
+      <th>Aftertaste</th>
+      <th>Salt...Acid</th>
+      <th>Bitter...Sweet</th>
+      <th>Mouthfeel</th>
+      <th>Uniform.Cup</th>
+      <th>...</th>
+      <th>Balance</th>
+      <th>Cupper.Points</th>
+      <th>Total.Cup.Points</th>
+      <th>Moisture</th>
+      <th>Category.One.Defects</th>
+      <th>Quakers</th>
+      <th>Category.Two.Defects</th>
+      <th>altitude_low_meters</th>
+      <th>altitude_high_meters</th>
+      <th>altitude_mean_meters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>...</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.000000</td>
+      <td>28.0</td>
+      <td>28.000000</td>
+      <td>25.00000</td>
+      <td>25.000000</td>
+      <td>25.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>14.500000</td>
+      <td>168.000000</td>
+      <td>2013.964286</td>
+      <td>7.702500</td>
+      <td>7.630714</td>
+      <td>7.559643</td>
+      <td>7.657143</td>
+      <td>7.675714</td>
+      <td>7.506786</td>
+      <td>9.904286</td>
+      <td>...</td>
+      <td>7.541786</td>
+      <td>7.761429</td>
+      <td>80.868929</td>
+      <td>0.065714</td>
+      <td>2.964286</td>
+      <td>0.0</td>
+      <td>1.892857</td>
+      <td>1367.60000</td>
+      <td>1387.600000</td>
+      <td>1377.600000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8.225975</td>
+      <td>143.226317</td>
+      <td>1.346660</td>
+      <td>0.296156</td>
+      <td>0.303656</td>
+      <td>0.342469</td>
+      <td>0.261773</td>
+      <td>0.317063</td>
+      <td>0.725152</td>
+      <td>0.238753</td>
+      <td>...</td>
+      <td>0.526076</td>
+      <td>0.330507</td>
+      <td>2.441233</td>
+      <td>0.058464</td>
+      <td>12.357280</td>
+      <td>0.0</td>
+      <td>2.601129</td>
+      <td>838.06205</td>
+      <td>831.884207</td>
+      <td>833.980216</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>2012.000000</td>
+      <td>6.750000</td>
+      <td>6.670000</td>
+      <td>6.500000</td>
+      <td>6.830000</td>
+      <td>6.670000</td>
+      <td>5.080000</td>
+      <td>9.330000</td>
+      <td>...</td>
+      <td>5.250000</td>
+      <td>6.920000</td>
+      <td>73.750000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>40.00000</td>
+      <td>40.000000</td>
+      <td>40.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>7.750000</td>
+      <td>1.000000</td>
+      <td>2013.000000</td>
+      <td>7.580000</td>
+      <td>7.560000</td>
+      <td>7.397500</td>
+      <td>7.560000</td>
+      <td>7.580000</td>
+      <td>7.500000</td>
+      <td>10.000000</td>
+      <td>...</td>
+      <td>7.500000</td>
+      <td>7.580000</td>
+      <td>80.170000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>795.00000</td>
+      <td>795.000000</td>
+      <td>795.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>14.500000</td>
+      <td>170.000000</td>
+      <td>2014.000000</td>
+      <td>7.670000</td>
+      <td>7.710000</td>
+      <td>7.670000</td>
+      <td>7.710000</td>
+      <td>7.750000</td>
+      <td>7.670000</td>
+      <td>10.000000</td>
+      <td>...</td>
+      <td>7.670000</td>
+      <td>7.830000</td>
+      <td>81.500000</td>
+      <td>0.100000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>1095.00000</td>
+      <td>1200.000000</td>
+      <td>1100.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>21.250000</td>
+      <td>320.000000</td>
+      <td>2015.000000</td>
+      <td>7.920000</td>
+      <td>7.830000</td>
+      <td>7.770000</td>
+      <td>7.830000</td>
+      <td>7.830000</td>
+      <td>7.830000</td>
+      <td>10.000000</td>
+      <td>...</td>
+      <td>7.830000</td>
+      <td>7.920000</td>
+      <td>82.520000</td>
+      <td>0.120000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>2.000000</td>
+      <td>1488.00000</td>
+      <td>1488.000000</td>
+      <td>1488.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>28.000000</td>
+      <td>320.000000</td>
+      <td>2017.000000</td>
+      <td>8.330000</td>
+      <td>8.080000</td>
+      <td>7.920000</td>
+      <td>8.000000</td>
+      <td>8.420000</td>
+      <td>8.250000</td>
+      <td>10.000000</td>
+      <td>...</td>
+      <td>8.000000</td>
+      <td>8.580000</td>
+      <td>83.750000</td>
+      <td>0.130000</td>
+      <td>63.000000</td>
+      <td>0.0</td>
+      <td>9.000000</td>
+      <td>3170.00000</td>
+      <td>3170.000000</td>
+      <td>3170.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 21 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    28.000000
+mean      7.541786
+std       0.526076
+min       5.250000
+25%       7.500000
+50%       7.670000
+75%       7.830000
+max       8.000000
+Name: Balance, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">balance_sorted</span> <span class="o">=</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="n">balance_sorted</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.83
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate the mean of the <code class="docutils literal notranslate"><span class="pre">Aftertaste</span></code> column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Aftertaste&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.559642857142856
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    Green
+1      NaN
+2    Green
+3    Green
+4    Green
+Name: Color, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Green           20
+Blue-Green       3
+Bluish-Green     2
+None             1
+Name: Color, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Unnamed: 0&#39;, &#39;Species&#39;, &#39;Owner&#39;, &#39;Country.of.Origin&#39;, &#39;Farm.Name&#39;,
+       &#39;Lot.Number&#39;, &#39;Mill&#39;, &#39;ICO.Number&#39;, &#39;Company&#39;, &#39;Altitude&#39;, &#39;Region&#39;,
+       &#39;Producer&#39;, &#39;Number.of.Bags&#39;, &#39;Bag.Weight&#39;, &#39;In.Country.Partner&#39;,
+       &#39;Harvest.Year&#39;, &#39;Grading.Date&#39;, &#39;Owner.1&#39;, &#39;Variety&#39;,
+       &#39;Processing.Method&#39;, &#39;Fragrance...Aroma&#39;, &#39;Flavor&#39;, &#39;Aftertaste&#39;,
+       &#39;Salt...Acid&#39;, &#39;Bitter...Sweet&#39;, &#39;Mouthfeel&#39;, &#39;Uniform.Cup&#39;,
+       &#39;Clean.Cup&#39;, &#39;Balance&#39;, &#39;Cupper.Points&#39;, &#39;Total.Cup.Points&#39;, &#39;Moisture&#39;,
+       &#39;Category.One.Defects&#39;, &#39;Quakers&#39;, &#39;Color&#39;, &#39;Category.Two.Defects&#39;,
+       &#39;Expiration&#39;, &#39;Certification.Body&#39;, &#39;Certification.Address&#39;,
+       &#39;Certification.Contact&#39;, &#39;unit_of_measurement&#39;, &#39;altitude_low_meters&#39;,
+       &#39;altitude_high_meters&#39;, &#39;altitude_mean_meters&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>India            13
+Uganda           10
+United States     2
+Ecuador           2
+Vietnam           1
+Name: Country.of.Origin, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Professor Sarah M Brown<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
