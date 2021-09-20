@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exploratory Data Analysis &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>6. Exploratory Data Analysis &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="5. More Loading Data, Indexing, and Iterables" href="2021-09-17.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -139,7 +141,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -163,6 +165,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-17.html">
    5. More Loading Data, Indexing, and Iterables
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Exploratory Data Analysis
   </a>
  </li>
 </ul>
@@ -394,44 +401,44 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-frame-from-lists-of-lists">
-   Data Frame from lists of Lists
+   6.1. Data Frame from lists of Lists
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summarizing-data">
-   Summarizing Data
+   6.2. Summarizing Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-about-the-nonnumerical-variables">
-   What about the nonnumerical variables?
+   6.3. What about the nonnumerical variables?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#questions-after-class">
-   Questions After Class
+   6.4. Questions After Class
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#general-questions">
-     General Questions
+     6.4.1. General Questions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#clarifying">
-     Clarifying
+     6.4.2. Clarifying
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#coure-admin-and-assignment-questions">
-     Coure Admin and Assignment Questions
+     6.4.3. Coure Admin and Assignment Questions
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-practice">
-   More Practice
+   6.5. More Practice
   </a>
  </li>
 </ul>
@@ -446,7 +453,7 @@
               <div>
                 
   <div class="section" id="exploratory-data-analysis">
-<h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -455,7 +462,7 @@
 </div>
 </div>
 <div class="section" id="data-frame-from-lists-of-lists">
-<h2>Data Frame from lists of Lists<a class="headerlink" href="#data-frame-from-lists-of-lists" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Data Frame from lists of Lists<a class="headerlink" href="#data-frame-from-lists-of-lists" title="Permalink to this headline">¶</a></h2>
 <p>On Friday, we collectively made a list of strings</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,7 +790,7 @@ longer lists, you might use a for loop and <code class="docutils literal notrans
 </div>
 </div>
 <div class="section" id="summarizing-data">
-<h2>Summarizing Data<a class="headerlink" href="#summarizing-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Summarizing Data<a class="headerlink" href="#summarizing-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/robusta_data_cleaned.csv&#39;</span>
@@ -1296,7 +1303,7 @@ are tricky, we can’t ust <code class="docutils literal notranslate"><span clas
 </div>
 </div>
 <div class="section" id="what-about-the-nonnumerical-variables">
-<h2>What about the nonnumerical variables?<a class="headerlink" href="#what-about-the-nonnumerical-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>What about the nonnumerical variables?<a class="headerlink" href="#what-about-the-nonnumerical-variables" title="Permalink to this headline">¶</a></h2>
 <p>For example the color</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1390,9 +1397,9 @@ dtype: object
 </div>
 </div>
 <div class="section" id="questions-after-class">
-<h2>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general-questions">
-<h3>General Questions<a class="headerlink" href="#general-questions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.1. </span>General Questions<a class="headerlink" href="#general-questions" title="Permalink to this headline">¶</a></h3>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
 How to know what functions are compatible with other functions<div class="summary-down docutils">
@@ -1412,7 +1419,7 @@ Best place to find all the individual functions based on the .describe() functio
 </div>
 </details></div>
 <div class="section" id="clarifying">
-<h3>Clarifying<a class="headerlink" href="#clarifying" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.2. </span>Clarifying<a class="headerlink" href="#clarifying" title="Permalink to this headline">¶</a></h3>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
 Is sent_attr in the DataFrame loop its own variable that we assign, or is it a base Python function?<div class="summary-down docutils">
@@ -1453,7 +1460,7 @@ Why do we use the value quantile instead of using quartile since we can use mean
 </div>
 </details></div>
 <div class="section" id="coure-admin-and-assignment-questions">
-<h3>Coure Admin and Assignment Questions<a class="headerlink" href="#coure-admin-and-assignment-questions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.3. </span>Coure Admin and Assignment Questions<a class="headerlink" href="#coure-admin-and-assignment-questions" title="Permalink to this headline">¶</a></h3>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
 when are the achievements we earn in class going to be inputted in brightspace?<div class="summary-down docutils">
@@ -1505,7 +1512,7 @@ Still a little unsure about what the num_numerical specifically is, is it just t
 </details></div>
 </div>
 <div class="section" id="more-practice">
-<h2>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Produce a table with the mean for each score.</p></li>
 <li><p>Which variables have the most missing data?</p></li>
@@ -1546,6 +1553,24 @@ Still a little unsure about what the num_numerical specifically is, is it just t
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="2021-09-17.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>More Loading Data, Indexing, and Iterables</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
