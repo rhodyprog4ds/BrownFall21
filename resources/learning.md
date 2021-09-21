@@ -1,6 +1,6 @@
 # How to Study in this class
 
-This is a programming intensive course and it's about data science.  This course is designed to help you learn how to program for data science and in the process build general skills in programming and using data to understand the world.
+This is a programming intensive course and it's about data science.  This course is designed to help you learn how to program for data science and in the process build general skills in both programming and using data to understand the world.
 Learning two things at once is more complex.
 In this page, I break down how I expect learning to work for this class.
 
@@ -9,16 +9,18 @@ Remember the goal is to avoid this:
 
 
 ## Why this way?
+
 ```{margin}
 A new book that might be of interest if you find programming classes hard is
 [the Programmers Brain](https://www.manning.com/books/the-programmers-brain#toc)
-As of 2020-09-07, it is available for free by clicking on chapters at that linked
+As of 2021-09-07, it is available for free by clicking on chapters at that linked
 table of contents section.
 ```
 
 Learning to program requires iterative practice.
 It does not require memorizing all of the specific commands, but instead learning the basic patterns.  
-Using reference materials frequently is a built in part of programming, most languages have built in help as a part of the language for this reason.  
+Using reference materials frequently is a built in part of programming, most languages have built in help as a part of the language for this reason.
+This course is designed to have you not only learn the material, but also to build skill in learning to program.  Following these guidelines will help you build habits to not only be successful in this class, but also in future programming.  
 
 ```{admonition} Where are your help tools?
 In Python and Jupyter notebooks, what help tools do you have?
@@ -49,7 +51,6 @@ In the annotated notes, there will often be extra questions or ideas on how to e
 
 If you find anything hard to understand or unclear, write it down to bring to class the next day.  
 
-There will be additional drills posted to Prismia chat for you to try.
 
 ## Assignments
 
