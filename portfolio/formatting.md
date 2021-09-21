@@ -13,7 +13,13 @@ Your portfolio is a [jupyter book](https://jupyterbook.org/intro.html). This mea
 This page will cover a few basic tips.
 
 ## Managing Files and version
+You can either convert your ipynb files to earier to read locally or on GitHub.
 
+The GitHub version means installing less locally, but means that after you push
+changes, you'll need to pull the changes that GitHub makes.
+
+
+### To manage with a precommit hook jupytext conversion
 change your `.pre-commit-config.yaml` file to match the following:
 ```
 repos:
@@ -28,9 +34,96 @@ Run Precommit over all the files to actually apply that script to your repo.
 
 
 ```
+pre-commit install
 pre-commit run --all-files
 ```
 
+If you do `git status` now, you should have a `.md` file for each `ipynb` file
+that was in your repository, now add and commit those.
+
+Now, each time you commit, it will run jupytext first.
+
+### To manage with a gh action jupytext conversion
+
+create a file at `.github/workflows/jupytext.yml` and paste the following:
+
+```
+name: jupytext
+
+# Only run this when the master branch changes
+on:
+  push:
+    branches:
+    - main
+    # If your git repository has the Jupyter Book within some-subfolder next to
+    # unrelated files, you can make this run only if a file within that specific
+    # folder has been modified.
+    #
+    # paths:
+    # - some-subfolder/**
+
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
+jobs:
+  jupytext:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    # Install dependencies
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: |
+        pip install jupytext
+    - name: convert
+      run: |
+          jupytext */*.ipynb --to myst
+          jupytext *.ipynb --to myst
+    - uses: EndBug/add-and-commit@v4 # You can change this to use a specific version
+      with:
+        # The arguments for the `git add` command (see the paragraph below for more info)
+        # Default: '.'
+        add: '.'
+
+        # The name of the user that will be displayed as the author of the commit
+        # Default: author of the commit that triggered the run
+        author_name: Your Name
+
+        # The email of the user that will be displayed as the author of the commit
+        # Default: author of the commit that triggered the run
+        author_email: you@uri.edu
+
+        # The local path to the directory where your repository is located. You should use actions/checkout first to set it up
+        # Default: '.'
+        cwd: '.'
+
+        # Whether to use the --force option on `git add`, in order to bypass eventual gitignores
+        # Default: false
+        force: true
+
+        # Whether to use the --signoff option on `git commit`
+        # Default: false
+        signoff: true
+
+        # The message for the commit
+        # Default: 'Commit from GitHub Actions'
+        message: 'convert notebooks to md'
+
+        # Name of the branch to use, if different from the one that triggered the workflow
+        # Default: the branch that triggered the workflow (from GITHUB_REF)
+        ref: 'main'
+
+        # Name of the tag to add to the new commit (see the paragraph below for more info)
+        # Default: ''
+        tag: "v1.0.0"
+
+      env:
+        # This is necessary in order to push a commit to the repo
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+```
 
 ## Organization
 

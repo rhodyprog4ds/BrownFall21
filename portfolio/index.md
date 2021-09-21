@@ -54,10 +54,8 @@ portfolio_dummies.rename(columns =col_rename,inplace=True)
 
 
 rubric_df = pd.concat([rubric_df,
-                      assignment_dummies,
                       portfolio_dummies],axis=1)
 
-assignment_cols =  ['A'+ str(i) for i in range(1,14)] + ['# Assignments']
 
 portfolio_cols = [ 'Level 3'] + ['P' + str(i) for i in range(1,5)]
 portfolio_df = rubric_df[portfolio_cols]
@@ -73,7 +71,7 @@ You can see the full rubric for all portfolios in the [syllabus](portfolioskills
 Your portfolio is also an opportunity to be creative, explore things, and answer your own questions that we haven't answered in class to dig deeper on the topics we're covering.
 Use the feedback you get on assignments to inspire your portfolio.
 
-Each submission should include an introduction and a number of 'chapters'.  The grade will be based on both that you demonstrate skills through your chapters that are inspired by the prompts and that your [summary](intro_reflection) demonstrates that you *know* you learned the skills. See the [formatting tips](formatting) for advice on how to structure files.
+Each submission should include an introduction and a number of 'chapters'.  The grade will be based on both that you demonstrate skills through your chapters that are inspired by the prompts and that your summary demonstrates that you *know* you learned the skills. See the [formatting tips](formatting) for advice on how to structure files.
 
 
 On each chapter(for a file) of your portfolio, you should identify which skills by their keyword, you are applying.
