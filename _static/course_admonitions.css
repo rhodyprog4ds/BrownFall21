@@ -55,5 +55,5 @@
 }
 .admonition-think-ahead  .admonition-title:before {
     color: rgba(var(--pst-color-success), 1);
-    content: '\1f4c1';
+    content: '\f07b';
 }
