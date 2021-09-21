@@ -63,7 +63,6 @@ In your notebook, create a markdown cell for each notebook that includes:
 
 ## Store them for loading
 
-Create a list of dictionaries in `datasets.py`, so that there is one dictionary for each dataset with the url, a name, and what function should be used to load the data into a `pandas.DataFrame`.
 
 ````{margin}
 ```{hint}
@@ -80,8 +79,17 @@ The [pandas IO](https://pandas.pydata.org/docs/reference/io.html) page has infor
 ```
 ````
 
+Create a list of dictionaries in `datasets.py`, so that there is one dictionary for each dataset with the url, a name, and what function should be used to load the data into a `pandas.DataFrame`.
+
+````{hint}
+The goal here is to set up this list of dictionaries so that you can load data using
+different functions in each pass through the loop, without an `if` statement. You'll be iterating over the list of dictionaries, so the loop variable be a different dictionary each time.
+
+see the where we used a lambda in a dictionary in [the class notes](notes:lambda-dict) for more information.
+````
 
 ## Make a dataset about your datasets
+
 
 Import the list from the `datasets` module you created in the step above.
 Then {term}`iterate` over the list of dictionaries, and:  

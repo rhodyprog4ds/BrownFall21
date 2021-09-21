@@ -19314,9 +19314,24 @@ Name: (Unnamed: 0_level_0, keyword), dtype: object
 </div>
 </div>
 </div>
+<p>In that excerpt df_display has a key that is defined to be true or false.
+The value for each item in the dictionary (separated by commas <code class="docutils literal notranslate"><span class="pre">,</span></code>) is a lambda
+fucntion, both of which take a parameter <code class="docutils literal notranslate"><span class="pre">d</span></code>, and one of which returns the first
+column <code class="docutils literal notranslate"><span class="pre">d[d[columns[0]]</span></code> and the other fow which returns the whole data frame <code class="docutils literal notranslate"><span class="pre">d</span></code>.</p>
+<p>In thee loop,  we set index into the dictionary with the key <code class="docutils literal notranslate"><span class="pre">n_cols</span> <span class="pre">&gt;</span> <span class="pre">3</span></code> with
+<code class="docutils literal notranslate"><span class="pre">df_display[n_cols&gt;3]</span></code> sometimes it will be true and other times it will be false,
+which matches the two keys defined in the dictionary.  Then the parameter it
+takes is <code class="docutils literal notranslate"><span class="pre">d</span></code>, which we pass the whole data frame <code class="docutils literal notranslate"><span class="pre">df</span></code> with the <code class="docutils literal notranslate"><span class="pre">(df)</span></code> at the
+end of the line.</p>
 <div class="admonition-try-it-yourself admonition">
 <p class="admonition-title">Try it Yourself!</p>
 <p>What does the <code class="docutils literal notranslate"><span class="pre">_</span></code> do?</p>
+</div>
+<div class="highlight-admonition} notranslate"><div class="highlight"><pre><span></span>Try using that dictionary outside of the loop.  What is the value for a give key
+if you print it out like `df_display[ a_key_value]`? What if you use `True` or
+`False` directly? what if you try a number? What is the type of that? What if you
+pass something that&#39;s not a DataFrame as the parameter?  Make notes about these outputs
+</pre></div>
 </div>
 </div>
 <div class="section" id="questions-after-class">

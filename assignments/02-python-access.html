@@ -489,7 +489,6 @@ and extracting. The following table summarizes the grading. It supplements the s
 </div>
 <div class="section" id="store-them-for-loading">
 <h2><span class="section-number">2.3. </span>Store them for loading<a class="headerlink" href="#store-them-for-loading" title="Permalink to this headline">¶</a></h2>
-<p>Create a list of dictionaries in <code class="docutils literal notranslate"><span class="pre">datasets.py</span></code>, so that there is one dictionary for each dataset with the url, a name, and what function should be used to load the data into a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition hint">
@@ -504,6 +503,13 @@ and extracting. The following table summarizes the grading. It supplements the s
 <p class="admonition-title">Tip</p>
 <p>The <a class="reference external" href="https://pandas.pydata.org/docs/reference/io.html">pandas IO</a> page has information about how to read data in and save data out of pandas.</p>
 </div>
+</div>
+<p>Create a list of dictionaries in <code class="docutils literal notranslate"><span class="pre">datasets.py</span></code>, so that there is one dictionary for each dataset with the url, a name, and what function should be used to load the data into a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The goal here is to set up this list of dictionaries so that you can load data using
+different functions in each pass through the loop, without an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. You’ll be iterating over the list of dictionaries, so the loop variable be a different dictionary each time.</p>
+<p>see the where we used a lambda in a dictionary in <span class="xref myst">the class notes</span> for more information.</p>
 </div>
 </div>
 <div class="section" id="make-a-dataset-about-your-datasets">
