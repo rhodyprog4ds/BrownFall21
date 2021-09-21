@@ -78,11 +78,9 @@ On each chapter(for a file) of your portfolio, you should identify which skills 
 
 You can view a (fake) example [in this repository](https://github.com/rhodyprog4ds/portfolio-example) as a [pdf](https://github.com/rhodyprog4ds/portfolio-example/blob/gh-pages/portfolio.pdf) or as a [rendered website](https://rhodyprog4ds.github.io/portfolio-example/intro.html)
 
-## Current
+## Current: Check 1
 
-### Check 1
-
-The first portfolio check will be due {{ p1due }}
+The first portfolio check will be due {{ p1due }} and will cover the following skills.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
