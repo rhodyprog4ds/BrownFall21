@@ -423,16 +423,72 @@
     <a class="reference internal nav-link" href="#general-questions">
      6.4.1. General Questions
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-know-what-functions-are-compatible-with-other-functions">
+       6.4.1.1. How to know what functions are compatible with other functions?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#best-place-to-find-all-the-individual-functions-based-on-the-describe-function">
+       6.4.1.2. Best place to find all the individual functions based on the .describe() function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#are-there-panda-functions-to-read-files-other-than-csv">
+       6.4.1.3. Are there panda functions to read files other than CSV?
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#clarifying">
      6.4.2. Clarifying
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#is-sent-attr-in-the-dataframe-loop-its-own-variable-that-we-assign-or-is-it-a-base-python-function">
+       6.4.2.1. Is sent_attr in the DataFrame loop its own variable that we assign, or is it a base Python function?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#difference-between-load-and-how-weve-been-importing-links-to-datasets-in-previous-classes">
+       6.4.2.2. Difference between %load and how we’ve been importing links to datasets in previous classes?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-i-ran-sent-attr-split-for-sent-attr-in-sentence-list-in-jupyter-i-got-a-nameerror">
+       6.4.2.3. When I ran [sent_attr.split(‘-’) for sent_attr in sentence_list] in Jupyter, I got a nameerror
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#coure-admin-and-assignment-questions">
      6.4.3. Coure Admin and Assignment Questions
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-are-the-achievements-we-earn-in-class-going-to-be-inputted-in-brightspace">
+       6.4.3.1. when are the achievements we earn in class going to be inputted in brightspace?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#is-there-anything-we-have-to-do-for-the-assignment-after-commiting-the-changes-to">
+       6.4.3.2. Is there anything we have to do for the assignment after commiting the changes to
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-we-push-the-homework-are-we-pushing-it-to-the-portfolio">
+       6.4.3.3. When we push the homework are we pushing it to the portfolio?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#still-a-little-unsure-about-what-the-num-numerical-specifically-is-is-it-just-the-number-of-numerical-columns">
+       6.4.3.4. Still a little unsure about what the num_numerical specifically is, is it just the number of numerical columns?
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -1408,116 +1464,83 @@ dtype: object
 <h2><span class="section-number">6.4. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general-questions">
 <h3><span class="section-number">6.4.1. </span>General Questions<a class="headerlink" href="#general-questions" title="Permalink to this headline">¶</a></h3>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-How to know what functions are compatible with other functions<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
+<div class="section" id="how-to-know-what-functions-are-compatible-with-other-functions">
+<h4><span class="section-number">6.4.1.1. </span>How to know what functions are compatible with other functions?<a class="headerlink" href="#how-to-know-what-functions-are-compatible-with-other-functions" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>This is something that builds up over time, but one thing to look for is to check the types. That’s why we’ve been using <code class="docutils literal notranslate"><span class="pre">type()</span></code> so often in class.
+Having a goal for your analysis will also help.</p>
 </div>
-</details><details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Best place to find all the individual functions based on the .describe() function<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">Each one goes by the same name, mostly, but that also the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html">Pandas documentation</a> is the bes way to find more information on every pandas method.</p>
 </div>
-</details></div>
+<div class="section" id="best-place-to-find-all-the-individual-functions-based-on-the-describe-function">
+<h4><span class="section-number">6.4.1.2. </span>Best place to find all the individual functions based on the .describe() function<a class="headerlink" href="#best-place-to-find-all-the-individual-functions-based-on-the-describe-function" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>Each one goes by the same name, mostly, but that also the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html">Pandas documentation</a> is the bes way to find more information on every pandas method. On any function, see the See also section too.</p>
+</div>
+</div>
+<div class="section" id="are-there-panda-functions-to-read-files-other-than-csv">
+<h4><span class="section-number">6.4.1.3. </span>Are there panda functions to read files other than CSV?<a class="headerlink" href="#are-there-panda-functions-to-read-files-other-than-csv" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>Yes! See the hint on  <a class="reference internal" href="../assignments/02-python-access.html"><span class="doc std std-doc">assignment 2</span></a> for more information on this</p>
+</div>
+</div>
+</div>
 <div class="section" id="clarifying">
 <h3><span class="section-number">6.4.2. </span>Clarifying<a class="headerlink" href="#clarifying" title="Permalink to this headline">¶</a></h3>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Is sent_attr in the DataFrame loop its own variable that we assign, or is it a base Python function?<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">That’s a variable that we created, it’s equivalent to a loop variable.</p>
+<div class="section" id="is-sent-attr-in-the-dataframe-loop-its-own-variable-that-we-assign-or-is-it-a-base-python-function">
+<h4><span class="section-number">6.4.2.1. </span>Is sent_attr in the DataFrame loop its own variable that we assign, or is it a base Python function?<a class="headerlink" href="#is-sent-attr-in-the-dataframe-loop-its-own-variable-that-we-assign-or-is-it-a-base-python-function" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>That’s a variable that we created, it’s equivalent to a loop variable.</p>
 </div>
-</details><details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Difference between %load and how we’ve been importing links to datasets in previous classes?<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">the pandas functions read data in and put it specifically into a DataFrame.</p>
-<p class="card-text">The load magic reads a file in and basically pastes it into the jupyter cell.
+</div>
+<div class="section" id="difference-between-load-and-how-weve-been-importing-links-to-datasets-in-previous-classes">
+<h4><span class="section-number">6.4.2.2. </span>Difference between %load and how we’ve been importing links to datasets in previous classes?<a class="headerlink" href="#difference-between-load-and-how-weve-been-importing-links-to-datasets-in-previous-classes" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>the pandas functions read data in and put it specifically into a DataFrame.</p>
+<p>The load magic reads a file in and basically pastes it into the jupyter cell.
 This one doesn’t actually put the data into memory in python.</p>
 </div>
-</details><details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-When I ran [sent_attr.split(‘-’) for sent_attr in sentence_list] in Jupyter, I got a nameerror<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">I also did at first, because I hadn’t yet run the cell above so <code class="docutils literal notranslate"><span class="pre">sentence_list</span></code> was not defined.</p>
 </div>
-</details><details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Why do we use the value quantile instead of using quartile since we can use mean to find mean?<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">It’s just the name of the method.</p>
+<div class="section" id="when-i-ran-sent-attr-split-for-sent-attr-in-sentence-list-in-jupyter-i-got-a-nameerror">
+<h4><span class="section-number">6.4.2.3. </span>When I ran [sent_attr.split(‘-’) for sent_attr in sentence_list] in Jupyter, I got a nameerror<a class="headerlink" href="#when-i-ran-sent-attr-split-for-sent-attr-in-sentence-list-in-jupyter-i-got-a-nameerror" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>I also did at first, because I hadn’t yet run the cell above so <code class="docutils literal notranslate"><span class="pre">sentence_list</span></code> was not defined.</p>
 </div>
-</details></div>
+<p>Why do we use the value quantile instead of using quartile since we can use mean to find mean?</p>
+<div class="toggle docutils container">
+<p>It’s just the name of the method.</p>
+</div>
+</div>
+</div>
 <div class="section" id="coure-admin-and-assignment-questions">
 <h3><span class="section-number">6.4.3. </span>Coure Admin and Assignment Questions<a class="headerlink" href="#coure-admin-and-assignment-questions" title="Permalink to this headline">¶</a></h3>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-when are the achievements we earn in class going to be inputted in brightspace?<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">Assignment achievements will be posted after grading is complete. Level 1s from class will be posted most weeks on Friday or over the weekend.  Right now we’re a little behind as we get everything set up.</p>
+<div class="section" id="when-are-the-achievements-we-earn-in-class-going-to-be-inputted-in-brightspace">
+<h4><span class="section-number">6.4.3.1. </span>when are the achievements we earn in class going to be inputted in brightspace?<a class="headerlink" href="#when-are-the-achievements-we-earn-in-class-going-to-be-inputted-in-brightspace" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>Assignment achievements will be posted after grading is complete. Level 1s from class will be posted most weeks on Friday or over the weekend.  Right now we’re a little behind as we get everything set up.</p>
 </div>
-</details><details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-is there anything we have to do for the assignment after commiting the changes to<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">the files?
-Yes, after committing, push.  Once you can see your files on the GitHub website
+</div>
+<div class="section" id="is-there-anything-we-have-to-do-for-the-assignment-after-commiting-the-changes-to">
+<h4><span class="section-number">6.4.3.2. </span>Is there anything we have to do for the assignment after commiting the changes to<a class="headerlink" href="#is-there-anything-we-have-to-do-for-the-assignment-after-commiting-the-changes-to" title="Permalink to this headline">¶</a></h4>
+<p>the files?</p>
+<div class="toggle docutils container">
+<p>Yes, after committing, push.  Once you can see your files on the GitHub website
 interface, we can see them for grading</p>
 </div>
-</details><details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-When we push the homework are we pushing it to the portfolio?<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">No. when you accept the assignment it will create a new repository for that
+</div>
+<div class="section" id="when-we-push-the-homework-are-we-pushing-it-to-the-portfolio">
+<h4><span class="section-number">6.4.3.3. </span>When we push the homework are we pushing it to the portfolio?<a class="headerlink" href="#when-we-push-the-homework-are-we-pushing-it-to-the-portfolio" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>No. when you accept the assignment it will create a new repository for that
 assignment. That’s why it’s importtant to accept each assignment.</p>
 </div>
-</details><details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-are there panda functions to read files other than CSV?<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">Yes! See the hint on  <a class="reference internal" href="../assignments/02-python-access.html"><span class="doc std std-doc">assignment 2</span></a> for more information on this</p>
 </div>
-</details><details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Still a little unsure about what the num_numerical specifically is, is it just the number of numerical columns?<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<p class="card-text">Yes the number of numerical columns.</p>
+<div class="section" id="still-a-little-unsure-about-what-the-num-numerical-specifically-is-is-it-just-the-number-of-numerical-columns">
+<h4><span class="section-number">6.4.3.4. </span>Still a little unsure about what the num_numerical specifically is, is it just the number of numerical columns?<a class="headerlink" href="#still-a-little-unsure-about-what-the-num-numerical-specifically-is-is-it-just-the-number-of-numerical-columns" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>Yes the number of numerical columns.</p>
 </div>
-</details></div>
+</div>
+</div>
 </div>
 <div class="section" id="more-practice">
 <h2><span class="section-number">6.5. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
