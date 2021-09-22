@@ -16,8 +16,31 @@ kernelspec:
 
 Patterns and examples of how to use common tips in class
 
+## How to use brackets
 
-## Axes 
+```{list-table}
+
+* - symbol
+  - use
+* - `[val]`
+  - indexing item val from an object; `val` is int for iterables, or any for mapping
+* - `[val : val2]`
+  - slicing elemtns val to val2-1 from a listlike object
+* - `[ item1,item2 ]`
+  - creating a list consisting of `item1` and `item2`
+* - `(param)`
+  - function calls
+* - `(item1,item2)`
+  - defining a tuple of `item1` and `item2`
+* - `{item1,item2}`
+  - defining a set of `item1` and `item2`
+* - `{key:val1, key2: val2}`
+  - defining a  dictionary where key1 indexes to val2
+
+```
+
+
+## Axes
 
 ```{code-cell} ipython3
 :tags: ["remove-input"]
