@@ -397,6 +397,44 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-faq">
+   Jupyter FAQ
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#revewi-of-describe">
+   Revewi of describe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-plots-in-pandas">
+   Basic plots in pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-in-python">
+   ## Plotting in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   Questions after class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   More practice
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -415,6 +453,14 @@
 </div>
 </div>
 </div>
+<div class="section" id="jupyter-faq">
+<h2>Jupyter FAQ<a class="headerlink" href="#jupyter-faq" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question-from-class admonition">
+<p class="admonition-title">Question from class</p>
+<p>Why doesn’t my jupyter print things out that are on the last line?</p>
+</div>
+<p>Whem we create a variable and then put that on the last line of a cell, jupyter
+displays it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;sarah&#39;</span>
@@ -428,6 +474,7 @@
 </div>
 </div>
 </div>
+<p>How it diplsays it depends on the type</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -440,20 +487,38 @@
 </div>
 </div>
 </div>
+<p>For a string, it uses <code class="docutils literal notranslate"><span class="pre">print</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sarah
+</pre></div>
+</div>
+</div>
+</div>
+<p>so this and the one above look the same.  For objects that have a <code class="docutils literal notranslate"><span class="pre">_repr_html_</span></code>
+method, juypter uses that, and uses html to render the object in a more visually
+appealing way.</p>
+</div>
+<div class="section" id="revewi-of-describe">
+<h2>Revewi of describe<a class="headerlink" href="#revewi-of-describe" title="Permalink to this headline">¶</a></h2>
+<p>we’re going to work with the arabica data today, because it’s a little bigger
+and more interesting for plotting</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arabica_data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/arabica_data_cleaned.csv&#39;</span>
+
+<span class="n">coffee_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">arabica_data_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">arabica_data_url</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>We can describe it again, to see it has mostly the same variables we saw before,
+but some different as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -690,6 +755,363 @@
 </table>
 </div></div></div>
 </div>
+<div class="admonition-question-from-class admonition">
+<p class="admonition-title">Question from class</p>
+<p>Why do we need the <code class="docutils literal notranslate"><span class="pre">()</span></code> on the describe but not on just the data</p>
+</div>
+<p>As is often the case, again this comes back to the type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">coffee_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<p>is a data frame which has the  <code class="docutils literal notranslate"><span class="pre">_repr_html_</span></code> method</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>notice that this one has the … in the columns and rows directions.</p>
+</div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it Yourself</p>
+<p>what can you check in a dataFrame to predict if it will display with or without
+the …?</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Species</th>
+      <th>Owner</th>
+      <th>Country.of.Origin</th>
+      <th>Farm.Name</th>
+      <th>Lot.Number</th>
+      <th>Mill</th>
+      <th>ICO.Number</th>
+      <th>Company</th>
+      <th>Altitude</th>
+      <th>...</th>
+      <th>Color</th>
+      <th>Category.Two.Defects</th>
+      <th>Expiration</th>
+      <th>Certification.Body</th>
+      <th>Certification.Address</th>
+      <th>Certification.Contact</th>
+      <th>unit_of_measurement</th>
+      <th>altitude_low_meters</th>
+      <th>altitude_high_meters</th>
+      <th>altitude_mean_meters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Arabica</td>
+      <td>metad plc</td>
+      <td>Ethiopia</td>
+      <td>metad plc</td>
+      <td>NaN</td>
+      <td>metad plc</td>
+      <td>2014/2015</td>
+      <td>metad agricultural developmet plc</td>
+      <td>1950-2200</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>0</td>
+      <td>April 3rd, 2016</td>
+      <td>METAD Agricultural Development plc</td>
+      <td>309fcf77415a3661ae83e027f7e5f05dad786e44</td>
+      <td>19fef5a731de2db57d16da10287413f5f99bc2dd</td>
+      <td>m</td>
+      <td>1950.00</td>
+      <td>2200.00</td>
+      <td>2075.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Arabica</td>
+      <td>metad plc</td>
+      <td>Ethiopia</td>
+      <td>metad plc</td>
+      <td>NaN</td>
+      <td>metad plc</td>
+      <td>2014/2015</td>
+      <td>metad agricultural developmet plc</td>
+      <td>1950-2200</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>1</td>
+      <td>April 3rd, 2016</td>
+      <td>METAD Agricultural Development plc</td>
+      <td>309fcf77415a3661ae83e027f7e5f05dad786e44</td>
+      <td>19fef5a731de2db57d16da10287413f5f99bc2dd</td>
+      <td>m</td>
+      <td>1950.00</td>
+      <td>2200.00</td>
+      <td>2075.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Arabica</td>
+      <td>grounds for health admin</td>
+      <td>Guatemala</td>
+      <td>san marcos barrancas "san cristobal cuch</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1600 - 1800 m</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>May 31st, 2011</td>
+      <td>Specialty Coffee Association</td>
+      <td>36d0d00a3724338ba7937c52a378d085f2172daa</td>
+      <td>0878a7d4b9d35ddbf0fe2ce69a2062cceb45a660</td>
+      <td>m</td>
+      <td>1600.00</td>
+      <td>1800.00</td>
+      <td>1700.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Arabica</td>
+      <td>yidnekachew dabessa</td>
+      <td>Ethiopia</td>
+      <td>yidnekachew dabessa coffee plantation</td>
+      <td>NaN</td>
+      <td>wolensu</td>
+      <td>NaN</td>
+      <td>yidnekachew debessa coffee plantation</td>
+      <td>1800-2200</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>2</td>
+      <td>March 25th, 2016</td>
+      <td>METAD Agricultural Development plc</td>
+      <td>309fcf77415a3661ae83e027f7e5f05dad786e44</td>
+      <td>19fef5a731de2db57d16da10287413f5f99bc2dd</td>
+      <td>m</td>
+      <td>1800.00</td>
+      <td>2200.00</td>
+      <td>2000.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Arabica</td>
+      <td>metad plc</td>
+      <td>Ethiopia</td>
+      <td>metad plc</td>
+      <td>NaN</td>
+      <td>metad plc</td>
+      <td>2014/2015</td>
+      <td>metad agricultural developmet plc</td>
+      <td>1950-2200</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>2</td>
+      <td>April 3rd, 2016</td>
+      <td>METAD Agricultural Development plc</td>
+      <td>309fcf77415a3661ae83e027f7e5f05dad786e44</td>
+      <td>19fef5a731de2db57d16da10287413f5f99bc2dd</td>
+      <td>m</td>
+      <td>1950.00</td>
+      <td>2200.00</td>
+      <td>2075.00</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1306</th>
+      <td>1307</td>
+      <td>Arabica</td>
+      <td>juan carlos garcia lopez</td>
+      <td>Mexico</td>
+      <td>el centenario</td>
+      <td>NaN</td>
+      <td>la esperanza, municipio juchique de ferrer, ve...</td>
+      <td>1104328663</td>
+      <td>terra mia</td>
+      <td>900</td>
+      <td>...</td>
+      <td>None</td>
+      <td>20</td>
+      <td>September 17th, 2013</td>
+      <td>AMECAFE</td>
+      <td>59e396ad6e22a1c22b248f958e1da2bd8af85272</td>
+      <td>0eb4ee5b3f47b20b049548a2fd1e7d4a2b70d0a7</td>
+      <td>m</td>
+      <td>900.00</td>
+      <td>900.00</td>
+      <td>900.00</td>
+    </tr>
+    <tr>
+      <th>1307</th>
+      <td>1308</td>
+      <td>Arabica</td>
+      <td>myriam kaplan-pasternak</td>
+      <td>Haiti</td>
+      <td>200 farms</td>
+      <td>NaN</td>
+      <td>coeb koperativ ekselsyo basen (350 members)</td>
+      <td>NaN</td>
+      <td>haiti coffee</td>
+      <td>~350m</td>
+      <td>...</td>
+      <td>Blue-Green</td>
+      <td>16</td>
+      <td>May 24th, 2013</td>
+      <td>Specialty Coffee Association</td>
+      <td>36d0d00a3724338ba7937c52a378d085f2172daa</td>
+      <td>0878a7d4b9d35ddbf0fe2ce69a2062cceb45a660</td>
+      <td>m</td>
+      <td>350.00</td>
+      <td>350.00</td>
+      <td>350.00</td>
+    </tr>
+    <tr>
+      <th>1308</th>
+      <td>1309</td>
+      <td>Arabica</td>
+      <td>exportadora atlantic, s.a.</td>
+      <td>Nicaragua</td>
+      <td>finca las marías</td>
+      <td>017-053-0211/ 017-053-0212</td>
+      <td>beneficio atlantic condega</td>
+      <td>017-053-0211/ 017-053-0212</td>
+      <td>exportadora atlantic s.a</td>
+      <td>1100</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>5</td>
+      <td>June 6th, 2018</td>
+      <td>Instituto Hondureño del Café</td>
+      <td>b4660a57e9f8cc613ae5b8f02bfce8634c763ab4</td>
+      <td>7f521ca403540f81ec99daec7da19c2788393880</td>
+      <td>m</td>
+      <td>1100.00</td>
+      <td>1100.00</td>
+      <td>1100.00</td>
+    </tr>
+    <tr>
+      <th>1309</th>
+      <td>1310</td>
+      <td>Arabica</td>
+      <td>juan luis alvarado romero</td>
+      <td>Guatemala</td>
+      <td>finca el limon</td>
+      <td>NaN</td>
+      <td>beneficio serben</td>
+      <td>11/853/165</td>
+      <td>unicafe</td>
+      <td>4650</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>4</td>
+      <td>May 24th, 2013</td>
+      <td>Asociacion Nacional Del Café</td>
+      <td>b1f20fe3a819fd6b2ee0eb8fdc3da256604f1e53</td>
+      <td>724f04ad10ed31dbb9d260f0dfd221ba48be8a95</td>
+      <td>ft</td>
+      <td>1417.32</td>
+      <td>1417.32</td>
+      <td>1417.32</td>
+    </tr>
+    <tr>
+      <th>1310</th>
+      <td>1312</td>
+      <td>Arabica</td>
+      <td>bismarck castro</td>
+      <td>Honduras</td>
+      <td>los hicaques</td>
+      <td>103</td>
+      <td>cigrah s.a de c.v.</td>
+      <td>13-111-053</td>
+      <td>cigrah s.a de c.v</td>
+      <td>1400</td>
+      <td>...</td>
+      <td>Green</td>
+      <td>2</td>
+      <td>April 28th, 2018</td>
+      <td>Instituto Hondureño del Café</td>
+      <td>b4660a57e9f8cc613ae5b8f02bfce8634c763ab4</td>
+      <td>7f521ca403540f81ec99daec7da19c2788393880</td>
+      <td>m</td>
+      <td>1400.00</td>
+      <td>1400.00</td>
+      <td>1400.00</td>
+    </tr>
+  </tbody>
+</table>
+<p>1311 rows × 44 columns</p>
+</div></div></div>
+</div>
+<p>so it prints nicely as tdid the <code class="docutils literal notranslate"><span class="pre">coffee_df.describe()</span></code></p>
+<p>If we leave the <code class="docutils literal notranslate"><span class="pre">()</span></code> off we don’t get nice formatting</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>when objects do not have the <code class="docutils literal notranslate"><span class="pre">_repr_html_</span></code> method their output includes the type</p>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span>
@@ -819,78 +1241,66 @@
 </div>
 </div>
 </div>
+<p>so lets check the type of that.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>method
+</pre></div>
+</div>
+</div>
+</div>
+<p>it’s a <code class="docutils literal notranslate"><span class="pre">bound</span> <span class="pre">method</span></code> or a function that <em>will</em> be applied to the DataFrame, but
+we didn’t actually run the method.  To see that it hasn’t run, we can use an
+ipython<a class="footnote-reference brackets" href="#ipy" id="id1">1</a> <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit">magic <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code></a></p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further reading</p>
+<p>The <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic functions</a>
+can be defined for a cell or a line.
+<a class="reference external" href="https://docs.python.org/3/library/timeit.html">Timeit</a>
+is actually a standard python library that you can call on the command line or in a python
+script as well, but juypter, by way of ipython gives us easy access to it with
+nice defaults.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>77.8 ns ± 0.0808 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Unnamed: 0  Number.of.Bags        Aroma       Flavor   Aftertaste  \
-count  1311.000000     1311.000000  1311.000000  1311.000000  1311.000000   
-mean    656.000763      153.887872     7.563806     7.518070     7.397696   
-std     378.598733      129.733734     0.378666     0.399979     0.405119   
-min       1.000000        0.000000     0.000000     0.000000     0.000000   
-25%     328.500000       14.500000     7.420000     7.330000     7.250000   
-50%     656.000000      175.000000     7.580000     7.580000     7.420000   
-75%     983.500000      275.000000     7.750000     7.750000     7.580000   
-max    1312.000000     1062.000000     8.750000     8.830000     8.670000   
-
-           Acidity         Body      Balance   Uniformity   Clean.Cup  \
-count  1311.000000  1311.000000  1311.000000  1311.000000  1311.00000   
-mean      7.533112     7.517727     7.517506     9.833394     9.83312   
-std       0.381599     0.359213     0.406316     0.559343     0.77135   
-min       0.000000     0.000000     0.000000     0.000000     0.00000   
-25%       7.330000     7.330000     7.330000    10.000000    10.00000   
-50%       7.500000     7.500000     7.500000    10.000000    10.00000   
-75%       7.750000     7.670000     7.750000    10.000000    10.00000   
-max       8.750000     8.580000     8.750000    10.000000    10.00000   
-
-         Sweetness  Cupper.Points  Total.Cup.Points     Moisture  \
-count  1311.000000    1311.000000       1311.000000  1311.000000   
-mean      9.903272       7.497864         82.115927     0.088863   
-std       0.530832       0.474610          3.515761     0.047957   
-min       0.000000       0.000000          0.000000     0.000000   
-25%      10.000000       7.250000         81.170000     0.090000   
-50%      10.000000       7.500000         82.500000     0.110000   
-75%      10.000000       7.750000         83.670000     0.120000   
-max      10.000000      10.000000         90.580000     0.280000   
-
-       Category.One.Defects      Quakers  Category.Two.Defects  \
-count           1311.000000  1310.000000           1311.000000   
-mean               0.426392     0.177099              3.591915   
-std                1.832415     0.840583              5.350371   
-min                0.000000     0.000000              0.000000   
-25%                0.000000     0.000000              0.000000   
-50%                0.000000     0.000000              2.000000   
-75%                0.000000     0.000000              4.000000   
-max               31.000000    11.000000             55.000000   
-
-       altitude_low_meters  altitude_high_meters  altitude_mean_meters  
-count          1084.000000           1084.000000           1084.000000  
-mean           1759.548954           1808.843803           1784.196379  
-std            8767.847252           8767.187498           8767.016913  
-min               1.000000              1.000000              1.000000  
-25%            1100.000000           1100.000000           1100.000000  
-50%            1310.640000           1350.000000           1310.640000  
-75%            1600.000000           1650.000000           1600.000000  
-max          190164.000000         190164.000000         190164.000000  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32.7 ms ± 57 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
 </div>
+<p>Note that without the <code class="docutils literal notranslate"><span class="pre">()</span></code> it runs much much faster, signaling that it did less
+finding the method, is less calcuation than computing statistics on the data</p>
+</div>
+<div class="section" id="basic-plots-in-pandas">
+<h2>Basic plots in pandas<a class="headerlink" href="#basic-plots-in-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Pandas gives us basic plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -901,9 +1311,10 @@ max          190164.000000         190164.000000         190164.000000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-09-22_10_1.png" src="../_images/2021-09-22_10_1.png" />
+<img alt="../_images/2021-09-22_24_1.png" src="../_images/2021-09-22_24_1.png" />
 </div>
 </div>
+<p>Since we chose a series, it plotted that data as line vs the index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">index</span>
@@ -916,6 +1327,9 @@ max          190164.000000         190164.000000         190164.000000
 </div>
 </div>
 </div>
+<p>We can change the kind, for example to a <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">Kernel Density Estimate</a>.
+This approximates the distribution of the data, you can think of it rougly like
+a smoothed out histogram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">)</span>
@@ -926,9 +1340,11 @@ max          190164.000000         190164.000000         190164.000000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-09-22_12_1.png" src="../_images/2021-09-22_12_1.png" />
+<img alt="../_images/2021-09-22_28_1.png" src="../_images/2021-09-22_28_1.png" />
 </div>
 </div>
+<p>We can also plot two variables as a scatter plot, by specifying the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and
+<code class="docutils literal notranslate"><span class="pre">kind</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">)</span>
@@ -939,7 +1355,7 @@ max          190164.000000         190164.000000         190164.000000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Flavor&#39;, ylabel=&#39;Balance&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-09-22_13_1.png" src="../_images/2021-09-22_13_1.png" />
+<img alt="../_images/2021-09-22_30_1.png" src="../_images/2021-09-22_30_1.png" />
 </div>
 </div>
 <p>Let’s Make a histogram plot of the Balance variable</p>
@@ -953,43 +1369,68 @@ max          190164.000000         190164.000000         190164.000000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-09-22_15_1.png" src="../_images/2021-09-22_15_1.png" />
+<img alt="../_images/2021-09-22_32_1.png" src="../_images/2021-09-22_32_1.png" />
 </div>
+</div>
+<div class="admonition-question-from-class admonition">
+<p class="admonition-title">Question from class</p>
+<p>Can we plot two histograms with <code class="docutils literal notranslate"><span class="pre">coffee_df['Balance']['Flavor'].plot(kind='hist')</span></code></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;raises-exception&quot;</span><span class="p">]</span>
+
+<span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">][</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2052/3818478052.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;raises-exception&quot;</span><span class="p">]</span>
+    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
-<img alt="../_images/2021-09-22_16_1.png" src="../_images/2021-09-22_16_1.png" />
+</div>
+</div>
+<p>Let’s break down why that errors.  When we append things to the left, python
+interprets them by passing the output of one step to the input of the next one.<br />
+So <code class="docutils literal notranslate"><span class="pre">coffee_df['Balance'].plot(kind='hist')</span></code> first made a series, then plotted it.
+In the above, we again got the series, which works</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since I know these will be DataFrames, I’m appending the <code class="docutils literal notranslate"><span class="pre">head()</span></code> method to
+reduce the output for presenation.</p>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2021-09-22_17_0.png" src="../_images/2021-09-22_17_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    8.42
+1    8.42
+Name: Balance, dtype: float64
+</pre></div>
 </div>
 </div>
+</div>
+<p>But then, we tried to index it with ‘Flavor’, but we don’t have that any more</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">][</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">][</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1975</span><span class="o">/</span><span class="mf">506619125.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">][</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2052</span><span class="o">/</span><span class="mf">1214282069.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">][</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/series.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
 <span class="g g-Whitespace">    </span><span class="mi">940</span> 
@@ -1017,32 +1458,14 @@ max          190164.000000         190164.000000         190164.000000
 </div>
 </div>
 </div>
+<p>So  we get a key error and we know this is the part of the line we have to change.</p>
+<p>We need to index into the DataFrame and pick two columns at once. When we index,
+we can use the name of a variable as a string or a list.  We can buil this list
+on the fly and python exectues fromt he inside out.<br />
+The outer <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> index and the inner <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> make alist</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       8.42
-1       8.42
-2       8.42
-3       8.25
-4       8.33
-        ... 
-1306    6.75
-1307    6.67
-1308    6.08
-1309    6.67
-1310    0.00
-Name: Balance, Length: 1311, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,56 +1503,31 @@ Name: Balance, Length: 1311, dtype: float64
       <td>8.42</td>
       <td>8.67</td>
     </tr>
-    <tr>
-      <th>2</th>
-      <td>8.42</td>
-      <td>8.50</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>8.25</td>
-      <td>8.58</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>8.33</td>
-      <td>8.50</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>1306</th>
-      <td>6.75</td>
-      <td>6.83</td>
-    </tr>
-    <tr>
-      <th>1307</th>
-      <td>6.67</td>
-      <td>6.58</td>
-    </tr>
-    <tr>
-      <th>1308</th>
-      <td>6.08</td>
-      <td>6.58</td>
-    </tr>
-    <tr>
-      <th>1309</th>
-      <td>6.67</td>
-      <td>6.67</td>
-    </tr>
-    <tr>
-      <th>1310</th>
-      <td>0.00</td>
-      <td>0.00</td>
-    </tr>
   </tbody>
 </table>
-<p>1311 rows × 2 columns</p>
 </div></div></div>
 </div>
+<p>we could also build the list first, then index for readability</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">coffee_df</span><span class="p">[</span><span class="n">hist_vars</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2052</span><span class="o">/</span><span class="mf">2943951791.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">hist_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">coffee_df</span><span class="p">[</span><span class="n">hist_vars</span><span class="p">]</span>
+
+<span class="ne">AttributeError</span>: &#39;list&#39; object has no attribute &#39;head&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This gives us a data frame, which we can plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
@@ -1140,9 +1538,22 @@ Name: Balance, Length: 1311, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-09-22_21_1.png" src="../_images/2021-09-22_21_1.png" />
+<img alt="../_images/2021-09-22_44_1.png" src="../_images/2021-09-22_44_1.png" />
 </div>
 </div>
+<p>We’ll see ways to improve this on Friday.</p>
+</div>
+<div class="section" id="plotting-in-python">
+<h2>## Plotting in Python<a class="headerlink" href="#plotting-in-python" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a>: low level plotting tools</p></li>
+<li><p><a class="reference external" href="https://seaborn.pydata.org/index.html">seaborn</a>: high level plotting with opinionated defaults</p></li>
+<li><p><a class="reference external" href="https://yhat.github.io/ggpy/">ggplot</a>: plotting based on the ggplot library in R.</p></li>
+</ul>
+<p>Pandas and seaborn use matplotlib under the hood.</p>
+<p>Seaborn and ggplot both assume the data is set up as a DataFrame.
+Getting started with seaborn is the simplest, so we’ll use that.</p>
+<p>We can get that basic plot back.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">)</span>
@@ -1153,9 +1564,10 @@ Name: Balance, Length: 1311, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Flavor&#39;, ylabel=&#39;Balance&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-09-22_22_1.png" src="../_images/2021-09-22_22_1.png" />
+<img alt="../_images/2021-09-22_46_1.png" src="../_images/2021-09-22_46_1.png" />
 </div>
 </div>
+<p>But now we have more power to investigate more relationships in the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">)</span>
@@ -1166,9 +1578,29 @@ Name: Balance, Length: 1311, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Flavor&#39;, ylabel=&#39;Balance&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-09-22_23_1.png" src="../_images/2021-09-22_23_1.png" />
+<img alt="../_images/2021-09-22_48_1.png" src="../_images/2021-09-22_48_1.png" />
 </div>
 </div>
+<p>From this we can see that the color doesn’t appear to be related to the flavor
+or balance scores, but that the flavor and balacne are related.</p>
+<p>We can also break this apart. <code class="docutils literal notranslate"><span class="pre">lmplot</span></code> is a higher level plotting function so
+it allows us to create grids of plots and by default also includes a regression
+line. We’ll turn that off for now, with <code class="docutils literal notranslate"><span class="pre">,fit_reg=False</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span>
+               <span class="n">col</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span><span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f86bbc8e4d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-09-22_50_1.png" src="../_images/2021-09-22_50_1.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">col</span></code> stands for column.  We can also use <code class="docutils literal notranslate"><span class="pre">row</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span>
@@ -1177,12 +1609,13 @@ Name: Balance, Length: 1311, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7ff6954ebd50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f86bb83a0d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-09-22_24_1.png" src="../_images/2021-09-22_24_1.png" />
+<img alt="../_images/2021-09-22_52_1.png" src="../_images/2021-09-22_52_1.png" />
 </div>
 </div>
+<p>We can also use both together:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span>
@@ -1191,164 +1624,147 @@ Name: Balance, Length: 1311, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1975</span><span class="o">/</span><span class="mf">4097410330.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>                <span class="n">row</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f86bb290a50&gt;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f86cfb4c0e0&gt; (for post_execute):
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib_inline/backend_inline.py in flush_figures()
+    119         # ignore the tracking, just draw and close all figures
+    120         try:
+--&gt; 121             return show(True)
+    122         except Exception as e:
+    123             # safely show traceback if in IPython, else raise
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/seaborn/_decorators.py</span> in <span class="ni">inner_f</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>             <span class="p">)</span>
-<span class="nn">     45         kwargs.update({k: arg for k, arg</span> in <span class="ni">zip</span><span class="nt">(sig.parameters, args)})</span>
-<span class="ne">---&gt; </span><span class="mi">46</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">return</span> <span class="n">inner_f</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> 
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib_inline/backend_inline.py in show(close, block)
+     41             display(
+     42                 figure_manager.canvas.figure,
+---&gt; 43                 metadata=_fetch_figure_metadata(figure_manager.canvas.figure)
+     44             )
+     45     finally:
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/seaborn/regression.py</span> in <span class="ni">lmplot</span><span class="nt">(x, y, data, hue, col, row, palette, col_wrap, height, aspect, markers, sharex, sharey, hue_order, col_order, row_order, legend, legend_out, x_estimator, x_bins, x_ci, scatter, fit_reg, ci, n_boot, units, seed, order, logistic, lowess, robust, logx, x_partial, y_partial, truncate, x_jitter, y_jitter, scatter_kws, line_kws, facet_kws, size)</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span>         <span class="n">scatter_kws</span><span class="o">=</span><span class="n">scatter_kws</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="n">line_kws</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">645</span>     <span class="n">facets</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">regplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">regplot_kws</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">646</span>     <span class="n">facets</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span> 
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/IPython/core/display.py in display(include, exclude, metadata, transient, display_id, *objs, **kwargs)
+    318             publish_display_data(data=obj, metadata=metadata, **kwargs)
+    319         else:
+--&gt; 320             format_dict, md_dict = format(obj, include=include, exclude=exclude)
+    321             if not format_dict:
+    322                 # nothing to display (e.g. _ipython_display_ took over)
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/seaborn/axisgrid.py</span> in <span class="ni">map_dataframe</span><span class="nt">(self, func, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">775</span> 
-<span class="g g-Whitespace">    </span><span class="mi">776</span>             <span class="c1"># Draw the plot</span>
-<span class="ne">--&gt; </span><span class="mi">777</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_facet_plot</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">778</span> 
-<span class="g g-Whitespace">    </span><span class="mi">779</span>         <span class="c1"># For axis labels, prefer to use positional args for backcompat</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/IPython/core/formatters.py in format(self, obj, include, exclude)
+    178             md = None
+    179             try:
+--&gt; 180                 data = formatter(obj)
+    181             except:
+    182                 # FIXME: log the exception
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/seaborn/axisgrid.py</span> in <span class="ni">_facet_plot</span><span class="nt">(self, func, ax, plot_args, plot_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">804</span>             <span class="n">plot_args</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">    </span><span class="mi">805</span>             <span class="n">plot_kwargs</span><span class="p">[</span><span class="s2">&quot;ax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ax</span>
-<span class="ne">--&gt; </span><span class="mi">806</span>         <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">plot_args</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">807</span> 
-<span class="g g-Whitespace">    </span><span class="mi">808</span>         <span class="c1"># Sort out the supporting information</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/decorator.py in fun(*args, **kw)
+    230             if not kwsyntax:
+    231                 args, kw = fix(args, kw, sig)
+--&gt; 232             return caller(func, *(extras + args), **kw)
+    233     fun.__name__ = func.__name__
+    234     fun.__doc__ = func.__doc__
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/seaborn/_decorators.py</span> in <span class="ni">inner_f</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>             <span class="p">)</span>
-<span class="nn">     45         kwargs.update({k: arg for k, arg</span> in <span class="ni">zip</span><span class="nt">(sig.parameters, args)})</span>
-<span class="ne">---&gt; </span><span class="mi">46</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">return</span> <span class="n">inner_f</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> 
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/IPython/core/formatters.py in catch_format_error(method, self, *args, **kwargs)
+    222     &quot;&quot;&quot;show traceback on failed format call&quot;&quot;&quot;
+    223     try:
+--&gt; 224         r = method(self, *args, **kwargs)
+    225     except NotImplementedError:
+    226         # don&#39;t warn on NotImplementedErrors
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/seaborn/regression.py</span> in <span class="ni">regplot</span><span class="nt">(x, y, data, x_estimator, x_bins, x_ci, scatter, fit_reg, ci, n_boot, units, seed, order, logistic, lowess, robust, logx, x_partial, y_partial, truncate, dropna, x_jitter, y_jitter, label, color, marker, scatter_kws, line_kws, ax)</span>
-<span class="g g-Whitespace">    </span><span class="mi">861</span>     <span class="n">scatter_kws</span><span class="p">[</span><span class="s2">&quot;marker&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">marker</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>     <span class="n">line_kws</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">line_kws</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">line_kws</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">863</span>     <span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="p">,</span> <span class="n">line_kws</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">864</span>     <span class="k">return</span> <span class="n">ax</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span> 
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/IPython/core/formatters.py in __call__(self, obj)
+    339                 pass
+    340             else:
+--&gt; 341                 return printer(obj)
+    342             # Finally look for special method names
+    343             method = get_real_method(obj, self.print_method)
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/seaborn/regression.py</span> in <span class="ni">plot</span><span class="nt">(self, ax, scatter_kws, line_kws)</span>
-<span class="g g-Whitespace">    </span><span class="mi">365</span>         <span class="c1"># Draw the constituent plots</span>
-<span class="g g-Whitespace">    </span><span class="mi">366</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scatter</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">367</span>             <span class="bp">self</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">368</span> 
-<span class="g g-Whitespace">    </span><span class="mi">369</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_reg</span><span class="p">:</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/IPython/core/pylabtools.py in &lt;lambda&gt;(fig)
+    251 
+    252     if &#39;png&#39; in formats:
+--&gt; 253         png_formatter.for_type(Figure, lambda fig: print_figure(fig, &#39;png&#39;, **kwargs))
+    254     if &#39;retina&#39; in formats or &#39;png2x&#39; in formats:
+    255         png_formatter.for_type(Figure, lambda fig: retina_figure(fig, **kwargs))
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/seaborn/regression.py</span> in <span class="ni">scatterplot</span><span class="nt">(self, ax, kws)</span>
-<span class="g g-Whitespace">    </span><span class="mi">395</span> 
-<span class="g g-Whitespace">    </span><span class="mi">396</span>             <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scatter_data</span>
-<span class="ne">--&gt; </span><span class="mi">397</span>             <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span>             <span class="c1"># TODO abstraction</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/IPython/core/pylabtools.py in print_figure(fig, fmt, bbox_inches, **kwargs)
+    135         FigureCanvasBase(fig)
+    136 
+--&gt; 137     fig.canvas.print_figure(bytes_io, **kw)
+    138     data = bytes_io.getvalue()
+    139     if fmt == &#39;svg&#39;:
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/__init__.py</span> in <span class="ni">inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1359</span>     <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1360</span>         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1361</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1362</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1363</span>         <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/backend_bases.py in print_figure(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)
+   2233                 if bbox_inches == &quot;tight&quot;:
+   2234                     bbox_inches = self.figure.get_tightbbox(
+-&gt; 2235                         renderer, bbox_extra_artists=bbox_extra_artists)
+   2236                     if pad_inches is None:
+   2237                         pad_inches = rcParams[&#39;savefig.pad_inches&#39;]
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_axes.py</span> in <span class="ni">scatter</span><span class="nt">(self, x, y, s, c, marker, cmap, norm, vmin, vmax, alpha, linewidths, edgecolors, plotnonfinite, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4614</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">set_ymargin</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4615</span> 
-<span class="ne">-&gt; </span><span class="mi">4616</span>         <span class="bp">self</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4617</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_request_autoscale_view</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">4618</span> 
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/figure.py in get_tightbbox(self, renderer, bbox_extra_artists)
+   1637 
+   1638         for a in artists:
+-&gt; 1639             bbox = a.get_tightbbox(renderer)
+   1640             if bbox is not None and (bbox.width != 0 or bbox.height != 0):
+   1641                 bb.append(bbox)
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">add_collection</span><span class="nt">(self, collection, autolim)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2060</span>             <span class="c1"># Make sure viewLim is not stale (mostly to match</span>
-<span class="g g-Whitespace">   </span><span class="mi">2061</span>             <span class="c1"># pre-lazy-autoscale behavior, which is not really better).</span>
-<span class="ne">-&gt; </span><span class="mi">2062</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_unstale_viewLim</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2063</span>             <span class="n">datalim</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">get_datalim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transData</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2064</span>             <span class="n">points</span> <span class="o">=</span> <span class="n">datalim</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py in get_tightbbox(self, renderer, call_axes_locator, bbox_extra_artists, for_layout_only)
+   4429                 try:
+   4430                     bb_xaxis = self.xaxis.get_tightbbox(
+-&gt; 4431                         renderer, for_layout_only=for_layout_only)
+   4432                 except TypeError:
+   4433                     # in case downstream library has redefined axis:
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">_unstale_viewLim</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">776</span>             <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shared_y_axes</span><span class="o">.</span><span class="n">get_siblings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">777</span>                 <span class="n">ax</span><span class="o">.</span><span class="n">_stale_viewlim_y</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="ne">--&gt; </span><span class="mi">778</span>             <span class="bp">self</span><span class="o">.</span><span class="n">autoscale_view</span><span class="p">(</span><span class="n">scalex</span><span class="o">=</span><span class="n">scalex</span><span class="p">,</span> <span class="n">scaley</span><span class="o">=</span><span class="n">scaley</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">779</span> 
-<span class="g g-Whitespace">    </span><span class="mi">780</span>     <span class="nd">@property</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py in get_tightbbox(self, renderer, for_layout_only)
+   1084             return
+   1085 
+-&gt; 1086         ticks_to_draw = self._update_ticks()
+   1087 
+   1088         self._update_label_position(renderer)
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">autoscale_view</span><span class="nt">(self, tight, scalex, scaley)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2756</span>         <span class="n">handle_single_axis</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2757</span>             <span class="n">scaley</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_autoscaleYon</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shared_y_axes</span><span class="p">,</span> <span class="s1">&#39;intervaly&#39;</span><span class="p">,</span>
-<span class="ne">-&gt; </span><span class="mi">2758</span>             <span class="s1">&#39;minposy&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ymargin</span><span class="p">,</span> <span class="n">y_stickies</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_ybound</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2759</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2760</span>     <span class="k">def</span> <span class="nf">_get_axis_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py in _update_ticks(self)
+   1033             tick.update_position(loc)
+   1034             tick.set_label1(label)
+-&gt; 1035             tick.set_label2(label)
+   1036         minor_locs = self.get_minorticklocs()
+   1037         minor_labels = self.minor.formatter.format_ticks(minor_locs)
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">handle_single_axis</span><span class="nt">(scale, autoscaleon, shared_axes, interval, minpos, axis, margin, stickies, set_bound)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2748</span>             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tight</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2749</span>                 <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">locator</span><span class="o">.</span><span class="n">view_limits</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2750</span>             <span class="n">set_bound</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2751</span>             <span class="c1"># End of definition of internal function &#39;handle_single_axis&#39;.</span>
-<span class="g g-Whitespace">   </span><span class="mi">2752</span> 
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py in set_label2(self, s)
+    326         &quot;&quot;&quot;
+    327         self.label2.set_text(s)
+--&gt; 328         self.stale = True
+    329 
+    330     def set_url(self, url):
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">set_ybound</span><span class="nt">(self, lower, upper)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3742</span>         <span class="bp">self</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">sorted</span><span class="p">((</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">3743</span>                              <span class="n">reverse</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">yaxis_inverted</span><span class="p">())),</span>
-<span class="ne">-&gt; </span><span class="mi">3744</span>                       <span class="n">auto</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3745</span> 
-<span class="g g-Whitespace">   </span><span class="mi">3746</span>     <span class="k">def</span> <span class="nf">get_ylim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/artist.py in stale(self, val)
+    250 
+    251         if val and self.stale_callback is not None:
+--&gt; 252             self.stale_callback(self, val)
+    253 
+    254     def get_window_extent(self, renderer):
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">set_ylim</span><span class="nt">(self, bottom, top, emit, auto, ymin, ymax)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3897</span>             <span class="k">for</span> <span class="n">other</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shared_y_axes</span><span class="o">.</span><span class="n">get_siblings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3898</span>                 <span class="k">if</span> <span class="n">other</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3899</span>                     <span class="n">other</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">viewLim</span><span class="o">.</span><span class="n">intervaly</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3900</span>                                    <span class="n">emit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="n">auto</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3901</span>                     <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">figure</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="p">:</span>
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/artist.py in _stale_axes_callback(self, val)
+     82 def _stale_axes_callback(self, val):
+     83     if self.axes:
+---&gt; 84         self.axes.stale = val
+     85 
+     86 
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">viewLim</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">780</span>     <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">781</span>     <span class="k">def</span> <span class="nf">viewLim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">782</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_unstale_viewLim</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">783</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_viewLim</span>
-<span class="g g-Whitespace">    </span><span class="mi">784</span> 
+/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/artist.py in axes(self)
+    215         return ax.yaxis.convert_units(y)
+    216 
+--&gt; 217     @property
+    218     def axes(self):
+    219         &quot;&quot;&quot;The `~.axes.Axes` instance the artist resides in, or *None*.&quot;&quot;&quot;
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">_unstale_viewLim</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">768</span>         <span class="c1"># instead of on every axis.</span>
-<span class="g g-Whitespace">    </span><span class="mi">769</span>         <span class="n">scalex</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">_stale_viewlim_x</span>
-<span class="nn">--&gt; 770                      for ax</span> in <span class="ni">self._shared_x_axes.get_siblings</span><span class="nt">(self))</span>
-<span class="g g-Whitespace">    </span><span class="mi">771</span>         <span class="n">scaley</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">_stale_viewlim_y</span>
-<span class="nn">    772                      for ax</span> in <span class="ni">self._shared_y_axes.get_siblings</span><span class="nt">(self))</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">get_siblings</span><span class="nt">(self, a)</span>
-<span class="g g-Whitespace">    </span><span class="mi">907</span>     <span class="k">def</span> <span class="nf">get_siblings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">908</span>         <span class="sd">&quot;&quot;&quot;Return all of the items joined with *a*, including itself.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">909</span>         <span class="bp">self</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">910</span>         <span class="n">siblings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="p">[</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">a</span><span class="p">)])</span>
-<span class="g g-Whitespace">    </span><span class="mi">911</span>         <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">siblings</span><span class="p">]</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">clean</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">859</span>         <span class="sd">&quot;&quot;&quot;Clean dead weak references from the dictionary.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>         <span class="n">mapping</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping</span>
-<span class="ne">--&gt; </span><span class="mi">861</span>         <span class="n">to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mapping</span> <span class="k">if</span> <span class="n">key</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">to_drop</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">863</span>             <span class="n">val</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">859</span>         <span class="sd">&quot;&quot;&quot;Clean dead weak references from the dictionary.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>         <span class="n">mapping</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping</span>
-<span class="ne">--&gt; </span><span class="mi">861</span>         <span class="n">to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mapping</span> <span class="k">if</span> <span class="n">key</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">to_drop</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">863</span>             <span class="n">val</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+KeyboardInterrupt: 
 </pre></div>
 </div>
 </div>
 </div>
+<p>How could we choose which countries to select to make this not show the ones
+with very few points?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -1356,6 +1772,7 @@ Name: Balance, Length: 1311, dtype: float64
 </div>
 </div>
 </div>
+<p>Or we can focus on the countried, but wrap them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span>
@@ -1363,6 +1780,28 @@ Name: Balance, Length: 1311, dtype: float64
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="questions-after-class">
+<h2>Questions after class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-ram-token-opportunity admonition">
+<p class="admonition-title">Ram Token Opportunity</p>
+<p>add a question with a pull request; earn 1-2 ram tokens for submitting a question with the answer (with sources)</p>
+</div>
+</div>
+<div class="section" id="more-practice">
+<h2>More practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Plot the kde for the <code class="docutils literal notranslate"><span class="pre">Aftertaste</span></code></p></li>
+<li><p>How does <code class="docutils literal notranslate"><span class="pre">Total.Cup.Points</span></code> vary by <code class="docutils literal notranslate"><span class="pre">Certification.Body</span></code></p></li>
+<li><p>Are  moisture and sweetness related? Does that relationship vary by Color?</p></li>
+</ol>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="ipy"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>the kernel of python we’re using</p>
+</dd>
+</dl>
 </div>
 </div>
 

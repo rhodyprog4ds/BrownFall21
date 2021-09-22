@@ -405,6 +405,11 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-brackets">
+   How to use brackets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#axes">
    Axes
   </a>
@@ -428,6 +433,41 @@
   <div class="section" id="cheatsheet">
 <h1>Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permalink to this headline">¶</a></h1>
 <p>Patterns and examples of how to use common tips in class</p>
+<div class="section" id="how-to-use-brackets">
+<h2>How to use brackets<a class="headerlink" href="#how-to-use-brackets" title="Permalink to this headline">¶</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>symbol</p></td>
+<td><p>use</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[val]</span></code></p></td>
+<td><p>indexing item val from an object; <code class="docutils literal notranslate"><span class="pre">val</span></code> is int for iterables, or any for mapping</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[val</span> <span class="pre">:</span> <span class="pre">val2]</span></code></p></td>
+<td><p>slicing elemtns val to val2-1 from a listlike object</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">item1,item2</span> <span class="pre">]</span></code></p></td>
+<td><p>creating a list consisting of <code class="docutils literal notranslate"><span class="pre">item1</span></code> and <code class="docutils literal notranslate"><span class="pre">item2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">(param)</span></code></p></td>
+<td><p>function calls</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">(item1,item2)</span></code></p></td>
+<td><p>defining a tuple of <code class="docutils literal notranslate"><span class="pre">item1</span></code> and <code class="docutils literal notranslate"><span class="pre">item2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{item1,item2}</span></code></p></td>
+<td><p>defining a set of <code class="docutils literal notranslate"><span class="pre">item1</span></code> and <code class="docutils literal notranslate"><span class="pre">item2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{key:val1,</span> <span class="pre">key2:</span> <span class="pre">val2}</span></code></p></td>
+<td><p>defining a  dictionary where key1 indexes to val2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="axes">
 <h2>Axes<a class="headerlink" href="#axes" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
