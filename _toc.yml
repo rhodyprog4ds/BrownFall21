@@ -20,11 +20,13 @@ parts:
       - file: notes/2021-09-15
       - file: notes/2021-09-17
       - file: notes/2021-09-20
+      - file: notes/2021-09-22
   - caption: Assignments
     numbered: True
     chapters:
     - file: assignments/01-python-syllabus
     - file: assignments/02-python-access
+    - file: assignments/03-eda
   - caption: Portfolio
     chapters:
     - file: portfolio/index

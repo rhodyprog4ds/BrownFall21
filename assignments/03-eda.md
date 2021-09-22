@@ -19,15 +19,15 @@ This week your goal is to do a small exploratory data analysis for two datasets 
 :header-rows: 1
 
 * - task
-    skill
+  - skill
 * - compute and display overall statistics
-    summarize
+  - summarize
 * - compute and display individual statistics of a datasets
-    summarize
+  - summarize
 * - group a data set by a variable and compute summary statics
-    summarize
+  - summarize
 * - plot two different pairwise relationships
-    visualize
+  - visualize
 * - interpret the statistics and plots
   - summarize, visualize
 * - load data from at least two different file types
@@ -62,10 +62,11 @@ For **each** dataset, in a dedicated notebook, complete the following:
 
 1. Load the data to a notebook as a `DataFrame` from url or local path, if local, include the data in your repository.
 1. Explore the dataset in a notebook enough to describe its structure use the heading `## Description`
-  - shape
-  - columns
-  - variable types
-  - overall summary statisics
+
+    - shape
+    - columns
+    - variable types
+    - overall summary statisics
 1. Write a short description of what the data contains and what it could be used for
 1. Ask and answer 4 questions using statistics, split-apply-combine, and visualizations. Make a heading for each question using a markdown cell and H2:`##`. Make sure your analyses meet the criteria in the check lists below. Interpret the answer from the analysis/plot.
 1. Describe what, if anything might need to be done to clean or prepare this data for further analysis
