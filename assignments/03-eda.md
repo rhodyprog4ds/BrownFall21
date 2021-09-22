@@ -1,8 +1,8 @@
 ---
 substitutions:
   accept_assignment: |
-    [Template repo for submission]()
-  date : 2020-09-28
+    [Template repo for submission](https://classroom.github.com/a/WL4HroJ_)
+  date : 2020-09-28 11:59pm
 ---
 
 # Assignment 3: Exploratory Data Analysis
