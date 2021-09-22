@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Assignment 3: Exploratory Data Analysis &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>3. Assignment 3: Exploratory Data Analysis &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Portfolio Dates and Key Facts" href="../portfolio/index.html" />
+    <link rel="prev" title="2. Practicing Python and Accessing Data" href="02-python-access.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -170,13 +172,18 @@
    6. Exploratory Data Analysis
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notes/2021-09-22.html">
+   7. Visualization
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
   Assignments
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01-python-syllabus.html">
    1. Portfolio Setup, Data Science, and Python
@@ -185,6 +192,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="02-python-access.html">
    2. Practicing Python and Accessing Data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Assignment 3: Exploratory Data Analysis
   </a>
  </li>
 </ul>
@@ -384,39 +396,39 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#objective-evaluation">
-   Objective &amp; Evaluation
+   3.1. Objective &amp; Evaluation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#choose-datasets">
-   Choose Datasets
+   3.2. Choose Datasets
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dataset-1-d1">
-     Dataset 1 (d1)
+     3.2.1. Dataset 1 (d1)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dataset-2-d2">
-     Dataset 2 (d2)
+     3.2.2. Dataset 2 (d2)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#eda">
-   EDA
+   3.3. EDA
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dataset-1-checklist">
-     Dataset 1 Checklist
+     3.3.1. Dataset 1 Checklist
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dataset-2-analysis">
-     Dataset 2 Analysis
+     3.3.2. Dataset 2 Analysis
     </a>
    </li>
   </ul>
@@ -433,20 +445,52 @@
               <div>
                 
   <div class="section" id="assignment-3-exploratory-data-analysis">
-<h1>Assignment 3: Exploratory Data Analysis<a class="headerlink" href="#assignment-3-exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>Assignment 3: Exploratory Data Analysis<a class="headerlink" href="#assignment-3-exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
 <p>__Due:2020-09-28 11:59pm __</p>
 <p><a class="reference external" href="https://classroom.github.com/a/WL4HroJ_">Template repo for submission</a></p>
 <div class="section" id="objective-evaluation">
-<h2>Objective &amp; Evaluation<a class="headerlink" href="#objective-evaluation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Objective &amp; Evaluation<a class="headerlink" href="#objective-evaluation" title="Permalink to this headline">¶</a></h2>
 <p>This week your goal is to do a small exploratory data analysis for two datasets of your choice.</p>
+<table class="table" id="id1">
+<caption><span class="caption-number">Table 3.1 </span><span class="caption-text">plot basic views of data and generate descriptive statistics and basic plots</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>task</p></th>
+<th class="head"><p>skill</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>compute and display overall statistics</p></td>
+<td><p>summarize</p></td>
+</tr>
+<tr class="row-odd"><td><p>compute and display individual statistics of a datasets</p></td>
+<td><p>summarize</p></td>
+</tr>
+<tr class="row-even"><td><p>group a data set by a variable and compute summary statics</p></td>
+<td><p>summarize</p></td>
+</tr>
+<tr class="row-odd"><td><p>plot two different pairwise relationships</p></td>
+<td><p>visualize</p></td>
+</tr>
+<tr class="row-even"><td><p>interpret the statistics and plots</p></td>
+<td><p>summarize, visualize</p></td>
+</tr>
+<tr class="row-odd"><td><p>load data from at least two different file types</p></td>
+<td><p>access</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="choose-datasets">
-<h2>Choose Datasets<a class="headerlink" href="#choose-datasets" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Choose Datasets<a class="headerlink" href="#choose-datasets" title="Permalink to this headline">¶</a></h2>
 <p>Each Dataset must have at least three variables, but can have more. Both datasets
 must have multiple types of variables. These can be datasets you used last week,
 if they meet the criteria below.</p>
 <div class="section" id="dataset-1-d1">
-<h3>Dataset 1 (d1)<a class="headerlink" href="#dataset-1-d1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.1. </span>Dataset 1 (d1)<a class="headerlink" href="#dataset-1-d1" title="Permalink to this headline">¶</a></h3>
 <p>must include at least:</p>
 <ul class="simple">
 <li><p>two continuous valued variables and</p></li>
@@ -454,7 +498,7 @@ if they meet the criteria below.</p>
 </ul>
 </div>
 <div class="section" id="dataset-2-d2">
-<h3>Dataset 2 (d2)<a class="headerlink" href="#dataset-2-d2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.2. </span>Dataset 2 (d2)<a class="headerlink" href="#dataset-2-d2" title="Permalink to this headline">¶</a></h3>
 <p>must include at least:</p>
 <ul class="simple">
 <li><p>two categorical variables and</p></li>
@@ -463,26 +507,25 @@ if they meet the criteria below.</p>
 </div>
 </div>
 <div class="section" id="eda">
-<h2>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">¶</a></h2>
 <p>Use a separate notebook for each dataset, name them <code class="docutils literal notranslate"><span class="pre">dataset_01.ipynb</span></code> and <code class="docutils literal notranslate"><span class="pre">dataset_02.ipynb</span></code>.</p>
 <p>For <strong>each</strong> dataset, in a dedicated notebook, complete the following:</p>
 <ol class="simple">
 <li><p>Load the data to a notebook as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from url or local path, if local, include the data in your repository.</p></li>
-<li><p>Explore the dataset in a notebook enough to describe its structure use the heading <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Description</span></code></p></li>
-</ol>
+<li><p>Explore the dataset in a notebook enough to describe its structure use the heading <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Description</span></code></p>
 <ul class="simple">
 <li><p>shape</p></li>
 <li><p>columns</p></li>
 <li><p>variable types</p></li>
 <li><p>overall summary statisics</p></li>
 </ul>
-<ol class="simple">
+</li>
 <li><p>Write a short description of what the data contains and what it could be used for</p></li>
 <li><p>Ask and answer 4 questions using statistics, split-apply-combine, and visualizations. Make a heading for each question using a markdown cell and H2:<code class="docutils literal notranslate"><span class="pre">##</span></code>. Make sure your analyses meet the criteria in the check lists below. Interpret the answer from the analysis/plot.</p></li>
 <li><p>Describe what, if anything might need to be done to clean or prepare this data for further analysis</p></li>
 </ol>
 <div class="section" id="dataset-1-checklist">
-<h3>Dataset 1 Checklist<a class="headerlink" href="#dataset-1-checklist" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.1. </span>Dataset 1 Checklist<a class="headerlink" href="#dataset-1-checklist" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Overall summary statistics grouped by a categorical variable</p></li>
 <li><p>A single statistic grouped by a categorical variable</p></li>
@@ -491,7 +534,7 @@ if they meet the criteria below.</p>
 </ol>
 </div>
 <div class="section" id="dataset-2-analysis">
-<h3>Dataset 2 Analysis<a class="headerlink" href="#dataset-2-analysis" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.2. </span>Dataset 2 Analysis<a class="headerlink" href="#dataset-2-analysis" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>two individual summary statistics for one variable</p></li>
 <li><p>one summary statistic grouped by two categorical variables</p></li>
@@ -552,6 +595,24 @@ on level 2 at this moment in time, feel free to skip this part.</p>
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="02-python-access.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">2. </span>Practicing Python and Accessing Data</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../portfolio/index.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Portfolio Dates and Key Facts</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
