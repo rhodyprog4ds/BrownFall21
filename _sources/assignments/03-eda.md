@@ -19,19 +19,23 @@ This week your goal is to do a small exploratory data analysis for two datasets 
 :header-rows: 1
 
 * - task
-  - skill
+  - skill (max level)
 * - compute and display overall statistics
-  - summarize
+  - summarize (2)
 * - compute and display individual statistics of a datasets
-  - summarize
+  - summarize (2)
 * - group a data set by a variable and compute summary statics
-  - summarize
+  - summarize (2)
 * - plot two different pairwise relationships
-  - visualize
+  - visualize (2)
 * - interpret the statistics and plots
-  - summarize, visualize
+  - summarize (2), visualize (2)
 * - load data from at least two different file types
-  - access
+  - access (2)
+* - compare and contrast the file types and/or sources
+  - access (2)
+* - match questions appropriate to the dataset and match plots and stats
+  - process (1)
 ```
 
 ## Choose Datasets
