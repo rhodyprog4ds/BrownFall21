@@ -1,0 +1,1674 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Exploratory Data Analysis &#8212; Programming for Data Science at URI Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="7. Visualization" href="2021-09-22.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/310_2021.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Programming for Data Science at URI Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   About this Book
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/about.html">
+   Basic Facts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/tools.html">
+   Tools and Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/achievements.html">
+   Data Science Achievements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/grading.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/uri_resources.html">
+   Support
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/uri_statements.html">
+   Policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/communication.html">
+   Course Communications
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-08.html">
+   1. Welcome to Programming to Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-10.html">
+   2. Jupyter Notebook Tour &amp; Python Review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-13.html">
+   3. Getting help, object inspection, loading data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-15.html">
+   4. Pandas DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-17.html">
+   5. More Loading Data, Indexing, and Iterables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-20.html">
+   6. Summarizing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-22.html">
+   7. Visualization
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Exploratory Data Analysis
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/01-python-syllabus.html">
+   1. Portfolio Setup, Data Science, and Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/02-python-access.html">
+   2. Practicing Python and Accessing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/03-eda.html">
+   3. Assignment 3: Exploratory Data Analysis
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Portfolio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/index.html">
+   Portfolio Dates and Key Facts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/intro_reflection.html">
+   Submission Introductions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/formatting.html">
+   Formatting Tips
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/index.html">
+   FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/syllabus.html">
+   Syllabus FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/github.html">
+   Git and GitHub
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/debugging.html">
+   Code Errors
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/python.html">
+   References on Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/cheatsheet.html">
+   Cheatsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/datasets.html">
+   Data Sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/tips.html">
+   General Tips and Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/learning.html">
+   How to Study in this class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/gettinghelp.html">
+   Getting Help with Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/terminal.html">
+   Terminals and Environments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/organization.html">
+   Getting Organized for class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall20/letters/">
+   Advice from FA2020 Students
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notes/2021-09-24.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notes/2021-09-24.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rhodyprog4ds/BrownFall21/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fnotes/2021-09-24.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/notes/2021-09-24.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rhodyprog4ds/BrownFall21/main?urlpath=tree/notes/2021-09-24.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summarizing-with-two-variables">
+   8.1. Summarizing with two variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#customizing-data-summaries">
+   8.2. Customizing Data Summaries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   8.3. Questions after class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   8.4. More Practice
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exploratory-data-analysis">
+<h1><span class="section-number">8. </span>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arabica_data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/arabica_data_cleaned.csv&#39;</span>
+
+<span class="n">coffee_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">arabica_data_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which of the following scores is distributed most similarly to Sweetness?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Aroma&#39;</span><span class="p">,</span><span class="s1">&#39;Body&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Uniformity&#39;</span><span class="p">,</span><span class="s1">&#39;Aftertaste&#39;</span><span class="p">,</span><span class="s1">&#39;Sweetness&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First step is to subset the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="n">scores_of_interest</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Flavor</th>
+      <th>Balance</th>
+      <th>Aroma</th>
+      <th>Body</th>
+      <th>Uniformity</th>
+      <th>Aftertaste</th>
+      <th>Sweetness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8.83</td>
+      <td>8.42</td>
+      <td>8.67</td>
+      <td>8.50</td>
+      <td>10.0</td>
+      <td>8.67</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8.67</td>
+      <td>8.42</td>
+      <td>8.75</td>
+      <td>8.42</td>
+      <td>10.0</td>
+      <td>8.50</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Then we produce a kde plot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="n">scores_of_interest</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-09-24_8_1.png" src="../_images/2021-09-24_8_1.png" />
+</div>
+</div>
+<p>We could also do it with seaborn</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">[</span><span class="n">scores_of_interest</span><span class="p">],</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fb3b6c55690&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-09-24_10_1.png" src="../_images/2021-09-24_10_1.png" />
+</div>
+</div>
+<p>If we forget the parameter <code class="docutils literal notranslate"><span class="pre">kind</span></code>, we get its default value,
+which is histogram</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you show this excerpt, you’ll see how I was able to select only a subset of the docstring to display in the notebook, programmatically. You’re not required to know how to do it, but if you’re curious, you can see.</p>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>``kind`` parameter selects the approach to use:
+
+- :func:`histplot` (with ``kind=&quot;hist&quot;``; the default)
+- :func:`kdeplot` (with ``kind=&quot;kde&quot;``)
+- :func:`ecdfplot` (with ``kind=&quot;ecdf&quot;``; univariate-only)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">[</span><span class="n">scores_of_interest</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fb3b6aa38d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-09-24_13_1.png" src="../_images/2021-09-24_13_1.png" />
+</div>
+</div>
+<div class="section" id="summarizing-with-two-variables">
+<h2><span class="section-number">8.1. </span>Summarizing with two variables<a class="headerlink" href="#summarizing-with-two-variables" title="Permalink to this headline">¶</a></h2>
+<p>So, we can summarize data now, but the summaries we have done so far have treated each variable one at a time.  The most interesting patterns are in often in how multiple variables interact. We’ll do some modeling that looks at multivariate functions of data in a few weeks, but for now, we do a little more with summary statistics.</p>
+<p>On Monday, we saw how to see how many reviews there were per country, using <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> on the <code class="docutils literal notranslate"><span class="pre">Country.of.Origin</span></code> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mexico      236
+Colombia    183
+Name: Country.of.Origin, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data also has <code class="docutils literal notranslate"><span class="pre">Number.of.Bags</span></code> however.  How can we check which has the most bags?</p>
+<p>We can do this with groupby.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">)[</span><span class="s1">&#39;Number.of.Bags&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Country.of.Origin
+Brazil                          30534
+Burundi                           520
+China                              55
+Colombia                        41204
+Costa Rica                      10354
+Cote d?Ivoire                       2
+Ecuador                             1
+El Salvador                      4449
+Ethiopia                        11761
+Guatemala                       36868
+Haiti                             390
+Honduras                        13167
+India                              20
+Indonesia                        1658
+Japan                              20
+Kenya                            3971
+Laos                               81
+Malawi                            557
+Mauritius                           1
+Mexico                          24140
+Myanmar                            10
+Nicaragua                        6406
+Panama                            537
+Papua New Guinea                    7
+Peru                             2336
+Philippines                       259
+Rwanda                            150
+Taiwan                           1914
+Tanzania, United Republic Of     3760
+Thailand                         1310
+Uganda                           3868
+United States                     361
+United States (Hawaii)            833
+United States (Puerto Rico)        71
+Vietnam                            10
+Zambia                             13
+Name: Number.of.Bags, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>What just happened?
+<img alt="split-apply-combine" src="https://jakevdp.github.io/PythonDataScienceHandbook/figures/03.08-split-apply-combine.png" /></p>
+<p>We can view this by saving the groupby object as a variable and exploring it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country_grouped</span> <span class="o">=</span> <span class="n">coffee_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">)</span>
+
+<span class="n">country_grouped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fb3b6ad9e50&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Trying to look at it without applying additional functions, just tells us the type.  But, it’s iterable, so we can loop over.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">country</span><span class="p">,</span><span class="n">df</span> <span class="ow">in</span> <span class="n">country_grouped</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">country</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class &#39;str&#39;&gt; &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I used this feature to build the separate view of the communication channels on this website.  You can view that source using the github icon on that page.</p>
+</div>
+</div>
+<p>We could manually compute things using the data structure, if needed, though using pandas functionality will usually do what we want. For example:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I tried putting this dictionary into the dataframe for display purposes using the regular constructor and got an error, so I googled about making one from a dictionary to get the docs, which is how I learned about the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.from_dict.html"><code class="docutils literal notranslate"><span class="pre">from_dict</span></code></a> method and its <code class="docutils literal notranslate"><span class="pre">orient</span></code> parameter which solved my problems.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bag_total_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">country</span><span class="p">,</span><span class="n">df</span> <span class="ow">in</span> <span class="n">country_grouped</span><span class="p">:</span>
+    <span class="n">tot_bags</span> <span class="o">=</span>  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Number.of.Bags&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">bag_total_dict</span><span class="p">[</span><span class="n">country</span><span class="p">]</span> <span class="o">=</span> <span class="n">tot_bags</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">bag_total_dict</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span>
+                           <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Number.of.Bags.Sum&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Number.of.Bags.Sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Brazil</th>
+      <td>30534</td>
+    </tr>
+    <tr>
+      <th>Burundi</th>
+      <td>520</td>
+    </tr>
+    <tr>
+      <th>China</th>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>Colombia</th>
+      <td>41204</td>
+    </tr>
+    <tr>
+      <th>Costa Rica</th>
+      <td>10354</td>
+    </tr>
+    <tr>
+      <th>Cote d?Ivoire</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Ecuador</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>El Salvador</th>
+      <td>4449</td>
+    </tr>
+    <tr>
+      <th>Ethiopia</th>
+      <td>11761</td>
+    </tr>
+    <tr>
+      <th>Guatemala</th>
+      <td>36868</td>
+    </tr>
+    <tr>
+      <th>Haiti</th>
+      <td>390</td>
+    </tr>
+    <tr>
+      <th>Honduras</th>
+      <td>13167</td>
+    </tr>
+    <tr>
+      <th>India</th>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>Indonesia</th>
+      <td>1658</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>Kenya</th>
+      <td>3971</td>
+    </tr>
+    <tr>
+      <th>Laos</th>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>Malawi</th>
+      <td>557</td>
+    </tr>
+    <tr>
+      <th>Mauritius</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Mexico</th>
+      <td>24140</td>
+    </tr>
+    <tr>
+      <th>Myanmar</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>Nicaragua</th>
+      <td>6406</td>
+    </tr>
+    <tr>
+      <th>Panama</th>
+      <td>537</td>
+    </tr>
+    <tr>
+      <th>Papua New Guinea</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>2336</td>
+    </tr>
+    <tr>
+      <th>Philippines</th>
+      <td>259</td>
+    </tr>
+    <tr>
+      <th>Rwanda</th>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>Taiwan</th>
+      <td>1914</td>
+    </tr>
+    <tr>
+      <th>Tanzania, United Republic Of</th>
+      <td>3760</td>
+    </tr>
+    <tr>
+      <th>Thailand</th>
+      <td>1310</td>
+    </tr>
+    <tr>
+      <th>Uganda</th>
+      <td>3868</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>361</td>
+    </tr>
+    <tr>
+      <th>United States (Hawaii)</th>
+      <td>833</td>
+    </tr>
+    <tr>
+      <th>United States (Puerto Rico)</th>
+      <td>71</td>
+    </tr>
+    <tr>
+      <th>Vietnam</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>Zambia</th>
+      <td>13</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>is the same as what we did before</p>
+<div class="admonition-question-from-class admonition">
+<p class="admonition-title">Question from class</p>
+<p>How can we sort it?</p>
+</div>
+<p>First, we’ll make it a variable to keep the code legible, then we’ll use <code class="docutils literal notranslate"><span class="pre">sort_values()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bag_total_df</span> <span class="o">=</span> <span class="n">coffee_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">)[</span><span class="s1">&#39;Number.of.Bags&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">bag_total_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Country.of.Origin
+Mauritius                           1
+Ecuador                             1
+Cote d?Ivoire                       2
+Papua New Guinea                    7
+Vietnam                            10
+Myanmar                            10
+Zambia                             13
+India                              20
+Japan                              20
+China                              55
+United States (Puerto Rico)        71
+Laos                               81
+Rwanda                            150
+Philippines                       259
+United States                     361
+Haiti                             390
+Burundi                           520
+Panama                            537
+Malawi                            557
+United States (Hawaii)            833
+Thailand                         1310
+Indonesia                        1658
+Taiwan                           1914
+Peru                             2336
+Tanzania, United Republic Of     3760
+Uganda                           3868
+Kenya                            3971
+El Salvador                      4449
+Nicaragua                        6406
+Costa Rica                      10354
+Ethiopia                        11761
+Honduras                        13167
+Mexico                          24140
+Brazil                          30534
+Guatemala                       36868
+Colombia                        41204
+Name: Number.of.Bags, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which, by default uses ascending order, the method has an <code class="docutils literal notranslate"><span class="pre">ascending</span></code> parameter and its default value is <code class="docutils literal notranslate"><span class="pre">True</span></code>, so we can switch it to <code class="docutils literal notranslate"><span class="pre">False</span></code> to get descending</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bag_total_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Country.of.Origin
+Colombia                        41204
+Guatemala                       36868
+Brazil                          30534
+Mexico                          24140
+Honduras                        13167
+Ethiopia                        11761
+Costa Rica                      10354
+Nicaragua                        6406
+El Salvador                      4449
+Kenya                            3971
+Uganda                           3868
+Tanzania, United Republic Of     3760
+Peru                             2336
+Taiwan                           1914
+Indonesia                        1658
+Thailand                         1310
+United States (Hawaii)            833
+Malawi                            557
+Panama                            537
+Burundi                           520
+Haiti                             390
+United States                     361
+Philippines                       259
+Rwanda                            150
+Laos                               81
+United States (Puerto Rico)        71
+China                              55
+India                              20
+Japan                              20
+Zambia                             13
+Myanmar                            10
+Vietnam                            10
+Papua New Guinea                    7
+Cote d?Ivoire                       2
+Ecuador                             1
+Mauritius                           1
+Name: Number.of.Bags, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="customizing-data-summaries">
+<h2><span class="section-number">8.2. </span>Customizing Data Summaries<a class="headerlink" href="#customizing-data-summaries" title="Permalink to this headline">¶</a></h2>
+<p>We’ve looked at an overall summary with <code class="docutils literal notranslate"><span class="pre">describe</span></code> on all the variables,  describe on one variable, individual statistics on all variables, and individual statistics on one variable.  We can also build  summaries of multiple varialbes with a custom subset of summary statistics, with <code class="docutils literal notranslate"><span class="pre">aggregate</span></code> or using its alias <code class="docutils literal notranslate"><span class="pre">agg</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country_grouped</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Number.of.Bags&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Balance&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">],})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Number.of.Bags</th>
+      <th colspan="2" halign="left">Balance</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>sum</th>
+      <th>mean</th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>Country.of.Origin</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Brazil</th>
+      <td>30534</td>
+      <td>7.531515</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <th>Burundi</th>
+      <td>520</td>
+      <td>7.415000</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>China</th>
+      <td>55</td>
+      <td>7.548125</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>Colombia</th>
+      <td>41204</td>
+      <td>7.708415</td>
+      <td>183</td>
+    </tr>
+    <tr>
+      <th>Costa Rica</th>
+      <td>10354</td>
+      <td>7.637255</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>Cote d?Ivoire</th>
+      <td>2</td>
+      <td>7.080000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Ecuador</th>
+      <td>1</td>
+      <td>7.830000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>El Salvador</th>
+      <td>4449</td>
+      <td>7.711429</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>Ethiopia</th>
+      <td>11761</td>
+      <td>7.972273</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>Guatemala</th>
+      <td>36868</td>
+      <td>7.469890</td>
+      <td>181</td>
+    </tr>
+    <tr>
+      <th>Haiti</th>
+      <td>390</td>
+      <td>7.056667</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>Honduras</th>
+      <td>13167</td>
+      <td>7.163962</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>India</th>
+      <td>20</td>
+      <td>7.420000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Indonesia</th>
+      <td>1658</td>
+      <td>7.520000</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>20</td>
+      <td>7.830000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Kenya</th>
+      <td>3971</td>
+      <td>7.800400</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>Laos</th>
+      <td>81</td>
+      <td>7.416667</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Malawi</th>
+      <td>557</td>
+      <td>7.371818</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>Mauritius</th>
+      <td>1</td>
+      <td>7.170000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Mexico</th>
+      <td>24140</td>
+      <td>7.328686</td>
+      <td>236</td>
+    </tr>
+    <tr>
+      <th>Myanmar</th>
+      <td>10</td>
+      <td>7.133750</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>Nicaragua</th>
+      <td>6406</td>
+      <td>7.278462</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>Panama</th>
+      <td>537</td>
+      <td>7.875000</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Papua New Guinea</th>
+      <td>7</td>
+      <td>8.250000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>2336</td>
+      <td>7.666000</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>Philippines</th>
+      <td>259</td>
+      <td>7.400000</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Rwanda</th>
+      <td>150</td>
+      <td>7.750000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Taiwan</th>
+      <td>1914</td>
+      <td>7.426000</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>Tanzania, United Republic Of</th>
+      <td>3760</td>
+      <td>7.469750</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>Thailand</th>
+      <td>1310</td>
+      <td>7.524063</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>Uganda</th>
+      <td>3868</td>
+      <td>7.660769</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>361</td>
+      <td>7.947500</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>United States (Hawaii)</th>
+      <td>833</td>
+      <td>7.644110</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <th>United States (Puerto Rico)</th>
+      <td>71</td>
+      <td>7.647500</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Vietnam</th>
+      <td>10</td>
+      <td>7.547143</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Zambia</th>
+      <td>13</td>
+      <td>7.420000</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We could also string this together</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Number.of.Bags&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span><span class="s1">&#39;Balance&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">],})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Number.of.Bags</th>
+      <th colspan="2" halign="left">Balance</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>sum</th>
+      <th>mean</th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>Country.of.Origin</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Brazil</th>
+      <td>30534</td>
+      <td>7.531515</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <th>Burundi</th>
+      <td>520</td>
+      <td>7.415000</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>China</th>
+      <td>55</td>
+      <td>7.548125</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>Colombia</th>
+      <td>41204</td>
+      <td>7.708415</td>
+      <td>183</td>
+    </tr>
+    <tr>
+      <th>Costa Rica</th>
+      <td>10354</td>
+      <td>7.637255</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>Cote d?Ivoire</th>
+      <td>2</td>
+      <td>7.080000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Ecuador</th>
+      <td>1</td>
+      <td>7.830000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>El Salvador</th>
+      <td>4449</td>
+      <td>7.711429</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>Ethiopia</th>
+      <td>11761</td>
+      <td>7.972273</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>Guatemala</th>
+      <td>36868</td>
+      <td>7.469890</td>
+      <td>181</td>
+    </tr>
+    <tr>
+      <th>Haiti</th>
+      <td>390</td>
+      <td>7.056667</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>Honduras</th>
+      <td>13167</td>
+      <td>7.163962</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>India</th>
+      <td>20</td>
+      <td>7.420000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Indonesia</th>
+      <td>1658</td>
+      <td>7.520000</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>20</td>
+      <td>7.830000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Kenya</th>
+      <td>3971</td>
+      <td>7.800400</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>Laos</th>
+      <td>81</td>
+      <td>7.416667</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Malawi</th>
+      <td>557</td>
+      <td>7.371818</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>Mauritius</th>
+      <td>1</td>
+      <td>7.170000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Mexico</th>
+      <td>24140</td>
+      <td>7.328686</td>
+      <td>236</td>
+    </tr>
+    <tr>
+      <th>Myanmar</th>
+      <td>10</td>
+      <td>7.133750</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>Nicaragua</th>
+      <td>6406</td>
+      <td>7.278462</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>Panama</th>
+      <td>537</td>
+      <td>7.875000</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Papua New Guinea</th>
+      <td>7</td>
+      <td>8.250000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>2336</td>
+      <td>7.666000</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>Philippines</th>
+      <td>259</td>
+      <td>7.400000</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Rwanda</th>
+      <td>150</td>
+      <td>7.750000</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Taiwan</th>
+      <td>1914</td>
+      <td>7.426000</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>Tanzania, United Republic Of</th>
+      <td>3760</td>
+      <td>7.469750</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>Thailand</th>
+      <td>1310</td>
+      <td>7.524063</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>Uganda</th>
+      <td>3868</td>
+      <td>7.660769</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>361</td>
+      <td>7.947500</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>United States (Hawaii)</th>
+      <td>833</td>
+      <td>7.644110</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <th>United States (Puerto Rico)</th>
+      <td>71</td>
+      <td>7.647500</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Vietnam</th>
+      <td>10</td>
+      <td>7.547143</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Zambia</th>
+      <td>13</td>
+      <td>7.420000</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="questions-after-class">
+<h2><span class="section-number">8.3. </span>Questions after class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-ram-token-opportunity admonition">
+<p class="admonition-title">Ram Token Opportunity</p>
+<p>add a question with a pull request; earn 1-2 ram tokens for submitting a question with the answer (with sources)</p>
+</div>
+</div>
+<div class="section" id="more-practice">
+<h2><span class="section-number">8.4. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Make a table thats total number of bags and mean and count of scored for each of the variables in the <code class="docutils literal notranslate"><span class="pre">scores_of_interest</span></code> list.</p></li>
+<li><p>Make a bar chart of the mean score for each variable <code class="docutils literal notranslate"><span class="pre">scores_of_interest</span></code> grouped by country.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="2021-09-22.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">7. </span>Visualization</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Professor Sarah M Brown<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
