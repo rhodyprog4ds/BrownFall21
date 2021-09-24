@@ -48,7 +48,7 @@ not end up in your repository.  Instead, you'll convert your notebooks to
 
 Your portfolio has the code to do this already, what you should do is make sure
 that `pre-commit` is installed and then run `pre-commit install`  
-(see your portfolio's READMER.md file for more detial)
+(see your portfolio's README.md file for more detail)
 
 If this doesn't work, you can follow the alterntive in the porfolio readme.
 
