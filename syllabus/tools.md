@@ -103,8 +103,8 @@ date.
 top download link under the Linux options.
 6. You will then see a .sh file in your downloads, move this into your Linux files.
 7. Make sure you are in your home directory (something like home/YOURUSERNAME), 
-do this by using the pwd command.
-8. Use the bash command followed by the file name of the installer you just downloaded to 
+do this by using the `pwd` command.
+8. Use the `bash` command followed by the file name of the installer you just downloaded to 
 start the installation.
 9. Next you will add Anaconda to your Linux PATH, do this by using the `vim .bashrc`
 command to enter the .bashrc file, then add the `export 
