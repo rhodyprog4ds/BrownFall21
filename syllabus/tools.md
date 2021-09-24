@@ -92,9 +92,13 @@ date.
     ```
     sudo apt -t stretch-backports install tmux
     ```
-4. Next you will install nodejs, to do this, use the following commands in order, curl -sL 
-https://deb.nodesource.com/setup_14.x | sudo -E bash – then sudo apt-get install -y 
-nodejs and lastly sudo apt-get install -y build-essential.
+4. Next you will install nodejs, to do this, use the following commands:
+    
+    ```
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash 
+    sudo apt-get install -y nodejs 
+    sudo apt-get install -y build-essential.
+    ```
 5. Next install Anaconda’s Python from the website provided by the instructor and use the 
 top download link under the Linux options.
 6. You will then see a .sh file in your downloads, move this into your Linux files.
