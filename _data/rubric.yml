@@ -5,7 +5,7 @@
   mastery: reliable, efficient, pythonic code that consistently adheres to pep8
   portfolios: [1,2]
   clo: [process]
-  assignments: [1,2,3,4]
+  assignments: [1,2,4,5]
 - skill: describe data science as a process
   keyword: process
   aware: Identify basic components of data science
