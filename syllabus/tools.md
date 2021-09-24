@@ -87,7 +87,11 @@ Everything in this class will be tested with the up to date (or otherwise specif
 2. Once the download finishes a Linux terminal will open, then enter the commands: sudo 
 apt-get update and sudo apt-get upgrade. These commands will ensure you are up to 
 date.
-3. Use the command sudo apt -t stretch-backports install tmux to install tmux.
+3. Install tmux with:
+
+    ```
+    sudo apt -t stretch-backports install tmux
+    ```
 4. Next you will install nodejs, to do this, use the following commands in order, curl -sL 
 https://deb.nodesource.com/setup_14.x | sudo -E bash – then sudo apt-get install -y 
 nodejs and lastly sudo apt-get install -y build-essential.
