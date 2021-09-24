@@ -110,7 +110,7 @@ start the installation.
 command to enter the .bashrc file, then add the `export 
 PATH=/home/YOURUSERNAME/anaconda3/bin/:$PATH` line. This can be placed at the 
 end of the file.
-10. Once that is inserted you may close and save the file, to do this hole escape and type :x, 
+10. Once that is inserted you may close and save the file, to do this hold escape and type `:x`, 
 then press enter. After doing that you will be returned to the terminal where you will then 
 type the source .bashrc command.
 11. Next, use the jupyter notebook –generate-config command to generate a Jupyter 
