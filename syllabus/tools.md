@@ -113,9 +113,9 @@ end of the file.
 10. Once that is inserted you may close and save the file, to do this hold escape and type `:x`, 
 then press enter. After doing that you will be returned to the terminal where you will then 
 type the source .bashrc command.
-11. Next, use the jupyter notebook –generate-config command to generate a Jupyter 
+11. Next, use the `jupyter notebook –generate-config` command to generate a Jupyter 
 Notebook.
-12. Then just type jupyter lab and a Jupyter Notebook should open up.
+12. Then just type `jupyter lab` and a Jupyter Notebook should open up.
 
 (texteditor)=
 Optional:
