@@ -106,9 +106,9 @@ top download link under the Linux options.
 do this by using the pwd command.
 8. Use the bash command followed by the file name of the installer you just downloaded to 
 start the installation.
-9. Next you will add Anaconda to your Linux PATH, do this by using the vim .bashrc
-command to enter the .bashrc file, then add the export 
-PATH=/home/YOURUSERNAME/anaconda3/bin/:$PATH line. This can be placed at the 
+9. Next you will add Anaconda to your Linux PATH, do this by using the `vim .bashrc`
+command to enter the .bashrc file, then add the `export 
+PATH=/home/YOURUSERNAME/anaconda3/bin/:$PATH` line. This can be placed at the 
 end of the file.
 10. Once that is inserted you may close and save the file, to do this hole escape and type :x, 
 then press enter. After doing that you will be returned to the terminal where you will then 
