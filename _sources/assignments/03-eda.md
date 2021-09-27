@@ -82,7 +82,7 @@ For **each** dataset, in a dedicated notebook, complete the following:
 1. Overall summary statistics grouped by a categorical variable
 1. A single statistic grouped by a categorical variable
 1. a scatter plot with the points colored by a categorical variable
-1. any statisic(s) with a plot that displays the same information
+1. a plot and summary table that convey the same information. This can be one statistic or many.
 
 
 ### Dataset 2 Analysis
@@ -90,7 +90,7 @@ For **each** dataset, in a dedicated notebook, complete the following:
 1. two individual summary statistics for one variable
 1. one summary statistic grouped by two categorical variables
 1. a figure with a grid of subplots that correspond to two categorical variables
-1. any statisic(s) with a plot that displays the same information
+1. a plot and summary table that convey the same information. This can be one statistic or many.
 
 
 
