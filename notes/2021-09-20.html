@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6. Summarizing Data &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>6. Exploratory Data Analysis &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -169,7 +169,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   6. Summarizing Data
+   6. Exploratory Data Analysis
   </a>
  </li>
  <li class="toctree-l1">
@@ -430,7 +430,7 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#summarizing-data">
    6.3. Summarizing Data
   </a>
  </li>
@@ -533,8 +533,8 @@
         
               <div>
                 
-  <div class="section" id="summarizing-data">
-<h1><span class="section-number">6. </span>Summarizing Data<a class="headerlink" href="#summarizing-data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="exploratory-data-analysis">
+<h1><span class="section-number">6. </span>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -877,8 +877,8 @@ with a  list comprehension because it’s only a few items, but for a list of
 longer lists, you might use a for loop and <code class="docutils literal notranslate"><span class="pre">append</span></code></p>
 </div>
 </div>
-<div class="section" id="id1">
-<h2><span class="section-number">6.3. </span>Summarizing Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="summarizing-data">
+<h2><span class="section-number">6.3. </span>Summarizing Data<a class="headerlink" href="#summarizing-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/robusta_data_cleaned.csv&#39;</span>
@@ -1065,6 +1065,8 @@ and what some of the methods are, and how to get data into them.</p>
 </div></div></div>
 </div>
 <p>Now, we can actually start to analyze the data itself.</p>
+<p>The <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html"><code class="docutils literal notranslate"><span class="pre">describe</span></code></a> method provides us with a set of summary statistics that broadly
+describe the data overall.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
