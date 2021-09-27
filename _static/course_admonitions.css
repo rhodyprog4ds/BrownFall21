@@ -73,7 +73,7 @@
 .admonition-correction {
     border-left-color: rgba(var(--pst-color-warning), 1);
 }
-.admonition-lcorrection  .admonition-title {
+.admonition-correction  .admonition-title {
     background-color: rgba(var(--pst-color-warning), .1)
 }
 .admonition-correction  .admonition-title:before {
