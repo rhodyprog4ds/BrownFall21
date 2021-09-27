@@ -69,3 +69,14 @@
     color: rgba(var(--pst-color-info), 1);
     content: '\1f9e0';
 }
+
+.admonition-correction {
+    border-left-color: rgba(var(--pst-color-warning), 1);
+}
+.admonition-lcorrection  .admonition-title {
+    background-color: rgba(var(--pst-color-warning), .1)
+}
+.admonition-correction  .admonition-title:before {
+    color: rgba(var(--pst-color-warning), 1);
+    content: '\26a0';
+}
