@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cleaning Data &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>9. Reshaping Data &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="8. Exploratory Data Analysis" href="2021-09-24.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -139,7 +141,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -178,6 +180,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-24.html">
    8. Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9. Reshaping Data
   </a>
  </li>
 </ul>
@@ -412,6 +419,39 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cleaning-data">
+   9.1. Cleaning Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tidy-data">
+   9.2. Tidy Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tidying-data">
+   9.3. Tidying Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering-data-by-a-column">
+   9.4. Filtering Data by a column
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#augmenting-a-dataset">
+   9.5. Augmenting a dataset
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -420,16 +460,16 @@
         
               <div>
                 
-  <div class="section" id="cleaning-data">
-<h1>Cleaning Data<a class="headerlink" href="#cleaning-data" title="Permalink to this headline">¶</a></h1>
-<p>This week, we’ll be cleaning data.</p>
-<p>Cleaning data is labor intensive and requires making subjective choices.</p>
-<p>We’ll focus on, and assess you on, manipulating data correctly, making reasonable</p>
-<p>choices, and documenting the choices you make carefully.</p>
-<p>We’ll focus on the programming tools that get used in cleaning data in class</p>
-<p>this week:</p>
-<p>reshaping data
-handling missing or incorrect values</p>
+  <div class="section" id="reshaping-data">
+<h1><span class="section-number">9. </span>Reshaping Data<a class="headerlink" href="#reshaping-data" title="Permalink to this headline">¶</a></h1>
+<p>Today, we’ll begin reshaping data.  We’ll  cover:</p>
+<ul class="simple">
+<li><p>filtering</p></li>
+<li><p>applying a function to all rows</p></li>
+<li><p>what is tidy data</p></li>
+<li><p>reshaping data into tidy data</p></li>
+</ul>
+<p>First some setup:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -441,7 +481,23 @@ handling missing or incorrect values</p>
 </div>
 </div>
 </div>
-<p>Read in the three csv files described below and store them in a list of dataFrames</p>
+<div class="section" id="cleaning-data">
+<h2><span class="section-number">9.1. </span>Cleaning Data<a class="headerlink" href="#cleaning-data" title="Permalink to this headline">¶</a></h2>
+<p>This week, we’ll be cleaning data.</p>
+<p>Cleaning data is labor intensive and requires making subjective choices.<br />
+We’ll focus on, and assess you on, manipulating data correctly, making reasonable
+choices, and documenting the choices you make carefully.</p>
+<p>We’ll focus on the programming tools that get used in cleaning data in class</p>
+<p>this week:</p>
+<ul class="simple">
+<li><p>reshaping data</p></li>
+<li><p>handling missing or incorrect values</p></li>
+<li><p>changing the representation of information</p></li>
+</ul>
+</div>
+<div class="section" id="tidy-data">
+<h2><span class="section-number">9.2. </span>Tidy Data<a class="headerlink" href="#tidy-data" title="Permalink to this headline">¶</a></h2>
+<p>Read in the three csv files described below and store them in a list of DataFrames.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_base</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/data/&#39;</span>
@@ -546,7 +602,7 @@ handling missing or incorrect values</p>
     <tr>
       <th>0</th>
       <td>treatmenta</td>
-      <td>—</td>
+      <td>-</td>
       <td>16</td>
       <td>3</td>
     </tr>
@@ -596,7 +652,7 @@ handling missing or incorrect values</p>
       <th>0</th>
       <td>John Smith</td>
       <td>a</td>
-      <td>—</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>1</th>
@@ -632,6 +688,199 @@ handling missing or incorrect values</p>
 </table>
 </div></div></div>
 </div>
+<p>These three all show the same data, but let’s say we have two goals:</p>
+<ul class="simple">
+<li><p>find the average  effect per person across treatments</p></li>
+<li><p>find the average effect per treatment across people</p></li>
+</ul>
+<p>This works differently for these three versions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>treatmenta   -54.333333
+treatmentb     4.666667
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>we get the average per treatment, but to get the average per person, we have to go across rows, which we can do here, but doesn’t work as well with plotting</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     2.0
+1    11.0
+2     1.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>and this is not well labeled.</p>
+<p>Let’s try the next one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>John Smith      -1.0
+Jane Doe        13.5
+Mary Johnson     2.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we get the average per person, but what about per treatment? again we have to go across rows instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    9.5
+1    6.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the third one, however, we can use groupby</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;person&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/IPython/core/interactiveshell.py:3444: FutureWarning: Dropping invalid columns in DataFrameGroupBy.mean is deprecated. In a future version, a TypeError will be raised. Before calling .mean, select only columns which should be valid for the function.
+  exec(code_obj, self.user_global_ns, self.user_ns)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>result</th>
+    </tr>
+    <tr>
+      <th>person</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Jane Doe</th>
+      <td>805.5</td>
+    </tr>
+    <tr>
+      <th>John Smith</th>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>Mary Johnson</th>
+      <td>15.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;treatment&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/IPython/core/interactiveshell.py:3444: FutureWarning: Dropping invalid columns in DataFrameGroupBy.mean is deprecated. In a future version, a TypeError will be raised. Before calling .mean, select only columns which should be valid for the function.
+  exec(code_obj, self.user_global_ns, self.user_ns)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>result</th>
+    </tr>
+    <tr>
+      <th>treatment</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>-54.333333</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>703.666667</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="tidying-data">
+<h2><span class="section-number">9.3. </span>Tidying Data<a class="headerlink" href="#tidying-data" title="Permalink to this headline">¶</a></h2>
+<p>Let’s reshape the first one to match the tidy one. First, we
+will save it to a DataFrame, this makes things easier to read
+and enables us to use the built in help in jupyter, because it can’t check types too many levels into a data structure.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">treat_df</span> <span class="o">=</span> <span class="n">df_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -639,6 +888,7 @@ handling missing or incorrect values</p>
 </div>
 </div>
 </div>
+<p>Let’s look at it again, so we can see</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">treat_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -692,21 +942,13 @@ handling missing or incorrect values</p>
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">treat_df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;name&#39;, &#39; treatmenta&#39;, &#39; treatmentb&#39;], dtype=&#39;object&#39;)
-</pre></div>
-</div>
-</div>
+<div class="admonition-correction admonition">
+<p class="admonition-title">Correction</p>
+<p>I fixed the three data files so the spaces can be removed. You will need to</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">treat_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">value_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39; treatmenta&#39;</span><span class="p">,</span><span class="s1">&#39; treatmentb&#39;</span><span class="p">],</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">treat_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">value_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;treatmenta&#39;</span><span class="p">,</span><span class="s1">&#39;treatmentb&#39;</span><span class="p">],</span>
              <span class="n">id_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
              <span class="n">value_name</span> <span class="o">=</span> <span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">var_name</span> <span class="o">=</span> <span class="s1">&#39;treatment&#39;</span> <span class="p">)</span>
 </pre></div>
@@ -779,24 +1021,9 @@ handling missing or incorrect values</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tidy_treat_df</span> <span class="o">=</span> <span class="n">treat_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">value_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39; treatmenta&#39;</span><span class="p">,</span><span class="s1">&#39; treatmentb&#39;</span><span class="p">],</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tidy_treat_df</span> <span class="o">=</span> <span class="n">treat_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">value_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;treatmenta&#39;</span><span class="p">,</span><span class="s1">&#39;treatmentb&#39;</span><span class="p">],</span>
              <span class="n">id_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
              <span class="n">value_name</span> <span class="o">=</span> <span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">var_name</span> <span class="o">=</span> <span class="s1">&#39;treatment&#39;</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tidy_treat_df</span><span class="o">.</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1989/162367199.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="n">tidy_treat_df</span><span class="o">.</span>
-                  <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -849,6 +1076,10 @@ handling missing or incorrect values</p>
 </table>
 </div></div></div>
 </div>
+</div>
+<div class="section" id="filtering-data-by-a-column">
+<h2><span class="section-number">9.4. </span>Filtering Data by a column<a class="headerlink" href="#filtering-data-by-a-column" title="Permalink to this headline">¶</a></h2>
+<p>Let’s go back to the coffee dataset</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">arabica_data_url</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
@@ -1024,14 +1255,63 @@ handling missing or incorrect values</p>
 <p>5 rows × 43 columns</p>
 </div></div></div>
 </div>
+<p>Recall on Friday we computed the total number of bags per country.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute ___ per ___</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute total bags per country</span>
 <span class="n">bag_total_df</span> <span class="o">=</span> <span class="n">coffee_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">)[</span><span class="s1">&#39;Number.of.Bags&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can subset this to get only the countries with over 15000 using a boolean mask:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bag_total_df</span><span class="p">[</span><span class="n">bag_total_df</span><span class="o">&gt;</span><span class="mi">15000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Country.of.Origin
+Brazil       30534
+Colombia     41204
+Guatemala    36868
+Mexico       24140
+Name: Number.of.Bags, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>what we put in the <code class="docutils literal notranslate"><span class="pre">[]</span></code> has to be the same length and each element has to be boolean</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">bag_total_df</span><span class="o">&gt;</span><span class="mi">15000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">bag_total_df</span><span class="o">&gt;</span><span class="mi">15000</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.bool_
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="augmenting-a-dataset">
+<h2><span class="section-number">9.5. </span>Augmenting a dataset<a class="headerlink" href="#augmenting-a-dataset" title="Permalink to this headline">¶</a></h2>
+<p>We want the names of the countries as a list, so we extract the index of that series and then cast it to a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">high_prod_countries</span> <span class="o">=</span>  <span class="nb">list</span><span class="p">(</span><span class="n">bag_total_df</span><span class="p">[</span><span class="n">bag_total_df</span><span class="o">&gt;</span><span class="mi">15000</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -1039,6 +1319,7 @@ handling missing or incorrect values</p>
 </div>
 </div>
 </div>
+<p>Next we want to be able to check if a country is in this list, so we’ll make a lambda that can do that</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">high_prod</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">high_prod_countries</span>
@@ -1046,30 +1327,33 @@ handling missing or incorrect values</p>
 </div>
 </div>
 </div>
+<p>Recall, the <code class="docutils literal notranslate"><span class="pre">lambda</span></code> keyword makes a function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">high_prod</span><span class="p">(</span><span class="s1">&#39;Mexico&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">high_prod</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>function
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can test it</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">high_prod</span><span class="p">(</span><span class="s1">&#39;Ethiopa&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">high_prod</span><span class="p">(</span><span class="s1">&#39;Mexico&#39;</span><span class="p">),</span> <span class="n">high_prod</span><span class="p">(</span><span class="s1">&#39;Ethiopa&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, False)
 </pre></div>
 </div>
 </div>
 </div>
+<p>Now, we can apply that lambda function to each country in our whole coffee data frame. and save that to a new DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;high_production&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">high_prod</span><span class="p">)</span>
@@ -1251,6 +1535,7 @@ handling missing or incorrect values</p>
 <p>5 rows × 44 columns</p>
 </div></div></div>
 </div>
+<p>Finally, we can filter the whole data frame using that new column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">high_prod_coffee_df</span> <span class="o">=</span> <span class="n">coffee_df</span><span class="p">[</span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;high_production&#39;</span><span class="p">]]</span>
@@ -1258,10 +1543,74 @@ handling missing or incorrect values</p>
 </div>
 </div>
 </div>
+<div class="admonition-question-from-class admonition">
+<p class="admonition-title">Question from class</p>
+<p>How can we get the ones not on that list?</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">low_prod_coffee_df</span> <span class="o">=</span> <span class="n">coffee_df</span><span class="p">[</span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;high_production&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">]</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it Yourself</p>
+<p>Replace the FIXMEs in the excerpt below to reshape the data to have a value column with the value of the score
+and a Score column that indicates which score is in that . Keep the color and country as values</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scores_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Aroma&#39;</span><span class="p">,</span><span class="s1">&#39;Body&#39;</span><span class="p">,</span><span class="s1">&#39;Aftertaste&#39;</span><span class="p">]</span>
+<span class="n">attrs_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">,</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span>
+<span class="n">high_prod_coffee_df_melted</span> <span class="o">=</span> <span class="n">high_prod_coffee_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
+        <span class="n">id_vars</span> <span class="o">=</span> <span class="n">FIXME</span><span class="p">,</span>
+        <span class="n">value_vars</span> <span class="o">=</span> <span class="n">FIXME</span><span class="p">,</span>
+        <span class="n">value_name</span> <span class="o">=</span> <span class="s1">&#39;Value&#39;</span>
+        <span class="n">var_name</span> <span class="o">=</span> <span class="s1">&#39;Score&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>so that it looks like the following</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">high_prod_coffee_df_melted</span> <span class="o">=</span> <span class="n">high_prod_coffee_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
+        <span class="n">id_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">,</span><span class="s1">&#39;Color&#39;</span><span class="p">],</span>
+        <span class="n">value_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Aroma&#39;</span><span class="p">,</span><span class="s1">&#39;Body&#39;</span><span class="p">,</span><span class="s1">&#39;Aftertaste&#39;</span><span class="p">],</span>
+        <span class="n">value_name</span> <span class="o">=</span> <span class="s1">&#39;Value&#39;</span>
+        <span class="n">var_name</span> <span class="o">=</span> <span class="s1">&#39;Score&#39;</span><span class="p">)</span>
+
+<span class="n">high_prod_coffee_df_melted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1782/2993742467.py&quot;</span><span class="gt">, line </span><span class="mi">5</span>
+    <span class="n">var_name</span> <span class="o">=</span> <span class="s1">&#39;Score&#39;</span><span class="p">)</span>
+           <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it Yourself</p>
+<p>Plot the distribution of each score on a separate subplot and use a different color for each country. Use a kde for the distributions.</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">high_prod_coffee_df_melted</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">,</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;Score&#39;</span><span class="p">,</span><span class="n">col_wrap</span> <span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;kde&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1782</span><span class="o">/</span><span class="mf">4052745501.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">high_prod_coffee_df_melted</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;Country.of.Origin&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>             <span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;Score&#39;</span><span class="p">,</span><span class="n">col_wrap</span> <span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;kde&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;high_prod_coffee_df_melted&#39; is not defined
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1296,6 +1645,24 @@ handling missing or incorrect values</p>
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="2021-09-24.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">8. </span>Exploratory Data Analysis</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
