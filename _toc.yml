@@ -30,11 +30,13 @@ parts:
     - file: assignments/01-python-syllabus
     - file: assignments/02-python-access
     - file: assignments/03-eda
+    - file: assignments/04-prepare
   - caption: Portfolio
     chapters:
     - file: portfolio/index
     - file: portfolio/intro_reflection
     - file: portfolio/formatting
+    - file: portfolio/check1ideas
   - caption: FAQ
     chapters:
     - file: faq/index
