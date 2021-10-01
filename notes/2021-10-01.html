@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>re-coding and inconsisten coding &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>Missing Data and inconsistent coding &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -432,6 +432,44 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-values">
+   Missing Values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inconsistent-values">
+   Inconsistent values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixing-data-at-load-time">
+   Fixing data at load time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-cleaning-data-recipe">
+   A Cleaning Data Recipe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-observations-from-monday">
+   Your observations from Monday:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-pracitce">
+   More Pracitce
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -440,8 +478,8 @@
         
               <div>
                 
-  <div class="section" id="re-coding-and-inconsisten-coding">
-<h1>re-coding and inconsisten coding<a class="headerlink" href="#re-coding-and-inconsisten-coding" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="missing-data-and-inconsistent-coding">
+<h1>Missing Data and inconsistent coding<a class="headerlink" href="#missing-data-and-inconsistent-coding" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -462,19 +500,26 @@
 </div>
 </div>
 </div>
-<p>So far, we’ve dealt with structural issues in data. but there’s a lot more to</p>
-<p>cleaning.</p>
-<p>Today, we’ll deal with how to fix the values wihtin the data. To see the</p>
-<p>types of things:</p>
-<p>Stanford Policy Lab Open Policing Project data readme</p>
-<p>Propublica Machine Bias the “How we acquired data” section</p>
+<p>So far, we’ve dealt with structural issues in data. but there’s a lot more to
+cleaning.</p>
+<p>Today,  we’ll deal with how to fix the values wihtin  the data.  To see the
+types of things:</p>
+<p><a class="reference external" href="https://github.com/stanford-policylab/opp/blob/master/data_readme.md">Stanford Policy Lab Open Policing Project data readme</a>
+<a class="reference external" href="https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm">Propublica Machine Bias</a> the “How we acquired data” section</p>
+<div class="section" id="missing-values">
+<h2>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h2>
 <p>Dealing with missing data is a whole research area. There isn’t one solution.</p>
-<p>in 2020 there was a workshop on it</p>
-<p>There are also many classic approaches both when training and when applying models.</p>
-<p>example application in breast cancer detection</p>
-<p>Even in pandas, dealing with missing values is under experimentaion</p>
-<p>as to how to represent it symbolically</p>
-<p>Missing values even causes the datatypes to change</p>
+<p><a class="reference external" href="https://artemiss-workshop.github.io/">in 2020 there was a workshop on it</a></p>
+<p>There are also many classic approaches both when training and when <a class="reference external" href="https://www.jmlr.org/papers/volume8/saar-tsechansky07a/saar-tsechansky07a.pdf">applying models</a>.</p>
+<p><a class="reference external" href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.701.4234&amp;rep=rep1&amp;type=pdf">example application in breast cancer detection</a></p>
+<p>Even in pandas, dealing with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">missing values</a> is under <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html#missing-data-na">experimentaion</a>
+as to how to represent it symbolically</p>
+<p>Missing values even causes the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html#missing-data-casting-rules-and-indexing">datatypes to change</a></p>
+<p>Pandas gives a few basic tools:</p>
+<ul class="simple">
+<li><p>dropna</p></li>
+<li><p>fillna</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -730,6 +775,19 @@ Name: Lot.Number, Length: 1311, dtype: object
 </div>
 </div>
 </div>
+<p>Filling can be good if you know how to fill reasonably, but don’t have data to
+spare by dropping.  For example</p>
+<ul class="simple">
+<li><p>you can approximate with another column</p></li>
+<li><p>you can approximate with that column from other rows</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;lot_number_clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Lot.Number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;lot_number_clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Lot.Number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
@@ -923,6 +981,12 @@ Name: Lot.Number, Length: 1311, dtype: object
 </div>
 </div>
 </div>
+<p>Dropping is a good choice when you otherwise have a lot of data and the data is
+missing at random.</p>
+<p>Dropping can be risky if it’s not missing at random. For example, if we saw in
+the coffee data that one of the scores was missing for all of the rows from one
+country, or even just missing more often in one country, that could bias our
+results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span>
@@ -946,6 +1010,90 @@ Name: Lot.Number, Length: 1311, dtype: object
 </pre></div>
 </div>
 </div>
+</div>
+<p><strong>whatever you do, document it</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Everththing after this is new material that we did not have time for in class,
+but is important and helpful in your assignment (and for your portflio).</p>
+</div>
+</div>
+<div class="section" id="inconsistent-values">
+<h2>Inconsistent values<a class="headerlink" href="#inconsistent-values" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;In.Country.Partner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fixing-data-at-load-time">
+<h2>Fixing data at load time<a class="headerlink" href="#fixing-data-at-load-time" title="Permalink to this headline">¶</a></h2>
+<p>Let’s explore some of the different parameters in <code class="docutils literal notranslate"><span class="pre">read_csv</span></code></p>
+<hr class="docutils" />
+<p>What parameter goes in the blank so that the following will make pandas read in the data in this image correctly?
+<img alt="mulitindex img of excel file" src="https://github.com/rhodyprog4ds/BrownFall20/raw/main/img/multiindex.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;fancy_formatting.xlsx&#39;</span><span class="p">,</span> <span class="n">___</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-cleaning-data-recipe">
+<h2>A Cleaning Data Recipe<a class="headerlink" href="#a-cleaning-data-recipe" title="Permalink to this headline">¶</a></h2>
+<p><strong>not everything possible, but good enough for this course</strong></p>
+<ol class="simple">
+<li><p>Can you use parameters to read the data in better?</p></li>
+<li><p>Fix the index and column headers (making these easier to use makes the rest easier)</p></li>
+<li><p>Is the data strucutred well?</p></li>
+<li><p>Are there missing values?</p></li>
+<li><p>Do the datatypes match what you expect by looking at the head or a sample?</p></li>
+<li><p>Are categorical variables represented in usable way?</p></li>
+<li><p>Does your analysis require filtering or augmenting the data?</p></li>
+</ol>
+<p>Things to keep in mind:</p>
+<ul class="simple">
+<li><p>always save new copies of data when you mutate it</p></li>
+<li><p>add new columns rather than overwriting columns</p></li>
+<li><p>long variable names are better than ambiguous naming</p></li>
+</ul>
+</div>
+<div class="section" id="your-observations-from-monday">
+<h2>Your observations from Monday:<a class="headerlink" href="#your-observations-from-monday" title="Permalink to this headline">¶</a></h2>
+<p>I promised we’d come back to your observations on what problems could occur in
+data. Here they are, organized by rough categories of when/how to fix them.</p>
+<p>We can fix while reading in data:</p>
+<ul class="simple">
+<li><p>decimal was indicated with ‘,’ insead of ‘.’ so pandas saw value as a string rather than a float</p></li>
+<li><p>missing header</p></li>
+<li><p>reading the index as a column</p></li>
+<li><p>large datasets might be too slow or not fit in memory</p></li>
+<li><p>missing data represeted with a value or special character</p></li>
+</ul>
+<p>We can fix by reshaping data:</p>
+<ul class="simple">
+<li><p>Data can get read into tables in bizarre ways depending on how the data was entered originally.</p></li>
+<li><p>every value in one column, instead of separated</p></li>
+</ul>
+<p>We can repair by changing values or filtering:</p>
+<ul class="simple">
+<li><p>information represented inconsistently eg “Value” and ” Value ” or twenty-two instead of 22</p></li>
+<li><p>blank rows or blank columns or data that is N/A</p></li>
+<li><p>date/time nformation can be represented lots of different ways</p></li>
+<li><p>representing categorical with numbers that are ambiguous</p></li>
+<li><p>spaces or other symbols in column names</p></li>
+<li><p>some numbers as strings, others as ints within a column</p></li>
+<li><p>symbols being mis intrepreted</p></li>
+</ul>
+<p>Real problems, but beyond our scope:</p>
+<ul class="simple">
+<li><p>corrupt data files</p></li>
+</ul>
+</div>
+<div class="section" id="more-pracitce">
+<h2>More Pracitce<a class="headerlink" href="#more-pracitce" title="Permalink to this headline">¶</a></h2>
+<p>Instead of more practice with these manipulations, below are more
+examples of cleaning data to see how these types of manipulations get used.<br />
+Your goal here is not to memorize every possible thing, but to build a general
+idea of what good data looks like and good habits for cleaning data and keeping
+it reproducible.</p>
+<p>Also here are some tips on general data management and organization.</p>
 </div>
 </div>
 
