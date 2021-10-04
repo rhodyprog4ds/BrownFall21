@@ -7,6 +7,9 @@ Contribute glossary items and  links for further reading using the suggest an ed
 
 ```{glossary}
 
+[aggregate](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.core.groupby.DataFrameGroupBy.aggregate.html#pandas.core.groupby.DataFrameGroupBy.aggregate)
+  to combine data in some way, a function that can produce a customized summary table
+
 [anonymous function](https://en.wikipedia.org/wiki/Anonymous_function#:~:text=Anonymous%20functions%20are%20often%20arguments,than%20using%20a%20named%20function)
   a function that's defined on the fly, typically to lighten syntax or return a function within a function. In python, they're defined with the {term}`lambda` keyword.
 
@@ -52,4 +55,7 @@ TraceBack
 
 [Series](https://pandas.pydata.org/docs/reference/api/pandas.Series.html)
   a data structure provided by pandas for single columnar data with an index.  Subsetting a Dataframe or applying a function to one will often produce a Series
+
+[Split Apply Combine](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#group-by-split-apply-combine)
+  a paradigm for splitting data into groups using a column, applying some function(aggregation, transformation, or filtration) to each piece and combinging in the individual pieces back together to a single table
 ```
