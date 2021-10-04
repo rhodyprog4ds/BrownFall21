@@ -19,7 +19,20 @@ This page is a semi-curated source of datasets for use in assignments.  The diff
 - [Kaggle](https://www.kaggle.com/datasets) most Kaggle datasets will require you to download and unzip them first and then you can copy them into your repo folder.
 - [UCI Data Repository](https://archive.ics.uci.edu/ml/index.php)
 
+## Datasets in many parts
+- [Makeup Shades](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-03-30)
+- [Kenya Census](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-19)
+- [Wealth and Income over time](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-02-09)
+- [UN Votes](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-03-23)
+- [Deforestation](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-04-06)
+- [Survivor](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-06-01)
+- [Billboard](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-09-14)
+- [Caribou Tracking](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-06-23)
+- [Video games from steam 2021](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-03-16/readme.md) and from [2019](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-30)
+- [BBC Rap Artists](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-04-14)
 
+## Datasets with time
+- [Superbowl commercials](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-03-02)
 
 ## Databases
 

@@ -14,35 +14,37 @@ __Due: {{ date }}__
 :header-rows: 1
 
 * - task
-  - skill
+  - skill (max level)
 * - drop nan rows from a dataset
-  - prepare
+  - prepare (2)
 * - display parts of a dataframe
-  - summarize
+  - summarize (1)
 * - impute a value to fill missing values
-  - prepare
+  - prepare (2)
 * - filter data based on extreme values or other outliers
-  - prepare
+  - prepare (2)
 * - convert a variable to one hot encoding
-  - prepare
+  - prepare (2)
 * - add a new column computed from one or more other columns
-  - prepare
+  - prepare (2)
 * - transform a dataset to tidy format
-  - prepare
+  - prepare (2)
 * - compute overall and individual summary statistics
-  - summarize
+  - summarize (2)
 * - use split-apply-combine paradigm
-  - summarize
+  - summarize (2)
 * - generate at least two types of plots
-  - visualize
+  - visualize (2)
 * - interpret statistics and plots
   - summarize, visualize
 * - use list comprehensions or loops and pythonic conventions
-  - python
+  - python (2)
 * - load data from at least two types
-  - access
+  - access (2)
 * - compare data storage formats
-  - access
+  - access (2)
+* - match EDA techniques to questions appropriately
+  - process (1)
 ```
 
 For this assignment, prepare the provided datasets.  Your preparation needs to include the following steps and narrative description of how you're making decisions about your data cleaning.
