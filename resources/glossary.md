@@ -50,6 +50,9 @@ kernel
 repository
   a project folder with tracking information in it in the form of a .git file
 
+suffix
+  additional part of the name that gets added to end of a name in a merge operation
+
 TraceBack
   an error message in python that traces back from the line of code that had caused the exception back through all of the functions that called other functions to reach that line. This is sometimes call tracing back through the stack
 
