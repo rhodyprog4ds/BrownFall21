@@ -26,6 +26,7 @@ parts:
       - file: notes/2021-09-29
       - file: notes/2021-10-01
       - file: notes/2021-10-04
+      - file: notes/2021-10-06
   - caption: Assignments
     numbered: True
     chapters:
@@ -33,6 +34,7 @@ parts:
     - file: assignments/02-python-access
     - file: assignments/03-eda
     - file: assignments/04-prepare
+    - file: assignments/05-construct
   - caption: Portfolio
     chapters:
     - file: portfolio/index
