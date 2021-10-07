@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reveiwing Merges &amp; Databases &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>13. Reveiwing Merges &amp; Databases &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="12. Building Datasets From multiple Sources" href="2021-10-04.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -139,7 +141,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -200,6 +202,11 @@
    12. Building Datasets From multiple Sources
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   13. Reveiwing Merges &amp; Databases
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -225,6 +232,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/04-prepare.html">
    4. Assignment 4:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/05-construct.html">
+   5. Assignment 5: Constructing Datasets and Using Databases
   </a>
  </li>
 </ul>
@@ -442,6 +454,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-databases">
+   13.1. Working with Databases
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -451,7 +476,7 @@
               <div>
                 
   <div class="section" id="reveiwing-merges-databases">
-<h1>Reveiwing Merges &amp; Databases<a class="headerlink" href="#reveiwing-merges-databases" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">13. </span>Reveiwing Merges &amp; Databases<a class="headerlink" href="#reveiwing-merges-databases" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -467,12 +492,22 @@
 </div>
 </div>
 <p>If <code class="docutils literal notranslate"><span class="pre">weather_df</span></code> has a row for every date in the past 100 years, a column named <code class="docutils literal notranslate"><span class="pre">date</span></code> and columns for the weather that day and <code class="docutils literal notranslate"><span class="pre">birthdays_df</span></code> has a row for each member of the CS department with a column <code class="docutils literal notranslate"><span class="pre">birthdate</span></code> and a second column name, how would you merge these two datasets to find out the weather on the day each person was born?</p>
-<p>complete the following line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bday_weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span> <span class="n">weather_df</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">birthdays_df</span><span class="p">,</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bday_weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span> <span class="n">weather_df</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">birthdays_df</span><span class="p">,</span>
                         <span class="n">left_on</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">right_on</span> <span class="o">=</span><span class="s1">&#39;birthdate&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span> <span class="s1">&#39;inner&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>TODO: add images</p>
+<!--
+TODO: add images -->
+<div class="section" id="working-with-databases">
+<h2><span class="section-number">13.1. </span>Working with Databases<a class="headerlink" href="#working-with-databases" title="Permalink to this headline">¶</a></h2>
+<p>Off the shelf, pandas cannot read databased by default. We’ll use the <a class="reference external" href="https://docs.python.org/3/library/sqlite3.html"><code class="docutils literal notranslate"><span class="pre">sqlite3</span></code></a> library.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://www.sqlite.org/index.html">SQLite</a> is a type of database.</p>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
@@ -480,9 +515,20 @@
 </div>
 </div>
 </div>
+<p>First, we set up a connection, that links the the notebook to the databse.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;nba1819.db&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;data/nba1819.db&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1949</span><span class="o">/</span><span class="mf">4172070992.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;data/nba1819.db&#39;</span><span class="p">)</span>
+
+<span class="ne">OperationalError</span>: unable to open database file
 </pre></div>
 </div>
 </div>
@@ -494,18 +540,35 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlite3.Connection at 0x7f3b59524b90&gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1949</span><span class="o">/</span><span class="mf">2140054138.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">conn</span>
+
+<span class="ne">NameError</span>: name &#39;conn&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
+<p>To use it, we add a cursor.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1949</span><span class="o">/</span><span class="mf">763962774.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;conn&#39; is not defined
+</pre></div>
 </div>
+</div>
+</div>
+<p>We can use execute to pass SQL queries through the cursor to the database.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT name FROM sqlite_master WHERE type=&quot;table&quot;&#39;</span><span class="p">)</span>
@@ -513,11 +576,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlite3.Cursor at 0x7f3b59504420&gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1949</span><span class="o">/</span><span class="mf">3109332355.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT name FROM sqlite_master WHERE type=&quot;table&quot;&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;cursor&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
+<p>Then we use <code class="docutils literal notranslate"><span class="pre">fetchall</span></code> to get the the results of the query.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
@@ -525,11 +594,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1949</span><span class="o">/</span><span class="mf">589454993.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;cursor&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can also pass queries to the database through pandas and then get it returned as a DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT PLAYER_ID, PLAYER_NAME FROM playerNames&#39;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -538,46 +613,16 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">execute</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2055</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2056</span>             <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2057</span>             <span class="k">return</span> <span class="n">cur</span>
-
-<span class="ne">OperationalError</span>: no such table: playerNames
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">DatabaseError</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1893</span><span class="o">/</span><span class="mf">3909948313.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1949</span><span class="o">/</span><span class="mf">3909948313.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT PLAYER_ID, PLAYER_NAME FROM playerNames&#39;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">read_sql</span><span class="nt">(sql, con, index_col, coerce_float, params, parse_dates, columns, chunksize)</span>
-<span class="g g-Whitespace">    </span><span class="mi">606</span>             <span class="n">coerce_float</span><span class="o">=</span><span class="n">coerce_float</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">607</span>             <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">608</span>             <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">609</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">read_query</span><span class="nt">(self, sql, index_col, coerce_float, params, parse_dates, chunksize, dtype)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2114</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2115</span>         <span class="n">args</span> <span class="o">=</span> <span class="n">_convert_params</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2116</span>         <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2117</span>         <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col_desc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">col_desc</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2118</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">execute</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2066</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2067</span>             <span class="n">ex</span> <span class="o">=</span> <span class="n">DatabaseError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Execution failed on sql &#39;</span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2068</span>             <span class="k">raise</span> <span class="n">ex</span> <span class="kn">from</span> <span class="nn">exc</span>
-<span class="g g-Whitespace">   </span><span class="mi">2069</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2070</span>     <span class="nd">@staticmethod</span>
-
-<span class="ne">DatabaseError</span>: Execution failed on sql &#39;SELECT PLAYER_ID, PLAYER_NAME FROM playerNames&#39;: no such table: playerNames
+<span class="ne">NameError</span>: name &#39;conn&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">*</span></code> to get all of the columns and <code class="docutils literal notranslate"><span class="pre">LIMIT</span></code> to reduce the number of rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM playerNames LIMIT 5&#39;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
@@ -586,46 +631,16 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">execute</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2055</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2056</span>             <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2057</span>             <span class="k">return</span> <span class="n">cur</span>
-
-<span class="ne">OperationalError</span>: no such table: playerNames
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">DatabaseError</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1893</span><span class="o">/</span><span class="mf">2400865764.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1949</span><span class="o">/</span><span class="mf">2400865764.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM playerNames LIMIT 5&#39;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">read_sql</span><span class="nt">(sql, con, index_col, coerce_float, params, parse_dates, columns, chunksize)</span>
-<span class="g g-Whitespace">    </span><span class="mi">606</span>             <span class="n">coerce_float</span><span class="o">=</span><span class="n">coerce_float</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">607</span>             <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">608</span>             <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">609</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">read_query</span><span class="nt">(self, sql, index_col, coerce_float, params, parse_dates, chunksize, dtype)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2114</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2115</span>         <span class="n">args</span> <span class="o">=</span> <span class="n">_convert_params</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2116</span>         <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2117</span>         <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col_desc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">col_desc</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2118</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">execute</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2066</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2067</span>             <span class="n">ex</span> <span class="o">=</span> <span class="n">DatabaseError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Execution failed on sql &#39;</span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2068</span>             <span class="k">raise</span> <span class="n">ex</span> <span class="kn">from</span> <span class="nn">exc</span>
-<span class="g g-Whitespace">   </span><span class="mi">2069</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2070</span>     <span class="nd">@staticmethod</span>
-
-<span class="ne">DatabaseError</span>: Execution failed on sql &#39;SELECT * FROM playerNames LIMIT 5&#39;: no such table: playerNames
+<span class="ne">NameError</span>: name &#39;conn&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
+<p>How can get all of the data from the teams table?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM teams&#39;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
@@ -635,64 +650,23 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">execute</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2055</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2056</span>             <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2057</span>             <span class="k">return</span> <span class="n">cur</span>
-
-<span class="ne">OperationalError</span>: no such table: teams
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">DatabaseError</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1893</span><span class="o">/</span><span class="mf">3572201664.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1949</span><span class="o">/</span><span class="mf">3572201664.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">teams_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM teams&#39;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">teams_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">read_sql</span><span class="nt">(sql, con, index_col, coerce_float, params, parse_dates, columns, chunksize)</span>
-<span class="g g-Whitespace">    </span><span class="mi">606</span>             <span class="n">coerce_float</span><span class="o">=</span><span class="n">coerce_float</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">607</span>             <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">608</span>             <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">609</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">read_query</span><span class="nt">(self, sql, index_col, coerce_float, params, parse_dates, chunksize, dtype)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2114</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2115</span>         <span class="n">args</span> <span class="o">=</span> <span class="n">_convert_params</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2116</span>         <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2117</span>         <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col_desc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">col_desc</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2118</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/sql.py</span> in <span class="ni">execute</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2066</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2067</span>             <span class="n">ex</span> <span class="o">=</span> <span class="n">DatabaseError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Execution failed on sql &#39;</span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2068</span>             <span class="k">raise</span> <span class="n">ex</span> <span class="kn">from</span> <span class="nn">exc</span>
-<span class="g g-Whitespace">   </span><span class="mi">2069</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2070</span>     <span class="nd">@staticmethod</span>
-
-<span class="ne">DatabaseError</span>: Execution failed on sql &#39;SELECT * FROM teams&#39;: no such table: teams
+<span class="ne">NameError</span>: name &#39;conn&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams_df</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1893</span><span class="o">/</span><span class="mf">3249912955.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">teams_df</span><span class="o">.</span><span class="n">shape</span>
+<!--
+```{code-cell} ipython3
 
-<span class="ne">NameError</span>: name &#39;teams_df&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
+``` -->
+<!-- ## More practice
+
+TBD --></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -724,6 +698,24 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="2021-10-04.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">12. </span>Building Datasets From multiple Sources</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
