@@ -464,6 +464,11 @@
    13.1. Working with Databases
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   13.2. More practice
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -491,6 +496,7 @@
 </div>
 </div>
 </div>
+<p><strong>a review problem</strong></p>
 <p>If <code class="docutils literal notranslate"><span class="pre">weather_df</span></code> has a row for every date in the past 100 years, a column named <code class="docutils literal notranslate"><span class="pre">date</span></code> and columns for the weather that day and <code class="docutils literal notranslate"><span class="pre">birthdays_df</span></code> has a row for each member of the CS department with a column <code class="docutils literal notranslate"><span class="pre">birthdate</span></code> and a second column name, how would you merge these two datasets to find out the weather on the day each person was born?</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bday_weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span> <span class="n">weather_df</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">birthdays_df</span><span class="p">,</span>
                         <span class="n">left_on</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">right_on</span> <span class="o">=</span><span class="s1">&#39;birthdate&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span> <span class="s1">&#39;inner&#39;</span><span class="p">)</span>
@@ -522,16 +528,6 @@ TODO: add images -->
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2019</span><span class="o">/</span><span class="mf">4172070992.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;data/nba1819.db&#39;</span><span class="p">)</span>
-
-<span class="ne">OperationalError</span>: unable to open database file
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,12 +536,7 @@ TODO: add images -->
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2019</span><span class="o">/</span><span class="mf">2140054138.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">conn</span>
-
-<span class="ne">NameError</span>: name &#39;conn&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlite3.Connection at 0x7f5eab91db90&gt;
 </pre></div>
 </div>
 </div>
@@ -554,16 +545,6 @@ TODO: add images -->
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2019</span><span class="o">/</span><span class="mf">763962774.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;conn&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -576,12 +557,7 @@ TODO: add images -->
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2019</span><span class="o">/</span><span class="mf">3109332355.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT name FROM sqlite_master WHERE type=&quot;table&quot;&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;cursor&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlite3.Cursor at 0x7f5eab8fe420&gt;
 </pre></div>
 </div>
 </div>
@@ -594,12 +570,17 @@ TODO: add images -->
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2019</span><span class="o">/</span><span class="mf">589454993.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;cursor&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;teams&#39;,),
+ (&#39;conferences&#39;,),
+ (&#39;playerGameStats2018&#39;,),
+ (&#39;playerGameStats2019&#39;,),
+ (&#39;teamGameStats2018&#39;,),
+ (&#39;teamGameStats2019&#39;,),
+ (&#39;playerTeams2018&#39;,),
+ (&#39;playerTeams2019&#39;,),
+ (&#39;teamDailyRankings2018&#39;,),
+ (&#39;teamDailyRankings2019&#39;,),
+ (&#39;playerNames&#39;,)]
 </pre></div>
 </div>
 </div>
@@ -612,15 +593,37 @@ TODO: add images -->
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2019</span><span class="o">/</span><span class="mf">3909948313.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT PLAYER_ID, PLAYER_NAME FROM playerNames&#39;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;conn&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PLAYER_ID</th>
+      <th>PLAYER_NAME</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>202695</td>
+      <td>Kawhi Leonard</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">*</span></code> to get all of the columns and <code class="docutils literal notranslate"><span class="pre">LIMIT</span></code> to reduce the number of rows.</p>
 <div class="cell docutils container">
@@ -630,15 +633,63 @@ TODO: add images -->
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2019</span><span class="o">/</span><span class="mf">2400865764.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM playerNames LIMIT 5&#39;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;conn&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>PLAYER_NAME</th>
+      <th>PLAYER_ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Kawhi Leonard</td>
+      <td>202695</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Pascal Siakam</td>
+      <td>1627783</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Marc Gasol</td>
+      <td>201188</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Danny Green</td>
+      <td>201980</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Kyle Lowry</td>
+      <td>200768</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>How can get all of the data from the teams table?</p>
 <div class="cell docutils container">
@@ -649,24 +700,159 @@ TODO: add images -->
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2019</span><span class="o">/</span><span class="mf">3572201664.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">teams_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM teams&#39;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">teams_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;conn&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>LEAGUE_ID</th>
+      <th>TEAM_ID</th>
+      <th>MIN_YEAR</th>
+      <th>MAX_YEAR</th>
+      <th>ABBREVIATION</th>
+      <th>NICKNAME</th>
+      <th>YEARFOUNDED</th>
+      <th>CITY</th>
+      <th>ARENA</th>
+      <th>ARENACAPACITY</th>
+      <th>OWNER</th>
+      <th>GENERALMANAGER</th>
+      <th>HEADCOACH</th>
+      <th>DLEAGUEAFFILIATION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1610612737</td>
+      <td>1949</td>
+      <td>2019</td>
+      <td>ATL</td>
+      <td>Hawks</td>
+      <td>1949</td>
+      <td>Atlanta</td>
+      <td>State Farm Arena</td>
+      <td>18729.0</td>
+      <td>Tony Ressler</td>
+      <td>Travis Schlenk</td>
+      <td>Lloyd Pierce</td>
+      <td>Erie Bayhawks</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1610612738</td>
+      <td>1946</td>
+      <td>2019</td>
+      <td>BOS</td>
+      <td>Celtics</td>
+      <td>1946</td>
+      <td>Boston</td>
+      <td>TD Garden</td>
+      <td>18624.0</td>
+      <td>Wyc Grousbeck</td>
+      <td>Danny Ainge</td>
+      <td>Brad Stevens</td>
+      <td>Maine Red Claws</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1610612740</td>
+      <td>2002</td>
+      <td>2019</td>
+      <td>NOP</td>
+      <td>Pelicans</td>
+      <td>2002</td>
+      <td>New Orleans</td>
+      <td>Smoothie King Center</td>
+      <td>NaN</td>
+      <td>Tom Benson</td>
+      <td>Trajan Langdon</td>
+      <td>Alvin Gentry</td>
+      <td>No Affiliate</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0</td>
+      <td>1610612741</td>
+      <td>1966</td>
+      <td>2019</td>
+      <td>CHI</td>
+      <td>Bulls</td>
+      <td>1966</td>
+      <td>Chicago</td>
+      <td>United Center</td>
+      <td>21711.0</td>
+      <td>Jerry Reinsdorf</td>
+      <td>Gar Forman</td>
+      <td>Jim Boylen</td>
+      <td>Windy City Bulls</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0</td>
+      <td>1610612742</td>
+      <td>1980</td>
+      <td>2019</td>
+      <td>DAL</td>
+      <td>Mavericks</td>
+      <td>1980</td>
+      <td>Dallas</td>
+      <td>American Airlines Center</td>
+      <td>19200.0</td>
+      <td>Mark Cuban</td>
+      <td>Donnie Nelson</td>
+      <td>Rick Carlisle</td>
+      <td>Texas Legends</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <!--
 ```{code-cell} ipython3
 
 ``` -->
-<!-- ## More practice
-
-TBD --></div>
+</div>
+<div class="section" id="more-practice">
+<h2><span class="section-number">13.2. </span>More practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<p>For each of the following, think about what to query from the database and how to merge
+the tables after.
+Also, consider if these questions are all specific enough or require more decisions to be made.</p>
+<ol class="simple">
+<li><p>How many players changed from the <code class="docutils literal notranslate"><span class="pre">East</span></code> conference to the <code class="docutils literal notranslate"><span class="pre">West</span></code> conference
+during the 2018 season?</p></li>
+<li><p>How many  from the <code class="docutils literal notranslate"><span class="pre">East</span></code> conference to the <code class="docutils literal notranslate"><span class="pre">West</span></code> conference
+from the 2018 season to the 2019 season?</p></li>
+<li><p>Did teams that were founded earlier have better records in the 2018 season?</p></li>
+</ol>
+<div class="admonition-think-ahead admonition">
+<p class="admonition-title">Think ahead</p>
+<p>For a portfolio, you could ask questions like do events in a city impact if the
+home team wins later that week?</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
