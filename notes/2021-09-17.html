@@ -649,61 +649,102 @@ their own documentation gets updated at the same time the code does.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[              Day                            Time                 Location  \
- 0          Monday             9:30:00 AM-10:30 AM  inperson Tyler Hall 140   
- 1          Monday             12:30:00 PM-2:00 PM  inperson Tyler Hall 139   
- 2       Wednesday              4:00:00 PM-5.00 PM  inperson Tyler Hall 139   
- 3        Wedneday              1:30:00 PM-3:00 PM  inperson Tyler Hall 140   
- 4       Wednesday                 7:00:00 PM-8:30              gather.town   
- 5  By appointment  scheduling link on Brightspace      in person Tyler 134   
- 
-       Host  
- 0  Chamudi  
- 1  Chamudi  
- 2  Chamudi  
- 3  Chamudi  
- 4    Sarah  
- 5    Sarah  ,
-                                           usage platform  \
- 0                                      in class  prismia   
- 1                                      any time  prismia   
- 2                                      any time  prismia   
- 3          private questions to your assignment   github   
- 4    for general questions that can help others   github   
- 5                            to share resources   github   
- 6  matters that don&#39;t fit into another category   e-mail   
- 
-                        area                                               note  
- 0                      chat  outside of class time this is not monitored cl...  
- 1             message board                          for discussion with peers  
- 2       download transcript  use after class to get preliminary notes eg if...  
- 3  issue on assignment repo                              eg bugs in your code&quot;  
- 4   issue on course website  eg what the instructions of an assignment mean...  
- 5   pull request on website       remember to request ram tokens if applicable  
- 6    to brownsarahm@uri.edu  remember to include `[CSC310]` or `[DSP310]` (...  ,
-                                           usage                    area  \
- 0  matters that don&#39;t fit into another category  to brownsarahm@uri.edu   
- 
-                                                 note  
- 0  remember to include `[CSC310]` or `[DSP310]` (...  ,
-                                         usage                      area  \
- 0        private questions to your assignment  issue on assignment repo   
- 1  for general questions that can help others   issue on course website   
- 2                          to share resources   pull request on website   
- 
-                                                 note  
- 0                              eg bugs in your code&quot;  
- 1  eg what the instructions of an assignment mean...  
- 2       remember to request ram tokens if applicable  ,
-       usage                 area  \
- 0  in class                 chat   
- 1  any time        message board   
- 2  any time  download transcript   
- 
-                                                 note  
- 0  outside of class time this is not monitored cl...  
- 1                          for discussion with peers  
- 2  use after class to get preliminary notes eg if...  ]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">HTTPError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1800</span><span class="o">/</span><span class="mf">2807424505.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">course_comms_url</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/html.py</span> in <span class="ni">read_html</span><span class="nt">(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1111</span>         <span class="n">na_values</span><span class="o">=</span><span class="n">na_values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1112</span>         <span class="n">keep_default_na</span><span class="o">=</span><span class="n">keep_default_na</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">1113</span>         <span class="n">displayed_only</span><span class="o">=</span><span class="n">displayed_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1114</span>     <span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/html.py</span> in <span class="ni">_parse</span><span class="nt">(flavor, io, match, attrs, encoding, displayed_only, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">904</span> 
+<span class="g g-Whitespace">    </span><span class="mi">905</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">906</span>             <span class="n">tables</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_tables</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">907</span>         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">caught</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">908</span>             <span class="c1"># if `io` is an io-like object, check if it&#39;s seekable</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/html.py</span> in <span class="ni">parse_tables</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>         <span class="nb">list</span> <span class="n">of</span> <span class="n">parsed</span> <span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">footer</span><span class="p">)</span> <span class="n">tuples</span> <span class="kn">from</span> <span class="nn">tables.</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">222</span><span class="s2">         tables = self._parse_tables(self._build_doc(), self.match, self.attrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="s2">         return (self._parse_thead_tbody_tfoot(table) for table in tables)</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/html.py</span> in <span class="ni">_build_doc</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">743</span><span class="s2">                     pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span><span class="s2">             else:</span>
+<span class="ne">--&gt; </span><span class="mi">745</span><span class="s2">                 raise e</span>
+<span class="g g-Whitespace">    </span><span class="mi">746</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span><span class="s2">             if not hasattr(r, &quot;text_content&quot;):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/html.py</span> in <span class="ni">_build_doc</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span><span class="s2">             if is_url(self.io):</span>
+<span class="ne">--&gt; </span><span class="mi">726</span><span class="s2">                 with urlopen(self.io) as f:</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span><span class="s2">                     r = parse(f, parser=parser)</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span><span class="s2">             else:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">urlopen</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span><span class="s2">     import urllib.request</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">212</span><span class="s2">     return urllib.request.urlopen(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">urlopen</span><span class="nt">(url, data, timeout, cafile, capath, cadefault, context)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span><span class="s2">     else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="s2">         opener = _opener</span>
+<span class="ne">--&gt; </span><span class="mi">222</span><span class="s2">     return opener.open(url, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="s2"> def install_opener(opener):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">open</span><span class="nt">(self, fullurl, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">529</span><span class="s2">         for processor in self.process_response.get(protocol, []):</span>
+<span class="g g-Whitespace">    </span><span class="mi">530</span><span class="s2">             meth = getattr(processor, meth_name)</span>
+<span class="ne">--&gt; </span><span class="mi">531</span><span class="s2">             response = meth(req, response)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span><span class="s2">         return response</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">http_response</span><span class="nt">(self, request, response)</span>
+<span class="g g-Whitespace">    </span><span class="mi">639</span><span class="s2">         if not (200 &lt;= code &lt; 300):</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span><span class="s2">             response = self.parent.error(</span>
+<span class="ne">--&gt; </span><span class="mi">641</span><span class="s2">                 &#39;http&#39;, request, response, code, msg, hdrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">642</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="s2">         return response</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">error</span><span class="nt">(self, proto, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span><span class="s2">         if http_err:</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span><span class="s2">             args = (dict, &#39;default&#39;, &#39;http_error_default&#39;) + orig_args</span>
+<span class="ne">--&gt; </span><span class="mi">569</span><span class="s2">             return self._call_chain(*args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span><span class="s2"> # XXX probably also want an abstract factory that knows when it makes</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">_call_chain</span><span class="nt">(self, chain, kind, meth_name, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span><span class="s2">         for handler in handlers:</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span><span class="s2">             func = getattr(handler, meth_name)</span>
+<span class="ne">--&gt; </span><span class="mi">503</span><span class="s2">             result = func(*args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span><span class="s2">             if result is not None:</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span><span class="s2">                 return result</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">http_error_default</span><span class="nt">(self, req, fp, code, msg, hdrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span><span class="s2"> class HTTPDefaultErrorHandler(BaseHandler):</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span><span class="s2">     def http_error_default(self, req, fp, code, msg, hdrs):</span>
+<span class="ne">--&gt; </span><span class="mi">649</span><span class="s2">         raise HTTPError(req.full_url, code, msg, hdrs, fp)</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span><span class="s2"> class HTTPRedirectHandler(BaseHandler):</span>
+
+<span class="ne">HTTPError</span>: HTTP Error 503: Service Unavailable
 </pre></div>
 </div>
 </div>
@@ -716,7 +757,102 @@ their own documentation gets updated at the same time the code does.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">HTTPError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1800</span><span class="o">/</span><span class="mf">340729197.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">type</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">course_comms_url</span><span class="p">))</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/html.py</span> in <span class="ni">read_html</span><span class="nt">(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1111</span>         <span class="n">na_values</span><span class="o">=</span><span class="n">na_values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1112</span>         <span class="n">keep_default_na</span><span class="o">=</span><span class="n">keep_default_na</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">1113</span>         <span class="n">displayed_only</span><span class="o">=</span><span class="n">displayed_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1114</span>     <span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/html.py</span> in <span class="ni">_parse</span><span class="nt">(flavor, io, match, attrs, encoding, displayed_only, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">904</span> 
+<span class="g g-Whitespace">    </span><span class="mi">905</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">906</span>             <span class="n">tables</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_tables</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">907</span>         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">caught</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">908</span>             <span class="c1"># if `io` is an io-like object, check if it&#39;s seekable</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/html.py</span> in <span class="ni">parse_tables</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>         <span class="nb">list</span> <span class="n">of</span> <span class="n">parsed</span> <span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">footer</span><span class="p">)</span> <span class="n">tuples</span> <span class="kn">from</span> <span class="nn">tables.</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">222</span><span class="s2">         tables = self._parse_tables(self._build_doc(), self.match, self.attrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="s2">         return (self._parse_thead_tbody_tfoot(table) for table in tables)</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/html.py</span> in <span class="ni">_build_doc</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">743</span><span class="s2">                     pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span><span class="s2">             else:</span>
+<span class="ne">--&gt; </span><span class="mi">745</span><span class="s2">                 raise e</span>
+<span class="g g-Whitespace">    </span><span class="mi">746</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span><span class="s2">             if not hasattr(r, &quot;text_content&quot;):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/html.py</span> in <span class="ni">_build_doc</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span><span class="s2">             if is_url(self.io):</span>
+<span class="ne">--&gt; </span><span class="mi">726</span><span class="s2">                 with urlopen(self.io) as f:</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span><span class="s2">                     r = parse(f, parser=parser)</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span><span class="s2">             else:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">urlopen</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span><span class="s2">     import urllib.request</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">212</span><span class="s2">     return urllib.request.urlopen(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">urlopen</span><span class="nt">(url, data, timeout, cafile, capath, cadefault, context)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span><span class="s2">     else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="s2">         opener = _opener</span>
+<span class="ne">--&gt; </span><span class="mi">222</span><span class="s2">     return opener.open(url, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="s2"> def install_opener(opener):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">open</span><span class="nt">(self, fullurl, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">529</span><span class="s2">         for processor in self.process_response.get(protocol, []):</span>
+<span class="g g-Whitespace">    </span><span class="mi">530</span><span class="s2">             meth = getattr(processor, meth_name)</span>
+<span class="ne">--&gt; </span><span class="mi">531</span><span class="s2">             response = meth(req, response)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span><span class="s2">         return response</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">http_response</span><span class="nt">(self, request, response)</span>
+<span class="g g-Whitespace">    </span><span class="mi">639</span><span class="s2">         if not (200 &lt;= code &lt; 300):</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span><span class="s2">             response = self.parent.error(</span>
+<span class="ne">--&gt; </span><span class="mi">641</span><span class="s2">                 &#39;http&#39;, request, response, code, msg, hdrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">642</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="s2">         return response</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">error</span><span class="nt">(self, proto, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span><span class="s2">         if http_err:</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span><span class="s2">             args = (dict, &#39;default&#39;, &#39;http_error_default&#39;) + orig_args</span>
+<span class="ne">--&gt; </span><span class="mi">569</span><span class="s2">             return self._call_chain(*args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span><span class="s2"> # XXX probably also want an abstract factory that knows when it makes</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">_call_chain</span><span class="nt">(self, chain, kind, meth_name, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span><span class="s2">         for handler in handlers:</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span><span class="s2">             func = getattr(handler, meth_name)</span>
+<span class="ne">--&gt; </span><span class="mi">503</span><span class="s2">             result = func(*args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span><span class="s2">             if result is not None:</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span><span class="s2">                 return result</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/urllib/request.py</span> in <span class="ni">http_error_default</span><span class="nt">(self, req, fp, code, msg, hdrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span><span class="s2"> class HTTPDefaultErrorHandler(BaseHandler):</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span><span class="s2">     def http_error_default(self, req, fp, code, msg, hdrs):</span>
+<span class="ne">--&gt; </span><span class="mi">649</span><span class="s2">         raise HTTPError(req.full_url, code, msg, hdrs, fp)</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span><span class="s2"> class HTTPRedirectHandler(BaseHandler):</span>
+
+<span class="ne">HTTPError</span>: HTTP Error 503: Service Unavailable
 </pre></div>
 </div>
 </div>

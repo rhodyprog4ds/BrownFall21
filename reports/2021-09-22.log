@@ -33,6 +33,6 @@ The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
 sns.lmplot(data=coffee_df,x='Flavor',y='Balance',hue='Color',
-               row='Color',col='Country.of.Origin')
+               row='Color',col='Variety')
 -------------------
 
