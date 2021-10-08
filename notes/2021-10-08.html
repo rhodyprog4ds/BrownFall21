@@ -452,6 +452,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#figuring-out-what-to-scrape">
+   Figuring out what to scrape
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-with-requests">
+   Loading with requests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parsing-with-beautifulsoup">
+   Parsing with BeautifulSoup
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -471,8 +494,49 @@
 </div>
 </div>
 </div>
-<p>!pip</p>
+<div class="admonition-tip admonition">
+<p class="admonition-title">Tip</p>
+<p>To update a package while running jupyter
+in a notebook:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install packagename update
+</pre></div>
+</div>
 <p>then restart the kernel</p>
+</div>
+<div class="section" id="figuring-out-what-to-scrape">
+<h2>Figuring out what to scrape<a class="headerlink" href="#figuring-out-what-to-scrape" title="Permalink to this headline">¶</a></h2>
+<p>We’re going to create a DataFrame about URI CS &amp; Statistics Faculty.</p>
+<p>from the <a class="reference external" href="https://web.uri.edu/cs/people/">people page</a> of the department website.</p>
+<p>With great power comes great responsibility.</p>
+<ul class="simple">
+<li><p>always check <a class="reference external" href="https://web.uri.edu/robots.txt">robots.txt</a></p></li>
+<li><p>do not do things that the owner says not to do</p></li>
+<li><p>government websites are typically safe, because of open data rules</p></li>
+</ul>
+<p>We can inspect the page to check that it’s well structured by right clicking in
+a browser tab and looking at the same code that our browser sees in order to
+render the page.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-think-ahead admonition">
+<p class="admonition-title">Think Ahead</p>
+<p>You can use this same basic logic, that anything can be data to consider other
+questions like, for example:</p>
+<ul class="simple">
+<li><p>How do the sizes of datasets for Tidy Tuesday vary? (you don’t need to download and load all of the data, only traverse the readmes)</p></li>
+<li><p>On average, how many code cells are there in each class? How much does the amount of code in the posted notes vary from your notes you take in class?</p></li>
+</ul>
+</div>
+</div>
+<p>We can basically think of web scraping as loading data that’s <em>not</em> tabular but
+instead is formatted as html code.  HTML code <em>can</em> be well strucutured and
+hierarchical within a single page, or you could collect information about a
+broad topic by using a little bit from many many pages.  We’re going to work
+from one page here.</p>
+<p>HTML code consists of tags and the text of the page. The tags label the content
+and define different structure of the page.</p>
+<p><img alt="HTML tree structure" src="http://www.w3schools.com/js/pic_htmltree.gif" /></p>
+<p>Once we’ve decided that it will work, we can being working.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs_people_url</span> <span class="o">=</span><span class="s1">&#39;https://web.uri.edu/cs/people/&#39;</span>
@@ -480,16 +544,30 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="loading-with-requests">
+<h2>Loading with requests<a class="headerlink" href="#loading-with-requests" title="Permalink to this headline">¶</a></h2>
+<p>First, we <code class="docutils literal notranslate"><span class="pre">get</span></code> the data using the python <a class="reference external" href="https://docs.python-requests.org/en/latest/">requests</a>
+library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs_people_html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cs_people_url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cs_people_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
 </pre></div>
 </div>
 </div>
 </div>
+<p>this returns an object, but we want the content from it, so we’ll save that to a
+variable</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs_people_html</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs_people_html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cs_people_url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+
+<span class="n">cs_people_html</span>
 </pre></div>
 </div>
 </div>
@@ -499,6 +577,14 @@
 </div>
 </div>
 </div>
+<p>This is literally just the html as a browser would see, but we pulled it into
+python.</p>
+</div>
+<div class="section" id="parsing-with-beautifulsoup">
+<h2>Parsing with BeautifulSoup<a class="headerlink" href="#parsing-with-beautifulsoup" title="Permalink to this headline">¶</a></h2>
+<p>Next, we’ll use BeautifulSoup to parse the text.  Parsing means to make
+sense ot if.  It changes it from a string or characters, to a datastructure
+that we can work with.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs_people</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">cs_people_html</span><span class="p">,</span><span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
@@ -506,6 +592,7 @@
 </div>
 </div>
 </div>
+<p>First we note that it now formats the new lines.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs_people</span>
@@ -1353,6 +1440,8 @@ var tides = {&quot;temperature&quot;:{&quot;metadata&quot;:{&quot;id&quot;:&quot
 </div>
 </div>
 </div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">prettify</span></code> method to format it more nicely.  This would add tabs even
+if there were none in the source code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cs_people</span><span class="o">.</span><span class="n">prettify</span><span class="p">())</span>
@@ -2900,6 +2989,7 @@ var tides = {&quot;temperature&quot;:{&quot;metadata&quot;:{&quot;id&quot;:&quot
 </div>
 </div>
 </div>
+<p>It also makes the tags (strucutre in HTML) attributes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs_people</span><span class="o">.</span><span class="n">title</span>
@@ -2924,6 +3014,548 @@ var tides = {&quot;temperature&quot;:{&quot;metadata&quot;:{&quot;id&quot;:&quot
 </div>
 </div>
 </div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">find_all</span></code> to make a list of all occurences of a tag. For example, we
+could get all of the links from a page:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs_people</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;a class=&quot;skip-link screen-reader-text&quot; href=&quot;#content&quot;&gt;Skip to content&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/&quot; title=&quot;University of Rhode Island&quot;&gt;&lt;div id=&quot;identity&quot;&gt;University of Rhode Island&lt;/div&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/gateway/future-students&quot; role=&quot;menuitem&quot;&gt;Future Students&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/gateway/students&quot; role=&quot;menuitem&quot;&gt;Students&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/gateway/faculty&quot; role=&quot;menuitem&quot;&gt;Faculty&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/gateway/staff&quot; role=&quot;menuitem&quot;&gt;Staff&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/gateway/families&quot; role=&quot;menuitem&quot;&gt;Parents and Families&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/gateway/alumni&quot; role=&quot;menuitem&quot;&gt;Alumni&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/gateway/community&quot; role=&quot;menuitem&quot;&gt;Community&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/&quot; rel=&quot;home&quot;&gt;
+ 			Department of Computer Science and Statistics		&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/&quot;&gt;URI&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/artsci&quot;&gt;Arts and Sciences&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs&quot;&gt;Department of Computer Science and Statistics&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs&quot; title=&quot;						&quot;&gt;Home&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/about/&quot; title=&quot;						&quot;&gt;About&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/academics/&quot;&gt;Academics&lt;/a&gt;,
+ &lt;a aria-current=&quot;page&quot; href=&quot;https://web.uri.edu/cs/people/&quot; title=&quot;						&quot;&gt;People&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/research/&quot;&gt;Research&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/news-and-events/&quot;&gt;News and Events&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/contact/&quot; title=&quot;						&quot;&gt;Contact&lt;/a&gt;,
+ &lt;a aria-current=&quot;page&quot; href=&quot;https://web.uri.edu/cs/people/&quot;&gt;Faculty&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/people/staff/&quot;&gt;Staff&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/people/faculty-emeriti/&quot;&gt;Faculty Emeriti&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/prince-allotey/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;200&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 200px) 100vw, 200px&quot; src=&quot;https://web.uri.edu/cs/files/prince-allotey-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/prince-allotey-web.jpg 200w, https://web.uri.edu/cs/files/prince-allotey-web-150x150.jpg 150w&quot; width=&quot;200&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/prince-allotey/&quot;&gt;Prince Allotey&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:prince_allotey@uri.edu&quot;&gt;prince_allotey@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/marco-alvarez/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;120&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/marco-alvarez.png&quot; width=&quot;120&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/marco-alvarez/&quot;&gt;Marco Alvarez&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:malvarez@uri.edu&quot;&gt;malvarez@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/samantha-armenti/&quot;&gt;Samantha Armenti&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:sarmenti@uri.edu &quot;&gt;sarmenti@uri.edu &lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/sarah-brown/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;300&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; src=&quot;https://web.uri.edu/cs/files/Sarah-Brown.png&quot; srcset=&quot;https://web.uri.edu/cs/files/Sarah-Brown.png 300w, https://web.uri.edu/cs/files/Sarah-Brown-150x150.png 150w&quot; width=&quot;300&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/sarah-brown/&quot;&gt;Sarah Brown&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:brownsarahm@uri.edu&quot;&gt;brownsarahm@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/michael-conti/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;2475&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 2560px) 100vw, 2560px&quot; src=&quot;https://web.uri.edu/cs/files/mike-conti-scaled.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/mike-conti-scaled.jpg 2560w, https://web.uri.edu/cs/files/mike-conti-300x290.jpg 300w, https://web.uri.edu/cs/files/mike-conti-1024x990.jpg 1024w, https://web.uri.edu/cs/files/mike-conti-768x743.jpg 768w, https://web.uri.edu/cs/files/mike-conti-1536x1485.jpg 1536w, https://web.uri.edu/cs/files/mike-conti-2048x1980.jpg 2048w, https://web.uri.edu/cs/files/mike-conti-364x352.jpg 364w, https://web.uri.edu/cs/files/mike-conti-500x483.jpg 500w, https://web.uri.edu/cs/files/mike-conti-1000x967.jpg 1000w, https://web.uri.edu/cs/files/mike-conti-1280x1238.jpg 1280w, https://web.uri.edu/cs/files/mike-conti-2000x1934.jpg 2000w&quot; width=&quot;2560&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/michael-conti/&quot;&gt;Michael Conti&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:michaelconti@uri.edu &quot;&gt;michaelconti@uri.edu &lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/noah-daniels/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;219&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 219px) 100vw, 219px&quot; src=&quot;https://web.uri.edu/cs/files/noah-daniels-web.png&quot; srcset=&quot;https://web.uri.edu/cs/files/noah-daniels-web.png 219w, https://web.uri.edu/cs/files/noah-daniels-web-150x150.png 150w&quot; width=&quot;219&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/noah-daniels/&quot;&gt;Noah Daniels&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:noah_daniels@uri.edu&quot;&gt;noah_daniels@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/lisa-dipippo/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;126&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/lisa-dipippo-web.jpg&quot; width=&quot;125&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/lisa-dipippo/&quot;&gt;Lisa DiPippo&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:ldipippo@uri.edu&quot;&gt;ldipippo@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/victor-fay-wolfe/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;125&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/victor-fay-wolfe-web.jpg&quot; width=&quot;125&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/victor-fay-wolfe/&quot;&gt;Victor Fay-Wolfe&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:wolfe@cs.uri.edu&quot;&gt;wolfe@cs.uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/lutz-hamel/&quot;&gt;Lutz Hamel&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:lutzhamel@uri.edu&quot;&gt;lutzhamel@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/abdeltawab-hendawi/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;240&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 240px) 100vw, 240px&quot; src=&quot;https://web.uri.edu/cs/files/unnamed.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/unnamed.jpg 240w, https://web.uri.edu/cs/files/unnamed-150x150.jpg 150w&quot; width=&quot;240&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/abdeltawab-hendawi/&quot;&gt;Abdeltawab Hendawi&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:hendawi@uri.edu&quot;&gt;hendawi@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/jean-yves-herve/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;299&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; src=&quot;https://web.uri.edu/cs/files/jean-yves-herve-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/jean-yves-herve-web.jpg 300w, https://web.uri.edu/cs/files/jean-yves-herve-web-150x150.jpg 150w&quot; width=&quot;300&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/jean-yves-herve/&quot;&gt;Jean-Yves Hervé&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:jyh@cs.uri.edu&quot;&gt;jyh@cs.uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/natallia-katenka/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;200&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 200px) 100vw, 200px&quot; src=&quot;https://web.uri.edu/cs/files/natalia-katenka-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/natalia-katenka-web.jpg 200w, https://web.uri.edu/cs/files/natalia-katenka-web-150x150.jpg 150w&quot; width=&quot;200&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/natallia-katenka/&quot;&gt;Natallia Katenka&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:nkatenka@uri.edu&quot;&gt;nkatenka@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/soheyb-kouider/&quot;&gt;Soheyb Kouider&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:soheyb@uri.edu&quot;&gt;soheyb@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/edmund-lamagna/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;150&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/edmund-lamagna-web.jpg&quot; width=&quot;150&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/edmund-lamagna/&quot;&gt;Edmund Lamagna&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:eal@cs.uri.edu&quot;&gt;eal@cs.uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/indrani-mandal/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;280&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 278px) 100vw, 278px&quot; src=&quot;https://web.uri.edu/cs/files/0.jpeg&quot; srcset=&quot;https://web.uri.edu/cs/files/0.jpeg 278w, https://web.uri.edu/cs/files/0-150x150.jpeg 150w&quot; width=&quot;278&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/indrani-mandal/&quot;&gt;Indrani Mandal&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:indrani_mandal@uri.edu &quot;&gt;indrani_mandal@uri.edu &lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/gavino-puggioni/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;1600&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 1600px) 100vw, 1600px&quot; src=&quot;https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381.jpg 1600w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-300x300.jpg 300w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-1024x1024.jpg 1024w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-150x150.jpg 150w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-768x768.jpg 768w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-1536x1536.jpg 1536w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-364x364.jpg 364w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-500x500.jpg 500w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-1000x1000.jpg 1000w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-1280x1280.jpg 1280w&quot; width=&quot;1600&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/gavino-puggioni/&quot;&gt;Gavino Puggioni&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:gpuggioni@uri.edu&quot;&gt;gpuggioni@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/joseph-squillace/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;581&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 646px) 100vw, 646px&quot; src=&quot;https://web.uri.edu/cs/files/URI-ID.png&quot; srcset=&quot;https://web.uri.edu/cs/files/URI-ID.png 646w, https://web.uri.edu/cs/files/URI-ID-300x270.png 300w, https://web.uri.edu/cs/files/URI-ID-364x327.png 364w, https://web.uri.edu/cs/files/URI-ID-500x450.png 500w&quot; width=&quot;646&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/joseph-squillace/&quot;&gt;Joseph Squillace&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:josephps@uri.edu&quot;&gt;josephps@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/krishna-venkatasubramanian/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;2703&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 2437px) 100vw, 2437px&quot; src=&quot;https://web.uri.edu/cs/files/KV_biopic_2.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/KV_biopic_2.jpg 2437w, https://web.uri.edu/cs/files/KV_biopic_2-270x300.jpg 270w, https://web.uri.edu/cs/files/KV_biopic_2-768x852.jpg 768w, https://web.uri.edu/cs/files/KV_biopic_2-923x1024.jpg 923w, https://web.uri.edu/cs/files/KV_biopic_2-364x404.jpg 364w, https://web.uri.edu/cs/files/KV_biopic_2-500x555.jpg 500w, https://web.uri.edu/cs/files/KV_biopic_2-1000x1109.jpg 1000w, https://web.uri.edu/cs/files/KV_biopic_2-1280x1420.jpg 1280w, https://web.uri.edu/cs/files/KV_biopic_2-2000x2218.jpg 2000w&quot; width=&quot;2437&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/krishna-venkatasubramanian/&quot;&gt;Krishna Venkatasubramanian&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:krish@uri.edu&quot;&gt;krish@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/jing-wu/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;200&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 200px) 100vw, 200px&quot; src=&quot;https://web.uri.edu/cs/files/jing-wu-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/jing-wu-web.jpg 200w, https://web.uri.edu/cs/files/jing-wu-web-150x150.jpg 150w&quot; width=&quot;200&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/jing-wu/&quot;&gt;Jing Wu&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:jing_wu@uri.edu&quot;&gt;jing_wu@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/yichi-zhang/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;240&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 240px) 100vw, 240px&quot; src=&quot;https://web.uri.edu/cs/files/yichi-zhang-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/yichi-zhang-web.jpg 240w, https://web.uri.edu/cs/files/yichi-zhang-web-150x150.jpg 150w&quot; width=&quot;240&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/yichi-zhang/&quot;&gt;Yichi Zhang&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:yichizhang@uri.edu&quot;&gt;yichizhang@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/guangyu-zhu/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;200&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 200px) 100vw, 200px&quot; src=&quot;https://web.uri.edu/cs/files/Guangyu-Zhu-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/Guangyu-Zhu-web.jpg 200w, https://web.uri.edu/cs/files/Guangyu-Zhu-web-150x150.jpg 150w&quot; width=&quot;200&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/guangyu-zhu/&quot;&gt;Guangyu Zhu&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:guangyuzhu@uri.edu&quot;&gt;guangyuzhu@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/ashley-buchanan/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;966&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 966px) 100vw, 966px&quot; src=&quot;https://web.uri.edu/cs/files/Ashley-Buchanan.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/Ashley-Buchanan.jpg 966w, https://web.uri.edu/cs/files/Ashley-Buchanan-300x300.jpg 300w, https://web.uri.edu/cs/files/Ashley-Buchanan-150x150.jpg 150w, https://web.uri.edu/cs/files/Ashley-Buchanan-768x768.jpg 768w, https://web.uri.edu/cs/files/Ashley-Buchanan-364x364.jpg 364w, https://web.uri.edu/cs/files/Ashley-Buchanan-500x500.jpg 500w&quot; width=&quot;966&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/ashley-buchanan/&quot;&gt;Ashley Buchanan&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:buchanan@uri.edu&quot;&gt;buchanan@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/nina-kajiji/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;125&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/nina-kajiji-web.jpg&quot; width=&quot;125&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/nina-kajiji/&quot;&gt;Nina Kajiji&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:nina@uri.edu&quot;&gt;nina@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/rachel-schwartz/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;120&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/Rachel-Schwartz-web.jpg&quot; width=&quot;120&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/rachel-schwartz/&quot;&gt;Rachel Schwartz&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:rsschwartz@uri.edu&quot;&gt;rsschwartz@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/ying-zhang/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;250&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 249px) 100vw, 249px&quot; src=&quot;https://web.uri.edu/cs/files/ying-zhang-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/ying-zhang-web.jpg 249w, https://web.uri.edu/cs/files/ying-zhang-web-150x150.jpg 150w&quot; width=&quot;249&quot;/&gt;&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/ying-zhang/&quot;&gt;Ying Zhang&lt;/a&gt;,
+ &lt;a class=&quot;u-email&quot; href=&quot;mailto:yingzhang@uri.edu&quot;&gt;yingzhang@uri.edu&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/connect&quot; id=&quot;action-connect&quot; role=&quot;menuitem&quot;&gt;&lt;span role=&quot;presentation&quot; title=&quot;Learn more about URI: Get in touch&quot;&gt;&lt;/span&gt;Connect&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/apply&quot; id=&quot;action-apply&quot; role=&quot;menuitem&quot;&gt;&lt;span role=&quot;presentation&quot;&gt;&lt;/span&gt;Apply&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/tour&quot; id=&quot;action-tour&quot; role=&quot;menuitem&quot;&gt;&lt;span role=&quot;presentation&quot;&gt;&lt;/span&gt;Tour&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/give&quot; id=&quot;action-give&quot; role=&quot;menuitem&quot;&gt;&lt;span role=&quot;presentation&quot;&gt;&lt;/span&gt;Give&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/about/leadership/&quot; role=&quot;menuitem&quot;&gt;Leadership&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/diversity/&quot; role=&quot;menuitem&quot;&gt;Diversity and Inclusion&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/global/&quot; role=&quot;menuitem&quot;&gt;Global&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/about/campuses/&quot; role=&quot;menuitem&quot;&gt;Campuses&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/safety/&quot; role=&quot;menuitem&quot;&gt;Safety&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/housing/&quot; role=&quot;menuitem&quot;&gt;Housing&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/dining/&quot; role=&quot;menuitem&quot;&gt;Dining&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/athletics/&quot; role=&quot;menuitem&quot;&gt;Athletics and Recreation&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/campus-life/health-and-wellness/&quot; role=&quot;menuitem&quot;&gt;Health and Wellness&lt;/a&gt;,
+ &lt;a href=&quot;https://events.uri.edu&quot; role=&quot;menuitem&quot;&gt;Events&lt;/a&gt;,
+ &lt;a href=&quot;https://www.uri.edu/academics/&quot; role=&quot;menuitem&quot;&gt;Undergraduate&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/graduate-school/&quot; role=&quot;menuitem&quot;&gt;Graduate&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/advising/&quot; role=&quot;menuitem&quot;&gt;Advising&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/library/&quot; role=&quot;menuitem&quot;&gt;Libraries&lt;/a&gt;,
+ &lt;a href=&quot;https://web.uri.edu/career/students/&quot; role=&quot;menuitem&quot;&gt;Internships&lt;/a&gt;,
+ &lt;a class=&quot;cl-social-facebook&quot; href=&quot;https://www.facebook.com/universityofri&quot; title=&quot;Facebook&quot;&gt;Facebook&lt;/a&gt;,
+ &lt;a class=&quot;cl-social-instagram&quot; href=&quot;https://www.instagram.com/universityofri/&quot; title=&quot;Instagram&quot;&gt;Instagram&lt;/a&gt;,
+ &lt;a class=&quot;cl-social-twitter&quot; href=&quot;https://twitter.com/universityofri&quot; title=&quot;Twitter&quot;&gt;Twitter&lt;/a&gt;,
+ &lt;a class=&quot;cl-social-youtube&quot; href=&quot;https://www.youtube.com/user/UniversityOfRI&quot; title=&quot;YouTube&quot;&gt;YouTube&lt;/a&gt;,
+ &lt;a class=&quot;subtle&quot; href=&quot;http://www.uri.edu/&quot;&gt;University of Rhode Island&lt;/a&gt;,
+ &lt;a class=&quot;jobs&quot; href=&quot;https://jobs.uri.edu/&quot;&gt;Work at URI&lt;/a&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We noted before that each person’s information is contained in a <code class="docutils literal notranslate"><span class="pre">div</span></code> tag with
+the <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">=</span> <span class="pre">peopleitem</span></code>.  <code class="docutils literal notranslate"><span class="pre">find_all</span></code> can also take values for attributs of a
+tag.  Attributes are the modifiers of a tag, in this case, a class is a label
+that defines formatting, and in this case, acts as metadata about what is in the
+div.  Scraping relies on the HTML code being well organized.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs_people</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span><span class="s2">&quot;peopleitem&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/prince-allotey/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;200&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 200px) 100vw, 200px&quot; src=&quot;https://web.uri.edu/cs/files/prince-allotey-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/prince-allotey-web.jpg 200w, https://web.uri.edu/cs/files/prince-allotey-web-150x150.jpg 150w&quot; width=&quot;200&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/prince-allotey/&quot;&gt;Prince Allotey&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Lecturer &lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Statistics&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;span class=&quot;p-tel&quot;&gt;401.874.2216&lt;/span&gt; – &lt;a class=&quot;u-email&quot; href=&quot;mailto:prince_allotey@uri.edu&quot;&gt;prince_allotey@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/marco-alvarez/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;120&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/marco-alvarez.png&quot; width=&quot;120&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/marco-alvarez/&quot;&gt;Marco Alvarez&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Assistant Professor | Director of Graduate Studies&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;span class=&quot;p-tel&quot;&gt;401.874.5009&lt;/span&gt; – &lt;a class=&quot;u-email&quot; href=&quot;mailto:malvarez@uri.edu&quot;&gt;malvarez@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/samantha-armenti/&quot;&gt;Samantha Armenti&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Lecturer&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:sarmenti@uri.edu &quot;&gt;sarmenti@uri.edu &lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/sarah-brown/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;300&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; src=&quot;https://web.uri.edu/cs/files/Sarah-Brown.png&quot; srcset=&quot;https://web.uri.edu/cs/files/Sarah-Brown.png 300w, https://web.uri.edu/cs/files/Sarah-Brown-150x150.png 150w&quot; width=&quot;300&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/sarah-brown/&quot;&gt;Sarah Brown&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Assistant Professor&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:brownsarahm@uri.edu&quot;&gt;brownsarahm@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/michael-conti/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;2475&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 2560px) 100vw, 2560px&quot; src=&quot;https://web.uri.edu/cs/files/mike-conti-scaled.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/mike-conti-scaled.jpg 2560w, https://web.uri.edu/cs/files/mike-conti-300x290.jpg 300w, https://web.uri.edu/cs/files/mike-conti-1024x990.jpg 1024w, https://web.uri.edu/cs/files/mike-conti-768x743.jpg 768w, https://web.uri.edu/cs/files/mike-conti-1536x1485.jpg 1536w, https://web.uri.edu/cs/files/mike-conti-2048x1980.jpg 2048w, https://web.uri.edu/cs/files/mike-conti-364x352.jpg 364w, https://web.uri.edu/cs/files/mike-conti-500x483.jpg 500w, https://web.uri.edu/cs/files/mike-conti-1000x967.jpg 1000w, https://web.uri.edu/cs/files/mike-conti-1280x1238.jpg 1280w, https://web.uri.edu/cs/files/mike-conti-2000x1934.jpg 2000w&quot; width=&quot;2560&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/michael-conti/&quot;&gt;Michael Conti&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Lecturer&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:michaelconti@uri.edu &quot;&gt;michaelconti@uri.edu &lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/noah-daniels/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;219&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 219px) 100vw, 219px&quot; src=&quot;https://web.uri.edu/cs/files/noah-daniels-web.png&quot; srcset=&quot;https://web.uri.edu/cs/files/noah-daniels-web.png 219w, https://web.uri.edu/cs/files/noah-daniels-web-150x150.png 150w&quot; width=&quot;219&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/noah-daniels/&quot;&gt;Noah Daniels&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Assistant Professor&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:noah_daniels@uri.edu&quot;&gt;noah_daniels@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/lisa-dipippo/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;126&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/lisa-dipippo-web.jpg&quot; width=&quot;125&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/lisa-dipippo/&quot;&gt;Lisa DiPippo&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Professor | Chair&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:ldipippo@uri.edu&quot;&gt;ldipippo@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/victor-fay-wolfe/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;125&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/victor-fay-wolfe-web.jpg&quot; width=&quot;125&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/victor-fay-wolfe/&quot;&gt;Victor Fay-Wolfe&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Professor&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:wolfe@cs.uri.edu&quot;&gt;wolfe@cs.uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/lutz-hamel/&quot;&gt;Lutz Hamel&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Associate Professor &lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:lutzhamel@uri.edu&quot;&gt;lutzhamel@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/abdeltawab-hendawi/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;240&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 240px) 100vw, 240px&quot; src=&quot;https://web.uri.edu/cs/files/unnamed.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/unnamed.jpg 240w, https://web.uri.edu/cs/files/unnamed-150x150.jpg 150w&quot; width=&quot;240&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/abdeltawab-hendawi/&quot;&gt;Abdeltawab Hendawi&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Assistant Professor&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Data Science | Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;span class=&quot;p-tel&quot;&gt;401.874.5738&lt;/span&gt; – &lt;a class=&quot;u-email&quot; href=&quot;mailto:hendawi@uri.edu&quot;&gt;hendawi@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/jean-yves-herve/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;299&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; src=&quot;https://web.uri.edu/cs/files/jean-yves-herve-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/jean-yves-herve-web.jpg 300w, https://web.uri.edu/cs/files/jean-yves-herve-web-150x150.jpg 150w&quot; width=&quot;300&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/jean-yves-herve/&quot;&gt;Jean-Yves Hervé&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Associate Professor&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:jyh@cs.uri.edu&quot;&gt;jyh@cs.uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/natallia-katenka/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;200&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 200px) 100vw, 200px&quot; src=&quot;https://web.uri.edu/cs/files/natalia-katenka-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/natalia-katenka-web.jpg 200w, https://web.uri.edu/cs/files/natalia-katenka-web-150x150.jpg 150w&quot; width=&quot;200&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/natallia-katenka/&quot;&gt;Natallia Katenka&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Associate Professor | Director of Undergraduate Studies&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Statistics&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:nkatenka@uri.edu&quot;&gt;nkatenka@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/soheyb-kouider/&quot;&gt;Soheyb Kouider&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Lecturer&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Statistics&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;span class=&quot;p-tel&quot;&gt;401.874.2562&lt;/span&gt; – &lt;a class=&quot;u-email&quot; href=&quot;mailto:soheyb@uri.edu&quot;&gt;soheyb@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/edmund-lamagna/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;150&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/edmund-lamagna-web.jpg&quot; width=&quot;150&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/edmund-lamagna/&quot;&gt;Edmund Lamagna&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Professor&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:eal@cs.uri.edu&quot;&gt;eal@cs.uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/indrani-mandal/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;280&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 278px) 100vw, 278px&quot; src=&quot;https://web.uri.edu/cs/files/0.jpeg&quot; srcset=&quot;https://web.uri.edu/cs/files/0.jpeg 278w, https://web.uri.edu/cs/files/0-150x150.jpeg 150w&quot; width=&quot;278&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/indrani-mandal/&quot;&gt;Indrani Mandal&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Lecturer&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:indrani_mandal@uri.edu &quot;&gt;indrani_mandal@uri.edu &lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/gavino-puggioni/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;1600&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 1600px) 100vw, 1600px&quot; src=&quot;https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381.jpg 1600w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-300x300.jpg 300w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-1024x1024.jpg 1024w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-150x150.jpg 150w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-768x768.jpg 768w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-1536x1536.jpg 1536w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-364x364.jpg 364w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-500x500.jpg 500w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-1000x1000.jpg 1000w, https://web.uri.edu/cs/files/Gavino_headshot1-e1610666088381-1280x1280.jpg 1280w&quot; width=&quot;1600&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/gavino-puggioni/&quot;&gt;Gavino Puggioni&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Associate Professor |  Statistics Section Head | Director of Graduate Studies&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Statistics&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;span class=&quot;p-tel&quot;&gt;401.874.4388&lt;/span&gt; – &lt;a class=&quot;u-email&quot; href=&quot;mailto:gpuggioni@uri.edu&quot;&gt;gpuggioni@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/joseph-squillace/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;581&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 646px) 100vw, 646px&quot; src=&quot;https://web.uri.edu/cs/files/URI-ID.png&quot; srcset=&quot;https://web.uri.edu/cs/files/URI-ID.png 646w, https://web.uri.edu/cs/files/URI-ID-300x270.png 300w, https://web.uri.edu/cs/files/URI-ID-364x327.png 364w, https://web.uri.edu/cs/files/URI-ID-500x450.png 500w&quot; width=&quot;646&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/joseph-squillace/&quot;&gt;Joseph Squillace&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Post-Doctoral Fellow&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Statistics&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:josephps@uri.edu&quot;&gt;josephps@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/krishna-venkatasubramanian/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;2703&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 2437px) 100vw, 2437px&quot; src=&quot;https://web.uri.edu/cs/files/KV_biopic_2.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/KV_biopic_2.jpg 2437w, https://web.uri.edu/cs/files/KV_biopic_2-270x300.jpg 270w, https://web.uri.edu/cs/files/KV_biopic_2-768x852.jpg 768w, https://web.uri.edu/cs/files/KV_biopic_2-923x1024.jpg 923w, https://web.uri.edu/cs/files/KV_biopic_2-364x404.jpg 364w, https://web.uri.edu/cs/files/KV_biopic_2-500x555.jpg 500w, https://web.uri.edu/cs/files/KV_biopic_2-1000x1109.jpg 1000w, https://web.uri.edu/cs/files/KV_biopic_2-1280x1420.jpg 1280w, https://web.uri.edu/cs/files/KV_biopic_2-2000x2218.jpg 2000w&quot; width=&quot;2437&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/krishna-venkatasubramanian/&quot;&gt;Krishna Venkatasubramanian&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Assistant Professor&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:krish@uri.edu&quot;&gt;krish@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/jing-wu/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;200&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 200px) 100vw, 200px&quot; src=&quot;https://web.uri.edu/cs/files/jing-wu-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/jing-wu-web.jpg 200w, https://web.uri.edu/cs/files/jing-wu-web-150x150.jpg 150w&quot; width=&quot;200&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/jing-wu/&quot;&gt;Jing Wu&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Assistant Professor&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Statistics&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;span class=&quot;p-tel&quot;&gt;401.874.4504&lt;/span&gt; – &lt;a class=&quot;u-email&quot; href=&quot;mailto:jing_wu@uri.edu&quot;&gt;jing_wu@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/yichi-zhang/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;240&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 240px) 100vw, 240px&quot; src=&quot;https://web.uri.edu/cs/files/yichi-zhang-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/yichi-zhang-web.jpg 240w, https://web.uri.edu/cs/files/yichi-zhang-web-150x150.jpg 150w&quot; width=&quot;240&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/yichi-zhang/&quot;&gt;Yichi Zhang&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Assistant Professor &lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Statistics&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:yichizhang@uri.edu&quot;&gt;yichizhang@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/guangyu-zhu/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;200&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 200px) 100vw, 200px&quot; src=&quot;https://web.uri.edu/cs/files/Guangyu-Zhu-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/Guangyu-Zhu-web.jpg 200w, https://web.uri.edu/cs/files/Guangyu-Zhu-web-150x150.jpg 150w&quot; width=&quot;200&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/guangyu-zhu/&quot;&gt;Guangyu Zhu&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Assistant Professor&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Statistics&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:guangyuzhu@uri.edu&quot;&gt;guangyuzhu@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/ashley-buchanan/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;966&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 966px) 100vw, 966px&quot; src=&quot;https://web.uri.edu/cs/files/Ashley-Buchanan.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/Ashley-Buchanan.jpg 966w, https://web.uri.edu/cs/files/Ashley-Buchanan-300x300.jpg 300w, https://web.uri.edu/cs/files/Ashley-Buchanan-150x150.jpg 150w, https://web.uri.edu/cs/files/Ashley-Buchanan-768x768.jpg 768w, https://web.uri.edu/cs/files/Ashley-Buchanan-364x364.jpg 364w, https://web.uri.edu/cs/files/Ashley-Buchanan-500x500.jpg 500w&quot; width=&quot;966&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/ashley-buchanan/&quot;&gt;Ashley Buchanan&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Limited Joint Appointment&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Biostatistics&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;span class=&quot;p-tel&quot;&gt;401.874.4739&lt;/span&gt; – &lt;a class=&quot;u-email&quot; href=&quot;mailto:buchanan@uri.edu&quot;&gt;buchanan@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/nina-kajiji/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;125&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/nina-kajiji-web.jpg&quot; width=&quot;125&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/nina-kajiji/&quot;&gt;Nina Kajiji&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Adjunct Associate Professor&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;a class=&quot;u-email&quot; href=&quot;mailto:nina@uri.edu&quot;&gt;nina@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/rachel-schwartz/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;120&quot; loading=&quot;lazy&quot; src=&quot;https://web.uri.edu/cs/files/Rachel-Schwartz-web.jpg&quot; width=&quot;120&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/rachel-schwartz/&quot;&gt;Rachel Schwartz&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Assistant Professor – Limited Joint Appointment&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Biological Sciences&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;span class=&quot;p-tel&quot;&gt;401.874.5404&lt;/span&gt; – &lt;a class=&quot;u-email&quot; href=&quot;mailto:rsschwartz@uri.edu&quot;&gt;rsschwartz@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;,
+ &lt;div class=&quot;peopleitem h-card has-thumbnail&quot;&gt;
+ &lt;header&gt;
+ &lt;div class=&quot;header&quot;&gt;
+ &lt;figure&gt;
+ &lt;a href=&quot;https://web.uri.edu/cs/meet/ying-zhang/&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;u-photo wp-post-image&quot; height=&quot;250&quot; loading=&quot;lazy&quot; sizes=&quot;(max-width: 249px) 100vw, 249px&quot; src=&quot;https://web.uri.edu/cs/files/ying-zhang-web.jpg&quot; srcset=&quot;https://web.uri.edu/cs/files/ying-zhang-web.jpg 249w, https://web.uri.edu/cs/files/ying-zhang-web-150x150.jpg 150w&quot; width=&quot;249&quot;/&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;h3 class=&quot;p-name&quot;&gt;&lt;a href=&quot;https://web.uri.edu/cs/meet/ying-zhang/&quot;&gt;Ying Zhang&lt;/a&gt;&lt;/h3&gt;
+ &lt;/div&gt;
+ &lt;/header&gt;
+ &lt;div class=&quot;inside&quot;&gt;
+ &lt;p class=&quot;people-title p-job-title&quot;&gt;Assistant Professor – Limited Joint Appointment&lt;/p&gt;
+ &lt;p class=&quot;people-department&quot;&gt;Computer Science&lt;/p&gt;
+ &lt;p class=&quot;people-misc&quot;&gt;&lt;span class=&quot;p-tel&quot;&gt;401.874.4915&lt;/span&gt; – &lt;a class=&quot;u-email&quot; href=&quot;mailto:yingzhang@uri.edu&quot;&gt;yingzhang@uri.edu&lt;/a&gt;&lt;/p&gt;
+ &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could use this to see how many people there are</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">cs_people</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span><span class="s2">&quot;peopleitem&quot;</span><span class="p">))</span>
@@ -2936,18 +3568,20 @@ var tides = {&quot;temperature&quot;:{&quot;metadata&quot;:{&quot;id&quot;:&quot
 </div>
 </div>
 </div>
+<p>or use multiple to see how many people have  thumbnail</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">cs_people</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,{</span><span class="s2">&quot;peopleitem has-thumbnail&quot;</span><span class="p">}))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">cs_people</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,{</span><span class="s2">&quot;has-thumbnail&quot;</span><span class="p">}))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
 </pre></div>
 </div>
 </div>
 </div>
+<p>L</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cs_people</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span><span class="s2">&quot;peopleitem&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -3063,7 +3697,7 @@ var tides = {&quot;temperature&quot;:{&quot;metadata&quot;:{&quot;id&quot;:&quot
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2103</span><span class="o">/</span><span class="mf">12535113.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2049</span><span class="o">/</span><span class="mf">12535113.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">first_name</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">href</span>
 
 <span class="ne">AttributeError</span>: &#39;dict&#39; object has no attribute &#39;href&#39;
@@ -3619,6 +4253,7 @@ var tides = {&quot;temperature&quot;:{&quot;metadata&quot;:{&quot;id&quot;:&quot
   </tbody>
 </table>
 </div></div></div>
+</div>
 </div>
 </div>
 
