@@ -6,8 +6,8 @@ substitutions:
 ---
 # Assignment 5: Constructing Datasets and Using Databases
 
-
-__Due: 2020-10-11__
+{{accept_assignment}}
+__Due: {{ date }}__
 
 ```{list-table} access data from a database and merge multiple tables from a dataset
 :header-rows: 1
@@ -91,5 +91,5 @@ Use pythonic naming conventions throughout, AND:
 - use a list or dictionary comprehension
 
 ```{admonition} Thinking Ahead
-Compare the level 2 skill definitions to level 3, how could you extend and adapt what you've done to meet level 3? 
+Compare the level 2 skill definitions to level 3, how could you extend and adapt what you've done to meet level 3?
 ```
