@@ -28,7 +28,7 @@ Patterns and examples of how to use common tips in class
   - slicing elemtns val to val2-1 from a listlike object
 * - `[ item1,item2 ]`
   - creating a list consisting of `item1` and `item2`
-* - `(param)`
+* - `function_name(param, param2)`
   - function calls
 * - `(item1,item2)`
   - defining a tuple of `item1` and `item2`
