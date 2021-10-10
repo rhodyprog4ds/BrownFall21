@@ -48,7 +48,7 @@ __Due: {{ date }}__
 Your goal is to programmatically construct two ready to analyze dataset from multiple sources.
 
 - Each dataset must combine at least 2 source tables(4 total).
-- At least one source table must come from an sqlite database or from web scraping.
+- At least one source table(of the 4) must come from an sqlite database or from web scraping.
 - You should use at least two different joins(types of merges, or concat).
 
 
