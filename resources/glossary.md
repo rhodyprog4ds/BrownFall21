@@ -12,7 +12,8 @@ Contribute glossary items and  links for further reading using the suggest an ed
 
 [anonymous function](https://en.wikipedia.org/wiki/Anonymous_function#:~:text=Anonymous%20functions%20are%20often%20arguments,than%20using%20a%20named%20function)
   a function that's defined on the fly, typically to lighten syntax or return a function within a function. In python, they're defined with the {term}`lambda` keyword.
-
+[BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+  a python library used to assist in web scraping, it pulls data from html and xml files that can be parsed in a variety of different ways using different methods. 
 [DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)
   a data structure provided by pandas for tabular data in python.
 
