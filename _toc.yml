@@ -28,6 +28,7 @@ parts:
       - file: notes/2021-10-04
       - file: notes/2021-10-06
       - file: notes/2021-10-08
+      - file: notes/2021-10-13
   - caption: Assignments
     numbered: True
     chapters:
@@ -36,6 +37,7 @@ parts:
     - file: assignments/03-eda
     - file: assignments/04-prepare
     - file: assignments/05-construct
+    - file: assignments/06-classification
   - caption: Portfolio
     chapters:
     - file: portfolio/index
