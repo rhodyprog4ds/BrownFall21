@@ -36,6 +36,6 @@ This page is a semi-curated source of datasets for use in assignments.  The diff
 
 ## Databases
 
-- [SQLite Databases](https://2016.padjo.org/tutorials/sqlite-data-starterpacks/)
+- [SQLite Databases](http://2016.padjo.org/tutorials/sqlite-data-starterpacks/)
 
 If you have others please share by creating a pull request or issue on this repo (from the GitHub logo at the top right, `suggest edit`).
