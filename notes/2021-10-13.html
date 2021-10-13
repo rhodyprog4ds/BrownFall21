@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intro to Machine Learning &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>15. Intro to Machine learning &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -43,6 +43,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -52,6 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="14. Web Scraping" href="2021-10-08.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -139,7 +143,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -210,6 +214,11 @@
    14. Web Scraping
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   15. Intro to Machine learning
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -240,6 +249,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/05-construct.html">
    5. Assignment 5: Constructing Datasets and Using Databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/06-classification.html">
+   6. Assignment 6
   </a>
  </li>
 </ul>
@@ -457,6 +471,44 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-model">
+   15.1. What is a Model?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models-in-machine-learning">
+   15.2. Models in Machine Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-machine-learning">
+   15.3. Types of Machine Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-learning">
+   15.4. Supervised Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-pipeline">
+   15.5. Machine Learning Pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-with-scikit-learn">
+   15.6. Machine Learning with Scikit Learn
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -466,26 +518,93 @@
               <div>
                 
   <div class="section" id="intro-to-machine-learning">
-<h1>Intro to Machine Learning<a class="headerlink" href="#intro-to-machine-learning" title="Permalink to this headline">¶</a></h1>
-<p>When we do machine learning, this can also be called:</p>
-<p>data mining
-pattern recognition
-modeling</p>
-<p>because we are looking for patterns in the data and typically then planning to</p>
-<p>use those patterns to make predictions or automate a task.</p>
-<p>Each of these terms does have slightly different meanings and usage, but</p>
-<p>someitmes they’re used close to exchangeably.</p>
-<p>A statistical model is a mathematical model that embodies a set of statistical assumptions concerning the generation of sample data (and similar data from a larger population). A statistical model represents, often in considerably idealized form, the data-generating process</p>
-<p>wikipedia</p>
-<p>We’re going to appraoch machine learning from the perspective of modeling for</p>
-<p>a few reasons:</p>
-<p>model based machine learnining streamlines understanding the big picture
-the model way of interpreting it aligns well with using sklearn
-thinking in terms of models aligns with incorporating domain expertise, as in our data science definition</p>
-<p>this paper by Christopher M. Bishop, a leading ML researcher who also wrote one of a the widely preferred</p>
-<p>graduate level ML textbooks, details advantages of a model based perspective and</p>
-<p>a more mathematical version of a model based approach to machine learning.</p>
-<p>Starting from a dataset, we first make an additional designation about how we will use the different variables (columns). We will call most of them the features, which we denote mathematically with ﻿\mathbf{X}X﻿ and we’ll choose one to be the target or labels, denoted by ﻿\mathbf{y}y﻿.</p>
+<h1><span class="section-number">15. </span>Intro to Machine learning<a class="headerlink" href="#intro-to-machine-learning" title="Permalink to this headline">¶</a></h1>
+<p>When we <em>do</em> machine learning, this can also be called:</p>
+<ul class="simple">
+<li><p>data mining</p></li>
+<li><p>pattern recognition</p></li>
+<li><p>modeling</p></li>
+</ul>
+<p>because we are looking for patterns in the data and typically then planning to
+use those patterns to make predictions or automate a task.</p>
+<p>Each of these terms does have slightly different meanings and usage, but
+someitmes they’re used close to exchangeably.</p>
+<p>We’re going to appraoch machine learning from the perspective of <em>modeling</em> for
+a few reasons:</p>
+<ul class="simple">
+<li><p>model based machine learnining streamlines understanding the big picture</p></li>
+<li><p>the model way of interpreting it aligns well with using sklearn</p></li>
+<li><p>thinking in terms of models aligns with incorporating domain expertise, as in our data science definition</p></li>
+</ul>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p>this <a class="reference external" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/05/Bishop-MBML-2012.pdf">paper</a> by Christopher M. Bishop, a leading ML researcher who also wrote one of a the widely preferred
+graduate level ML textbooks, details advantages of a model based perspective and
+a more mathematical version of a model based approach to machine learning.</p>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>In CSC461: Machine Learning, you can encounter an <em>algorithm</em> focused approach
+to machine learning, but I think having the model based perspective first helps
+you avoid common pitfalls.</p>
+</div>
+</div>
+<div class="section" id="what-is-a-model">
+<h2><span class="section-number">15.1. </span>What is a Model?<a class="headerlink" href="#what-is-a-model" title="Permalink to this headline">¶</a></h2>
+<p>A model is a simplified representation of some part of the world. A famous quote about models is:</p>
+<blockquote class="epigraph">
+<div><p>All models are wrong, but some are useful
+–<a class="reference external" href="https://en.wikipedia.org/wiki/All_models_are_wrong">George Box</a>[^wiki]</p>
+</div></blockquote>
+<p>In machine learning, we use models, that are generally <em>statistical</em> models.</p>
+<blockquote>
+<div><p>A statistical model is a mathematical model that embodies a set of statistical assumptions concerning the generation of sample data (and similar data from a larger population). A statistical model represents, often in considerably idealized form, the data-generating process
+<a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_model#:~:text=A%20statistical%20model%20is%20a,%2C%20the%20data%2Dgenerating%20process.">wikipedia</a></p>
+</div></blockquote>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p>read more in the<a class="reference external" href="http://www.mbmlbook.com/LearningSkills_A_model_is_a_set_of_assumptions.html">Model Based Machine Learning Book</a></p>
+</div>
+</div>
+<div class="section" id="models-in-machine-learning">
+<h2><span class="section-number">15.2. </span>Models in Machine Learning<a class="headerlink" href="#models-in-machine-learning" title="Permalink to this headline">¶</a></h2>
+<p>Starting from a dataset, we first make an additional designation about how we will use the different variables (columns). We will call most of them the <em>features</em>, which we denote mathematically with <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> and we’ll choose one to be the <em>target</em> or <em>labels</em>, denoted by <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>.</p>
+<p>The core assumption for just about all machine learning is that there exists some function <span class="math notranslate nohighlight">\(f\)</span> so that for the <span class="math notranslate nohighlight">\(i\)</span>th sample</p>
+<div class="math notranslate nohighlight">
+\[
+  y_i = f(\mathbf{x}_i)
+\]</div>
+</div>
+<div class="section" id="types-of-machine-learning">
+<h2><span class="section-number">15.3. </span>Types of Machine Learning<a class="headerlink" href="#types-of-machine-learning" title="Permalink to this headline">¶</a></h2>
+<p>Then with different additional assumptions we get different types of machine learning:</p>
+<ul class="simple">
+<li><p>if both features (<span class="math notranslate nohighlight">\(\mathbf{X}\)</span>) and target (<span class="math notranslate nohighlight">\(\mathbf{y}\)</span>) are observed (contained in our dataset) it’s <a class="reference external" href="https://en.wikipedia.org/wiki/Supervised_learning"><strong>supervised learning</strong></a> <a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html">code</a></p></li>
+<li><p>if only the features (<span class="math notranslate nohighlight">\(\mathbf{X}\)</span>) are observed, it’s <a class="reference external" href="https://en.wikipedia.org/wiki/Unsupervised_learning"><strong>unsupervised learning</strong></a> <a class="reference external" href="https://scikit-learn.org/stable/unsupervised_learning.html">code</a></p></li>
+</ul>
+</div>
+<div class="section" id="supervised-learning">
+<h2><span class="section-number">15.4. </span>Supervised Learning<a class="headerlink" href="#supervised-learning" title="Permalink to this headline">¶</a></h2>
+<p>we’ll focus on supervised learning first.  we can take that same core assumption and use it with additional information about our target variable to determine learning <strong>task</strong> we are working to do.</p>
+<div class="math notranslate nohighlight">
+\[
+  y_i = f(\mathbf{x}_i)
+\]</div>
+<ul class="simple">
+<li><p>if <span class="math notranslate nohighlight">\(y_i\)</span> are discrete (eg flower species) we are doing <strong>classification</strong></p></li>
+<li><p>if <span class="math notranslate nohighlight">\(y_i\)</span> are continuous (eg height) we are doing <strong>regression</strong></p></li>
+</ul>
+</div>
+<div class="section" id="machine-learning-pipeline">
+<h2><span class="section-number">15.5. </span>Machine Learning Pipeline<a class="headerlink" href="#machine-learning-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>To do machine learning we start with <strong>training data</strong> which we put as input to the <strong>learning algorithm</strong>. A learning algorithm might be a generic optimization procedure or a specialized procedure for a specific model. The learning algorithm outputs a trained <strong>model</strong> or the parameters of the model. When we deploy a model we pair the <strong>fit model</strong> with a <strong>prediction algorithm</strong> or <strong>decision</strong> algorithm to evaluate a new sample in the world.</p>
+<p>In experimenting and design, we need <strong>testing data</strong> to evaluate how well our learning algorithm understood the world.  We need to use previously unseen data, because if we don’t we can’t tell if the prediction algorithm is using a rule that the learning algorithm produced or just looking up from a lookup table the result.  This can be thought of like the difference between memorization and understanding.</p>
+<p>When the model does well on the training data, but not on test data, we say that it does not generalize well.</p>
+</div>
+<div class="section" id="machine-learning-with-scikit-learn">
+<h2><span class="section-number">15.6. </span>Machine Learning with Scikit Learn<a class="headerlink" href="#machine-learning-with-scikit-learn" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -520,6 +639,8 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<p>We’re trying to build an automatic flower classifier that, for measurements of a new flower returns the predicted species. To do this, we have a DataFrame with columns for species, petal width, petal length, sepal length, and sepal width. The species is what type of flower it is the petal and sepal are parts of the flower.</p>
+<p>We’ll load the data from Seaborn</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
@@ -527,6 +648,7 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<p>First, we’ll look at the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
@@ -534,12 +656,17 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f0bc8685510&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f025f6676d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-10-13_9_1.png" src="../_images/2021-10-13_9_1.png" />
+<img alt="../_images/2021-10-13_7_1.png" src="../_images/2021-10-13_7_1.png" />
 </div>
 </div>
+<p>We can see that this data is well suited for classification not only because
+in the world it makes sense, that we can use the measurements of flower petals
+to differentiate species, but also because the different species do not overlap
+too much.  We call this <strong>separable</strong> data.</p>
+<p>We’ll pick out the target and features from this data frame</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
@@ -566,6 +693,7 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<p>Next, we use the sklearn function to create train and test data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -573,6 +701,13 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it Yourself</p>
+<p>Try using a different random seed (value for <code class="docutils literal notranslate"><span class="pre">random_state</span></code>) or a different split
+size.  Also try splitting by taking the first 80% of the data vs the last 20%.
+What happens?</p>
+</div>
+<p>We’ll check what the split does by looking at the shape.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
@@ -597,6 +732,18 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<p>Now we instantiate our classifier with the constructor method</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it Yourself</p>
+<ol class="simple">
+<li><p>what other constructors have we used?</p></li>
+<li><p>What happens if you skip this step?</p></li>
+<li><p>Can you cascade this step?</p></li>
+</ol>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
@@ -616,6 +763,7 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<p>This created an empty object, we can look at it’s contents:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="vm">__dict__</span>
@@ -628,6 +776,8 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<p>We can fit our model, or learn the model parameters, with the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.  THe
+fit method implements the actual learning algorithm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -640,6 +790,7 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<p>Once we fit we can see it knows about our dataset now</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="vm">__dict__</span>
@@ -664,6 +815,8 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<p>We can apply our classifier with the predict method, which generates a prediction
+based on what it learned from the training data for each sample in the test data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
@@ -690,6 +843,8 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<p>We’ll see better ways to evaluate on Friday, but as a first check, we can check
+if it matches</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="n">y_test</span><span class="p">)</span>
@@ -702,6 +857,7 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 </div>
 </div>
 </div>
+<p>and compare to how many.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
@@ -711,6 +867,7 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>38
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -745,6 +902,24 @@ thinking in terms of models aligns with incorporating domain expertise, as in ou
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="2021-10-08.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">14. </span>Web Scraping</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
