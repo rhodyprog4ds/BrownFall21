@@ -53,7 +53,8 @@ repository
 suffix
   additional part of the name that gets added to end of a name in a merge operation
 [Tidy Data Format](https://www.jstatsoft.org/article/view/v059i10)
-  Tidy data is a database format that ensures data is easy to manipulate, model and visualize. The specific rules of Tidy Data are as follows: Each variable is a column,
+  Tidy data is a database format that ensures data is easy to manipulate, model and visualize. 
+  The specific rules of Tidy Data are as follows: Each variable is a column,
   each row is an observation, and each observable unit is a table. 
 TraceBack
   an error message in python that traces back from the line of code that had caused the exception back through all of the functions that called other functions to reach that line. This is sometimes call tracing back through the stack
