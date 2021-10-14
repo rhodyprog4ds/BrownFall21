@@ -64,4 +64,7 @@ TraceBack
 
 [Split Apply Combine](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#group-by-split-apply-combine)
   a paradigm for splitting data into groups using a column, applying some function(aggregation, transformation, or filtration) to each piece and combinging in the individual pieces back together to a single table
+Web Scraping
+  the process of extracting data from a website. In the context of this class, this is usually done using 
+  the python library beautiful soup and a html parser to retrieve specific data.
 ```
