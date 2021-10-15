@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Interpetting and Evaluating Naive Bayes &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>16. Interpetting and Evaluating Naive Bayes &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -43,6 +43,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -52,6 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="15. Intro to Machine learning" href="2021-10-13.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -139,7 +143,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -213,6 +217,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-13.html">
    15. Intro to Machine learning
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   16. Interpetting and Evaluating Naive Bayes
   </a>
  </li>
 </ul>
@@ -467,6 +476,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-does-naive-bayes-do">
+   16.1. What does Naive Bayes do?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluating">
+   16.2. Evaluating
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions">
+   16.3. Questions
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -476,7 +508,10 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="interpetting-and-evaluating-naive-bayes">
-<h1>Interpetting and Evaluating Naive Bayes<a class="headerlink" href="#interpetting-and-evaluating-naive-bayes" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">16. </span>Interpetting and Evaluating Naive Bayes<a class="headerlink" href="#interpetting-and-evaluating-naive-bayes" title="Permalink to this headline">¶</a></h1>
+<p>We’ll pikc up where we left off on Wedneday and we’ll cover what the Naive
+Bayes model assumes and some more evaluation.  Next week, we’ll see a bit more
+about it’s predictions and see a new classifier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -490,58 +525,34 @@
 </div>
 </div>
 </div>
+<p>Again we’ll load the data and split it to test and train and indicate which
+variables to use as feature and the target.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;sepal_length&#39;, &#39;sepal_width&#39;, &#39;petal_length&#39;, &#39;petal_width&#39;,
-       &#39;species&#39;],
-      dtype=&#39;object&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span>
-                                                            <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">,]],</span>
-                                                   <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span><span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">,]</span>
+<span class="n">target_var</span> <span class="o">=</span> <span class="s1">&#39;species&#39;</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="n">feature_vars</span><span class="p">],</span>
+                                                   <span class="n">iris_df</span><span class="p">[</span><span class="n">target_var</span><span class="p">],</span>
                                            <span class="n">test_size</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
-</pre></div>
-</div>
-</div>
-</div>
+<p>This time we also made the test size larger (50% instead of default 25%)</p>
+<div class="section" id="what-does-naive-bayes-do">
+<h2><span class="section-number">16.1. </span>What does Naive Bayes do?<a class="headerlink" href="#what-does-naive-bayes-do" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/naive_bayes.html">docs</a></p>
+<p>Gaussian = features distributed according to the Gaussian Distribution (normal curve)
+Naive = indepdent features
+Bayes = most probable</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Bayes_estimator">Bayes Estimator</a></p>
+<p>To see, first we’ll fit the model, hten examine it’s strucutre.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
 <span class="n">gnb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GaussianNB()
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="vm">__dict__</span>
+
+<span class="n">gnb</span><span class="o">.</span><span class="vm">__dict__</span>
 </pre></div>
 </div>
 </div>
@@ -565,6 +576,41 @@
 </div>
 </div>
 </div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p><em>All of this is beyond the scope of this course, but may be of interest</em>
+The Scikit Learn <a class="reference external" href="https://scikit-learn.org/stable/user_guide.html">User Guide</a> is
+actually a really good place to learn the details of machine learning.  It is
+high quality documentation from both a stattistical and computer science
+perspective of every element of the library.</p>
+<p>The sklearn <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html">API</a> describes
+how the library is structured and organized. Because the library is so popular
+(and it’s pretty well architected from a software perspective as well) if you
+are developing new machine learnign techniques it’s good to make them sklearn
+compatible.</p>
+<p>For example, IBM’s <a class="reference external" href="https://aif360.readthedocs.io/en/latest/index.html">AIF360</a> is a package for doing fair machine learnign which has a
+[sklearn compatible interface(<a class="reference external" href="https://aif360.readthedocs.io/en/latest/modules/sklearn.html">https://aif360.readthedocs.io/en/latest/modules/sklearn.html</a>). Scikit Learn documentation also includes a
+<a class="reference external" href="https://scikit-learn.org/stable/related_projects.html">related projects</a> page.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you’re interested in fair machine learning, let me know, this is what my research is</p>
+</div>
+</div>
+<p>The attributes of the <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-estimators">estimator object</a> (<code class="docutils literal notranslate"><span class="pre">gbn</span></code>) describe the data (eg the class list) and the model’s parameters. The <code class="docutils literal notranslate"><span class="pre">theta_</span></code> (<span class="math notranslate nohighlight">\(\theta\)</span>)
+represents the mean and the <code class="docutils literal notranslate"><span class="pre">sigma_</span></code> (<span class="math notranslate nohighlight">\(\sigma\)</span>) represents the variance of the
+distributions.</p>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it Yourself</p>
+<p>Could you use what we learned about EDA to find the mean and variance of each
+feature for each species of flower?</p>
+</div>
+<p>When we look at the data with a pair plot we see the distriution.  This data is
+not perfectly Gaussian, but it’s pretty close to unimodal (one peak) for each
+feature and they’re relatively <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal curve</a> like (as opposed to a vary sharp
+spike like a <a class="reference external" href="https://en.wikipedia.org/wiki/Laplace_distribution">laplacian</a> )</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
@@ -572,17 +618,55 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f3d875cda10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f8e43192690&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-15_7_1.png" src="../_images/2021-10-15_7_1.png" />
 </div>
 </div>
+<p>Because the GaussianNB classifier calculates parameters that describe the
+assumed distribuiton of the data is is called a generative classifier.  From a
+generative classifer, we can generate synthetic data that is from the
+distribution the classifer learned. If this data looks like our real data, then
+the model assumptions fit well.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>the details of this math are not required understanding, but this describes the
+following block of code</p>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>to try understanding this block of code, try extracting pieces of it and running
+each piece individually. I built it up piece by piece adn then wrapped them all
+together.</p>
+</div>
+</div>
+<p>To do this, we extract the mean and variance parameters from the model
+(<code class="docutils literal notranslate"><span class="pre">gnb.theta_,gnb.sigma_</span></code>) and <code class="docutils literal notranslate"><span class="pre">zip</span></code> them together to create an iterable object
+that in each iteration returns one value from each list (<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">th,</span> <span class="pre">sig</span> <span class="pre">in</span> <span class="pre">zip(gnb.theta_,gnb.sigma_)</span></code>).
+We do this inside of a list comprehension and for each <code class="docutils literal notranslate"><span class="pre">th,sig</span></code> where <code class="docutils literal notranslate"><span class="pre">th</span></code> is
+from <code class="docutils literal notranslate"><span class="pre">gnb.theta_</span></code> and <code class="docutils literal notranslate"><span class="pre">sig</span></code> is from <code class="docutils literal notranslate"><span class="pre">gnb.sigma_</span></code> we use <code class="docutils literal notranslate"><span class="pre">np.random.multivariate_normal</span></code>
+to get 20 samples. In a general <a class="reference external" href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution">multivariate normal distribution</a> the second parameter is actually a covariance
+matrix.  This describes both the variance of each individual feature and the
+correlation of the features.  Since Naive Bayes is Naive it assumes the features
+are independent or have 0 correlation.  So, to create the matrix from the vector
+of variances we multiply by <code class="docutils literal notranslate"><span class="pre">np.eye(4)</span></code> which is the identity matrix or a matrix
+with 1 on the diagonal and 0 elsewhere. Finally we stack the groups for each
+species together with <code class="docutils literal notranslate"><span class="pre">np.concatenate</span></code> (like <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> but works on numpy objects
+and <code class="docutils literal notranslate"><span class="pre">np.random.multivariate_normal</span></code> returns numpy arrays not data frames) and put all of that in a
+DataFrame using the feature names as the columns.</p>
+<p>Then we add a species column, by repeating each species 20 times
+<code class="docutils literal notranslate"><span class="pre">[c]*N</span> <span class="pre">for</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">gnb.classes_</span></code> and then unpack that into a single list instead of
+as list of lists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="mi">20</span><span class="p">)</span>
-                 <span class="k">for</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gnb</span><span class="o">.</span><span class="n">theta_</span><span class="p">,</span><span class="n">gnb</span><span class="o">.</span><span class="n">sigma_</span><span class="p">)]))</span>
-<span class="n">gnb_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ci</span> <span class="k">for</span> <span class="n">cl</span> <span class="ow">in</span> <span class="p">[[</span><span class="n">c</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">gnb</span><span class="o">.</span><span class="n">classes_</span><span class="p">]</span> <span class="k">for</span> <span class="n">ci</span> <span class="ow">in</span> <span class="n">cl</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">gnb_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="n">sig</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="n">N</span><span class="p">)</span>
+                 <span class="k">for</span> <span class="n">th</span><span class="p">,</span> <span class="n">sig</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gnb</span><span class="o">.</span><span class="n">theta_</span><span class="p">,</span><span class="n">gnb</span><span class="o">.</span><span class="n">sigma_</span><span class="p">)]),</span>
+                 <span class="n">columns</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">feature_names_in_</span><span class="p">)</span>
+<span class="n">gnb_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">ci</span> <span class="k">for</span> <span class="n">cl</span> <span class="ow">in</span> <span class="p">[[</span><span class="n">c</span><span class="p">]</span><span class="o">*</span><span class="n">N</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">gnb</span><span class="o">.</span><span class="n">classes_</span><span class="p">]</span> <span class="k">for</span> <span class="n">ci</span> <span class="ow">in</span> <span class="n">cl</span><span class="p">]</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">gnb_df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -592,22 +676,37 @@
   warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f3d89715dd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f8e3e5d4590&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-10-15_8_2.png" src="../_images/2021-10-15_8_2.png" />
+<img alt="../_images/2021-10-15_9_2.png" src="../_images/2021-10-15_9_2.png" />
 </div>
 </div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p>There are other classifiers that use roughly the same model but don’t make the
+naive assumption. The more flexible is called Quadratic Discriminant Analysis.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/lda_qda.html#lda-qda-math">mathematical formulation</a> for both</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis.html#sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis">QDA</a> code</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis">LDA</a> code</p></li>
+</ul>
+</div>
+</div>
+<p>This one looks pretty close to the actual data.  The biggest difference is that
+these data are all in uniformly circular-ish blobs and the ones above are not.<br />
+That means that the naive assumption doesn’t hold perfectly on this data.</p>
+</div>
+<div class="section" id="evaluating">
+<h2><span class="section-number">16.2. </span>Evaluating<a class="headerlink" href="#evaluating" title="Permalink to this headline">¶</a></h2>
+<p>On Wedneday, we used predict and checked the results</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span>
+
+<span class="n">y_pred</span>
 </pre></div>
 </div>
 </div>
@@ -632,6 +731,7 @@
 </div>
 </div>
 </div>
+<p>Then compared to see how many matched the ground truth.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="n">y_test</span><span class="p">)</span>
@@ -642,6 +742,15 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71
 </pre></div>
 </div>
+</div>
+</div>
+<p>out of the total number</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note, we used the same random seed, but with a different test set size and got
+a different reuslt because we have a different number of samples.</p>
 </div>
 </div>
 <div class="cell docutils container">
@@ -656,6 +765,8 @@
 </div>
 </div>
 </div>
+<p>Scikit Learn also provides a <code class="docutils literal notranslate"><span class="pre">score</span></code> method for all of the estimator object
+(different models).  For a classifier, it provides the accuracy (percent correct).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -668,9 +779,10 @@
 </div>
 </div>
 </div>
+<p>which we could calculate with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">71</span><span class="o">/</span><span class="mi">75</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="n">y_test</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -680,6 +792,10 @@
 </div>
 </div>
 </div>
+<p>The <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">confusion matrix</a> counts the number for each class (in this case the species)
+that truly have that value adn that were predicted to have that value.
+The wikipedia article on <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrices</a> also summarized all of the different
+metrics. Its written in terms of two, outcomes, but we have 3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span><span class="n">labels</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
@@ -694,18 +810,17 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">classes_</span>
-</pre></div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>Could you create a Data Frame with columns for predicted and true class, then
+get the count of how many samples were in each combination? Does it match the table.</p>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;)
-</pre></div>
-</div>
-</div>
-</div>
+<p>We can also get a report with a few metrics.</p>
+<ul class="simple">
+<li><p>Recall is the percent of each species that were predicted correctly.</p></li>
+<li><p>Precision is the percent of the ones predicted to be in a species that are truly that species.</p></li>
+<li><p>the F1 score is combination of the two</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
@@ -724,6 +839,14 @@
 weighted avg       0.95      0.95      0.95        75
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="questions">
+<h2><span class="section-number">16.3. </span>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-ram-token-opportunity admonition">
+<p class="admonition-title">Ram token Opportunity</p>
+<p>Contribute a question as an issue or contribute a soultion to one of the try it yourself above.</p>
 </div>
 </div>
 </div>
@@ -757,6 +880,24 @@ weighted avg       0.95      0.95      0.95        75
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="2021-10-13.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">15. </span>Intro to Machine learning</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
