@@ -29,6 +29,7 @@ parts:
       - file: notes/2021-10-06
       - file: notes/2021-10-08
       - file: notes/2021-10-13
+      - file: notes/2021-10-15
   - caption: Assignments
     numbered: True
     chapters:
