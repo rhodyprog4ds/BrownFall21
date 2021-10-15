@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,19 +34,19 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -96,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Syllabus
  </span>
@@ -138,7 +138,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Notes
  </span>
@@ -220,7 +220,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Assignments
  </span>
@@ -257,7 +257,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Portfolio
  </span>
@@ -284,7 +284,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   FAQ
  </span>
@@ -311,7 +311,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Resources
  </span>
@@ -506,6 +506,86 @@
    15.6. Machine Learning with Scikit Learn
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-at-the-end-of-class">
+   15.7. Questions at the End of Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clarifying-questions">
+     15.7.1. Clarifying Questions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#does-this-method-work-if-the-dataframe-has-more-than-one-categorical-variable">
+       15.7.1.1. Does this method work if the dataframe has more than one categorical variable
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#were-the-train-and-test-variables-randomly-generated-from-the-library-based-off-of-the-dataset-we-used">
+       15.7.1.2. Were the train and test variables randomly generated from the library based off of the dataset we used?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#is-this-method-we-learned-today-using-linear-regresssion">
+       15.7.1.3. Is this method we learned today using linear regresssion?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#foreshadowing-questions">
+     15.7.2. Foreshadowing Questions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#if-we-were-to-use-a-larger-sample-size-for-the-test-would-this-improve-results">
+       15.7.2.1. If we were to use a larger sample size for the test, would this improve results?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-robust-used-is-this-specific-machine-learning-algorithm-ie-are-there-more-powerful-open-source-ones-we-can-play-with">
+       15.7.2.2. How robust/used is this specific machine learning algorithm? Ie are there more powerful open source ones we can play with
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistical-questions">
+     15.7.3. Logistical Questions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#will-we-be-scraping-data-from-sites-and-try-to-implement-machine-learning">
+       15.7.3.1. Will we be scraping data from sites and try to implement machine learning?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#will-sklearn-be-used-in-assignments">
+       15.7.3.2. will sklearn be used in assignments
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#context-questions">
+     15.7.4. Context Questions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-did-google-change-to-machine-learning-for-their-search-queries">
+       15.7.4.1. When did Google change to machine learning for their search queries?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   15.8. More Practice
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -517,7 +597,7 @@
         
               <div>
                 
-  <div class="section" id="intro-to-machine-learning">
+  <div class="tex2jax_ignore mathjax_ignore section" id="intro-to-machine-learning">
 <h1><span class="section-number">15. </span>Intro to Machine learning<a class="headerlink" href="#intro-to-machine-learning" title="Permalink to this headline">¶</a></h1>
 <p>When we <em>do</em> machine learning, this can also be called:</p>
 <ul class="simple">
@@ -656,7 +736,7 @@ you avoid common pitfalls.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f79a0cb7dd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fb44a454c90&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-13_7_1.png" src="../_images/2021-10-13_7_1.png" />
@@ -870,6 +950,109 @@ if it matches</p>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="questions-at-the-end-of-class">
+<h2><span class="section-number">15.7. </span>Questions at the End of Class<a class="headerlink" href="#questions-at-the-end-of-class" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="clarifying-questions">
+<h3><span class="section-number">15.7.1. </span>Clarifying Questions<a class="headerlink" href="#clarifying-questions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="does-this-method-work-if-the-dataframe-has-more-than-one-categorical-variable">
+<h4><span class="section-number">15.7.1.1. </span>Does this method work if the dataframe has more than one categorical variable<a class="headerlink" href="#does-this-method-work-if-the-dataframe-has-more-than-one-categorical-variable" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>We can use categorical variables as features, Gaussian Naive Bayes assumes continuous valued features (in the model) but theere are other classifiers that do not, including
+other types of Naive Bayes.</p>
+<p>We could also, with a dataset with multiple categorical variables, build different
+classifiers, one to predict each categorical variable.  For example, if our iris
+data also had a column with ‘color’ we could try to predict the color from the
+measurements.  Since we know that the measurements predict the species, predicting color might only work if the different species come in different colors.</p>
+</div>
+</div>
+<div class="section" id="were-the-train-and-test-variables-randomly-generated-from-the-library-based-off-of-the-dataset-we-used">
+<h4><span class="section-number">15.7.1.2. </span>Were the train and test variables randomly generated from the library based off of the dataset we used?<a class="headerlink" href="#were-the-train-and-test-variables-randomly-generated-from-the-library-based-off-of-the-dataset-we-used" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>The test and train variables were created by randomly subsetting the data that
+we had.  For example, we could think of this as randomly permuting the samples
+and then choosing the first 75% as training and the rest as test, or we could
+think of it like creating randomly choosing 38 (.25*150, since there are 150
+samples) numbers between 0 and 149 and masking and filtering.</p>
+<div class="admonition-ram-token-opportunity admonition">
+<p class="admonition-title">Ram Token Opportunity</p>
+<p>Submit code that uses numpy to illustrate one or both of these ways to create
+test train splits.</p>
+</div>
+<!-- ```{code-cell} ipython3
+import numpy.random as rnd
+
+
+``` -->
+</div>
+</div>
+<div class="section" id="is-this-method-we-learned-today-using-linear-regresssion">
+<h4><span class="section-number">15.7.1.3. </span>Is this method we learned today using linear regresssion?<a class="headerlink" href="#is-this-method-we-learned-today-using-linear-regresssion" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>No, we’ll talk more about the model it does use on Friday and we’ll cover linear regression in a couple of weeks.</p>
+</div>
+</div>
+</div>
+<div class="section" id="foreshadowing-questions">
+<h3><span class="section-number">15.7.2. </span>Foreshadowing Questions<a class="headerlink" href="#foreshadowing-questions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="if-we-were-to-use-a-larger-sample-size-for-the-test-would-this-improve-results">
+<h4><span class="section-number">15.7.2.1. </span>If we were to use a larger sample size for the test, would this improve results?<a class="headerlink" href="#if-we-were-to-use-a-larger-sample-size-for-the-test-would-this-improve-results" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>If we use more for the test set, we’d have less for training, so, in general,
+that would decrease performance.  In this particular dataset, we can probably
+still do well with a small training set because the classes are separable.</p>
+<p>Using more data for the test set, does mean we get a better estimate of the
+true test performance, however.  We’ll explore these type of tradeoffs over the
+rest of the course.</p>
+</div>
+</div>
+<div class="section" id="how-robust-used-is-this-specific-machine-learning-algorithm-ie-are-there-more-powerful-open-source-ones-we-can-play-with">
+<h4><span class="section-number">15.7.2.2. </span>How robust/used is this specific machine learning algorithm? Ie are there more powerful open source ones we can play with<a class="headerlink" href="#how-robust-used-is-this-specific-machine-learning-algorithm-ie-are-there-more-powerful-open-source-ones-we-can-play-with" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>This specific model is not very robust, but it’s a good starter.  We will see
+more complex models wich are also more robust in the future.  There are many
+open source models that you can use.  Most of the learning algorithms are,
+what’s secret is typically the training data and some of the specific parameters
+provided to the learning algorithm.  Scikit learn (<code class="docutils literal notranslate"><span class="pre">sklearn</span></code>) provides many.
+Other popular ones, for deep learning are tensorflow and keras.</p>
+</div>
+</div>
+</div>
+<div class="section" id="logistical-questions">
+<h3><span class="section-number">15.7.3. </span>Logistical Questions<a class="headerlink" href="#logistical-questions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="will-we-be-scraping-data-from-sites-and-try-to-implement-machine-learning">
+<h4><span class="section-number">15.7.3.1. </span>Will we be scraping data from sites and try to implement machine learning?<a class="headerlink" href="#will-we-be-scraping-data-from-sites-and-try-to-implement-machine-learning" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>Not in class, for the sake of time, but this would be a great portfolio exercise.</p>
+<p>If you don’t earn construct level 2 in assignment 5, you can also earn it on assignment 7 by doing this.</p>
+</div>
+</div>
+<div class="section" id="will-sklearn-be-used-in-assignments">
+<h4><span class="section-number">15.7.3.2. </span>will sklearn be used in assignments<a class="headerlink" href="#will-sklearn-be-used-in-assignments" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>yes. we’ll be using sklearn for the rest of the semester.</p>
+</div>
+</div>
+</div>
+<div class="section" id="context-questions">
+<h3><span class="section-number">15.7.4. </span>Context Questions<a class="headerlink" href="#context-questions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="when-did-google-change-to-machine-learning-for-their-search-queries">
+<h4><span class="section-number">15.7.4.1. </span>When did Google change to machine learning for their search queries?<a class="headerlink" href="#when-did-google-change-to-machine-learning-for-their-search-queries" title="Permalink to this headline">¶</a></h4>
+<div class="toggle docutils container">
+<p>The original page rank algorithm, focused
+mostly on ranking the pages by treating the internet like a graph. The major
+updates in around 2002-2003 changed how things worked a lot and started valuing
+other things. Valuing other things relies on the search history.  For sure by
+2010 when they added the text completion recommendations they were relying on
+previous queries at least equally, if not more than the graph structure of the
+Internet.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="more-practice">
+<h2><span class="section-number">15.8. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<p>See the try it yourself boxes above</p>
 </div>
 </div>
 

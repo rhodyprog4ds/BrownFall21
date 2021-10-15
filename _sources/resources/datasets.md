@@ -12,12 +12,15 @@ This page is a semi-curated source of datasets for use in assignments.  The diff
 - Lots of wikipedia pages have tables in them.
 
 
-## Requires some more work
+## General Sources
+
+These may require some more work
 
 - [Stackoverflow Developer Survey](https://insights.stackoverflow.com/survey) This data comes with readme info all packaged together in a .zip. You'll need to unzip it first.
 - [Google Dataset Search](https://datasetsearch.research.google.com/)
 - [Kaggle](https://www.kaggle.com/datasets) most Kaggle datasets will require you to download and unzip them first and then you can copy them into your repo folder.
 - [UCI Data Repository](https://archive.ics.uci.edu/ml/index.php)
+- [A curated list of datasets by task](https://www.springboard.com/blog/data-science/15-fun-datasets-to-analyze/) It includes datasets for cleaning, visualization, machine learning, and "data analysis" which would align with EDA in this course. 
 
 ## Datasets in many parts
 - [Makeup Shades](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-03-30)
