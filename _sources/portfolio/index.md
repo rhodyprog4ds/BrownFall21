@@ -54,10 +54,8 @@ portfolio_dummies.rename(columns =col_rename,inplace=True)
 
 
 rubric_df = pd.concat([rubric_df,
-                      assignment_dummies,
                       portfolio_dummies],axis=1)
 
-assignment_cols =  ['A'+ str(i) for i in range(1,14)] + ['# Assignments']
 
 portfolio_cols = [ 'Level 3'] + ['P' + str(i) for i in range(1,5)]
 portfolio_df = rubric_df[portfolio_cols]
