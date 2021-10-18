@@ -256,7 +256,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/06-classification.html">
-   6. Assignment 6
+   6. Assignment 6: Understanding Classification
   </a>
  </li>
 </ul>
@@ -4135,14 +4135,14 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
  |      3  4   4   8  0
  |      4  5   2   7  3
  |  
- |  explode(self, column: &#39;str | tuple | list[str | tuple]&#39;, ignore_index: &#39;bool&#39; = False) -&gt; &#39;DataFrame&#39;
+ |  explode(self, column: &#39;IndexLabel&#39;, ignore_index: &#39;bool&#39; = False) -&gt; &#39;DataFrame&#39;
  |      Transform each element of a list-like to a row, replicating index values.
  |      
  |      .. versionadded:: 0.25.0
  |      
  |      Parameters
  |      ----------
- |      column : str or tuple or list thereof
+ |      column : IndexLabel
  |          Column(s) to explode.
  |          For multiple columns, specify a non-empty list with each element
  |          be str or tuple, and all specified columns their list-like data

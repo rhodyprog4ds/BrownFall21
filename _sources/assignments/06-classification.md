@@ -4,7 +4,7 @@ substitutions:
     [accept the assignment](https://classroom.github.com/a/LFRsq0La)
   date : 2020-10-19 11:59pm
 ---
-# Assignment 6
+# Assignment 6: Understanding Classification
 
 {{accept_assignment}}
 __Due: {{ date }}__
@@ -22,7 +22,7 @@ __Due: {{ date }}__
   - evaluate (1)
 ```
 
-# Naive Bayes Classification
+## Naive Bayes Classification
 
 For each dataset, answer the following:
 
