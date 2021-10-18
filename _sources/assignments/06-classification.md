@@ -22,7 +22,9 @@ __Due: {{ date }}__
   - evaluate (1)
 ```
 
-## Naive Bayes Classification
+```{important}
+You only need to do datasets 1,2, 5, and 6.  
+```
 
 For each dataset, answer the following:
 
