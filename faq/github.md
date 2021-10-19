@@ -8,7 +8,7 @@
  -->
 
 
-## The content I added to my portfolio isn't in the pdf
+### The content I added to my portfolio isn't in the pdf
 
 ````{toggle}
 There was an error in the original `_toc.yml` file, change yours to match the following:
@@ -30,14 +30,14 @@ parts:
 
 
 
-## My command line says I cannot use a password
+### My command line says I cannot use a password
 ````{toggle}
 GitHub has [strong rules](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github) about authentication
 You need to use SSH with a public/private key; HTTPS with a [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) or use the [GitHub CLI](https://cli.github.com/) [auth](https://cli.github.com/manual/gh_auth_login)
 
 ````
 
-## My .ipynb file isn't showing in the staging area or didn't push
+### My .ipynb file isn't showing in the staging area or didn't push
 ````{toggle}
 .ipynb files are json that include all of the output, including tables as html and plots as svg, so, unlike plain code files, they don't play well with
 version control.  
@@ -63,16 +63,16 @@ to your repository.  We'll set up another workflow for future work
 ````
 
 
-## My portfolio won't compile
+### My portfolio won't compile
 ````{toggle}
 If there's an error your notebook it can't complete running. You can allow it to run if the error is on purpose by changing settings as mentioned on the [formatting](portfolio/formatting) page.
 
 ````
 
 
-
-````{toggle} Help! I accidentally merged the Feedback Pull Request before my assignment was graded
 (preemptive-merge)=
+### Help! I accidentally merged the Feedback Pull Request before my assignment was graded
+````{toggle} 
 
 That's ok. You can fix it.
 
