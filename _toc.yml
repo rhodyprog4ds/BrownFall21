@@ -8,6 +8,7 @@ parts:
     - file: syllabus/tools
     - file: syllabus/achievements
     - file: syllabus/grading
+    - file: syllabus/policies
     - file: syllabus/uri_resources
     - file: syllabus/uri_statements
     - file: syllabus/communication
