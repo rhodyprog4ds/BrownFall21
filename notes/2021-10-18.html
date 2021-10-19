@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Making Predictions in Classification &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>17. Making Predictions in Generative Model &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -43,6 +43,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -52,6 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="16. Interpetting and Evaluating Naive Bayes" href="2021-10-15.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -139,7 +143,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -218,6 +222,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-15.html">
    16. Interpetting and Evaluating Naive Bayes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   17. Making Predictions in Generative Model
   </a>
  </li>
 </ul>
@@ -480,8 +489,8 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="making-predictions-in-classification">
-<h1>Making Predictions in Classification<a class="headerlink" href="#making-predictions-in-classification" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="making-predictions-in-generative-model">
+<h1><span class="section-number">17. </span>Making Predictions in Generative Model<a class="headerlink" href="#making-predictions-in-generative-model" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -495,6 +504,7 @@
 </div>
 </div>
 </div>
+<p>We’ll  load the data again</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -540,6 +550,8 @@
 </table>
 </div></div></div>
 </div>
+<p>Next we indicate the feature variables and target and split into test and train
+sets.  Well use 80% of the data for training.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span><span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">,]</span>
@@ -551,6 +563,7 @@
 </div>
 </div>
 </div>
+<p>We can confirm the shape is as expected</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
@@ -587,6 +600,7 @@
 </div>
 </div>
 </div>
+<p>Next we again initialize and fit the classifier</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
@@ -600,6 +614,7 @@
 </div>
 </div>
 </div>
+<p>We can compute predictions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
@@ -619,6 +634,7 @@
 </div>
 </div>
 </div>
+<p>And score the results</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -631,6 +647,12 @@
 </div>
 </div>
 </div>
+<p>We saw last week that when we fit the Gaussian Naive Bayes, it computes a mean
+<span class="math notranslate nohighlight">\(\theta\)</span> and variance <span class="math notranslate nohighlight">\(\sigma\)</span> and adds them to model parameters in attributes
+<code class="docutils literal notranslate"><span class="pre">gnb.theta_,</span> <span class="pre">gnb.sigma_</span></code>.</p>
+<p>When we use the predict method, it uses those parameters to calculate the
+likelihood of the sample according to a Gaussian distribution (normal) for each
+class and then calculates the probability of the sample belonging to each class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
@@ -672,16 +694,302 @@
 </div>
 </div>
 </div>
+<p>These are hard to interpret as is, one option is to plot them</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">gnb</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make the prbabilities into a dataframe labeled with classes &amp; make the index a separate column</span>
+<span class="n">prob_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">classes_</span> <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="c1"># add the predictions</span>
+<span class="n">prob_df</span><span class="p">[</span><span class="s1">&#39;predicted_species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+<span class="n">prob_df</span><span class="p">[</span><span class="s1">&#39;true_species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># for plotting, make a column that combines the index &amp; prediction</span>
+<span class="n">pred_text</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;predicted_species&#39;</span><span class="p">]</span>
+<span class="n">prob_df</span><span class="p">[</span><span class="s1">&#39;i,pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prob_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pred_text</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># same for ground truth</span>
+<span class="n">true_text</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;true_species&#39;</span><span class="p">]</span>
+<span class="n">prob_df</span><span class="p">[</span><span class="s1">&#39;correct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prob_df</span><span class="p">[</span><span class="s1">&#39;predicted_species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">prob_df</span><span class="p">[</span><span class="s1">&#39;true_species&#39;</span><span class="p">]</span>
+<span class="c1"># a dd a column for which are correct</span>
+<span class="n">prob_df</span><span class="p">[</span><span class="s1">&#39;i,true&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prob_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">true_text</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">prob_df_melted</span> <span class="o">=</span> <span class="n">prob_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span> <span class="o">=</span><span class="p">[</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;predicted_species&#39;</span><span class="p">,</span><span class="s1">&#39;true_species&#39;</span><span class="p">,</span><span class="s1">&#39;i,pred&#39;</span><span class="p">,</span><span class="s1">&#39;i,true&#39;</span><span class="p">,</span><span class="s1">&#39;correct&#39;</span><span class="p">],</span><span class="n">value_vars</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span>
+                             <span class="n">var_name</span> <span class="o">=</span> <span class="n">target_var</span><span class="p">,</span> <span class="n">value_name</span> <span class="o">=</span> <span class="s1">&#39;probability&#39;</span><span class="p">)</span>
+<span class="n">prob_df_melted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>predicted_species</th>
+      <th>true_species</th>
+      <th>i,pred</th>
+      <th>i,true</th>
+      <th>correct</th>
+      <th>species</th>
+      <th>probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>virginica</td>
+      <td>virginica</td>
+      <td>0,virginica</td>
+      <td>0,virginica</td>
+      <td>True</td>
+      <td>setosa</td>
+      <td>1.633808e-232</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>versicolor</td>
+      <td>versicolor</td>
+      <td>1,versicolor</td>
+      <td>1,versicolor</td>
+      <td>True</td>
+      <td>setosa</td>
+      <td>1.826404e-82</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>setosa</td>
+      <td>setosa</td>
+      <td>2,setosa</td>
+      <td>2,setosa</td>
+      <td>True</td>
+      <td>setosa</td>
+      <td>1.000000e+00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>virginica</td>
+      <td>virginica</td>
+      <td>3,virginica</td>
+      <td>3,virginica</td>
+      <td>True</td>
+      <td>setosa</td>
+      <td>1.585083e-305</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>setosa</td>
+      <td>setosa</td>
+      <td>4,setosa</td>
+      <td>4,setosa</td>
+      <td>True</td>
+      <td>setosa</td>
+      <td>1.000000e+00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now we have a data frame where each rown is one the probability of one sample belonging to one class. So there’s a total of <code class="docutils literal notranslate"><span class="pre">number_of_samples*number_of_classes</span></code> rows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prob_df_melted</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(90, 8)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_prob</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">gnb</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>90
+</pre></div>
+</div>
+</div>
+</div>
+<p>One way to look at these is to, for each sample in the test set, make a bar chart of the probability it belongs to each class.  We added to the data frame information so that we can plot this with the true class in the title using <code class="docutils literal notranslate"><span class="pre">col</span> <span class="pre">=</span> <span class="pre">'i,true'</span></code></p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>I used <code class="docutils literal notranslate"><span class="pre">set_theme</span></code> to change both the fond size and the color palette.
+Seaborn has a <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html#palette-tutorial">detailed guide</a>
+for choosing colors. The <code class="docutils literal notranslate"><span class="pre">colorblind</span></code> palette uses colors that are distinguishable under most common
+forms of color blindness.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">font_scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span> <span class="s2">&quot;colorblind&quot;</span><span class="p">)</span>
+<span class="c1"># plot a bar graph for each point labeled with the prediction</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">prob_df_melted</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;probability&#39;</span> <span class="p">,</span><span class="n">col</span> <span class="o">=</span><span class="s1">&#39;i,true&#39;</span><span class="p">,</span>
+            <span class="n">col_wrap</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f799740aa90&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-10-18_24_1.png" src="../_images/2021-10-18_24_1.png" />
+</div>
+</div>
+<p>We see that most sampples have nearly all of their probability mass (all probabiilties in a distribution sum (or integrate if continuous) to 1, but a few samples are not.</p>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>Try adding a column that could change the headings to include an indicator of which are correct or not)</p>
+</div>
+<p>For now, we’ll group and look at on average, what the distributions are for correct vs incorrect based on predictions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span><span class="o">=</span><span class="mf">1.25</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span> <span class="s2">&quot;colorblind&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">prob_df_melted</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;probability&#39;</span> <span class="p">,</span>
+            <span class="n">col</span> <span class="o">=</span><span class="s1">&#39;predicted_species&#39;</span><span class="p">,</span><span class="n">row</span> <span class="o">=</span><span class="s1">&#39;correct&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f79929db910&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-10-18_26_1.png" src="../_images/2021-10-18_26_1.png" />
+</div>
+</div>
+<p>We see that the errors were all for versicolor, and on average the distribution is very uncertain for those samples.  Those samples are probably hard to distinguish. We could check by creating a data frame with the data and the information about predictions and correct values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prob_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">prob_df</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">])</span>
+<span class="n">prob_data_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+      <th>predicted_species</th>
+      <th>true_species</th>
+      <th>i,pred</th>
+      <th>correct</th>
+      <th>i,true</th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.633808e-232</td>
+      <td>0.000002</td>
+      <td>0.999998</td>
+      <td>virginica</td>
+      <td>virginica</td>
+      <td>0,virginica</td>
+      <td>True</td>
+      <td>0,virginica</td>
+      <td>5.8</td>
+      <td>2.8</td>
+      <td>5.1</td>
+      <td>2.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.826404e-82</td>
+      <td>0.999998</td>
+      <td>0.000002</td>
+      <td>versicolor</td>
+      <td>versicolor</td>
+      <td>1,versicolor</td>
+      <td>True</td>
+      <td>1,versicolor</td>
+      <td>6.0</td>
+      <td>2.2</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_vars</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sepal_length&#39;, &#39;sepal_width&#39;, &#39;petal_length&#39;, &#39;petal_width&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">prob_data_df</span><span class="p">,</span><span class="n">x_vars</span><span class="o">=</span><span class="n">feature_vars</span><span class="p">,</span><span class="n">y_vars</span><span class="o">=</span> <span class="n">feature_vars</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;true_species&#39;</span><span class="p">)</span>
+
+<span class="n">g</span><span class="o">.</span><span class="n">map_diag</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_offdiag</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">prob_data_df</span><span class="p">[</span><span class="s2">&quot;correct&quot;</span><span class="p">])</span>
+
+<span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f799271d210&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-10-18_30_1.png" src="../_images/2021-10-18_30_1.png" />
+</div>
+</div>
+<p>Here we see that the large dots (the incorrect ones) are all nearby to points of a different color.  They were in fact samples that are similar to the other species.  So again, this result makes sense and helps us see when classifiers that are a good fit for the data will still make mistakes.</p>
+<p>We can also look at the probabilites of the predicted sample using max</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_predicted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">gnb</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">p_predicted</span>
 </pre></div>
 </div>
 </div>
@@ -692,6 +1000,50 @@
        1.        , 0.98794498, 0.99994238, 1.        , 1.        ,
        0.98330332, 0.99275723, 1.        , 1.        , 0.81648378,
        1.        , 1.        , 0.99929123, 0.99999997, 1.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see here that most of the predictions are pretty confident.
+We can also use the probabilities to then compute predictions and compare these to what the <code class="docutils literal notranslate"><span class="pre">predict</span></code> method gave, to confirm that this is how the predict method works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">gnb</span><span class="o">.</span><span class="n">classes_</span> <span class="p">)</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span><span class="n">y_pred</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     True
+1     True
+2     True
+3     True
+4     True
+5     True
+6     True
+7     True
+8     True
+9     True
+10    True
+11    True
+12    True
+13    True
+14    True
+15    True
+16    True
+17    True
+18    True
+19    True
+20    True
+21    True
+22    True
+23    True
+24    True
+25    True
+26    True
+27    True
+28    True
+29    True
+dtype: bool
 </pre></div>
 </div>
 </div>
@@ -727,6 +1079,24 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="2021-10-15.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">16. </span>Interpetting and Evaluating Naive Bayes</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

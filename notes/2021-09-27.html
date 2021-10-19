@@ -222,6 +222,11 @@
    16. Interpetting and Evaluating Naive Bayes
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-18.html">
+   17. Making Predictions in Generative Model
+  </a>
+ </li>
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
@@ -525,12 +530,22 @@
 <li><p>reshaping data into tidy data</p></li>
 </ul>
 <p>First some setup:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>I used <code class="docutils literal notranslate"><span class="pre">set_theme</span></code> to change both the fond size and the color palette.
+Seaborn has a <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html#palette-tutorial">detailed guide</a>
+for choosing colors. The <code class="docutils literal notranslate"><span class="pre">colorblind</span></code> palette uses colors that are distinguishable under most common
+forms of color blindness.</p>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">font_scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">font_scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)</span>
 <span class="n">arabica_data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/arabica_data_cleaned.csv&#39;</span>
 </pre></div>
 </div>
@@ -1714,7 +1729,7 @@ and a Score column that indicates which score is in that . Keep the color and co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7ff24291b350&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f39735a1b90&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-09-27_54_1.png" src="../_images/2021-09-27_54_1.png" />
