@@ -121,6 +121,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/policies.html">
+   Policies
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../syllabus/uri_resources.html">
    Support
   </a>
@@ -262,6 +267,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/06-classification.html">
    6. Assignment 6: Understanding Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/07-decision-tree.html">
+   7. Assignment 7
   </a>
  </li>
 </ul>
@@ -1360,7 +1370,7 @@ nice defaults.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95 ns ± 0.622 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99.7 ns ± 1.69 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1373,7 +1383,7 @@ nice defaults.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49.4 ms ± 1.11 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.9 ms ± 1.24 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1471,7 +1481,7 @@ a smoothed out histogram.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1776/3818478052.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2233/3818478052.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;raises-exception&quot;</span><span class="p">]</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1515,7 +1525,7 @@ Name: Balance, dtype: float64
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">1214282069.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2233</span><span class="o">/</span><span class="mf">1214282069.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">][</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/series.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
@@ -1604,7 +1614,7 @@ The outer <code class="docutils literal notranslate"><span class="pre">[</span> 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">2943951791.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2233</span><span class="o">/</span><span class="mf">2943951791.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">hist_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">coffee_df</span><span class="p">[</span><span class="n">hist_vars</span><span class="p">]</span>
 
@@ -1687,7 +1697,7 @@ line. We’ll turn that off for now, with <code class="docutils literal notransl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f65f939a9d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f83c4ac5f50&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-09-22_50_1.png" src="../_images/2021-09-22_50_1.png" />
@@ -1702,7 +1712,7 @@ line. We’ll turn that off for now, with <code class="docutils literal notransl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f65f8d3fc90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f83c46b3490&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-09-22_52_1.png" src="../_images/2021-09-22_52_1.png" />
@@ -1719,7 +1729,7 @@ line. We’ll turn that off for now, with <code class="docutils literal notransl
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1776</span><span class="o">/</span><span class="mf">1769025671.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2233</span><span class="o">/</span><span class="mf">1769025671.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>                <span class="n">row</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s1">&#39;Variety&#39;</span><span class="p">)</span>
 
@@ -1780,69 +1790,32 @@ line. We’ll turn that off for now, with <code class="docutils literal notransl
 <span class="g g-Whitespace">     </span><span class="mi">86</span>                     <span class="n">bb</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ax</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)]</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer, call_axes_locator, bbox_extra_artists, for_layout_only)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4444</span>                 <span class="k">if</span> <span class="n">bb_yaxis</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4445</span>                     <span class="n">bb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bb_yaxis</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4446</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_update_title_position</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4447</span>         <span class="n">axbbox</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4448</span>         <span class="n">bb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">axbbox</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4450</span>         <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left_title</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right_title</span><span class="p">]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4451</span>             <span class="k">if</span> <span class="n">title</span><span class="o">.</span><span class="n">get_visible</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">4452</span>                 <span class="n">bt</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4453</span>                 <span class="k">if</span> <span class="n">for_layout_only</span> <span class="ow">and</span> <span class="n">bt</span><span class="o">.</span><span class="n">width</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4454</span>                     <span class="c1"># make the title bbox 1 pixel wide so its width</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">_update_title_position</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2810</span>                 <span class="k">if</span> <span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_ticks_position</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2811</span>                         <span class="ow">or</span> <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_label_position</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;top&#39;</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">2812</span>                     <span class="n">bb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2813</span>                 <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2814</span>                     <span class="n">bb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/text.py</span> in <span class="ni">get_window_extent</span><span class="nt">(self, renderer, dpi)</span>
+<span class="g g-Whitespace">    </span><span class="mi">901</span> 
+<span class="g g-Whitespace">    </span><span class="mi">902</span>         <span class="k">with</span> <span class="n">cbook</span><span class="o">.</span><span class="n">_setattr_cm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">903</span>             <span class="n">bbox</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">descent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_layout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">904</span>             <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_unitless_position</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">905</span>             <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_transform</span><span class="p">()</span><span class="o">.</span><span class="n">transform</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer, for_layout_only)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1084</span>             <span class="k">return</span>
-<span class="g g-Whitespace">   </span><span class="mi">1085</span> 
-<span class="ne">-&gt; </span><span class="mi">1086</span>         <span class="n">ticks_to_draw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_ticks</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1087</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1088</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_update_label_position</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/text.py</span> in <span class="ni">_get_layout</span><span class="nt">(self, renderer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span>             <span class="k">if</span> <span class="n">clean_line</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span>                 <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">get_text_width_height_descent</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">315</span>                     <span class="n">clean_line</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fontproperties</span><span class="p">,</span> <span class="n">ismath</span><span class="o">=</span><span class="n">ismath</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span>                 <span class="n">w</span> <span class="o">=</span> <span class="n">h</span> <span class="o">=</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py</span> in <span class="ni">_update_ticks</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1027</span>         <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1028</span><span class="sd">         major_locs = self.get_majorticklocs()</span>
-<span class="ne">-&gt; </span><span class="mi">1029</span><span class="sd">         major_labels = self.major.formatter.format_ticks(major_locs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1030</span><span class="sd">         major_ticks = self.get_major_ticks(len(major_locs))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1031</span><span class="sd">         self.major.formatter.set_locs(major_locs)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/ticker.py</span> in <span class="ni">format_ticks</span><span class="nt">(self, values)</span>
-<span class="g g-Whitespace">    </span><span class="mi">260</span><span class="sd">     def format_ticks(self, values):</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span><span class="sd">         &quot;&quot;&quot;</span><span class="n">Return</span> <span class="n">the</span> <span class="n">tick</span> <span class="n">labels</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">ticks</span> <span class="n">at</span> <span class="n">once</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">262</span><span class="s2">         self.set_locs(values)</span>
-<span class="g g-Whitespace">    </span><span class="mi">263</span><span class="s2">         return [self(value, i) for i, value in enumerate(values)]</span>
-<span class="g g-Whitespace">    </span><span class="mi">264</span><span class="s2"> </span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/ticker.py</span> in <span class="ni">set_locs</span><span class="nt">(self, locs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">804</span><span class="s2">                 self._compute_offset()</span>
-<span class="g g-Whitespace">    </span><span class="mi">805</span><span class="s2">             self._set_order_of_magnitude()</span>
-<span class="ne">--&gt; </span><span class="mi">806</span><span class="s2">             self._set_format()</span>
-<span class="g g-Whitespace">    </span><span class="mi">807</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">808</span><span class="s2">     def _compute_offset(self):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/ticker.py</span> in <span class="ni">_set_format</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">890</span><span class="s2">             _locs = self.locs</span>
-<span class="g g-Whitespace">    </span><span class="mi">891</span><span class="s2">         locs = (np.asarray(_locs) - self.offset) / 10. ** self.orderOfMagnitude</span>
-<span class="ne">--&gt; </span><span class="mi">892</span><span class="s2">         loc_range = np.ptp(locs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">893</span><span class="s2">         # Curvilinear coordinates can yield two identical points.</span>
-<span class="g g-Whitespace">    </span><span class="mi">894</span><span class="s2">         if loc_range == 0:</span>
-
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">ptp</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">ptp</span><span class="nt">(a, axis, out, keepdims)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2628</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2629</span><span class="s2">             return ptp(axis=axis, out=out, **kwargs)</span>
-<span class="ne">-&gt; </span><span class="mi">2630</span><span class="s2">     return _methods._ptp(a, axis=axis, out=out, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2631</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">2632</span><span class="s2"> </span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/numpy/core/_methods.py</span> in <span class="ni">_ptp</span><span class="nt">(a, axis, out, keepdims)</span>
-<span class="g g-Whitespace">    </span><span class="mi">276</span><span class="s2">         umr_maximum(a, axis, None, out, keepdims),</span>
-<span class="g g-Whitespace">    </span><span class="mi">277</span><span class="s2">         umr_minimum(a, axis, None, None, keepdims),</span>
-<span class="ne">--&gt; </span><span class="mi">278</span><span class="s2">         out</span>
-<span class="g g-Whitespace">    </span><span class="mi">279</span><span class="s2">     )</span>
-<span class="g g-Whitespace">    </span><span class="mi">280</span><span class="s2"> </span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py</span> in <span class="ni">get_text_width_height_descent</span><span class="nt">(self, s, prop, ismath)</span>
+<span class="g g-Whitespace">    </span><span class="mi">238</span>         <span class="n">flags</span> <span class="o">=</span> <span class="n">get_hinting_flag</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">239</span>         <span class="n">font</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_agg_font</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">240</span>         <span class="n">font</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">flags</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">241</span>         <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">get_width_height</span><span class="p">()</span>  <span class="c1"># width and height of unrotated string</span>
+<span class="g g-Whitespace">    </span><span class="mi">242</span>         <span class="n">d</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">get_descent</span><span class="p">()</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
