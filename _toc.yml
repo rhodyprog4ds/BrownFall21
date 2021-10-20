@@ -41,6 +41,7 @@ parts:
     - file: assignments/04-prepare
     - file: assignments/05-construct
     - file: assignments/06-classification
+    - file: assignments/07-decision-tree
   - caption: Portfolio
     chapters:
     - file: portfolio/index
