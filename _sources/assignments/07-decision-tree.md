@@ -6,9 +6,17 @@ substitutions:
 ---
 # Assignment 7
 
-{{accept_assignment}}
-__Due: {{ date }}__
+## Quick Facts
+- {{accept_assignment}}
+- __Due: {{ date }}__
 
+## Related notes
+
+- [2021-10-18](../notes/2021-10-18)
+- [2021-10-20](../notes/2021-10-20)
+- [2021-10-22]()
+
+## Assessment
 ```{list-table} fit a decision tree
 :header-rows: 1
 
@@ -16,9 +24,9 @@ __Due: {{ date }}__
   - skill
 * - fit a decision tree
   - classification (2)
-* - apply a decsion tree to get predictions
+* - apply a decision tree to get predictions
   - classification (2)
-* - inpterpret the model assumed by a decision tree
+* - interpret the model assumed by a decision tree
   - classification (2)
 * - use multiple metrics evaluate performance
   - evaluate (2)
@@ -36,7 +44,7 @@ __Due: {{ date }}__
   - construct (2)
 ```
 
-Choose a datasets that is well suited for classification and that has all only features.
+Choose a datasets that is well suited for classification and that has only numerical features.
 If you want to use a dataset with nonnumerical features you will have to convert
 the categorical features to one hot encoding.  
 
