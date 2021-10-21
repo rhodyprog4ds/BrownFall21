@@ -4,7 +4,7 @@ substitutions:
     [accept the assignment](https://classroom.github.com/a/zZzNUmzG)
   date : 2020-10-26 11:59pm
 ---
-# Assignment 7
+# Assignment 7: Decision Trees
 
 ## Quick Facts
 - {{accept_assignment}}
@@ -44,7 +44,7 @@ substitutions:
   - construct (2)
 ```
 
-## Assignment
+## Instructions
 
 Choose a datasets that is well suited for classification and that has only numerical features.
 ````{margin}
@@ -54,7 +54,7 @@ the categorical features to one hot encoding.
 ```
 ````
 
-Practice using decision trees and exploring how classification works, and what evaluations mean in the following exercises. 
+Practice using decision trees and exploring how classification works, and what evaluations mean in the following exercises.
 
 ```{hint}
 the Wisconsin Breast Cancer data from UCI is a good option

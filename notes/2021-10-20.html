@@ -276,7 +276,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/07-decision-tree.html">
-   7. Assignment 7
+   7. Assignment 7: Decision Trees
   </a>
  </li>
 </ul>
@@ -613,6 +613,26 @@
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">palett</span><span class="o">=</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2706</span><span class="o">/</span><span class="mf">3984696325.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">palett</span><span class="o">=</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/seaborn/rcmod.py</span> in <span class="ni">set</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="n">This</span> <span class="n">function</span> <span class="n">may</span> <span class="n">be</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">future</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">136</span><span class="s2">     set_theme(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span><span class="s2"> </span>
+
+<span class="ne">TypeError</span>: set_theme() got an unexpected keyword argument &#39;palett&#39;
 </pre></div>
 </div>
 </div>
@@ -690,10 +710,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;seaborn.axisgrid.PairGrid at 0x7f5e25b13110&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f5e1bd1a050&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f5e1b160b10&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f5e1a426c50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;seaborn.axisgrid.PairGrid at 0x7fb251b15d50&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7fb24c923b90&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7fb24c00e050&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7fb24ba8df90&gt;]
 </pre></div>
 </div>
 <img alt="../_images/2021-10-20_3_1.png" src="../_images/2021-10-20_3_1.png" />
@@ -728,7 +748,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f5e1a1f0750&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fb24a874250&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-20_5_1.png" src="../_images/2021-10-20_5_1.png" />
@@ -754,7 +774,7 @@ you can read about the <a class="reference external" href="https://seaborn.pydat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7f5e21985b10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fb24c71ac90&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-20_7_1.png" src="../_images/2021-10-20_7_1.png" />
