@@ -1,7 +1,7 @@
 ---
 substitutions:
   accept_assignment: |
-    [accept the assignment]()
+    [accept the assignment](https://classroom.github.com/a/zZzNUmzG)
   date : 2020-10-26 11:59pm
 ---
 # Assignment 7
@@ -103,7 +103,7 @@ Experiment with DT Parameters:
 1. Check the performance of the new decision tree with at least two performance metrics
 1. Did changing the parameter do what you expected?
 1. Choose a second parameter to change in the training that you think might improve the model and say why, then train a third decision tree
-1. Validate your third decision tree withat least two performance metrics.
+1. Validate your third decision tree with at least two performance metrics.
 1. Did changing the parameter do what you expected?
 
 
