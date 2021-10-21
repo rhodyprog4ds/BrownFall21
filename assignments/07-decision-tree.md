@@ -30,7 +30,7 @@ substitutions:
   - classification (2)
 * - use multiple metrics evaluate performance
   - evaluate (2)
-* - interpret how decisions impact model performance
+* - interpret how decisions (test/train size, model parameters) impact model performance
   - evaluate (2)
 * - interpret the classifier performance in the context of the dataset
   - process (2)
@@ -38,21 +38,29 @@ substitutions:
   - process (2)
 * - use loops and lists effectively
   - python (2)
-* - usse EDA techniques to interpret the experimental results
+* - use EDA techniques to examine the experimental results
   - summarize (2), visualize (2)
 * - create a dataset by combining data from multiple sources
   - construct (2)
 ```
 
+## Assignment
+
 Choose a datasets that is well suited for classification and that has only numerical features.
+````{margin}
+```{note}
 If you want to use a dataset with nonnumerical features you will have to convert
 the categorical features to one hot encoding.  
+```
+````
+
+Practice using decision trees and exploring how classification works, and what evaluations mean in the following exercises. 
 
 ```{hint}
 the Wisconsin Breast Cancer data from UCI is a good option
 ```
 
-__Part 1: DT Basics__
+### Part 1: DT Basics
 1. Include a basic description of the data(what the features are)
 1. Write  your own description of what the classification task is and why a decision tree is a reasonable model to try for this data.
 1. Fit a decision tree with the default parameters on 50% of the data
@@ -73,19 +81,20 @@ __Part 1: DT Basics__
   - do you think that maybe this task cannot be done with machine learning?
 
 
-__Part 2: Exploring Evaluation__
+### Part 2: Exploring Evaluation
 
 ````{margin}
+
+
+```{hint}
+The most important thing about the max depth here is that it's the same across all of the models. If you get an error, try making it smaller.
+```
+
 ```{tip}
 The summary statistics and visualization we used before are useful for helping to
 investigate the performance of our model.  We can try fitting a model  with different settings
 to create a new "dataset" for our experiments.
 The same skills apply.
-```
-
-
-```{hint}
-The most important thing about the max depth here is that it's the same across all of the models. If you get an error, try making it smaller.
 ```
 
 ````
@@ -96,7 +105,7 @@ Do an experiment to compare test set size vs performance:
 
 _use a loop for this part, possibly also a function_
 
-__Part 3: DT parameters__
+### Part 3: DT parameters
 
 Experiment with DT Parameters:
 1. Choose one parameter to change in the training that you think might improve the model and say why, then train a second decision tree
