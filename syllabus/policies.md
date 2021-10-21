@@ -1,4 +1,4 @@
-# Policies
+# Grading Policies
 
 ## Late Work
 
