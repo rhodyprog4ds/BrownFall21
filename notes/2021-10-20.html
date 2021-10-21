@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Midsemester feedback and Decision Trees &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>18. Midsemester feedback and Decision Trees &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="17. Making Predictions in Generative Model" href="2021-10-18.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -144,7 +146,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -228,6 +230,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-18.html">
    17. Making Predictions in Generative Model
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   18. Midsemester feedback and Decision Trees
   </a>
  </li>
 </ul>
@@ -487,6 +494,108 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feedback">
+   18.1. Feedback
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#key-takeaways">
+     18.1.1. Key takeaways
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reminders-based-on-requests">
+     18.1.2. Reminders based on requests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-going-forward">
+     18.1.3. Changes going forward
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requests-i-will-not-fulfill">
+     18.1.4. Requests I will not fulfill
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notes">
+     18.1.5. Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a6-data-review">
+   18.2. A6 data review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lets-explore-that-last-one">
+   18.3. Let’s explore that last one…
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-a-decision-tree">
+   18.4. Learning a Decision Tree
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examining-a-decision-tree">
+   18.5. Examining a Decision Tree
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-parameters">
+   18.6. Training parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   18.7. Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-it-best-used-on">
+     18.7.1. What is it best used on?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-there-a-maximum-amount-of-branches-for-a-tree">
+     18.7.2. Is there a maximum amount of branches for a tree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-do-the-decision-trees-work-for-some-data-but-not-others">
+     18.7.3. Why do the decision trees work for some data but not others.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-could-we-really-use-these-trees-for">
+     18.7.4. What could we really use these trees for?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-is-the-tree-created">
+     18.7.5. How is the tree created?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#do-i-use-a-gnb-when-i-know-the-distribution-is-gaussian">
+     18.7.6. Do I use a gnb when I know the distribution is gaussian?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -496,29 +605,81 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="midsemester-feedback-and-decision-trees">
-<h1>Midsemester feedback and Decision Trees<a class="headerlink" href="#midsemester-feedback-and-decision-trees" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">18. </span>Midsemester feedback and Decision Trees<a class="headerlink" href="#midsemester-feedback-and-decision-trees" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
-<span class="kn">from</span> <span class="nn">sklearn.modelselecion</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2454</span><span class="o">/</span><span class="mf">3214502129.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.modelselecion</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn.modelselecion&#39;
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="section" id="feedback">
+<h2><span class="section-number">18.1. </span>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Analysis of the structured questions will be added</p>
+</div>
+<div class="section" id="key-takeaways">
+<h3><span class="section-number">18.1.1. </span>Key takeaways<a class="headerlink" href="#key-takeaways" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>You’re learning and happy with how much you’re learning</p></li>
+<li><p>You’ve noticed and appreciate that the assignments build on what we cover in class</p></li>
+<li><p>You’re reading the notes &amp; like them a lot</p></li>
+<li><p>Assignment instructions are sometimes hard to understand</p></li>
+</ul>
+</div>
+<div class="section" id="reminders-based-on-requests">
+<h3><span class="section-number">18.1.2. </span>Reminders based on requests<a class="headerlink" href="#reminders-based-on-requests" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>all deadlines are on the Brightspace calendar, you can sync that with your own calendar/scheduling tool</p></li>
+</ul>
+</div>
+<div class="section" id="changes-going-forward">
+<h3><span class="section-number">18.1.3. </span>Changes going forward<a class="headerlink" href="#changes-going-forward" title="Permalink to this headline">¶</a></h3>
+<p><strong>Assignments:</strong></p>
+<ul class="simple">
+<li><p>clarified instructions on assignments 7+ &amp; a note to myself to fix assignments 1-5 for next year</p></li>
+<li><p>a reminder when I post assignments to read before class Friday; time on Friday for clarifying questions</p></li>
+<li><p>Chamudi &amp; I will meet, re: grading consistency</p></li>
+<li><p><a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall21/syllabus/policies.html#regrading">regrade request policy</a> posted on website</p></li>
+<li><p>more advice on choosing a dataset and some possible good ones</p></li>
+<li><p>will add “related notes” section</p></li>
+<li><p>Some skill changes are coming, will be posted soon, to make more chances on a few skills</p></li>
+</ul>
+<p><strong>In class:</strong></p>
+<ul class="simple">
+<li><p>will continue working on remembering to send all of the code on prismia; feel free to post there to ask for it or raise your hand</p></li>
+<li><p>will denote key things that will relate to assignments as much as possible</p></li>
+<li><p>to make sure there’s space for questions at the end of class, I’ll use a google form exit ticket instead of prismia.  I’ll still answer all of those questions in the notes, but it makes it easier to ask both pace &amp; follow up. It will always be at: <a class="reference external" href="http://drsmb.co/310exit">http://drsmb.co/310exit</a></p></li>
+</ul>
+<p><strong>Office hours:</strong></p>
+<ul class="simple">
+<li><p>I can change <em>when</em> but not how many hours per week, in particular no one has attended Tuesday afternoon, so I may move that.</p></li>
+</ul>
+<p>:</p>
+</div>
+<div class="section" id="requests-i-will-not-fulfill">
+<h3><span class="section-number">18.1.4. </span>Requests I will not fulfill<a class="headerlink" href="#requests-i-will-not-fulfill" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>regular in person office hours; by appointment only to ensure 1 person at a time</p></li>
+<li><p>more total office hours</p></li>
+<li><p>link directly where in the notes for assignments, part of the goal is for you to filter out the relevant parts from what we learn in a week in order to apply it. You <em>can</em> always ask questions in office hours though.</p></li>
+</ul>
+</div>
+<div class="section" id="notes">
+<h3><span class="section-number">18.1.5. </span>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>this was anonymous, comments/updates/questions about grading specifically I cannot reply to; e-mail me if applicable</p></li>
+<li><p>use <a class="reference external" href="http://drsmb.co/310fix">this form</a> to list issues with assignment text/ portfolio requirements to help me improve them in exchange for Ram Tokens</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="a6-data-review">
+<h2><span class="section-number">18.2. </span>A6 data review<a class="headerlink" href="#a6-data-review" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a6_data</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/rhodyprog4ds/06-naive-bayes/main/data/dataset&#39;</span>
@@ -529,38 +690,90 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;seaborn.axisgrid.PairGrid at 0x7f7b514abc90&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f7b4c2f7110&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f7b4b991f10&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f7b4ac763d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;seaborn.axisgrid.PairGrid at 0x7fad8924be10&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7fad841b73d0&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7fad83571610&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7fad83367350&gt;]
 </pre></div>
 </div>
-<img alt="../_images/2021-10-20_2_1.png" src="../_images/2021-10-20_2_1.png" />
-<img alt="../_images/2021-10-20_2_2.png" src="../_images/2021-10-20_2_2.png" />
-<img alt="../_images/2021-10-20_2_3.png" src="../_images/2021-10-20_2_3.png" />
-<img alt="../_images/2021-10-20_2_4.png" src="../_images/2021-10-20_2_4.png" />
+<img alt="../_images/2021-10-20_3_1.png" src="../_images/2021-10-20_3_1.png" />
+<img alt="../_images/2021-10-20_3_2.png" src="../_images/2021-10-20_3_2.png" />
+<img alt="../_images/2021-10-20_3_3.png" src="../_images/2021-10-20_3_3.png" />
+<img alt="../_images/2021-10-20_3_4.png" src="../_images/2021-10-20_3_4.png" />
 </div>
 </div>
+<p>Dataset 1 &amp; 2 it should perform reasonably well.  They’re both Gaussian data, with some skew, but not too much and some overlap (more in 2).</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further reading</p>
+<p>For more on label bias <a class="reference external" href="https://dynamicdecisions.github.io/assets/pdfs/29.pdf">a paper I co-authored with an undergrad from Brown</a> after we worked together for 2 years. It also has citations to prior work on label bias in it.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can earn CSC499/491 by doing research with a faculty member.  If fairness is of interest to you, send me an e-mail and we can talk! I am almost always accepting new students and sometimes have funding.  We can also arrange to use workstudy or other funds if you qualify. I will have 1 paid position in the spring semester and 2 in summer + you could apply for the Arts &amp; Sciences Fellow funding.</p>
+</div>
+</div>
+<p>Dataset 5, doesn’t do so well, but it’s performance is clearly because there’s some points in each group of points that are labeled differently than the others.  This is to simulate the model for <em>label bias</em> which is one way that our traditional performance metrics can fool us.  Our GNB classifier finds the four groups very reliably, but is “incorrect” on the points that are labeled differently.  In real data this can occur in systematic ways, people from disadvantaged groups who otherwise may for example, qualify for a loan, have been denied historically.  So, in training data they would be like the points in each group that are labeled differently.</p>
+<p>Dataset 6, seems separable, but Guassian Naive Bayes gets about 50% accuracy.</p>
+</div>
+<div class="section" id="lets-explore-that-last-one">
+<h2><span class="section-number">18.3. </span>Let’s explore that last one…<a class="headerlink" href="#lets-explore-that-last-one" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df6</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_urls</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df6</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;char&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df6</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;char&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f7b4a1d9f10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fad81b49150&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-10-20_4_1.png" src="../_images/2021-10-20_4_1.png" />
+<img alt="../_images/2021-10-20_5_1.png" src="../_images/2021-10-20_5_1.png" />
 </div>
 </div>
+<p>This data is <em>separable</em> even though the classifier we saw last week doesn’t work well for it, because not all of the points for each class are in a single blob. We could imagine a rule that would succeed: if ‘x0’ and ‘x1’ are both less than 4 or both more than 4, predict <code class="docutils literal notranslate"><span class="pre">A</span></code> otherwise predict <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p>I customized this plot to show additional ideas on top of the data
+you can read about the <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html">JointGrid</a> in the docs.</p>
+<p>Using it will require the most up to date version of seaborn.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df6</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;char&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot_joint</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot_marginals</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">refline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fad83118110&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-10-20_7_1.png" src="../_images/2021-10-20_7_1.png" />
+</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-ram-token-opportunity admonition">
+<p class="admonition-title">Ram Token Opportunity</p>
+<p>Contribute a diagram for this part of the notes</p>
+</div>
+</div>
+<p>The dashed line here shows that those boundaries would separate the classes. I stated that rule in a single if, but we could also imagine it like a tree, a set of binary decisions.</p>
+</div>
+<div class="section" id="learning-a-decision-tree">
+<h2><span class="section-number">18.4. </span>Learning a Decision Tree<a class="headerlink" href="#learning-a-decision-tree" title="Permalink to this headline">¶</a></h2>
+<p>We can <em>learn</em> a rule like this one from the data using a
+<code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code>.
+We’ll instantiate one from the <code class="docutils literal notranslate"><span class="pre">tree</span></code> module we imported from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
@@ -568,25 +781,27 @@
 </div>
 </div>
 </div>
+<p>As usual, we split the data into test and train and features and labels:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df6</span><span class="p">[[</span><span class="s1">&#39;x0&#39;</span><span class="p">,</span><span class="s1">&#39;x1&#39;</span><span class="p">]],</span>
-                                                    <span class="n">df6</span><span class="p">[</span><span class="s1">&#39;char&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2454</span><span class="o">/</span><span class="mf">1446416562.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df6</span><span class="p">[[</span><span class="s1">&#39;x0&#39;</span><span class="p">,</span><span class="s1">&#39;x1&#39;</span><span class="p">]],</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>                                                     <span class="n">df6</span><span class="p">[</span><span class="s1">&#39;char&#39;</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;train_test_split&#39; is not defined
+                                                    <span class="n">df6</span><span class="p">[</span><span class="s1">&#39;char&#39;</span><span class="p">],</span>
+                                                    <span class="n">random_state</span> <span class="o">=</span> <span class="mi">3094</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/tree/plot_unveil_tree_structure.html#sphx-glr-auto-examples-tree-plot-unveil-tree-structure-py">Decision Tree Docs</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/tree/plot_iris_dtc.html#sphx-glr-auto-examples-tree-plot-iris-dtc-py">Decision Tree on Iris</a></p></li>
+</ul>
+</div>
+</div>
+<p>We fit it just like we fit the Gaussian Naive Bayes, using the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
@@ -594,47 +809,53 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2454</span><span class="o">/</span><span class="mf">1065375505.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;X_train&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DecisionTreeClassifier()
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="examining-a-decision-tree">
+<h2><span class="section-number">18.5. </span>Examining a Decision Tree<a class="headerlink" href="#examining-a-decision-tree" title="Permalink to this headline">¶</a></h2>
+<p>Since decision trees have common functions whether they’re for regression or classification, the <code class="docutils literal notranslate"><span class="pre">tree</span></code> module provides some functions that we can use.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-correction admonition">
+<p class="admonition-title">Correction</p>
+<p>I was able to make it slightly easier to read, but this was
+something that I had to look up on <a class="reference external" href="https://stackoverflow.com/questions/59447378/sklearn-plot-tree-plot-is-too-small">stackoverflow</a></p>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">rounded</span> <span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">],</span>
+            <span class="n">proportion</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filled</span> <span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">impurity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NotFittedError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2454</span><span class="o">/</span><span class="mf">1567259824.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/tree/_export.py</span> in <span class="ni">plot_tree</span><span class="nt">(decision_tree, max_depth, feature_names, class_names, label, filled, impurity, node_ids, proportion, rounded, precision, ax, fontsize)</span>
-<span class="g g-Whitespace">    </span><span class="mi">178</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">180</span><span class="s2">     check_is_fitted(decision_tree)</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span><span class="s2">     exporter = _MPLTreeExporter(</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_is_fitted</span><span class="nt">(estimator, attributes, msg, all_or_any)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1206</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="s2">     if not fitted:</span>
-<span class="ne">-&gt; </span><span class="mi">1208</span><span class="s2">         raise NotFittedError(msg % {&quot;name&quot;: type(estimator).__name__})</span>
-<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1210</span><span class="s2"> </span>
-
-<span class="ne">NotFittedError</span>: This DecisionTreeClassifier instance is not fitted yet. Call &#39;fit&#39; with appropriate arguments before using this estimator.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(553.0178571428571, 978.48, &#39;X[0] &lt;= 5.88\nsamples = 100.0%\nvalue = [0.493, 0.507]\nclass = B&#39;),
+ Text(388.60714285714283, 761.0400000000001, &#39;X[1] &lt;= 5.325\nsamples = 70.7%\nvalue = [0.557, 0.443]\nclass = A&#39;),
+ Text(239.14285714285714, 543.6, &#39;X[0] &lt;= 4.07\nsamples = 40.0%\nvalue = [0.733, 0.267]\nclass = A&#39;),
+ Text(119.57142857142857, 326.1600000000001, &#39;X[1] &lt;= 3.98\nsamples = 28.7%\nvalue = [0.953, 0.047]\nclass = A&#39;),
+ Text(59.785714285714285, 108.72000000000003, &#39;samples = 27.3%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(179.35714285714286, 108.72000000000003, &#39;samples = 1.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(358.7142857142857, 326.1600000000001, &#39;X[1] &lt;= 3.89\nsamples = 11.3%\nvalue = [0.176, 0.824]\nclass = B&#39;),
+ Text(298.92857142857144, 108.72000000000003, &#39;samples = 9.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(418.5, 108.72000000000003, &#39;samples = 2.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(538.0714285714286, 543.6, &#39;X[0] &lt;= 4.085\nsamples = 30.7%\nvalue = [0.326, 0.674]\nclass = B&#39;),
+ Text(478.2857142857143, 326.1600000000001, &#39;samples = 20.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(597.8571428571429, 326.1600000000001, &#39;samples = 10.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(717.4285714285714, 761.0400000000001, &#39;X[1] &lt;= 3.805\nsamples = 29.3%\nvalue = [0.341, 0.659]\nclass = B&#39;),
+ Text(657.6428571428571, 543.6, &#39;samples = 19.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(777.2142857142857, 543.6, &#39;samples = 10.0%\nvalue = [1.0, 0.0]\nclass = A&#39;)]
 </pre></div>
 </div>
+<img alt="../_images/2021-10-20_15_1.png" src="../_images/2021-10-20_15_1.png" />
 </div>
 </div>
+<p>We can also get it out as text; since it returns a plain string, we’ll pass it through the print function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">export_text</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>
@@ -642,30 +863,38 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NotFittedError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2454</span><span class="o">/</span><span class="mf">3596071604.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">export_text</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/tree/_export.py</span> in <span class="ni">export_text</span><span class="nt">(decision_tree, feature_names, max_depth, spacing, decimals, show_weights)</span>
-<span class="g g-Whitespace">    </span><span class="mi">986</span>     <span class="o">|</span>   <span class="o">|</span>   <span class="o">|---</span> <span class="n">class</span><span class="p">:</span> <span class="mi">2</span>
-<span class="g g-Whitespace">    </span><span class="mi">987</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">988</span><span class="s2">     check_is_fitted(decision_tree)</span>
-<span class="g g-Whitespace">    </span><span class="mi">989</span><span class="s2">     tree_ = decision_tree.tree_</span>
-<span class="g g-Whitespace">    </span><span class="mi">990</span><span class="s2">     if is_classifier(decision_tree):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_is_fitted</span><span class="nt">(estimator, attributes, msg, all_or_any)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1206</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="s2">     if not fitted:</span>
-<span class="ne">-&gt; </span><span class="mi">1208</span><span class="s2">         raise NotFittedError(msg % {&quot;name&quot;: type(estimator).__name__})</span>
-<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1210</span><span class="s2"> </span>
-
-<span class="ne">NotFittedError</span>: This DecisionTreeClassifier instance is not fitted yet. Call &#39;fit&#39; with appropriate arguments before using this estimator.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|--- feature_0 &lt;= 5.88
+|   |--- feature_1 &lt;= 5.33
+|   |   |--- feature_0 &lt;= 4.07
+|   |   |   |--- feature_1 &lt;= 3.98
+|   |   |   |   |--- class: A
+|   |   |   |--- feature_1 &gt;  3.98
+|   |   |   |   |--- class: B
+|   |   |--- feature_0 &gt;  4.07
+|   |   |   |--- feature_1 &lt;= 3.89
+|   |   |   |   |--- class: B
+|   |   |   |--- feature_1 &gt;  3.89
+|   |   |   |   |--- class: A
+|   |--- feature_1 &gt;  5.33
+|   |   |--- feature_0 &lt;= 4.09
+|   |   |   |--- class: B
+|   |   |--- feature_0 &gt;  4.09
+|   |   |   |--- class: A
+|--- feature_0 &gt;  5.88
+|   |--- feature_1 &lt;= 3.80
+|   |   |--- class: B
+|   |--- feature_1 &gt;  3.80
+|   |   |--- class: A
 </pre></div>
 </div>
 </div>
 </div>
+<p>this is the same tree as above.</p>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>Take the time to match this representation to the one above. Read through the parts of the above and see how much it tells you</p>
+</div>
+<p>This tree is many more levels (it’s deeper) than the one we figured out by looking at the plotted data above. Before we experiment with changing that, let’s see how well it works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -673,31 +902,28 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2454</span><span class="o">/</span><span class="mf">3015297910.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dt</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;X_test&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
 </div>
+<p>It does well, but let’s see if we can change the depth and still do well?</p>
+</div>
+<div class="section" id="training-parameters">
+<h2><span class="section-number">18.6. </span>Training parameters<a class="headerlink" href="#training-parameters" title="Permalink to this headline">¶</a></h2>
+<p>For the Gaussian Naive Bayes classifier, we didn’t change how it trained at all. It’s a simple classifer, so it’s not as impactful.  Since Decision Trees are more complex, the model has hyper parameters and the training algorithm (<code class="docutils literal notranslate"><span class="pre">fit</span></code> method) has parameters.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> these parameters are set when the object is instantiated.  We’ll see more on Friday, but for now, we’ll set the <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt2</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">dt2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">dt2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2454</span><span class="o">/</span><span class="mf">3425512469.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">dt2</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dt2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;X_train&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.74
 </pre></div>
 </div>
 </div>
@@ -709,44 +935,58 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NotFittedError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2454</span><span class="o">/</span><span class="mf">2770195492.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">export_text</span><span class="p">(</span><span class="n">dt2</span><span class="p">))</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/tree/_export.py</span> in <span class="ni">export_text</span><span class="nt">(decision_tree, feature_names, max_depth, spacing, decimals, show_weights)</span>
-<span class="g g-Whitespace">    </span><span class="mi">986</span>     <span class="o">|</span>   <span class="o">|</span>   <span class="o">|---</span> <span class="n">class</span><span class="p">:</span> <span class="mi">2</span>
-<span class="g g-Whitespace">    </span><span class="mi">987</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">988</span><span class="s2">     check_is_fitted(decision_tree)</span>
-<span class="g g-Whitespace">    </span><span class="mi">989</span><span class="s2">     tree_ = decision_tree.tree_</span>
-<span class="g g-Whitespace">    </span><span class="mi">990</span><span class="s2">     if is_classifier(decision_tree):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_is_fitted</span><span class="nt">(estimator, attributes, msg, all_or_any)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1206</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="s2">     if not fitted:</span>
-<span class="ne">-&gt; </span><span class="mi">1208</span><span class="s2">         raise NotFittedError(msg % {&quot;name&quot;: type(estimator).__name__})</span>
-<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1210</span><span class="s2"> </span>
-
-<span class="ne">NotFittedError</span>: This DecisionTreeClassifier instance is not fitted yet. Call &#39;fit&#39; with appropriate arguments before using this estimator.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|--- feature_0 &lt;= 5.88
+|   |--- feature_1 &lt;= 5.33
+|   |   |--- class: A
+|   |--- feature_1 &gt;  5.33
+|   |   |--- class: B
+|--- feature_0 &gt;  5.88
+|   |--- feature_1 &lt;= 3.80
+|   |   |--- class: B
+|   |--- feature_1 &gt;  3.80
+|   |   |--- class: A
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
-</pre></div>
+</div>
+<div class="section" id="questions-after-class">
+<h2><span class="section-number">18.7. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-it-best-used-on">
+<h3><span class="section-number">18.7.1. </span>What is it best used on?<a class="headerlink" href="#what-is-it-best-used-on" title="Permalink to this headline">¶</a></h3>
+<div class="toggle docutils container">
+<p>Decision trees are good for lots of tabular data (not images).</p>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2454</span><span class="o">/</span><span class="mf">3840847107.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dt2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;X_test&#39; is not defined
-</pre></div>
+<div class="section" id="is-there-a-maximum-amount-of-branches-for-a-tree">
+<h3><span class="section-number">18.7.2. </span>Is there a maximum amount of branches for a tree<a class="headerlink" href="#is-there-a-maximum-amount-of-branches-for-a-tree" title="Permalink to this headline">¶</a></h3>
+<div class="toggle docutils container">
+<p>A tree will always have binary splits, so the maximum number of leaf nodes (ends) is the size of the data. That wouldn’t be a very good classifer though, we’ll see Friday we can make the size needed to split the data (create a new branch) larger as another way to control the tree.</p>
+</div>
+</div>
+<div class="section" id="why-do-the-decision-trees-work-for-some-data-but-not-others">
+<h3><span class="section-number">18.7.3. </span>Why do the decision trees work for some data but not others.<a class="headerlink" href="#why-do-the-decision-trees-work-for-some-data-but-not-others" title="Permalink to this headline">¶</a></h3>
+<div class="toggle docutils container">
+<p>Varialbe performance is due to the data and</p>
+</div>
+</div>
+<div class="section" id="what-could-we-really-use-these-trees-for">
+<h3><span class="section-number">18.7.4. </span>What could we really use these trees for?<a class="headerlink" href="#what-could-we-really-use-these-trees-for" title="Permalink to this headline">¶</a></h3>
+<div class="toggle docutils container">
+<p>Decision trees are a very widely used algorithm for making predictions.  In fact, a flowchart of this form is used in some contexts even when not learned from data.</p>
+</div>
+</div>
+<div class="section" id="how-is-the-tree-created">
+<h3><span class="section-number">18.7.5. </span>How is the tree created?<a class="headerlink" href="#how-is-the-tree-created" title="Permalink to this headline">¶</a></h3>
+<div class="toggle docutils container">
+<p>We’ll talk about this a little bit on Friday, but it’s mostly out of scope for this course.  It is something you could learn about independently for your portfolio, or it will be covered in depth in CSC461.</p>
+<p>The sklearn docs include a whole <a class="reference external" href="https://scikit-learn.org/stable/modules/tree.html#tree-algorithms">algoithms</a> section that describes everything including their history and detailed mathematical formulation.</p>
+</div>
+</div>
+<div class="section" id="do-i-use-a-gnb-when-i-know-the-distribution-is-gaussian">
+<h3><span class="section-number">18.7.6. </span>Do I use a gnb when I know the distribution is gaussian?<a class="headerlink" href="#do-i-use-a-gnb-when-i-know-the-distribution-is-gaussian" title="Permalink to this headline">¶</a></h3>
+<div class="toggle docutils container">
+<p>Yes, or at least close enough. Fitting the model to the data is a good practice.  We’ll learn about overfitting soon and by matching, you’re less likely to face this problem.</p>
 </div>
 </div>
 </div>
@@ -781,6 +1021,24 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="2021-10-18.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">17. </span>Making Predictions in Generative Model</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
