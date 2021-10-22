@@ -41,7 +41,10 @@ If you want to use a dataset with nonnumerical features you will have to convert
 the categorical features to one hot encoding.  
 
 ```{hint}
-the Wisconsin Breast Cancer data from UCI is a good option
+UCI is a good place to look for this assignment, some good examples:
+- the Wisconsin Breast Cancer data
+- Wine
+
 ```
 
 __Part 1: DT Basics__
