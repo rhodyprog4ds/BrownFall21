@@ -6,7 +6,29 @@
 
 ````
  -->
+### I can't push to my repository, I get an error that updates were rejected
+````{toggle}
 
+```
+! [rejected] main -> main (fetch first)
+error: failed to push some refs to <repository name>
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+```
+
+Your local version and github version are out of sync, you need to pull the changes from github to your local computer before you can push new changes there.  
+
+After you run
+```
+git pull
+```
+
+You'll probably have to [resolve a merge conflict](https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)
+````
 
 ### The content I added to my portfolio isn't in the pdf
 
@@ -25,6 +47,8 @@ parts:
 #    chapters:
 #    - file: submission_1_intro
 ```
+
+uncomment the later lines and add any new files you add. 
 ````
 
 
@@ -72,7 +96,7 @@ If there's an error your notebook it can't complete running. You can allow it to
 
 (preemptive-merge)=
 ### Help! I accidentally merged the Feedback Pull Request before my assignment was graded
-````{toggle} 
+````{toggle}
 
 That's ok. You can fix it.
 
