@@ -692,18 +692,20 @@ their own documentation gets updated at the same time the code does.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[              Day                            Time                 Location  \
  0          Monday             9:30:00 AM-10:30 AM  inperson Tyler Hall 140   
  1          Monday             12:30:00 PM-2:00 PM  inperson Tyler Hall 139   
- 2       Wednesday              4:00:00 PM-5.00 PM  inperson Tyler Hall 139   
- 3        Wedneday              1:30:00 PM-3:00 PM  inperson Tyler Hall 140   
- 4       Wednesday                 7:00:00 PM-8:30              gather.town   
- 5  By appointment  scheduling link on Brightspace      in person Tyler 134   
+ 2         Tuesday                 2:00 PM-3:00 PM              gather.town   
+ 3       Wednesday              4:00:00 PM-5.00 PM  inperson Tyler Hall 139   
+ 4        Wedneday              1:30:00 PM-3:00 PM  inperson Tyler Hall 140   
+ 5       Wednesday                 7:00:00 PM-8:30              gather.town   
+ 6  By appointment  scheduling link on Brightspace      in person Tyler 134   
  
        Host  
  0  Chamudi  
  1  Chamudi  
- 2  Chamudi  
+ 2    Sarah  
  3  Chamudi  
- 4    Sarah  
- 5    Sarah  ,
+ 4  Chamudi  
+ 5    Sarah  
+ 6    Sarah  ,
                                            usage platform  \
  0                                      in class  prismia   
  1                                      any time  prismia   
@@ -831,27 +833,34 @@ their own documentation gets updated at the same time the code does.</p>
     </tr>
     <tr>
       <th>2</th>
+      <td>Tuesday</td>
+      <td>2:00 PM-3:00 PM</td>
+      <td>gather.town</td>
+      <td>Sarah</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>Wednesday</td>
       <td>4:00:00 PM-5.00 PM</td>
       <td>inperson Tyler Hall 139</td>
       <td>Chamudi</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>4</th>
       <td>Wedneday</td>
       <td>1:30:00 PM-3:00 PM</td>
       <td>inperson Tyler Hall 140</td>
       <td>Chamudi</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>5</th>
       <td>Wednesday</td>
       <td>7:00:00 PM-8:30</td>
       <td>gather.town</td>
       <td>Sarah</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>6</th>
       <td>By appointment</td>
       <td>scheduling link on Brightspace</td>
       <td>in person Tyler 134</td>
@@ -980,10 +989,11 @@ A: the last line is information about the object that is being printed out.</p>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0            Monday
 1            Monday
-2         Wednesday
-3          Wedneday
-4         Wednesday
-5    By appointment
+2           Tuesday
+3         Wednesday
+4          Wedneday
+5         Wednesday
+6    By appointment
 Name: Day, dtype: object
 </pre></div>
 </div>
@@ -19314,6 +19324,7 @@ readability</p>
 3    True
 4    True
 5    True
+6    True
 Name: Day, dtype: bool
 </pre></div>
 </div>

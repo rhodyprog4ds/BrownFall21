@@ -480,6 +480,11 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#i-cant-push-to-my-repository-i-get-an-error-that-updates-were-rejected">
+   I can’t push to my repository, I get an error that updates were rejected
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-content-i-added-to-my-portfolio-isnt-in-the-pdf">
    The content I added to my portfolio isn’t in the pdf
   </a>
@@ -522,6 +527,27 @@
 
 ````
  -->
+<div class="section" id="i-cant-push-to-my-repository-i-get-an-error-that-updates-were-rejected">
+<h2>I can’t push to my repository, I get an error that updates were rejected<a class="headerlink" href="#i-cant-push-to-my-repository-i-get-an-error-that-updates-were-rejected" title="Permalink to this headline">¶</a></h2>
+<div class="toggle docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! [rejected] main -&gt; main (fetch first)
+error: failed to push some refs to &lt;repository name&gt;
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., &#39;git pull ...&#39;) before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+
+</pre></div>
+</div>
+<p>Your local version and github version are out of sync, you need to pull the changes from github to your local computer before you can push new changes there.</p>
+<p>After you run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+<p>You’ll probably have to <a class="reference external" href="https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line">resolve a merge conflict</a></p>
+</div>
+</div>
 <div class="section" id="the-content-i-added-to-my-portfolio-isnt-in-the-pdf">
 <h2>The content I added to my portfolio isn’t in the pdf<a class="headerlink" href="#the-content-i-added-to-my-portfolio-isnt-in-the-pdf" title="Permalink to this headline">¶</a></h2>
 <div class="toggle docutils container">
@@ -538,6 +564,7 @@
 <span class="c1">#    - file: submission_1_intro</span>
 </pre></div>
 </div>
+<p>uncomment the later lines and add any new files you add.</p>
 </div>
 </div>
 <div class="section" id="my-command-line-says-i-cannot-use-a-password">
