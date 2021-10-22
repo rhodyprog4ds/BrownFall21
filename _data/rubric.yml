@@ -13,13 +13,13 @@
   mastery: Compare different ways that data science can facilitate decision making
   portfolios: [2,3,4]
   clo: [process]
-  assignments: [1,2,10,11]
+  assignments: [1,2,7,10,11]
 - skill: access data in multiple formats
   keyword: access
   aware: load data from at least one format; identify the most common data formats
   compentent: Load data for processing from the most common formats; Compare and constrast most common formats
   mastery: access data from both common and uncommon formats and identify best practices for formats in different contexts
-  portfolios: [1,2]
+  portfolios: [1,2,4,5]
   clo: [data]
   assignments: [2,3,4]
 - skill: construct datasets from multiple sources
@@ -29,7 +29,7 @@
   mastery: merge data that is not automatically aligned
   portfolios: [1,2]
   clo: [data]
-  assignments: [5,6]
+  assignments: [5,7]
 - skill: Summarize and describe data
   keyword: summarize
   aware: Describe the shape and structure of a dataset in basic terms
@@ -57,7 +57,7 @@
 - skill: Apply classification
   keyword: classification
   aware: identify and describe what classification is, apply pre-fit classification models
-  compentent: fit preselected classification model to a dataset
+  compentent: fit, apply, and interpret preselected classification model to a dataset
   mastery: fit and apply classification models and select appropriate classification models for different contexts
   portfolios: [2,3]
   clo: [model]
@@ -65,8 +65,8 @@
 - skill: Apply Regression
   keyword: regression
   aware: identify what data that can be used for regression looks like
-  compentent: can fit linear regression models
-  mastery: can fit and explain regrularized or nonlinear regression
+  compentent: fit and interpret linear regression models
+  mastery: fit and explain regrularized or nonlinear regression
   portfolios: [2,3]
   clo: [model]
   assignments: [8,11]
@@ -81,15 +81,15 @@
 - skill: Evaluate model performance
   keyword: evaluate
   aware: Explain basic performance metrics for different data science tasks
-  compentent: Apply basic model evaluation metrics to a held out test set
+  compentent: Apply and interpret basic model evaluation metrics to a held out test set
   mastery: Evaluate a model with multiple metrics and cross validation
   portfolios: [2,3]
   clo: [model]
-  assignments: [10,11]
+  assignments: [7,10,11]
 - skill: Optimize model parameters
   keyword: optimize
   aware: Identify when model parameters need to be optimized
-  compentent: Manually optimize basic model parameters such as model order
+  compentent: Optimize basic model parameters such as model order
   mastery: Select optimal parameters based of mutiple quanttiateve criteria and automate parameter tuning
   portfolios: [3,4]
   clo: [model]
