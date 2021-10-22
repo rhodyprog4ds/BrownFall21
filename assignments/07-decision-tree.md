@@ -38,12 +38,15 @@ __Due: {{ date }}__
 
 Choose a datasets that is well suited for classification and that has all only features.
 If you want to use a dataset with nonnumerical features you will have to convert
-the categorical features to one hot encoding.  
+the categorical features to one hot encoding.  You can use a variable that has some
+categorical features, but not many, by dropping them as well.
 
 ```{hint}
 UCI is a good place to look for this assignment, some good examples:
 - the Wisconsin Breast Cancer data
-- Wine data
+- [Wine quality](https://archive-beta.ics.uci.edu/ml/datasets/wine+quality) has 2 parts, could be merged
+- Abalone
+- use a subset of NBA data and try to predict being picked for the NBA75 team
 
 ```
 
