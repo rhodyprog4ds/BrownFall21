@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Assignment 7 &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>7. Assignment 7: Decision Trees &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -281,7 +281,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. Assignment 7
+   7. Assignment 7: Decision Trees
   </a>
  </li>
 </ul>
@@ -479,6 +479,51 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-facts">
+   7.1. Quick Facts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#related-notes">
+   7.2. Related notes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assessment">
+   7.3. Assessment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instructions">
+   7.4. Instructions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-1-dt-basics">
+     7.4.1. Part 1: DT Basics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-2-exploring-evaluation">
+     7.4.2. Part 2: Exploring Evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-3-dt-parameters">
+     7.4.3. Part 3: DT parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -487,10 +532,25 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="assignment-7">
-<h1><span class="section-number">7. </span>Assignment 7<a class="headerlink" href="#assignment-7" title="Permalink to this headline">¶</a></h1>
-<p><span class="xref myst">accept the assignment</span></p>
-<p><strong>Due: 2020-10-26 11:59pm</strong></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="assignment-7-decision-trees">
+<h1><span class="section-number">7. </span>Assignment 7: Decision Trees<a class="headerlink" href="#assignment-7-decision-trees" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quick-facts">
+<h2><span class="section-number">7.1. </span>Quick Facts<a class="headerlink" href="#quick-facts" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://classroom.github.com/a/zZzNUmzG">accept the assignment</a></p></li>
+<li><p><strong>Due: 2020-10-26 11:59pm</strong></p></li>
+</ul>
+</div>
+<div class="section" id="related-notes">
+<h2><span class="section-number">7.2. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../notes/2021-10-18.html"><span class="doc std std-doc">2021-10-18</span></a></p></li>
+<li><p><a class="reference internal" href="../notes/2021-10-20.html"><span class="doc std std-doc">2021-10-20</span></a></p></li>
+<li><p><a class="reference internal" href="../notes/2021-10-22.html"><span class="doc std std-doc">2021-10-22</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="assessment">
+<h2><span class="section-number">7.3. </span>Assessment<a class="headerlink" href="#assessment" title="Permalink to this headline">¶</a></h2>
 <table class="table" id="id1">
 <caption><span class="caption-number">Table 7.1 </span><span class="caption-text">fit a decision tree</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -506,16 +566,16 @@
 <tr class="row-even"><td><p>fit a decision tree</p></td>
 <td><p>classification (2)</p></td>
 </tr>
-<tr class="row-odd"><td><p>apply a decsion tree to get predictions</p></td>
+<tr class="row-odd"><td><p>apply a decision tree to get predictions</p></td>
 <td><p>classification (2)</p></td>
 </tr>
-<tr class="row-even"><td><p>inpterpret the model assumed by a decision tree</p></td>
+<tr class="row-even"><td><p>interpret the model assumed by a decision tree</p></td>
 <td><p>classification (2)</p></td>
 </tr>
 <tr class="row-odd"><td><p>use multiple metrics evaluate performance</p></td>
 <td><p>evaluate (2)</p></td>
 </tr>
-<tr class="row-even"><td><p>interpret how decisions impact model performance</p></td>
+<tr class="row-even"><td><p>interpret how decisions (test/train size, model parameters) impact model performance</p></td>
 <td><p>evaluate (2)</p></td>
 </tr>
 <tr class="row-odd"><td><p>interpret the classifier performance in the context of the dataset</p></td>
@@ -527,7 +587,7 @@
 <tr class="row-odd"><td><p>use loops and lists effectively</p></td>
 <td><p>python (2)</p></td>
 </tr>
-<tr class="row-even"><td><p>usse EDA techniques to interpret the experimental results</p></td>
+<tr class="row-even"><td><p>use EDA techniques to examine the experimental results</p></td>
 <td><p>summarize (2), visualize (2)</p></td>
 </tr>
 <tr class="row-odd"><td><p>create a dataset by combining data from multiple sources</p></td>
@@ -535,21 +595,25 @@
 </tr>
 </tbody>
 </table>
-<p>Choose a datasets that is well suited for classification and that has all only features.
-If you want to use a dataset with nonnumerical features you will have to convert
-the categorical features to one hot encoding.  You can use a variable that has some
-categorical features, but not many, by dropping them as well.</p>
+</div>
+<div class="section" id="instructions">
+<h2><span class="section-number">7.4. </span>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h2>
+<p>Choose a datasets that is well suited for classification and that has only numerical features.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to use a dataset with nonnumerical features you will have to convert
+the categorical features to one hot encoding or drop them if there are enough continuous values in addition to the categorical.</p>
+</div>
+</div>
+<p>Practice using decision trees and exploring how classification works, and what evaluations mean in the following exercises.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>UCI is a good place to look for this assignment, some good examples:</p>
-<ul class="simple">
-<li><p>the Wisconsin Breast Cancer data</p></li>
-<li><p><a class="reference external" href="https://archive-beta.ics.uci.edu/ml/datasets/wine+quality">Wine quality</a> has 2 parts, could be merged</p></li>
-<li><p>Abalone</p></li>
-<li><p>use a subset of NBA data and try to predict being picked for the NBA75 team</p></li>
-</ul>
+<p>the Wisconsin Breast Cancer data from UCI is a good option as is the wine data set, which has the red &amp; white wines separated, so you can earn prepare with this.  You could also use the NSA data and try to predict who will makes the NBA 75 based on their game stats, this would require some manipulation and so would be a way to earn construct.</p>
 </div>
-<p><strong>Part 1: DT Basics</strong></p>
+<div class="section" id="part-1-dt-basics">
+<h3><span class="section-number">7.4.1. </span>Part 1: DT Basics<a class="headerlink" href="#part-1-dt-basics" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Include a basic description of the data(what the features are)</p></li>
 <li><p>Write  your own description of what the classification task is and why a decision tree is a reasonable model to try for this data.</p></li>
@@ -575,7 +639,9 @@ categorical features, but not many, by dropping them as well.</p>
 <li><p>do you think that a more complex model should be used?</p></li>
 <li><p>do you think that maybe this task cannot be done with machine learning?</p></li>
 </ul>
-<p><strong>Part 2: Exploring Evaluation</strong></p>
+</div>
+<div class="section" id="part-2-exploring-evaluation">
+<h3><span class="section-number">7.4.2. </span>Part 2: Exploring Evaluation<a class="headerlink" href="#part-2-exploring-evaluation" title="Permalink to this headline">¶</a></h3>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition hint">
@@ -589,10 +655,6 @@ investigate the performance of our model.  We can try fitting a model  with diff
 to create a new “dataset” for our experiments.
 The same skills apply.</p>
 </div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>To earn summarize and visualize, you’ll need to use some statistics and more than one plot</p>
-</div>
 </div>
 <p>Do an experiment to compare test set size vs performance:</p>
 <ol class="simple">
@@ -600,15 +662,20 @@ The same skills apply.</p>
 <li><p>Plot the accuracies vs training percentage in a line graph.</p></li>
 <li><p>Interpret these results.  How does training vs test size impact the model?</p></li>
 </ol>
-<p><em>use a loop for this part, possibly also a function</em></p>
-<p><strong>Part 3: DT parameters</strong></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>use a loop for this part, possibly also a function</p>
+</div>
+</div>
+<div class="section" id="part-3-dt-parameters">
+<h3><span class="section-number">7.4.3. </span>Part 3: DT parameters<a class="headerlink" href="#part-3-dt-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Experiment with DT Parameters:</p>
 <ol class="simple">
 <li><p>Choose one parameter to change in the training that you think might improve the model and say why, then train a second decision tree</p></li>
 <li><p>Check the performance of the new decision tree with at least two performance metrics</p></li>
 <li><p>Did changing the parameter do what you expected?</p></li>
 <li><p>Choose a second parameter to change in the training that you think might improve the model and say why, then train a third decision tree</p></li>
-<li><p>Validate your third decision tree withat least two performance metrics.</p></li>
+<li><p>Validate your third decision tree with at least two performance metrics.</p></li>
 <li><p>Did changing the parameter do what you expected?</p></li>
 </ol>
 <div class="admonition-thinking-ahead admonition">
@@ -626,6 +693,8 @@ The same skills apply.</p>
 <p>Use the extensions above to experiment further with other model parameters.</p>
 <p><strong>some of this we’ll learn how to automate in a few weeks, but getting the
 ideas by doing it yourself can help</strong></p>
+</div>
+</div>
 </div>
 </div>
 
