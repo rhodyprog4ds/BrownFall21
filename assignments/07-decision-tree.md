@@ -47,6 +47,17 @@ substitutions:
 ## Instructions
 
 Choose a datasets that is well suited for classification and that has only numerical features.
+
+```{tip}
+A file can be a "comma separated file" and read in with `pd.read_csv` even if the
+file name does not end in ".csv". The part after the '.' in a file name is
+called the file *extension* and its a sort of metadata built into a file. CSV is a
+specification for how to write data to a file, or a file *format*.  It's best
+practice to make the file extension match the file format, but it's very much
+not required. Espeically the older files on the UCI repository, the extension is
+something else (eg dat, or data, or names).  
+```
+
 ````{margin}
 ```{note}
 If you want to use a dataset with nonnumerical features you will have to convert
