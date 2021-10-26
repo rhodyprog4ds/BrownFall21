@@ -55,7 +55,7 @@ called the file *extension* and its a sort of metadata built into a file. CSV is
 specification for how to write data to a file, or a file *format*.  It's best
 practice to make the file extension match the file format, but it's very much
 not required. Espeically the older files on the UCI repository, the extension is
-something else (eg dat, or data, or names).  
+something else (eg dat, or data, or names), but the actual contents of the files are comma separated and compatible with `read_csv`
 ```
 
 ````{margin}
