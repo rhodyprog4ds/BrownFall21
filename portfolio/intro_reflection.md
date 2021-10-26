@@ -6,7 +6,8 @@ Your portfolio will be assessed both on your demonstration of skills through you
 
 Each portfolio submission, you will edit the corresponding `submission_x_intro.md` file.  This is where you write your summary and reflect on your learning.  This reflection does not need to be long, it shouldn't take a very long time.  It's okay for it to be brief, mostly bullet points.
 
-## KWL
+(kwl)
+## KWL Chart
 
 One part of your introduction is a **KWL** or **K**now, **W**ant to know, **L**earned, chart.  
 

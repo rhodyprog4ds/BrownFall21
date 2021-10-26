@@ -3,7 +3,7 @@
   aware: python code that mostly runs, occasional pep8 adherance
   compentent: python code that reliably runs, frequent pep8 adherance
   mastery: reliable, efficient, pythonic code that consistently adheres to pep8
-  portfolios: [1,2]
+  portfolios: [1,2,4]
   clo: [process]
   assignments: [1,2,4,5]
 - skill: describe data science as a process
@@ -19,23 +19,23 @@
   aware: load data from at least one format; identify the most common data formats
   compentent: Load data for processing from the most common formats; Compare and constrast most common formats
   mastery: access data from both common and uncommon formats and identify best practices for formats in different contexts
-  portfolios: [1,2,4,5]
+  portfolios: [1,2,4]
   clo: [data]
-  assignments: [2,3,4]
+  assignments: [2,3,4,5]
 - skill: construct datasets from multiple sources
   keyword: construct
   aware: identify what should happen to merge datasets or when they can be merged
   compentent: apply basic merges
   mastery: merge data that is not automatically aligned
-  portfolios: [1,2]
+  portfolios: [1,2,4]
   clo: [data]
-  assignments: [5,7]
+  assignments: [5,7,8]
 - skill: Summarize and describe data
   keyword: summarize
   aware: Describe the shape and structure of a dataset in basic terms
   compentent: compute summary statndard statistics of a whole dataset and grouped data
   mastery: Compute and interpret various summary statistics of subsets of data
-  portfolios: [1,2]
+  portfolios: [1,2,4]
   clo: [exploratory]
   assignments: [3,4,5,6,7,8,9,10,11,12,13]
 - skill: Visualize data
@@ -43,7 +43,7 @@
   aware: identify plot types, generate basic plots from pandas
   compentent: generate multiple plot types with complete labeling with pandas and seaborn
   mastery: generate complex plots with pandas and plotting libraries and customize with matplotlib or additional parameters
-  portfolios: [1,2]
+  portfolios: [1,2,4]
   clo: [exploratory]
   assignments: [3,4,6,7,8,9,10,11,12,13]
 - skill: prepare data for analysis
@@ -51,7 +51,7 @@
   aware: identify if data is or is not ready for analysis, potential problems with data
   compentent: apply data reshaping, cleaning, and filtering as directed
   mastery: apply data reshaping, cleaning, and filtering manipulations reliably and correctly by assessing data as received
-  portfolios: [1,2]
+  portfolios: [1,2,4]
   clo: [data]
   assignments: [4,5]
 - skill: Apply classification
@@ -59,7 +59,7 @@
   aware: identify and describe what classification is, apply pre-fit classification models
   compentent: fit, apply, and interpret preselected classification model to a dataset
   mastery: fit and apply classification models and select appropriate classification models for different contexts
-  portfolios: [2,3]
+  portfolios: [2,3,4]
   clo: [model]
   assignments: [6,7,10]
 - skill: Apply Regression
@@ -67,7 +67,7 @@
   aware: identify what data that can be used for regression looks like
   compentent: fit and interpret linear regression models
   mastery: fit and explain regrularized or nonlinear regression
-  portfolios: [2,3]
+  portfolios: [2,3,4]
   clo: [model]
   assignments: [8,11]
 - skill: Clustering
@@ -75,7 +75,7 @@
   aware: describe what clustering is
   compentent: apply basic clustering
   mastery: apply multiple clustering techniques, and interpret results
-  portfolios: [2,3]
+  portfolios: [2,3,4]
   clo: [model]
   assignments: [9,11]
 - skill: Evaluate model performance
@@ -83,9 +83,9 @@
   aware: Explain basic performance metrics for different data science tasks
   compentent: Apply and interpret basic model evaluation metrics to a held out test set
   mastery: Evaluate a model with multiple metrics and cross validation
-  portfolios: [2,3]
+  portfolios: [2,3,4]
   clo: [model]
-  assignments: [7,10,11]
+  assignments: [7,8,10,11]
 - skill: Optimize model parameters
   keyword: optimize
   aware: Identify when model parameters need to be optimized

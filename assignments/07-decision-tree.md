@@ -2,13 +2,16 @@
 substitutions:
   accept_assignment: |
     [accept the assignment](https://classroom.github.com/a/zZzNUmzG)
-  date : 2020-10-26 11:59pm
+  date : 2021-10-27 11:59pm
+  recommended : 2021-10-26 11:59pm
 ---
 # Assignment 7: Decision Trees
 
 ## Quick Facts
 - {{accept_assignment}}
+- _Recommended completion: {{ reccomended }}_
 - __Due: {{ date }}__
+
 
 ## Related notes
 

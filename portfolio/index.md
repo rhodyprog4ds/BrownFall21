@@ -65,35 +65,41 @@ This section of the site has a set of portfolio prompts and this page has instru
 
 
 Starting in week 3 it is recommended that you spend some time each week working on items for your portfolio, that way when it's time to submit you only have a little bit to add before submission.
-The portfolio is your only chance to earn Level 3 achievements, however, if you have not earned a level 2 for any of the skills in a given check, you could earn level 2 then instead.
+The portfolio is your only chance to earn Level 3 achievements, however, you can also earn level 1 or 2.
 The prompts provide a starting point, but remember that to earn achievements, you'll be evaluated by the rubric.
 You can see the full rubric for all portfolios in the [syllabus](portfolioskills).
 Your portfolio is also an opportunity to be creative, explore things, and answer your own questions that we haven't answered in class to dig deeper on the topics we're covering.
 Use the feedback you get on assignments to inspire your portfolio.
 
+```{important}
 Each submission should include an introduction and a number of 'chapters'.  The grade will be based on both that you demonstrate skills through your chapters that are inspired by the prompts and that your [summary](intro_reflection) demonstrates that you *know* you learned the skills. See the [formatting tips](formatting) for advice on how to structure files.
+```
 
-
-On each chapter(for a file) of your portfolio, you should identify which skills by their keyword, you are applying.
+In each chapter(for a file) of your portfolio, you should identify which skills by their keyword, you are applying.
 
 You can view a (fake) example [in this repository](https://github.com/rhodyprog4ds/portfolio-example) as a [pdf](https://github.com/rhodyprog4ds/portfolio-example/blob/gh-pages/portfolio.pdf) or as a [rendered website](https://rhodyprog4ds.github.io/portfolio-example/intro.html)
 
-## Current: Check 1
+## Current: Check 2
 
-The first portfolio check will be due {{ p1due }} and will cover the following skills.
+
+The first portfolio check will be due {{ p2due }} and will cover the following skills.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-portfolio_df[portfolio_df['P1']==1]
+portfolio_df[portfolio_df['P2']==1]
 ```
+
+Submision Checklist:
+
+
 
 - [ ] update your gh action or precommit hook
 - [ ] complete your KWL chart ({ref})
 
 ## Upcoming Checks
 
-- Check 2: {{ p2due }}  
+<!-- - Check 2: {{ p2due }}   -->
 - Check 3: {{ p3due }}  
 - Check 4: {{ p4due }}  
 
