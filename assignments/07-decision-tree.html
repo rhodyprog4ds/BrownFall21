@@ -679,7 +679,7 @@ The same skills apply.</p>
 </div>
 <p>Do an experiment to compare test set size vs performance:</p>
 <ol class="simple">
-<li><p>Train decision tree with max depth 2 less less than the depth it found above on 10%, 30%, … , 90% of the data. Save the results of both test and train accuracy for each size training data in a DataFrame with columns [‘train_pct’,‘n_train_samples’,‘n_test_samples’,‘train_acc’,‘test_acc’]</p></li>
+<li><p>Train decision tree with max depth 2 less less than the depth it found above on 10%, 30%, … , 90% of the data. Save the results of both <span class="xref std std-ref">test accuracy</span> and <span class="xref std std-ref">training accuracy</span> for each size training data in a DataFrame with columns [‘train_pct’,‘n_train_samples’,‘n_test_samples’,‘train_acc’,‘test_acc’]</p></li>
 <li><p>Plot the accuracies vs training percentage in a line graph.</p></li>
 <li><p>Interpret these results.  How does training vs test size impact the model?</p></li>
 </ol>
