@@ -45,6 +45,7 @@ parts:
     - file: assignments/05-construct
     - file: assignments/06-classification
     - file: assignments/07-decision-tree
+    - file: assignments/08-regression
   - caption: Portfolio
     chapters:
     - file: portfolio/index
