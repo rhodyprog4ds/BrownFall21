@@ -47,12 +47,14 @@ parts:
     - file: assignments/05-construct
     - file: assignments/06-classification
     - file: assignments/07-decision-tree
+    - file: assignments/08-regression
   - caption: Portfolio
     chapters:
     - file: portfolio/index
     - file: portfolio/intro_reflection
     - file: portfolio/formatting
     - file: portfolio/check1ideas
+    - file: portfolio/check2ideas
   - caption: FAQ
     chapters:
     - file: faq/index
