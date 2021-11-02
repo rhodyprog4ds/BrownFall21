@@ -247,6 +247,16 @@
    25. Linear Regression
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-29.html">
+   26. Interpretting Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-01.html">
+   27. Clustering
+  </a>
+ </li>
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
@@ -630,6 +640,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -652,6 +663,539 @@
 <li><p>You’re reading the notes &amp; like them a lot</p></li>
 <li><p>Assignment instructions are sometimes hard to understand</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feedback_df_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/mid_sem_feedback_struct.csv&#39;</span><span class="p">)</span>
+<span class="n">feedback_df_raw</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>How much do you think you've learned so far this semester?</th>
+      <th>How much of the material that's been taught do you feel you understand?</th>
+      <th>How do you think the achievements you've earned so far align with your understanding?</th>
+      <th>Rank the following as what you feel the grading (when you do/not earn achievements) so far actually reflects about your performance in the class [How well I follow instructions]</th>
+      <th>Rank the following as what you feel the grading (when you do/not earn achievements) so far actually reflects about your performance in the class [What I understand about the material]</th>
+      <th>Rank the following as what you feel the grading (when you do/not earn achievements) so far actually reflects about your performance in the class [How much effort I put into assignments]</th>
+      <th>How fair do you think the amount each of the following is reflected in the grading [How well I follow instructions]</th>
+      <th>How fair do you think the amount each of the following is reflected in the grading [What I understand about the material]</th>
+      <th>How fair do you think the amount each of the following is reflected in the grading [How much effort I put into assignments]</th>
+      <th>Which of the following have you done to support your learning outside of class time?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>4</td>
+      <td>I think the achievements underestimate what I ...</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected perfectly in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, reading the documentati...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>4</td>
+      <td>I think they reflect my understanding well</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Reflected perfectly in the grading</td>
+      <td>Reflected perfectly in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, experimenting with the ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>4</td>
+      <td>I think they reflect my understanding well</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, solving extra questions...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>3</td>
+      <td>I think they reflect my understanding well</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, reading blogs or tutori...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3</td>
+      <td>3</td>
+      <td>I think the achievements overestimate what I k...</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, experimenting with the ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>First, we’ll make the dataframe column names easier to work with and save a key of them as a dictionary that we then use to rename. First we look at them, then copy &amp; paste them to make the dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feedback_df_raw</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;How much do you think you&#39;ve learned so far this semester?&#39;,
+       &#39;How much of the material that&#39;s been taught do you feel you understand?&#39;,
+       &#39;How do you think the achievements you&#39;ve earned so far align with your understanding?&#39;,
+       &#39;Rank the following as what you feel the grading (when you do/not earn achievements) so far actually reflects about your performance in the class [How well I follow instructions]&#39;,
+       &#39;Rank the following as what you feel the grading (when you do/not earn achievements) so far actually reflects about your performance in the class [What I understand about the material]&#39;,
+       &#39;Rank the following as what you feel the grading (when you do/not earn achievements) so far actually reflects about your performance in the class [How much effort I put into assignments]&#39;,
+       &#39;How fair do you think the amount each of the following is reflected in the grading [How well I follow instructions]&#39;,
+       &#39;How fair do you think the amount each of the following is reflected in the grading [What I understand about the material]&#39;,
+       &#39;How fair do you think the amount each of the following is reflected in the grading [How much effort I put into assignments]&#39;,
+       &#39;Which of the following have you done to support your learning outside of class time?&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">short_names</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;How much do you think you&#39;ve learned so far this semester?&quot;</span><span class="p">:</span><span class="s1">&#39;learned&#39;</span><span class="p">,</span>
+       <span class="s2">&quot;How much of the material that&#39;s been taught do you feel you understand?&quot;</span><span class="p">:</span><span class="s1">&#39;understand&#39;</span><span class="p">,</span>
+       <span class="s2">&quot;How do you think the achievements you&#39;ve earned so far align with your understanding?&quot;</span><span class="p">:</span><span class="s1">&#39;achievements&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Rank the following as what you feel the grading (when you do/not earn achievements) so far actually reflects about your performance in the class [How well I follow instructions]&#39;</span><span class="p">:</span><span class="s1">&#39;grading_instructions&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Rank the following as what you feel the grading (when you do/not earn achievements) so far actually reflects about your performance in the class [What I understand about the material]&#39;</span><span class="p">:</span><span class="s1">&#39;grading_understanding&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Rank the following as what you feel the grading (when you do/not earn achievements) so far actually reflects about your performance in the class [How much effort I put into assignments]&#39;</span><span class="p">:</span><span class="s1">&#39;grading_effort&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;How fair do you think the amount each of the following is reflected in the grading [How well I follow instructions]&#39;</span><span class="p">:</span><span class="s1">&#39;fairness_instructions&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;How fair do you think the amount each of the following is reflected in the grading [What I understand about the material]&#39;</span><span class="p">:</span><span class="s1">&#39;fairness_understanding&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;How fair do you think the amount each of the following is reflected in the grading [How much effort I put into assignments]&#39;</span><span class="p">:</span><span class="s1">&#39;fairness_effort&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Which of the following have you done to support your learning outside of class time?&#39;</span><span class="p">:</span><span class="s1">&#39;learning_activities&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feedback_df_cols</span> <span class="o">=</span> <span class="n">feedback_df_raw</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">short_names</span><span class="p">)</span>
+<span class="n">feedback_df_cols</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>learned</th>
+      <th>understand</th>
+      <th>achievements</th>
+      <th>grading_instructions</th>
+      <th>grading_understanding</th>
+      <th>grading_effort</th>
+      <th>fairness_instructions</th>
+      <th>fairness_understanding</th>
+      <th>fairness_effort</th>
+      <th>learning_activities</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>4</td>
+      <td>I think the achievements underestimate what I ...</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected perfectly in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, reading the documentati...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>4</td>
+      <td>I think they reflect my understanding well</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Reflected perfectly in the grading</td>
+      <td>Reflected perfectly in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, experimenting with the ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>4</td>
+      <td>I think they reflect my understanding well</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, solving extra questions...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>3</td>
+      <td>I think they reflect my understanding well</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, reading blogs or tutori...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3</td>
+      <td>3</td>
+      <td>I think the achievements overestimate what I k...</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, experimenting with the ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">learning_lists</span> <span class="o">=</span> <span class="n">feedback_df_cols</span><span class="p">[</span><span class="s1">&#39;learning_activities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">learning_stacked</span> <span class="o">=</span> <span class="n">learning_lists</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+<span class="n">learning_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">learning_stacked</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">learning_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/ipykernel_launcher.py:3: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+  This is separate from the ipykernel package so we can avoid doing imports until
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>attended Chamudi's office hours</th>
+      <th>attended Dr. Brown's office hours</th>
+      <th>attended Dr. Brown's office hours</th>
+      <th>download and run the notes</th>
+      <th>experimenting with the code from class</th>
+      <th>reading blogs or tutorials I find on my own</th>
+      <th>reading the documentation or course text</th>
+      <th>solving extra questions in the class notes</th>
+      <th>tinkering with code to answer other aspects of the material that I'm curious about</th>
+      <th>update the notes I took during class time</th>
+      <th>watching videos that I find on my own</th>
+      <th>read the notes online</th>
+      <th>reading the documentation or course text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feedback_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">feedback_df_cols</span><span class="p">,</span><span class="n">learning_df</span><span class="p">])</span>
+<span class="n">feedback_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>learned</th>
+      <th>understand</th>
+      <th>achievements</th>
+      <th>grading_instructions</th>
+      <th>grading_understanding</th>
+      <th>grading_effort</th>
+      <th>fairness_instructions</th>
+      <th>fairness_understanding</th>
+      <th>fairness_effort</th>
+      <th>learning_activities</th>
+      <th>...</th>
+      <th>download and run the notes</th>
+      <th>experimenting with the code from class</th>
+      <th>reading blogs or tutorials I find on my own</th>
+      <th>reading the documentation or course text</th>
+      <th>solving extra questions in the class notes</th>
+      <th>tinkering with code to answer other aspects of the material that I'm curious about</th>
+      <th>update the notes I took during class time</th>
+      <th>watching videos that I find on my own</th>
+      <th>read the notes online</th>
+      <th>reading the documentation or course text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>I think the achievements underestimate what I ...</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Reflected moderately in the grading</td>
+      <td>Reflected perfectly in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, reading the documentati...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>I think they reflect my understanding well</td>
+      <td>Reflected strongly in the grading</td>
+      <td>Reflected perfectly in the grading</td>
+      <td>Reflected perfectly in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>Is fairly reflected in the grading</td>
+      <td>read the notes online, experimenting with the ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 23 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">el_meaning</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;much less&#39;</span><span class="p">,</span>
+ <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;a little less&#39;</span><span class="p">,</span>
+ <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;about right&#39;</span><span class="p">,</span>
+ <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;a little more &#39;</span><span class="p">,</span>
+ <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;much more&#39;</span><span class="p">}</span>
+
+<span class="n">question_text</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">short_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="nb">list</span><span class="p">(</span><span class="n">short_names</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;learned&#39;</span><span class="p">)]</span>
+<span class="n">el_counts</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feedback_df</span><span class="p">[</span><span class="s1">&#39;learned&#39;</span><span class="p">],</span><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mf">.5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)])</span>
+<span class="n">el_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">el_counts</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="n">el_meaning</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span><span class="n">columns</span><span class="o">=</span> <span class="p">[</span><span class="n">question_text</span><span class="p">],)</span>
+
+<span class="c1"># el_df.rename_axis(index=&#39;amount relative to expectations&#39;,inplace=True)</span>
+<span class="n">el_df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+<span class="c1"># sns.displot(feedback_df[&#39;learned&#39;].replace(el_meaning))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2021-10-20_10_0.png" src="../_images/2021-10-20_10_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u_meaning</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;A little&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;A moderate amount&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Almost all&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s1">&#39;All&#39;</span><span class="p">}</span>
+
+
+<span class="n">question_text</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">short_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="nb">list</span><span class="p">(</span><span class="n">short_names</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;understand&#39;</span><span class="p">)]</span>
+<span class="n">u_counts</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">feedback_df</span><span class="p">[</span><span class="s1">&#39;understand&#39;</span><span class="p">],</span><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mf">.5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)])</span>
+<span class="n">u_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">el_counts</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="n">u_meaning</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span><span class="n">columns</span><span class="o">=</span> <span class="p">[</span><span class="n">question_text</span><span class="p">],)</span>
+
+
+<span class="n">u_df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2021-10-20_11_0.png" src="../_images/2021-10-20_11_0.png" />
+</div>
+</div>
+<!-- ```{code-cell} ipython3
+
+``` -->
 </div>
 <div class="section" id="reminders-based-on-requests">
 <h3><span class="section-number">18.1.2. </span>Reminders based on requests<a class="headerlink" href="#reminders-based-on-requests" title="Permalink to this headline">¶</a></h3>
@@ -711,16 +1255,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;seaborn.axisgrid.PairGrid at 0x7f19f1505ad0&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f19ea8d4c10&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f19e7bad910&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f19e6cb31d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;seaborn.axisgrid.PairGrid at 0x7f500f1dd3d0&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7f500c30d210&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7f5009676910&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7f500897b690&gt;]
 </pre></div>
 </div>
-<img alt="../_images/2021-10-20_3_1.png" src="../_images/2021-10-20_3_1.png" />
-<img alt="../_images/2021-10-20_3_2.png" src="../_images/2021-10-20_3_2.png" />
-<img alt="../_images/2021-10-20_3_3.png" src="../_images/2021-10-20_3_3.png" />
-<img alt="../_images/2021-10-20_3_4.png" src="../_images/2021-10-20_3_4.png" />
+<img alt="../_images/2021-10-20_13_1.png" src="../_images/2021-10-20_13_1.png" />
+<img alt="../_images/2021-10-20_13_2.png" src="../_images/2021-10-20_13_2.png" />
+<img alt="../_images/2021-10-20_13_3.png" src="../_images/2021-10-20_13_3.png" />
+<img alt="../_images/2021-10-20_13_4.png" src="../_images/2021-10-20_13_4.png" />
 </div>
 </div>
 <p>Dataset 1 &amp; 2 it should perform reasonably well.  They’re both Gaussian data, with some skew, but not too much and some overlap (more in 2).</p>
@@ -749,10 +1293,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f19e6bc5950&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f5009d7ea90&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-10-20_5_1.png" src="../_images/2021-10-20_5_1.png" />
+<img alt="../_images/2021-10-20_15_1.png" src="../_images/2021-10-20_15_1.png" />
 </div>
 </div>
 <p>This data is <em>separable</em> even though the classifier we saw last week doesn’t work well for it, because not all of the points for each class are in a single blob. We could imagine a rule that would succeed: if ‘x0’ and ‘x1’ are both less than 4 or both more than 4, predict <code class="docutils literal notranslate"><span class="pre">A</span></code> otherwise predict <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p>
@@ -775,10 +1319,10 @@ you can read about the <a class="reference external" href="https://seaborn.pydat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7f19e70e4cd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7f5009015610&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-10-20_7_1.png" src="../_images/2021-10-20_7_1.png" />
+<img alt="../_images/2021-10-20_17_1.png" src="../_images/2021-10-20_17_1.png" />
 </div>
 </div>
 <div class="margin sidebar">
@@ -873,7 +1417,7 @@ something that I had to look up on <a class="reference external" href="https://s
  Text(777.2142857142857, 543.6, &#39;samples = 10.0%\nvalue = [1.0, 0.0]\nclass = A&#39;)]
 </pre></div>
 </div>
-<img alt="../_images/2021-10-20_15_1.png" src="../_images/2021-10-20_15_1.png" />
+<img alt="../_images/2021-10-20_25_1.png" src="../_images/2021-10-20_25_1.png" />
 </div>
 </div>
 <p>We can also get it out as text; since it returns a plain string, we’ll pass it through the print function.</p>
