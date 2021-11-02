@@ -536,6 +536,11 @@
    27.1. How does Kmeans work?
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   27.2. Questions After Class
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -595,7 +600,7 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fce1a9d2650&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f02f8238810&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-11-01_3_1.png" src="../_images/2021-11-01_3_1.png" />
@@ -635,28 +640,28 @@ for other types of centers.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>5.44</td>
-      <td>5.89</td>
+      <td>2.54</td>
+      <td>5.25</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.72</td>
-      <td>6.13</td>
+      <td>1.79</td>
+      <td>1.81</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6.03</td>
-      <td>5.54</td>
+      <td>1.16</td>
+      <td>2.36</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.23</td>
-      <td>6.13</td>
+      <td>1.93</td>
+      <td>2.15</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.78</td>
-      <td>5.61</td>
+      <td>5.52</td>
+      <td>2.61</td>
     </tr>
   </tbody>
 </table>
@@ -685,10 +690,10 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.73, 5.85],
-       [5.02, 5.38],
-       [5.3 , 1.95],
-       [1.86, 2.47]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.89, 2.09],
+       [2.55, 6.81],
+       [2.51, 2.69],
+       [7.31, 5.91]])
 </pre></div>
 </div>
 </div>
@@ -702,53 +707,53 @@ first by taking the difference, squaring it, then summing along each row.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0      13.7657
- 1       0.0785
- 2      18.5861
- 3       0.3284
- 4       0.0601
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0      10.4081
+ 1       0.0884
+ 2       0.6058
+ 3       0.0052
+ 4      13.4473
          ...   
- 195    43.7425
- 196    23.2805
- 197     0.1585
- 198    12.2824
- 199    10.6301
+ 195     0.4160
+ 196    23.9850
+ 197    17.3393
+ 198     0.3530
+ 199    33.1594
  Length: 200, dtype: float64,
- 0       0.4365
- 1      11.4525
- 2       1.0457
- 3      14.9266
- 4      10.5505
+ 0       2.4337
+ 1      25.5776
+ 2      21.7346
+ 3      22.1000
+ 4      26.4609
          ...   
- 195    20.3365
- 196     3.3525
- 197    12.0965
- 198     0.1282
- 199     0.1773
+ 195    21.5300
+ 196    12.0130
+ 197    42.9881
+ 198    17.4050
+ 199     9.6706
  Length: 200, dtype: float64,
- 0      15.5432
- 1      30.2888
- 2      13.4210
- 3      34.0373
- 4      25.7860
+ 0       6.5545
+ 1       1.2928
+ 2       1.9314
+ 3       0.6280
+ 4       9.0665
          ...   
- 195     1.7704
- 196    21.5588
- 197    31.7266
- 198    13.8433
- 199    14.9186
+ 195     0.2708
+ 196    16.2994
+ 197    14.0929
+ 198     0.3026
+ 199    24.0098
  Length: 200, dtype: float64,
- 0      24.5128
- 1      13.4152
- 2      26.8138
- 3      13.7925
- 4       9.8660
+ 0      23.1885
+ 1      47.2804
+ 2      50.4250
+ 3      43.0820
+ 4      14.0941
          ...   
- 195    21.5528
- 196    37.3972
- 197    14.2570
- 198    21.5969
- 199    20.8858
+ 195    36.8360
+ 196     3.2378
+ 197    23.9125
+ 198    39.0554
+ 199     3.0914
  Length: 200, dtype: float64]
 </pre></div>
 </div>
@@ -791,38 +796,38 @@ corresponding mean. We can stack these into one DataFrame.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>13.7657</td>
-      <td>0.4365</td>
-      <td>15.5432</td>
-      <td>24.5128</td>
+      <td>10.4081</td>
+      <td>2.4337</td>
+      <td>6.5545</td>
+      <td>23.1885</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.0785</td>
-      <td>11.4525</td>
-      <td>30.2888</td>
-      <td>13.4152</td>
+      <td>0.0884</td>
+      <td>25.5776</td>
+      <td>1.2928</td>
+      <td>47.2804</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>18.5861</td>
-      <td>1.0457</td>
-      <td>13.4210</td>
-      <td>26.8138</td>
+      <td>0.6058</td>
+      <td>21.7346</td>
+      <td>1.9314</td>
+      <td>50.4250</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.3284</td>
-      <td>14.9266</td>
-      <td>34.0373</td>
-      <td>13.7925</td>
+      <td>0.0052</td>
+      <td>22.1000</td>
+      <td>0.6280</td>
+      <td>43.0820</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.0601</td>
-      <td>10.5505</td>
-      <td>25.7860</td>
-      <td>9.8660</td>
+      <td>13.4473</td>
+      <td>26.4609</td>
+      <td>9.0665</td>
+      <td>14.0941</td>
     </tr>
   </tbody>
 </table>
@@ -840,9 +845,9 @@ minimum across each row and returns the index (location) of that minimum.</p>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
 1    0
-2    1
+2    0
 3    0
-4    0
+4    2
 dtype: int64
 </pre></div>
 </div>
@@ -884,33 +889,33 @@ dtype: int64
   <tbody>
     <tr>
       <th>0</th>
-      <td>5.44</td>
-      <td>5.89</td>
+      <td>2.54</td>
+      <td>5.25</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.72</td>
-      <td>6.13</td>
+      <td>1.79</td>
+      <td>1.81</td>
       <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6.03</td>
-      <td>5.54</td>
-      <td>1</td>
+      <td>1.16</td>
+      <td>2.36</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.23</td>
-      <td>6.13</td>
+      <td>1.93</td>
+      <td>2.15</td>
       <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.78</td>
-      <td>5.61</td>
-      <td>0</td>
+      <td>5.52</td>
+      <td>2.61</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -971,10 +976,10 @@ groupby.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.96070175, 6.04280702],
-       [6.06921569, 5.92745098],
-       [6.0402    , 1.9208    ],
-       [1.84690476, 2.04571429]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.69      , 2.05057143],
+       [2.12408163, 5.98714286],
+       [5.02873016, 2.13063492],
+       [6.04264151, 5.32396226]])
 </pre></div>
 </div>
 </div>
@@ -1065,9 +1070,23 @@ was okay for the steps to be in the other order.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/2021-11-01_30_0.png" src="../_images/2021-11-01_30_0.png" />
+<img alt="../_images/2021-11-01_30_1.png" src="../_images/2021-11-01_30_1.png" />
+</div>
 </div>
 <p>This algorithm is random.  So each time we run it, it looks a little different.</p>
 <p><img alt="scatterplot of gaussian data in 4 clusters running kmeans" src="../_images/demo_kmeans1.gif" /></p>
+<p><img alt="scatterplot of gaussian data in 4 clusters running kmeans" src="../_images/demo_kmeans2.gif" /></p>
+<p><img alt="scatterplot of gaussian data in 4 clusters running kmeans" src="../_images/demo_kmeans3.gif" /></p>
+<p><img alt="scatterplot of gaussian data in 4 clusters running kmeans" src="../_images/demo_kmeans4.gif" /></p>
+</div>
+<div class="section" id="questions-after-class">
+<h2><span class="section-number">27.2. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-ram-token-opportunity admonition">
+<p class="admonition-title">Ram token Opportunity</p>
+<p>Contribute a question as an issue or contribute a solution to one of the try it yourself above.</p>
+</div>
 </div>
 </div>
 
