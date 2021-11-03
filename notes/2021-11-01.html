@@ -54,7 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="next" title="28. Clustering" href="2021-11-03.html" />
     <link rel="prev" title="26. Interpretting Regression" href="2021-10-29.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -259,6 +259,11 @@
    27. Clustering
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-03.html">
+   28. Clustering
+  </a>
+ </li>
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
@@ -304,6 +309,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/08-regression.html">
    8. Assignment 8: Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/09-clustering.html">
+   9. Assignment 9: Clustering
   </a>
  </li>
 </ul>
@@ -600,7 +610,7 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f02f8238810&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f2f99b6fe90&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-11-01_3_1.png" src="../_images/2021-11-01_3_1.png" />
@@ -640,28 +650,28 @@ for other types of centers.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2.54</td>
-      <td>5.25</td>
+      <td>6.54</td>
+      <td>6.21</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.79</td>
-      <td>1.81</td>
+      <td>2.42</td>
+      <td>5.61</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.16</td>
-      <td>2.36</td>
+      <td>2.75</td>
+      <td>5.34</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.93</td>
-      <td>2.15</td>
+      <td>5.39</td>
+      <td>5.33</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5.52</td>
-      <td>2.61</td>
+      <td>2.06</td>
+      <td>1.99</td>
     </tr>
   </tbody>
 </table>
@@ -690,10 +700,10 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.89, 2.09],
-       [2.55, 6.81],
-       [2.51, 2.69],
-       [7.31, 5.91]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.86, 1.27],
+       [6.08, 1.62],
+       [5.92, 5.75],
+       [6.36, 1.76]])
 </pre></div>
 </div>
 </div>
@@ -707,53 +717,53 @@ first by taking the difference, squaring it, then summing along each row.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0      10.4081
- 1       0.0884
- 2       0.6058
- 3       0.0052
- 4      13.4473
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0      46.3060
+ 1      19.1492
+ 2      17.3570
+ 3      28.9445
+ 4       0.5584
          ...   
- 195     0.4160
- 196    23.9850
- 197    17.3393
- 198     0.3530
- 199    33.1594
+ 195    53.9578
+ 196    20.3409
+ 197    33.7025
+ 198    19.4084
+ 199    37.6925
  Length: 200, dtype: float64,
- 0       2.4337
- 1      25.5776
- 2      21.7346
- 3      22.1000
- 4      26.4609
+ 0      21.2797
+ 1      29.3157
+ 2      24.9273
+ 3      14.2402
+ 4      16.2973
          ...   
- 195    21.5300
- 196    12.0130
- 197    42.9881
- 198    17.4050
- 199     9.6706
+ 195    20.7649
+ 196     0.1250
+ 197    20.5972
+ 198    36.1161
+ 199    18.9954
  Length: 200, dtype: float64,
- 0       6.5545
- 1       1.2928
- 2       1.9314
- 3       0.6280
- 4       9.0665
+ 0       0.5960
+ 1      12.2696
+ 2      10.2170
+ 3       0.4573
+ 4      29.0372
          ...   
- 195     0.2708
- 196    16.2994
- 197    14.0929
- 198     0.3026
- 199    24.0098
+ 195     2.6282
+ 196    15.2225
+ 197     0.7045
+ 198    18.3248
+ 199     0.0605
  Length: 200, dtype: float64,
- 0      23.1885
- 1      47.2804
- 2      50.4250
- 3      43.0820
- 4      14.0941
+ 0      19.8349
+ 1      30.3461
+ 2      25.8485
+ 3      13.6858
+ 4      18.5429
          ...   
- 195    36.8360
- 196     3.2378
- 197    23.9125
- 198    39.0554
- 199     3.0914
+ 195    18.8413
+ 196     0.0130
+ 197    19.9784
+ 198    37.5665
+ 199    18.0266
  Length: 200, dtype: float64]
 </pre></div>
 </div>
@@ -796,38 +806,38 @@ corresponding mean. We can stack these into one DataFrame.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>10.4081</td>
-      <td>2.4337</td>
-      <td>6.5545</td>
-      <td>23.1885</td>
+      <td>46.3060</td>
+      <td>21.2797</td>
+      <td>0.5960</td>
+      <td>19.8349</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.0884</td>
-      <td>25.5776</td>
-      <td>1.2928</td>
-      <td>47.2804</td>
+      <td>19.1492</td>
+      <td>29.3157</td>
+      <td>12.2696</td>
+      <td>30.3461</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.6058</td>
-      <td>21.7346</td>
-      <td>1.9314</td>
-      <td>50.4250</td>
+      <td>17.3570</td>
+      <td>24.9273</td>
+      <td>10.2170</td>
+      <td>25.8485</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.0052</td>
-      <td>22.1000</td>
-      <td>0.6280</td>
-      <td>43.0820</td>
+      <td>28.9445</td>
+      <td>14.2402</td>
+      <td>0.4573</td>
+      <td>13.6858</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>13.4473</td>
-      <td>26.4609</td>
-      <td>9.0665</td>
-      <td>14.0941</td>
+      <td>0.5584</td>
+      <td>16.2973</td>
+      <td>29.0372</td>
+      <td>18.5429</td>
     </tr>
   </tbody>
 </table>
@@ -843,11 +853,11 @@ minimum across each row and returns the index (location) of that minimum.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
-1    0
-2    0
-3    0
-4    2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    2
+1    2
+2    2
+3    2
+4    0
 dtype: int64
 </pre></div>
 </div>
@@ -889,33 +899,33 @@ dtype: int64
   <tbody>
     <tr>
       <th>0</th>
-      <td>2.54</td>
-      <td>5.25</td>
-      <td>1</td>
+      <td>6.54</td>
+      <td>6.21</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.79</td>
-      <td>1.81</td>
-      <td>0</td>
+      <td>2.42</td>
+      <td>5.61</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.16</td>
-      <td>2.36</td>
-      <td>0</td>
+      <td>2.75</td>
+      <td>5.34</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.93</td>
-      <td>2.15</td>
-      <td>0</td>
+      <td>5.39</td>
+      <td>5.33</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5.52</td>
-      <td>2.61</td>
-      <td>2</td>
+      <td>2.06</td>
+      <td>1.99</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -976,10 +986,10 @@ groupby.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.69      , 2.05057143],
-       [2.12408163, 5.98714286],
-       [5.02873016, 2.13063492],
-       [6.04264151, 5.32396226]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.00179487, 2.16846154],
+       [5.71147059, 1.88411765],
+       [3.91704082, 5.95765306],
+       [6.61206897, 2.20275862]])
 </pre></div>
 </div>
 </div>
@@ -1073,6 +1083,22 @@ was okay for the steps to be in the other order.</p>
 <div class="cell_output docutils container">
 <img alt="../_images/2021-11-01_30_0.png" src="../_images/2021-11-01_30_0.png" />
 <img alt="../_images/2021-11-01_30_1.png" src="../_images/2021-11-01_30_1.png" />
+<img alt="../_images/2021-11-01_30_2.png" src="../_images/2021-11-01_30_2.png" />
+<img alt="../_images/2021-11-01_30_3.png" src="../_images/2021-11-01_30_3.png" />
+<img alt="../_images/2021-11-01_30_4.png" src="../_images/2021-11-01_30_4.png" />
+<img alt="../_images/2021-11-01_30_5.png" src="../_images/2021-11-01_30_5.png" />
+<img alt="../_images/2021-11-01_30_6.png" src="../_images/2021-11-01_30_6.png" />
+<img alt="../_images/2021-11-01_30_7.png" src="../_images/2021-11-01_30_7.png" />
+<img alt="../_images/2021-11-01_30_8.png" src="../_images/2021-11-01_30_8.png" />
+<img alt="../_images/2021-11-01_30_9.png" src="../_images/2021-11-01_30_9.png" />
+<img alt="../_images/2021-11-01_30_10.png" src="../_images/2021-11-01_30_10.png" />
+<img alt="../_images/2021-11-01_30_11.png" src="../_images/2021-11-01_30_11.png" />
+<img alt="../_images/2021-11-01_30_12.png" src="../_images/2021-11-01_30_12.png" />
+<img alt="../_images/2021-11-01_30_13.png" src="../_images/2021-11-01_30_13.png" />
+<img alt="../_images/2021-11-01_30_14.png" src="../_images/2021-11-01_30_14.png" />
+<img alt="../_images/2021-11-01_30_15.png" src="../_images/2021-11-01_30_15.png" />
+<img alt="../_images/2021-11-01_30_16.png" src="../_images/2021-11-01_30_16.png" />
+<img alt="../_images/2021-11-01_30_17.png" src="../_images/2021-11-01_30_17.png" />
 </div>
 </div>
 <p>This algorithm is random.  So each time we run it, it looks a little different.</p>
@@ -1129,10 +1155,10 @@ was okay for the steps to be in the other order.</p>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+        <a class="right-next" href="2021-11-03.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+                <p class="prevnext-title"><span class="section-number">28. </span>Clustering</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

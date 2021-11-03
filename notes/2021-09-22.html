@@ -257,6 +257,11 @@
    27. Clustering
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-03.html">
+   28. Clustering
+  </a>
+ </li>
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
@@ -302,6 +307,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/08-regression.html">
    8. Assignment 8: Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/09-clustering.html">
+   9. Assignment 9: Clustering
   </a>
  </li>
 </ul>
@@ -1405,7 +1415,7 @@ nice defaults.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86.1 ns ± 1.9 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>98.4 ns ± 1.04 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1418,7 +1428,7 @@ nice defaults.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48 ms ± 752 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>51.2 ms ± 1.06 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1516,7 +1526,7 @@ a smoothed out histogram.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2392/3818478052.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1772/3818478052.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="p">:</span><span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;raises-exception&quot;</span><span class="p">]</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1560,7 +1570,7 @@ Name: Balance, dtype: float64
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2392</span><span class="o">/</span><span class="mf">1214282069.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1772</span><span class="o">/</span><span class="mf">1214282069.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">][</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/series.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
@@ -1649,7 +1659,7 @@ The outer <code class="docutils literal notranslate"><span class="pre">[</span> 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2392</span><span class="o">/</span><span class="mf">2943951791.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1772</span><span class="o">/</span><span class="mf">2943951791.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">hist_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">coffee_df</span><span class="p">[</span><span class="n">hist_vars</span><span class="p">]</span>
 
@@ -1732,7 +1742,7 @@ line. We’ll turn that off for now, with <code class="docutils literal notransl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fc87d8e5c90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f90b5ad1a10&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-09-22_50_1.png" src="../_images/2021-09-22_50_1.png" />
@@ -1747,7 +1757,7 @@ line. We’ll turn that off for now, with <code class="docutils literal notransl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fc87d7229d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f90b5951190&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-09-22_52_1.png" src="../_images/2021-09-22_52_1.png" />
@@ -1764,7 +1774,7 @@ line. We’ll turn that off for now, with <code class="docutils literal notransl
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2392</span><span class="o">/</span><span class="mf">1769025671.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1772</span><span class="o">/</span><span class="mf">1769025671.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coffee_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>                <span class="n">row</span><span class="o">=</span><span class="s1">&#39;Color&#39;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s1">&#39;Variety&#39;</span><span class="p">)</span>
 
@@ -1811,11 +1821,11 @@ line. We’ll turn that off for now, with <code class="docutils literal notransl
 <span class="g g-Whitespace">   </span><span class="mi">3168</span>             <span class="bp">self</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/tight_layout.py</span> in <span class="ni">get_tight_layout_figure</span><span class="nt">(fig, axes_list, subplotspec_list, renderer, pad, h_pad, w_pad, rect)</span>
-<span class="g g-Whitespace">    </span><span class="mi">343</span>                                          <span class="n">ax_bbox_list</span><span class="o">=</span><span class="n">ax_bbox_list</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">344</span>                                          <span class="n">pad</span><span class="o">=</span><span class="n">pad</span><span class="p">,</span> <span class="n">h_pad</span><span class="o">=</span><span class="n">h_pad</span><span class="p">,</span> <span class="n">w_pad</span><span class="o">=</span><span class="n">w_pad</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">345</span>                                          <span class="n">rect</span><span class="o">=</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">top</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span> 
-<span class="g g-Whitespace">    </span><span class="mi">347</span>     <span class="k">return</span> <span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">315</span>                                      <span class="n">subplot_list</span><span class="o">=</span><span class="n">subplot_list</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span>                                      <span class="n">ax_bbox_list</span><span class="o">=</span><span class="n">ax_bbox_list</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">317</span>                                      <span class="n">pad</span><span class="o">=</span><span class="n">pad</span><span class="p">,</span> <span class="n">h_pad</span><span class="o">=</span><span class="n">h_pad</span><span class="p">,</span> <span class="n">w_pad</span><span class="o">=</span><span class="n">w_pad</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> 
+<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="c1"># kwargs can be none if tight_layout fails...</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/tight_layout.py</span> in <span class="ni">auto_adjust_subplotpars</span><span class="nt">(fig, renderer, nrows_ncols, num1num2_list, subplot_list, ax_bbox_list, pad, h_pad, w_pad, rect)</span>
 <span class="g g-Whitespace">     </span><span class="mi">82</span>             <span class="k">if</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_visible</span><span class="p">():</span>
@@ -1832,46 +1842,67 @@ line. We’ll turn that off for now, with <code class="docutils literal notransl
 <span class="g g-Whitespace">   </span><span class="mi">4442</span>                     <span class="c1"># in case downstream library has redefined axis:</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer, for_layout_only)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1086</span>         <span class="n">ticks_to_draw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_ticks</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1084</span>             <span class="k">return</span>
+<span class="g g-Whitespace">   </span><span class="mi">1085</span> 
+<span class="ne">-&gt; </span><span class="mi">1086</span>         <span class="n">ticks_to_draw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_ticks</span><span class="p">()</span>
 <span class="g g-Whitespace">   </span><span class="mi">1087</span> 
-<span class="ne">-&gt; </span><span class="mi">1088</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_update_label_position</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1089</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1090</span>         <span class="c1"># go back to just this axis&#39;s tick labels</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py</span> in <span class="ni">_update_label_position</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2357</span>         <span class="c1"># get bounding boxes for this axis and any siblings</span>
-<span class="g g-Whitespace">   </span><span class="mi">2358</span>         <span class="c1"># that have been set by `fig.align_ylabels()`</span>
-<span class="ne">-&gt; </span><span class="mi">2359</span>         <span class="n">bboxes</span><span class="p">,</span> <span class="n">bboxes2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_tick_boxes_siblings</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2360</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2361</span>         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py</span> in <span class="ni">_get_tick_boxes_siblings</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1870</span>         <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">grouper</span><span class="o">.</span><span class="n">get_siblings</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1871</span>             <span class="n">axis</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">_get_axis_map</span><span class="p">()[</span><span class="n">axis_name</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">1872</span>             <span class="n">ticks_to_draw</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">_update_ticks</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1873</span>             <span class="n">tlb</span><span class="p">,</span> <span class="n">tlb2</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">_get_tick_bboxes</span><span class="p">(</span><span class="n">ticks_to_draw</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1874</span>             <span class="n">bboxes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tlb</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1088</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_update_label_position</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py</span> in <span class="ni">_update_ticks</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1032</span>         <span class="k">for</span> <span class="n">tick</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">major_ticks</span><span class="p">,</span> <span class="n">major_locs</span><span class="p">,</span> <span class="n">major_labels</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1033</span>             <span class="n">tick</span><span class="o">.</span><span class="n">update_position</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1034</span>             <span class="n">tick</span><span class="o">.</span><span class="n">set_label1</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1034</span>             <span class="n">tick</span><span class="o">.</span><span class="n">set_label1</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1035</span>             <span class="n">tick</span><span class="o">.</span><span class="n">set_label2</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1036</span>         <span class="n">minor_locs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_minorticklocs</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1036</span>         <span class="n">minor_locs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_minorticklocs</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1037</span>         <span class="n">minor_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">minor</span><span class="o">.</span><span class="n">formatter</span><span class="o">.</span><span class="n">format_ticks</span><span class="p">(</span><span class="n">minor_locs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>         <span class="n">minor_ticks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_minor_ticks</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">minor_locs</span><span class="p">))</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py</span> in <span class="ni">set_label1</span><span class="nt">(self, s)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span>         <span class="n">s</span> <span class="p">:</span> <span class="nb">str</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="sd">&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">314</span><span class="sd">         self.label1.set_text(s)</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span><span class="sd">         self.stale = True</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="sd"> </span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py</span> in <span class="ni">get_minorticklocs</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1268</span>         <span class="n">tr_minor_locs</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">minor_locs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1269</span>         <span class="n">tr_major_locs</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">major_locs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1270</span>         <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_view_interval</span><span class="p">()))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1271</span>         <span class="c1"># Use the transformed view limits as scale.  1e-5 is the default rtol</span>
+<span class="g g-Whitespace">   </span><span class="mi">1272</span>         <span class="c1"># for np.isclose.</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/text.py</span> in <span class="ni">set_text</span><span class="nt">(self, s)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1199</span><span class="sd">         self.stale = True</span>
-<span class="g g-Whitespace">   </span><span class="mi">1200</span><span class="sd"> </span>
-<span class="ne">-&gt; </span><span class="mi">1201</span><span class="sd">     def set_text(self, s):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1202</span><span class="sd">         r&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1203</span>         <span class="n">Set</span> <span class="n">the</span> <span class="n">text</span> <span class="n">string</span> <span class="o">*</span><span class="n">s</span><span class="o">*.</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axis.py</span> in <span class="ni">getter</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1987</span>     <span class="k">def</span> <span class="nf">getter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1988</span>         <span class="c1"># docstring inherited.</span>
+<span class="ne">-&gt; </span><span class="mi">1989</span>         <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span> <span class="n">lim_name</span><span class="p">),</span> <span class="n">attr_name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1990</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1991</span>     <span class="k">def</span> <span class="nf">setter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">viewLim</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">780</span>     <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">781</span>     <span class="k">def</span> <span class="nf">viewLim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">782</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_unstale_viewLim</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_viewLim</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">_unstale_viewLim</span><span class="nt">(self)</span>
+<span class="nn">    770                      for ax</span> in <span class="ni">self._shared_x_axes.get_siblings</span><span class="nt">(self))</span>
+<span class="g g-Whitespace">    </span><span class="mi">771</span>         <span class="n">scaley</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">_stale_viewlim_y</span>
+<span class="nn">--&gt; 772                      for ax</span> in <span class="ni">self._shared_y_axes.get_siblings</span><span class="nt">(self))</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span>         <span class="k">if</span> <span class="n">scalex</span> <span class="ow">or</span> <span class="n">scaley</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">774</span>             <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shared_x_axes</span><span class="o">.</span><span class="n">get_siblings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">get_siblings</span><span class="nt">(self, a)</span>
+<span class="g g-Whitespace">    </span><span class="mi">907</span>     <span class="k">def</span> <span class="nf">get_siblings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">908</span>         <span class="sd">&quot;&quot;&quot;Return all of the items joined with *a*, including itself.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">909</span>         <span class="bp">self</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">910</span>         <span class="n">siblings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="p">[</span><span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">a</span><span class="p">)])</span>
+<span class="g g-Whitespace">    </span><span class="mi">911</span>         <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">siblings</span><span class="p">]</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">clean</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span>         <span class="sd">&quot;&quot;&quot;Clean dead weak references from the dictionary.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>         <span class="n">mapping</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping</span>
+<span class="ne">--&gt; </span><span class="mi">861</span>         <span class="n">to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mapping</span> <span class="k">if</span> <span class="n">key</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">to_drop</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span>             <span class="n">val</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span>         <span class="sd">&quot;&quot;&quot;Clean dead weak references from the dictionary.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>         <span class="n">mapping</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping</span>
+<span class="ne">--&gt; </span><span class="mi">861</span>         <span class="n">to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mapping</span> <span class="k">if</span> <span class="n">key</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">to_drop</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span>             <span class="n">val</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
