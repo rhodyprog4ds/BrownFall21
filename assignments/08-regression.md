@@ -13,11 +13,11 @@ substitutions:
 ## Related notes
 
 - [2021-10-25](../notes/2021-10-25)
-- [2021-10-29]()
+- [2021-10-29](../notes/2021-10-29)
 
-## Asseessment
+## Assessment
 
-```{list-table} apply regression and measure performance
+```{list-table} 
 :header-rows: 1
 
 * - task
