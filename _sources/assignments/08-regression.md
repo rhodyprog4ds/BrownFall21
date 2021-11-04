@@ -17,7 +17,7 @@ substitutions:
 
 ## Assessment
 
-```{list-table} 
+```{list-table}
 :header-rows: 1
 
 * - task
@@ -53,9 +53,9 @@ Complete the following in a single notebook.
 Fit a linear regression model, measure the fit with two metrics, and make a plot that helps visualize the result.
 
 1. Include a basic description of the data(what the features are)
-1. Write  your own description of what the classification task is and why a decision tree is a reasonable model to try for this data.
+1. Write  your own description of what the regression task is and why a decision tree is a reasonable model to try for this data.
 1. Fit a linear model with 75% training data
-1. Test it on 25% held out test data and mesure the fit with two metrics and one plot
+1. Test it on 25% held out test data and measure the fit with two metrics and one plot
 1. Inspect the model to answer:
 
     - Does this model make sense?
