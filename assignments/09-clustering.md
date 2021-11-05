@@ -42,7 +42,7 @@ substitutions:
 
 Use the same dataset you used for assignment 7, unless there was a problem, or pick one of the recommended ones for that assignment if you did not complete assignment 7.
 
-1. Describe what question you'd be asking in applying clustering to this dataset.  How
+1. Describe what question you'd be asking in applying clustering to this dataset. 
 1. Apply Kmeans using the known, correct
 number of clusters, $K$.
 1.  Evaluate how well clustering worked on the data:
