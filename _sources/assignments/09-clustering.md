@@ -42,13 +42,13 @@ substitutions:
 
 Use the same dataset you used for assignment 7, unless there was a problem, or pick one of the recommended ones for that assignment if you did not complete assignment 7.
 
-1. Describe what question you'd be asking in applying clustering to this dataset.  How
+1. Describe what question you'd be asking in applying clustering to this dataset.
 1. Apply Kmeans using the known, correct
 number of clusters, $K$.
 1.  Evaluate how well clustering worked on the data:
 
-    - using a true clustering metric and
-    - using visualization.
+    - using a true clustering metric
+    - using visual inspection
     - using a clustering metric that uses the ground truth labels
 1. Include a discussion of your results that addresses the following:
 
@@ -58,7 +58,7 @@ number of clusters, $K$.
 1. Repeat your analysis using a different number of clusters:
 
     - can you interpret the new clusters?
-    - how to they relate to the original clusters? are they completely different, did one split?
+    - how to they relate to the original clusters? are they completely different, did one split? did some merge?
     - is there a reasonable explanation for more clusters than there are classes in this dataset?
 
 
