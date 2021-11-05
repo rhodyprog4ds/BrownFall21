@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Evaluating CLustering &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>Evaluating Clustering &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -539,14 +539,29 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Evaluating CLustering
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clusting-with-kmeans">
+   Clusting with KMeans
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#silhouette-score">
    Silhouette Score
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutual-information">
+   Mutual Information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relationship-between-tasks">
+   Relationship between Tasks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   Questions After Class
   </a>
  </li>
 </ul>
@@ -561,7 +576,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="evaluating-clustering">
-<h1>Evaluating CLustering<a class="headerlink" href="#evaluating-clustering" title="Permalink to this headline">¶</a></h1>
+<h1>Evaluating Clustering<a class="headerlink" href="#evaluating-clustering" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -573,6 +588,7 @@
 </div>
 </div>
 </div>
+<p>We’ll continue with the iris dataset because it’s visually clear.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurement_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span><span class="s1">&#39;petal_length&#39;</span><span class="p">,</span><span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span><span class="s1">&#39;petal_width&#39;</span><span class="p">]</span>
@@ -583,6 +599,8 @@
 </div>
 </div>
 </div>
+<div class="section" id="clusting-with-kmeans">
+<h2>Clusting with KMeans<a class="headerlink" href="#clusting-with-kmeans" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">km3</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -609,24 +627,31 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-       0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2,
-       2, 2, 2, 1, 1, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 2, 1, 1, 2, 2, 2, 2,
-       2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 1], dtype=int32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 0, 2, 2, 2,
+       2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 2, 0, 2, 0, 2, 2, 0, 0, 2, 2, 2, 2,
+       2, 0, 2, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 0], dtype=int32)
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="silhouette-score">
-<h1>Silhouette Score<a class="headerlink" href="#silhouette-score" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="silhouette-score">
+<h2>Silhouette Score<a class="headerlink" href="#silhouette-score" title="Permalink to this headline">¶</a></h2>
+<p>One way to intutitively think about a good clustering solution is that every point should be close to points in the same cluster and far from points in other clusters. By definition with Kmeans, they will always be clos<em>er</em> to points in the same cluster, but we also what that the clusters aren’t just touching, but actually spaced apart, if the clustering actually captures meaningfully different groups.</p>
 <div class="math notranslate nohighlight">
 \[ s = \frac{b-a}{max(a,b)}\]</div>
-<p>a: The mean distance between a sample and all other points in the same class.</p>
+<p>If our points are each an <span class="math notranslate nohighlight">\(x_i\)</span>, the assignments we found are a <span class="math notranslate nohighlight">\(z_i\)</span>, and the
+means we found are <span class="math notranslate nohighlight">\(mu_k\)</span> with <span class="math notranslate nohighlight">\(k = 0, 1, \ldots, K\)</span></p>
+<p>a: The mean distance between a sample and all other points in the same class.
+$<span class="math notranslate nohighlight">\( a = \frac{1}{N} \sum_i (x_i - mu_{z_i}) \)</span></p>
 <p>b: The mean distance between a sample and all other points in the next nearest cluster.</p>
+<p>This score computes a ratio of how close points are to points in the same cluster vs other clusters</p>
+<hr class="docutils" />
+<p>Use the <code class="docutils literal notranslate"><span class="pre">labels_</span></code> attribute of the kmeans objects to compare the silhouette score for K =2 and K=3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">iris_X</span><span class="p">,</span><span class="n">km3</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
@@ -634,7 +659,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.55281901235641
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5528190123564098
 </pre></div>
 </div>
 </div>
@@ -673,14 +698,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4980505049972882
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.49805050499728815
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">km3</span><span class="o">.</span><span class="n">labels_</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">km3</span><span class="o">.</span><span class="n">labels_</span>
 </pre></div>
 </div>
 </div>
@@ -693,11 +718,55 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7feaba411050&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f223eb69a50&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-11-05_12_1.png" src="../_images/2021-11-05_12_1.png" />
+<img alt="../_images/2021-11-05_14_1.png" src="../_images/2021-11-05_14_1.png" />
 </div>
+</div>
+<p>Other types of clustering: <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#overview-of-clustering-methods">sklearn overivew</a></p>
+<hr class="docutils" />
+<p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html">classifier comparison</a></p>
+</div>
+<div class="section" id="mutual-information">
+<h2>Mutual Information<a class="headerlink" href="#mutual-information" title="Permalink to this headline">¶</a></h2>
+<p>When we know the truth, we can see if the learned clusters are related to the true groups, we can’t compare them like accuracy but we can use a metric that is intuitively like a correlation for categorical variables, the mutual information.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">adjusted_mutual_info_score</span></code> methos in the <code class="docutils literal notranslate"><span class="pre">metrics</span></code> module computes a version of mutual information that is normalized to have good properties. Apply that to the two different clustering solutions and to a solution for K=4.</p>
+<hr class="docutils" />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_mutual_info_score</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span><span class="n">km2</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_mutual_info_score</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span><span class="n">km3</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_mutual_info_score</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span><span class="n">km4</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>How does K=4 vs K=2 make different errors? how does mutual information help see that?</p>
+</div>
+<div class="section" id="relationship-between-tasks">
+<h2>Relationship between Tasks<a class="headerlink" href="#relationship-between-tasks" title="Permalink to this headline">¶</a></h2>
+<p>We learned classification first, because it shares similarities with each
+regression and clustering, while they share less.</p>
+<p>Take a moment to think and talk with people around you:</p>
+<ul class="simple">
+<li><p>What do classification and regression share? How to they differ?</p></li>
+<li><p>What do classification and clustering share? How to they differ?</p></li>
+<li><p>How do these differences and similarities relate to what data we can use for
+each and what types of questions we can ask?</p></li>
+</ul>
+</div>
+<div class="section" id="questions-after-class">
+<h2>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<p>How I would use all of those different ones.
+How exactly do I find numbers of clusters</p>
+<p>no questions
+what do you mean by the data is represented in the 4th dimension
+How do we utilize these clusters once we have them?
+I still don’t understand  how the algorithm works but I think it’s too complex for me to understand…
+how do we go from the labels giving elements of clusters to matching the appropriate feature variables</p>
 </div>
 </div>
 

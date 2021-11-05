@@ -610,7 +610,7 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f1561da2510&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f900b2c6e50&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-11-01_3_1.png" src="../_images/2021-11-01_3_1.png" />
@@ -650,28 +650,28 @@ for other types of centers.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>6.24</td>
-      <td>2.73</td>
+      <td>6.03</td>
+      <td>5.94</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.27</td>
-      <td>1.15</td>
+      <td>5.74</td>
+      <td>6.14</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6.06</td>
-      <td>6.88</td>
+      <td>6.17</td>
+      <td>1.57</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>6.40</td>
-      <td>6.21</td>
+      <td>1.44</td>
+      <td>5.58</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>6.51</td>
-      <td>5.47</td>
+      <td>2.23</td>
+      <td>5.30</td>
     </tr>
   </tbody>
 </table>
@@ -700,10 +700,10 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.54, 6.13],
-       [5.68, 2.32],
-       [1.49, 1.78],
-       [5.39, 2.41]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.94, 6.34],
+       [1.08, 1.6 ],
+       [2.07, 6.01],
+       [2.07, 2.17]])
 </pre></div>
 </div>
 </div>
@@ -717,53 +717,53 @@ first by taking the difference, squaring it, then summing along each row.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0      25.2500
- 1      24.8733
- 2      12.9529
- 3      14.9060
- 4      16.1965
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0       0.9881
+ 1       1.4800
+ 2      23.3458
+ 3      30.8276
+ 4      23.2657
          ...   
- 195    31.9040
- 196    17.2804
- 197     0.7649
- 198    11.8225
- 199     0.1225
+ 195    27.7925
+ 196    49.3337
+ 197    23.7640
+ 198     0.5800
+ 199    24.4106
  Length: 200, dtype: float64,
- 0       0.4817
- 1      12.9970
- 2      20.9380
- 3      15.6505
- 4      10.6114
+ 0      43.3381
+ 1      42.3272
+ 2      25.9090
+ 3      15.9700
+ 4      15.0125
          ...   
- 195     0.5389
- 196    18.8645
- 197    33.6020
- 198    12.8290
- 199    21.8312
+ 195     5.2897
+ 196     1.1629
+ 197    30.0448
+ 198    47.0080
+ 199    18.4586
  Length: 200, dtype: float64,
- 0      23.4650
- 1       1.0053
- 2      46.8949
- 3      43.7330
- 4      38.8165
+ 0      15.6865
+ 1      13.4858
+ 2      36.5236
+ 3       0.5818
+ 4       0.5297
          ...   
- 195    20.1770
- 196     0.1594
- 197    24.1469
- 198    36.9625
- 199    17.1025
+ 195     7.7233
+ 196    22.6585
+ 197    40.6810
+ 198    17.0794
+ 199     0.0500
  Length: 200, dtype: float64,
- 0       0.8249
- 1      11.3220
- 2      20.4298
- 3      15.4601
- 4      10.6180
+ 0      29.8945
+ 1      29.2298
+ 2      17.1700
+ 3      12.0250
+ 4       9.8225
          ...   
- 195     0.9257
- 196    16.4701
- 197    30.6938
- 198    12.4468
- 199    19.4794
+ 195     1.5793
+ 196     0.8473
+ 197    20.6362
+ 198    32.9770
+ 199    13.1060
  Length: 200, dtype: float64]
 </pre></div>
 </div>
@@ -806,38 +806,38 @@ corresponding mean. We can stack these into one DataFrame.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>25.2500</td>
-      <td>0.4817</td>
-      <td>23.4650</td>
-      <td>0.8249</td>
+      <td>0.9881</td>
+      <td>43.3381</td>
+      <td>15.6865</td>
+      <td>29.8945</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>24.8733</td>
-      <td>12.9970</td>
-      <td>1.0053</td>
-      <td>11.3220</td>
+      <td>1.4800</td>
+      <td>42.3272</td>
+      <td>13.4858</td>
+      <td>29.2298</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>12.9529</td>
-      <td>20.9380</td>
-      <td>46.8949</td>
-      <td>20.4298</td>
+      <td>23.3458</td>
+      <td>25.9090</td>
+      <td>36.5236</td>
+      <td>17.1700</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>14.9060</td>
-      <td>15.6505</td>
-      <td>43.7330</td>
-      <td>15.4601</td>
+      <td>30.8276</td>
+      <td>15.9700</td>
+      <td>0.5818</td>
+      <td>12.0250</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>16.1965</td>
-      <td>10.6114</td>
-      <td>38.8165</td>
-      <td>10.6180</td>
+      <td>23.2657</td>
+      <td>15.0125</td>
+      <td>0.5297</td>
+      <td>9.8225</td>
     </tr>
   </tbody>
 </table>
@@ -853,11 +853,11 @@ minimum across each row and returns the index (location) of that minimum.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
-1    2
-2    0
-3    0
-4    1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
+1    0
+2    3
+3    2
+4    2
 dtype: int64
 </pre></div>
 </div>
@@ -899,33 +899,33 @@ dtype: int64
   <tbody>
     <tr>
       <th>0</th>
-      <td>6.24</td>
-      <td>2.73</td>
-      <td>1</td>
+      <td>6.03</td>
+      <td>5.94</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.27</td>
-      <td>1.15</td>
-      <td>2</td>
+      <td>5.74</td>
+      <td>6.14</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6.06</td>
-      <td>6.88</td>
-      <td>0</td>
+      <td>6.17</td>
+      <td>1.57</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>6.40</td>
-      <td>6.21</td>
-      <td>0</td>
+      <td>1.44</td>
+      <td>5.58</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>6.51</td>
-      <td>5.47</td>
-      <td>1</td>
+      <td>2.23</td>
+      <td>5.30</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -986,10 +986,10 @@ groupby.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3.60076923, 6.10725275],
-       [6.175     , 2.06613636],
-       [1.98234043, 2.05106383],
-       [5.82944444, 4.77444444]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.19981481, 5.37185185],
+       [1.45307692, 1.50692308],
+       [2.00563636, 6.07690909],
+       [3.82794872, 1.9974359 ]])
 </pre></div>
 </div>
 </div>
