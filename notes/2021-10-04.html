@@ -267,6 +267,11 @@
    29. Evaluating Clustering
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-08.html">
+   30. ML Task Review and Cross Validation
+  </a>
+ </li>
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
@@ -1151,6 +1156,24 @@ places where there wasn’t a value.</p>
   </thead>
   <tbody>
     <tr>
+      <th>705</th>
+      <td>1.610613e+09</td>
+      <td>202721</td>
+      <td>2018.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>773</th>
+      <td>NaN</td>
+      <td>1629673</td>
+      <td>NaN</td>
+      <td>Jordan Poole</td>
+      <td>1.610613e+09</td>
+      <td>2019.0</td>
+    </tr>
+    <tr>
       <th>619</th>
       <td>1.610613e+09</td>
       <td>1626166</td>
@@ -1160,83 +1183,65 @@ places where there wasn’t a value.</p>
       <td>2019.0</td>
     </tr>
     <tr>
-      <th>497</th>
+      <th>172</th>
       <td>1.610613e+09</td>
-      <td>1629012</td>
+      <td>203497</td>
       <td>2018.0</td>
-      <td>Collin Sexton</td>
+      <td>Rudy Gobert</td>
       <td>1.610613e+09</td>
       <td>2019.0</td>
     </tr>
     <tr>
-      <th>271</th>
-      <td>1.610613e+09</td>
-      <td>1629353</td>
-      <td>2018.0</td>
-      <td>Isaac Humphries</td>
-      <td>1.610613e+09</td>
-      <td>2019.0</td>
-    </tr>
-    <tr>
-      <th>878</th>
+      <th>799</th>
       <td>NaN</td>
-      <td>1629690</td>
+      <td>1629035</td>
       <td>NaN</td>
-      <td>Adam Mokoka</td>
+      <td>Carsen Edwards</td>
       <td>1.610613e+09</td>
       <td>2019.0</td>
     </tr>
     <tr>
-      <th>81</th>
+      <th>413</th>
       <td>1.610613e+09</td>
-      <td>202710</td>
+      <td>1628403</td>
       <td>2018.0</td>
-      <td>Jimmy Butler</td>
+      <td>Caleb Swanigan</td>
       <td>1.610613e+09</td>
       <td>2019.0</td>
     </tr>
     <tr>
-      <th>71</th>
+      <th>743</th>
       <td>1.610613e+09</td>
-      <td>203914</td>
-      <td>2018.0</td>
-      <td>Gary Harris</td>
-      <td>1.610613e+09</td>
-      <td>2019.0</td>
-    </tr>
-    <tr>
-      <th>330</th>
-      <td>1.610613e+09</td>
-      <td>1629102</td>
+      <td>1629166</td>
       <td>2018.0</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>913</th>
-      <td>NaN</td>
-      <td>1629786</td>
-      <td>NaN</td>
-      <td>John Egbunu</td>
+      <th>280</th>
       <td>1.610613e+09</td>
-      <td>2019.0</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>1.610613e+09</td>
-      <td>201588</td>
+      <td>1629130</td>
       <td>2018.0</td>
-      <td>George Hill</td>
+      <td>Duncan Robinson</td>
       <td>1.610613e+09</td>
       <td>2019.0</td>
     </tr>
     <tr>
-      <th>796</th>
+      <th>584</th>
+      <td>1.610613e+09</td>
+      <td>1628979</td>
+      <td>2018.0</td>
       <td>NaN</td>
-      <td>1629662</td>
       <td>NaN</td>
-      <td>Mfiondu Kabengele</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>340</th>
+      <td>1.610613e+09</td>
+      <td>1627814</td>
+      <td>2018.0</td>
+      <td>Damion Lee</td>
       <td>1.610613e+09</td>
       <td>2019.0</td>
     </tr>
@@ -1758,7 +1763,7 @@ merge, it will throw an error if that type of merge is not possible.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">MergeError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2890</span><span class="o">/</span><span class="mf">2916808787.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2933</span><span class="o">/</span><span class="mf">2916808787.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="n">validate</span><span class="o">=</span><span class="s1">&#39;one_to_one&#39;</span><span class="p">)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/reshape/merge.py</span> in <span class="ni">merge</span><span class="nt">(left, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
@@ -1837,7 +1842,7 @@ a DataFrame, so it could be passed to another merge.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2890</span><span class="o">/</span><span class="mf">805718336.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2933</span><span class="o">/</span><span class="mf">805718336.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">change_check</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="ow">not</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;TEAM_ID_2018&#39;</span><span class="p">]</span><span class="o">==</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;TEAM_ID_2019&#39;</span><span class="p">])</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">year_over_year_clean</span><span class="p">[</span><span class="s1">&#39;CHANGE_TEAM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">year_over_year_clean</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">change_check</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">year_over_year_clean</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1859,7 +1864,7 @@ a DataFrame, so it could be passed to another merge.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2890</span><span class="o">/</span><span class="mf">1142329717.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2933</span><span class="o">/</span><span class="mf">1142329717.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">y_o_y_changes</span> <span class="o">=</span> <span class="n">year_over_year_clean</span><span class="p">[</span><span class="n">year_over_year_clean</span><span class="p">[</span><span class="s1">&#39;CHANGE_TEAM&#39;</span><span class="p">]]</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">y_o_y_change_players</span> <span class="o">=</span> <span class="n">y_o_y_changes</span><span class="p">[[</span><span class="s1">&#39;PLAYER_ID&#39;</span><span class="p">,</span><span class="s1">&#39;PLAYER_NAME&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">y_o_y_change_players</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1879,7 +1884,7 @@ a DataFrame, so it could be passed to another merge.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2890</span><span class="o">/</span><span class="mf">2092251871.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2933</span><span class="o">/</span><span class="mf">2092251871.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">y_o_y_change_players</span><span class="o">.</span><span class="n">shape</span>
 
 <span class="ne">NameError</span>: name &#39;y_o_y_change_players&#39; is not defined

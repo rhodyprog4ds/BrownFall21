@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>30. ML Task Review and Cross Validation &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -43,6 +43,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -52,6 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="29. Evaluating Clustering" href="2021-11-05.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -144,7 +148,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -263,6 +267,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
    29. Evaluating Clustering
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   30. ML Task Review and Cross Validation
   </a>
  </li>
 </ul>
@@ -541,7 +550,22 @@
                 <i class="fas fa-list"></i> Contents
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relationship-between-tasks">
+   30.1. Relationship between Tasks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cross-validation">
+   30.2. Cross Validation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes">
+   30.3. Notes
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -553,7 +577,57 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="tex2jax_ignore mathjax_ignore section" id="ml-task-review-and-cross-validation">
+<h1><span class="section-number">30. </span>ML Task Review and Cross Validation<a class="headerlink" href="#ml-task-review-and-cross-validation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="relationship-between-tasks">
+<h2><span class="section-number">30.1. </span>Relationship between Tasks<a class="headerlink" href="#relationship-between-tasks" title="Permalink to this headline">¶</a></h2>
+<p>We learned classification first, because it shares similarities with each
+regression and clustering, while regression and clustering have less in common.</p>
+<p>Classification is supervised learning for a categorical target.<br />
+Regression is supervised learning for a continuous target.
+Clustering is unsupervised learning for a categorical target.</p>
+<p>Sklearn provides a nice flow chart for thinking through this.</p>
+<p><img alt="estimator flow chart" src="https://scikit-learn.org/stable/_static/ml_map.png" /></p>
+<p>Predicting a category is another way of saying categorical target. Predicting a
+quantitiy is another way of saying continuous target. Having lables or not is
+the difference between</p>
+<p>The flowchart assumes you know what you want to do with data and that is the
+ideal scenario. You have a dataset and you have a goal.
+For the purpose of getting to practice with a variety of things, in this course
+we ask you to start with a task and then find a dataset. Assignment 9 is the
+last time that’s true however. Starting with Assignment 10 and the last
+portflios, you can choose and focus on a specific application domain and then
+choose the right task from there.</p>
+<p>Thinking about this, however, you use this information to move between the tasks
+within a given type of data.
+For example, you can use the same data for clustering as you did for classification.
+Switching the task changes the questions though: classification evaluation tells
+us how separable the classes are given that classifiers decision rule. Clustering
+can find other subgroups or the same ones, so the evaluation we choose allows us
+to explore this in more ways.</p>
+<p>Regression requires a continuous target, so we need a dataset to be suitable for
+that, we can’t transform from the classification dataset to a regression one.<br />
+However, we can go the other way and that’s how some classification datasets are
+created.</p>
+<p>The UCI <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/adult">adult</a> Dataset is a popular ML dataset that was dervied from census
+data. The goal is to use a variety of features to predict if a person makes
+more than <span class="math notranslate nohighlight">\(50k per year or not. While income is a continuous value, they applied
+a threshold (\)</span>50k) to it to make a binary variable. The dataset does not include
+income in dollars, only the binary indicator.</p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p>Recent work reconsturcted the dataset with the continuous valued income.
+Their <a class="reference external" href="https://github.com/zykls/folktables">repository</a> contains the data as well
+as links to their paper and a video of their talk on it.</p>
+</div>
+</div>
+<div class="section" id="cross-validation">
+<h2><span class="section-number">30.2. </span>Cross Validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">¶</a></h2>
+<p>This week our goal is to learn how to optmize models. The first step in that is
+to get a good estimate of its performance.</p>
+<p>We have seen that the test train splits, which are random, influence the
+performance.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -567,9 +641,13 @@
 </div>
 </div>
 </div>
+<p>We’ll use the Iris data with a decision tree.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+
+<span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])</span>
+<span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -581,14 +659,19 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])</span>
-<span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>We can split the data, fit the model, then compute a score, but since the
+splitting is a randomized step, the score is a random variable.</p>
+<p>For example, if we have a coin that we want to see if it’s fair or not. We would
+flip it to test.  One flip doesn’t tell us, but if we flip it a few times, we
+can estimate the probability it is heads by counting how many of the flips are
+heads and dividing by how many flips.</p>
+<p>We can do something similar with our model performance. We can split the data
+a bunch of times and compute the score each time.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cross_val_score</span></code> does this all for us.</p>
+<p>It takes an estimator object and the data.</p>
+<p>By default it uses 5-fold cross validation. It splits the data into 5 sections,
+then uses 4 of them to train and one to test. It then iterates through so that
+each section gets used for testing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="n">iris_X</span><span class="p">,</span><span class="n">iris_y</span><span class="p">,)</span>
@@ -601,6 +684,8 @@
 </div>
 </div>
 </div>
+<p>We get back a score for each section or “fold” of the data. We can average those
+to get a single estimate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="n">iris_X</span><span class="p">,</span><span class="n">iris_y</span><span class="p">,))</span>
@@ -613,6 +698,7 @@
 </div>
 </div>
 </div>
+<p>We can use more folds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="n">iris_X</span><span class="p">,</span><span class="n">iris_y</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -626,18 +712,23 @@
 </div>
 </div>
 </div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>What is the equivalent <code class="docutils literal notranslate"><span class="pre">train_size</span></code> for 5 fold? what about 10-fold?</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="n">iris_X</span><span class="p">,</span><span class="n">iris_y</span><span class="p">,))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="n">iris_X</span><span class="p">,</span><span class="n">iris_y</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9600000000000002
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9533333333333334
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can use <em>any</em> estimator object here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -656,6 +747,16 @@
        -19.55457726])
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="notes">
+<h2><span class="section-number">30.3. </span>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Assignments 9 assesses up to level 2 for classification</p></li>
+<li><p>Heads up: Assignment 10 and 11 ask you to explore your work from 2 of (7,8,9) by optimizing the parameter and comparing different models for the same task.  So
+the dataset selection problem is going away, little by little.</p></li>
+</ol>
 </div>
 </div>
 
@@ -688,6 +789,24 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="2021-11-05.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">29. </span>Evaluating Clustering</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../assignments/01-python-syllabus.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
