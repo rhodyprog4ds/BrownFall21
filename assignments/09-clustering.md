@@ -25,7 +25,7 @@ substitutions:
 * - task
   - skill
 * - apply and interpret kmeans clustering
-  - clustering
+  - clustering (2)
 * - use multiple metrics evaluate performance
   - evaluate (2)
 * - interpret how decisions impact model performance
