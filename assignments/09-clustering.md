@@ -15,7 +15,7 @@ substitutions:
 
 - [2021-11-01](../notes/2021-11-01)
 - [2021-11-03](../notes/2021-11-03)
-- [2021-11-05]()
+- [2021-11-05](../notes/2021-11-05)
 
 ## Assessment
 
@@ -41,6 +41,19 @@ substitutions:
 ## Instructions
 
 Use the same dataset you used for assignment 7, unless there was a problem, or pick one of the recommended ones for that assignment if you did not complete assignment 7.
+
+````{margin}
+```{hint}
+a true clustering metric works in an unsupervised way, it does not
+need to use the true labels, unlike the metrics we used for classification
+and regression.  However, when we have the labels, we can see if the 
+clustering algorithm recovers the same groups we know exist in the data. 
+
+See the notes on [Evaluating Clustering](../notes/2021-11-05) for an example
+of each.  There's also a margin note, with a link to sklearn docs with more. 
+If you're curious you can try different metrics from the notes. 
+```
+````
 
 1. Describe what question you'd be asking in applying clustering to this dataset.
 1. Apply Kmeans using the known, correct
