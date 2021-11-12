@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>27. Clustering &#8212; Programming for Data Science at URI Fall 2021</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -43,7 +43,7 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -57,7 +57,10 @@
     <link rel="next" title="28. Clustering" href="2021-11-03.html" />
     <link rel="prev" title="26. Interpretting Regression" href="2021-10-29.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -96,7 +99,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Syllabus
  </span>
@@ -143,7 +146,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Notes
  </span>
@@ -275,7 +278,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Assignments
  </span>
@@ -327,7 +330,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Portfolio
  </span>
@@ -359,7 +362,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   FAQ
  </span>
@@ -386,7 +389,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Resources
  </span>
@@ -620,7 +623,7 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f8bc8f3d0d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f0b8aef5310&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-11-01_3_1.png" src="../_images/2021-11-01_3_1.png" />
@@ -660,28 +663,28 @@ for other types of centers.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.39</td>
-      <td>6.35</td>
+      <td>6.09</td>
+      <td>5.98</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.34</td>
-      <td>6.68</td>
+      <td>2.11</td>
+      <td>6.01</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6.76</td>
-      <td>5.86</td>
+      <td>2.65</td>
+      <td>5.84</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>6.67</td>
-      <td>6.64</td>
+      <td>1.86</td>
+      <td>5.73</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>6.67</td>
-      <td>5.77</td>
+      <td>5.81</td>
+      <td>6.04</td>
     </tr>
   </tbody>
 </table>
@@ -710,10 +713,10 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.19, 2.1 ],
-       [5.56, 5.96],
-       [5.33, 2.47],
-       [5.82, 5.64]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.62, 1.98],
+       [1.97, 5.85],
+       [2.17, 6.85],
+       [5.31, 5.59]])
 </pre></div>
 </div>
 </div>
@@ -727,53 +730,53 @@ first by taking the difference, squaring it, then summing along each row.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0      41.1025
- 1      35.7989
- 2      14.4625
- 3      20.8420
- 4      13.6993
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0      28.0409
+ 1      16.5010
+ 2      14.9005
+ 3      14.6401
+ 4      26.6597
          ...   
- 195    28.3625
- 196    43.7985
- 197    16.9277
- 198    18.1201
- 199    42.2225
+ 195    10.1074
+ 196    32.3917
+ 197    34.3633
+ 198    16.0101
+ 199    17.8000
  Length: 200, dtype: float64,
- 0      17.5410
- 1      10.8868
- 2       1.4500
- 3       1.6945
- 4       1.2682
+ 0      16.9913
+ 1       0.0452
+ 2       0.4625
+ 3       0.0265
+ 4      14.7817
          ...   
- 195    11.7802
- 196    21.6394
- 197     3.8818
- 198    26.2088
- 199    19.1810
+ 195    26.2736
+ 196    24.4205
+ 197    22.8429
+ 198     0.9169
+ 199    12.7426
  Length: 200, dtype: float64,
- 0      30.5780
- 1      26.6642
- 2      13.5370
- 3      19.1845
- 4      12.6856
+ 0      16.1233
+ 1       0.7092
+ 2       1.2505
+ 3       1.3505
+ 4      13.9057
          ...   
- 195    19.7224
- 196    32.6408
- 197    17.2304
- 198    11.5090
- 199    31.4280
+ 195    32.6736
+ 196    23.7445
+ 197    21.3749
+ 198     1.3369
+ 199    13.8866
  Length: 200, dtype: float64,
- 0      20.1290
- 1      13.1920
- 2       0.9320
- 3       1.7225
- 4       0.7394
+ 0       0.7605
+ 1      10.4164
+ 2       7.1381
+ 3      11.9221
+ 4       0.4525
          ...   
- 195    13.4738
- 196    24.3106
- 197     3.0466
- 198    25.9444
- 199    21.8090
+ 195    10.3240
+ 196     2.5769
+ 197     2.3585
+ 198     5.8565
+ 199     0.2626
  Length: 200, dtype: float64]
 </pre></div>
 </div>
@@ -816,38 +819,38 @@ corresponding mean. We can stack these into one DataFrame.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>41.1025</td>
-      <td>17.5410</td>
-      <td>30.5780</td>
-      <td>20.1290</td>
+      <td>28.0409</td>
+      <td>16.9913</td>
+      <td>16.1233</td>
+      <td>0.7605</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>35.7989</td>
-      <td>10.8868</td>
-      <td>26.6642</td>
-      <td>13.1920</td>
+      <td>16.5010</td>
+      <td>0.0452</td>
+      <td>0.7092</td>
+      <td>10.4164</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>14.4625</td>
-      <td>1.4500</td>
-      <td>13.5370</td>
-      <td>0.9320</td>
+      <td>14.9005</td>
+      <td>0.4625</td>
+      <td>1.2505</td>
+      <td>7.1381</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>20.8420</td>
-      <td>1.6945</td>
-      <td>19.1845</td>
-      <td>1.7225</td>
+      <td>14.6401</td>
+      <td>0.0265</td>
+      <td>1.3505</td>
+      <td>11.9221</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>13.6993</td>
-      <td>1.2682</td>
-      <td>12.6856</td>
-      <td>0.7394</td>
+      <td>26.6597</td>
+      <td>14.7817</td>
+      <td>13.9057</td>
+      <td>0.4525</td>
     </tr>
   </tbody>
 </table>
@@ -863,9 +866,9 @@ minimum across each row and returns the index (location) of that minimum.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    3
 1    1
-2    3
+2    1
 3    1
 4    3
 dtype: int64
@@ -909,32 +912,32 @@ dtype: int64
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.39</td>
-      <td>6.35</td>
-      <td>1</td>
+      <td>6.09</td>
+      <td>5.98</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.34</td>
-      <td>6.68</td>
+      <td>2.11</td>
+      <td>6.01</td>
       <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6.76</td>
-      <td>5.86</td>
-      <td>3</td>
+      <td>2.65</td>
+      <td>5.84</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>6.67</td>
-      <td>6.64</td>
+      <td>1.86</td>
+      <td>5.73</td>
       <td>1</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>6.67</td>
-      <td>5.77</td>
+      <td>5.81</td>
+      <td>6.04</td>
       <td>3</td>
     </tr>
   </tbody>
@@ -996,10 +999,10 @@ groupby.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.17702128, 1.95148936],
-       [3.72779221, 6.18246753],
-       [2.66468085, 2.01489362],
-       [6.23965517, 5.71965517]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3.9056338 , 1.7815493 ],
+       [2.02880952, 5.84119048],
+       [2.31882353, 6.62117647],
+       [6.11042857, 5.14928571]])
 </pre></div>
 </div>
 </div>
@@ -1095,6 +1098,8 @@ was okay for the steps to be in the other order.</p>
 <img alt="../_images/2021-11-01_30_1.png" src="../_images/2021-11-01_30_1.png" />
 <img alt="../_images/2021-11-01_30_2.png" src="../_images/2021-11-01_30_2.png" />
 <img alt="../_images/2021-11-01_30_3.png" src="../_images/2021-11-01_30_3.png" />
+<img alt="../_images/2021-11-01_30_4.png" src="../_images/2021-11-01_30_4.png" />
+<img alt="../_images/2021-11-01_30_5.png" src="../_images/2021-11-01_30_5.png" />
 </div>
 </div>
 <p>This algorithm is random.  So each time we run it, it looks a little different.</p>
@@ -1135,31 +1140,22 @@ was okay for the steps to be in the other order.</p>
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="2021-10-29.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">26. </span>Interpretting Regression</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2021-10-29.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">26. </span>Interpretting Regression</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2021-11-03.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">28. </span>Clustering</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="2021-11-03.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">28. </span>Clustering</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1180,8 +1176,7 @@ was okay for the steps to be in the other order.</p>
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
