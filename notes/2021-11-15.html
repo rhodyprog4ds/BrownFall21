@@ -1,0 +1,1790 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>32. Model Comparison &#8212; Programming for Data Science at URI Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="31. SVM and Parameter Optimizing" href="2021-11-12.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/310_2021.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Programming for Data Science at URI Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   About this Book
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/about.html">
+   Basic Facts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/tools.html">
+   Tools and Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/achievements.html">
+   Data Science Achievements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/grading.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/policies.html">
+   Grading Policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/uri_resources.html">
+   Support
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/uri_statements.html">
+   General URI Policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/communication.html">
+   Course Communications
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-08.html">
+   1. Welcome to Programming to Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-10.html">
+   2. Jupyter Notebook Tour &amp; Python Review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-13.html">
+   3. Getting help, object inspection, loading data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-15.html">
+   4. Pandas DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-17.html">
+   5. More Loading Data, Indexing, and Iterables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-20.html">
+   6. Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-22.html">
+   7. Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-24.html">
+   8. Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-27.html">
+   9. Reshaping Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-29.html">
+   10. More Reshaping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-01.html">
+   11. Missing Data and Inconsistent coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-04.html">
+   12. Building Datasets From multiple Sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-06.html">
+   13. Reviewing Merges &amp; Databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-08.html">
+   14. Web Scraping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-13.html">
+   15. Intro to Machine learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-15.html">
+   16. Interpetting and Evaluating Naive Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-18.html">
+   17. Making Predictions in Generative Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-20.html">
+   18. Midsemester feedback and Decision Trees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-22.html">
+   19. Decision Tree Setting and more Evaluation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-25.html">
+   25. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-29.html">
+   26. Interpretting Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-01.html">
+   27. Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-03.html">
+   28. Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-05.html">
+   29. Evaluating Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-08.html">
+   30. ML Task Review and Cross Validation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-12.html">
+   31. SVM and Parameter Optimizing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   32. Model Comparison
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/01-python-syllabus.html">
+   1. Portfolio Setup, Data Science, and Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/02-python-access.html">
+   2. Practicing Python and Accessing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/03-eda.html">
+   3. Assignment 3: Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/04-prepare.html">
+   4. Assignment 4:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/05-construct.html">
+   5. Assignment 5: Constructing Datasets and Using Databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/06-classification.html">
+   6. Assignment 6: Understanding Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/07-decision-tree.html">
+   7. Assignment 7: Decision Trees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/08-regression.html">
+   8. Assignment 8: Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/09-clustering.html">
+   9. Assignment 9: Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/10-optimize.html">
+   10. Assignment 10: Tuning Model Parameters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Portfolio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/index.html">
+   Portfolio Dates and Key Facts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/intro_reflection.html">
+   Submission Introductions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/formatting.html">
+   Formatting Tips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/check1ideas.html">
+   Portfolio Check 1 Ideas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/check2ideas.html">
+   Check 2 Ideas
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/index.html">
+   FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/syllabus.html">
+   Syllabus and Grading FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/github.html">
+   Git and GitHub
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/debugging.html">
+   Code Errors
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/python.html">
+   References on Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/cheatsheet.html">
+   Cheatsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/datasets.html">
+   Data Sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/tips.html">
+   General Tips and Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/learning.html">
+   How to Study in this class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/gettinghelp.html">
+   Getting Help with Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/terminal.html">
+   Terminals and Environments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/organization.html">
+   Getting Organized for class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall20/letters/">
+   Advice from FA2020 Students
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notes/2021-11-15.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notes/2021-11-15.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rhodyprog4ds/BrownFall21/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fnotes/2021-11-15.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/notes/2021-11-15.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rhodyprog4ds/BrownFall21/main?urlpath=tree/notes/2021-11-15.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="model-comparison">
+<h1><span class="section-number">32. </span>Model Comparison<a class="headerlink" href="#model-comparison" title="Permalink to this headline">¶</a></h1>
+<p>To compare models, we will first optimize the parameters of two diffrent models and look at how the different parameters settings impact the model comparison.  Later, we’ll see how to compare across models of different classes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cluster</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<span class="c1"># import the whole model selection module</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll use the iris data again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_X</span><span class="p">,</span> <span class="n">iris_y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember, we need to split the data into training and test.  The cross validation step will hep us optimize the parameters, but we don’t want <em>data leakage</em> where the model has seen the test data multiple times. So, we split the data here for train and test annd the cross validation splits the training data into train and “test” again, but this test is better termed validation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_X_train</span><span class="p">,</span> <span class="n">iris_X_test</span><span class="p">,</span> <span class="n">iris_y_train</span><span class="p">,</span> <span class="n">iris_y_test</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">iris_X</span><span class="p">,</span><span class="n">iris_y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we can make the object, the parameter grid dictionary and the Grid Search object.  We split these into separate cells, so that we can use the built in help to see more detail.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params_dt</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;criterion&#39;</span><span class="p">:[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span><span class="s1">&#39;entropy&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;max_depth&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
+       <span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">:</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">2</span><span class="p">))}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_opt</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="n">params_dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we fit the Grid search using the training data, and remember this actually resets the parameters and then cross validates multiple times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_X_train</span><span class="p">,</span><span class="n">iris_y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(estimator=DecisionTreeClassifier(),
+             param_grid={&#39;criterion&#39;: [&#39;gini&#39;, &#39;entropy&#39;],
+                         &#39;max_depth&#39;: [2, 3, 4],
+                         &#39;min_samples_leaf&#39;: [2, 4, 6, 8, 10, 12, 14, 16, 18]})
+</pre></div>
+</div>
+</div>
+</div>
+<p>adn look at the results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_opt</span><span class="o">.</span><span class="n">cv_results_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mean_fit_time&#39;: array([0.00056038, 0.00047112, 0.00047841, 0.0004611 , 0.00045967,
+        0.00047212, 0.00045815, 0.00045371, 0.00045443, 0.00048866,
+        0.00046883, 0.00047522, 0.00047407, 0.00047474, 0.00046926,
+        0.00047345, 0.00046983, 0.00046   , 0.00047941, 0.00047607,
+        0.00047646, 0.00047798, 0.00046873, 0.00047593, 0.00047565,
+        0.00046201, 0.00045218, 0.00047679, 0.00046649, 0.0004631 ,
+        0.0004663 , 0.00046678, 0.00047126, 0.00046768, 0.00052056,
+        0.00049729, 0.00049658, 0.00048485, 0.00048299, 0.00048833,
+        0.00048056, 0.00048161, 0.00048213, 0.00047479, 0.00045991,
+        0.00049915, 0.00049257, 0.00048118, 0.00049071, 0.0004847 ,
+        0.00048127, 0.00047927, 0.00047565, 0.00046301]),
+ &#39;std_fit_time&#39;: array([1.50378262e-04, 4.69387997e-06, 1.73208103e-05, 4.79926591e-06,
+        8.52325579e-06, 1.29462825e-05, 3.14351077e-06, 2.36503539e-06,
+        5.04862249e-06, 1.21781260e-05, 4.97969608e-06, 5.35120927e-06,
+        8.90626636e-06, 1.20964480e-05, 5.18723440e-06, 6.65081009e-06,
+        8.05078505e-06, 1.20306686e-05, 4.10855469e-06, 1.67504960e-06,
+        1.10092603e-05, 6.26528462e-06, 3.05324756e-06, 1.04875994e-05,
+        9.99426113e-06, 1.31138021e-05, 7.39881653e-06, 1.35688452e-05,
+        4.71466335e-06, 4.23983051e-06, 9.25285274e-06, 9.29086337e-06,
+        1.95460198e-05, 1.73830527e-05, 7.64814695e-06, 4.05416475e-05,
+        1.39701081e-05, 2.23961231e-06, 3.86032002e-06, 1.10903343e-05,
+        3.82541106e-06, 6.74012317e-06, 1.21236727e-05, 2.24974177e-06,
+        1.03375833e-06, 1.08060180e-05, 6.03721792e-06, 5.04276431e-06,
+        9.94225486e-06, 6.59002064e-06, 9.02293845e-06, 1.62218572e-05,
+        6.83891549e-06, 5.70413648e-06]),
+ &#39;mean_score_time&#39;: array([0.00043859, 0.00024362, 0.0002336 , 0.00023251, 0.00023594,
+        0.00023685, 0.00023079, 0.0002295 , 0.00023828, 0.00023408,
+        0.00023041, 0.00023785, 0.00023155, 0.00023394, 0.00023451,
+        0.00023222, 0.00023041, 0.00022888, 0.00023389, 0.0002347 ,
+        0.00022964, 0.00023117, 0.00023632, 0.0002316 , 0.00023165,
+        0.00023389, 0.00023689, 0.00023026, 0.00022926, 0.00022893,
+        0.0002357 , 0.00023026, 0.00022907, 0.00023618, 0.00023875,
+        0.00023699, 0.00023174, 0.00023022, 0.00023551, 0.00023427,
+        0.00023098, 0.00024033, 0.00023026, 0.00023017, 0.00023346,
+        0.00023479, 0.00023241, 0.00023561, 0.00023241, 0.00023308,
+        0.00023298, 0.00023308, 0.00023131, 0.0002346 ]),
+ &#39;std_score_time&#39;: array([4.05606852e-04, 1.39554523e-05, 3.41663058e-06, 2.72840872e-06,
+        9.57790077e-06, 9.75665224e-06, 1.05552405e-06, 1.32831462e-06,
+        1.08584941e-05, 3.38990642e-06, 1.00701867e-06, 9.41991776e-06,
+        1.75460524e-06, 4.78122885e-06, 6.47094553e-06, 2.50055515e-06,
+        1.19304619e-06, 1.39836104e-06, 7.13823792e-06, 7.48740632e-06,
+        9.81867804e-07, 8.86968386e-07, 9.67215721e-06, 1.23977661e-06,
+        1.09361123e-06, 8.09078990e-06, 8.31065747e-06, 1.59152215e-06,
+        1.33684595e-06, 1.36044909e-06, 7.47372846e-06, 2.11320112e-06,
+        1.89178795e-06, 1.60288227e-05, 8.60951905e-07, 6.08784930e-06,
+        2.00044412e-06, 1.21195460e-06, 8.98354119e-06, 4.45428186e-06,
+        1.08106461e-06, 8.80148915e-06, 1.40160927e-06, 1.76236330e-06,
+        8.60344270e-06, 2.84268542e-06, 2.38609238e-06, 1.06083140e-05,
+        1.71528871e-06, 1.43527193e-06, 3.23898462e-06, 4.84077793e-06,
+        1.42573513e-06, 1.04088211e-05]),
+ &#39;param_criterion&#39;: masked_array(data=[&#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;,
+                    &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;,
+                    &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;,
+                    &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;,
+                    &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;,
+                    &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;,
+                    &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;,
+                    &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;,
+                    &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;,
+                    &#39;entropy&#39;, &#39;entropy&#39;],
+              mask=[False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False],
+        fill_value=&#39;?&#39;,
+             dtype=object),
+ &#39;param_max_depth&#39;: masked_array(data=[2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+                    4, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+                    3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+              mask=[False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False],
+        fill_value=&#39;?&#39;,
+             dtype=object),
+ &#39;param_min_samples_leaf&#39;: masked_array(data=[2, 4, 6, 8, 10, 12, 14, 16, 18, 2, 4, 6, 8, 10, 12, 14,
+                    16, 18, 2, 4, 6, 8, 10, 12, 14, 16, 18, 2, 4, 6, 8, 10,
+                    12, 14, 16, 18, 2, 4, 6, 8, 10, 12, 14, 16, 18, 2, 4,
+                    6, 8, 10, 12, 14, 16, 18],
+              mask=[False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False, False, False,
+                    False, False, False, False, False, False],
+        fill_value=&#39;?&#39;,
+             dtype=object),
+ &#39;params&#39;: [{&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 2},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 4},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 6},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 8},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 10},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 12},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 14},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 16},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 18},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 2},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 4},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 6},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 8},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 10},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 12},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 14},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 16},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 18},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 2},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 4},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 6},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 8},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 10},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 12},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 14},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 16},
+  {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 18},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 2},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 4},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 6},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 8},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 10},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 12},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 14},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 16},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 18},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 2},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 4},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 6},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 8},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 10},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 12},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 14},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 16},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 18},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 2},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 4},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 6},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 8},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 10},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 12},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 14},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 16},
+  {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 18}],
+ &#39;split0_test_score&#39;: array([0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.95833333,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.95833333, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.95833333, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.95833333, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667]),
+ &#39;split1_test_score&#39;: array([0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.91666667, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        1.        , 1.        , 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333]),
+ &#39;split2_test_score&#39;: array([0.875     , 0.875     , 0.875     , 0.875     , 0.875     ,
+        0.875     , 0.875     , 0.875     , 0.875     , 0.83333333,
+        0.83333333, 0.875     , 0.875     , 0.875     , 0.875     ,
+        0.875     , 0.875     , 0.875     , 0.83333333, 0.83333333,
+        0.875     , 0.875     , 0.875     , 0.875     , 0.875     ,
+        0.875     , 0.875     , 0.875     , 0.875     , 0.875     ,
+        0.875     , 0.875     , 0.875     , 0.875     , 0.875     ,
+        0.875     , 0.83333333, 0.83333333, 0.875     , 0.875     ,
+        0.875     , 0.875     , 0.875     , 0.875     , 0.875     ,
+        0.83333333, 0.83333333, 0.875     , 0.875     , 0.875     ,
+        0.875     , 0.875     , 0.875     , 0.875     ]),
+ &#39;split3_test_score&#39;: array([0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.95833333, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.95833333, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+        0.91666667, 0.91666667, 0.91666667, 0.91666667]),
+ &#39;split4_test_score&#39;: array([0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        1.        , 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 1.        ,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 1.        , 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 1.        , 0.95833333, 0.95833333, 0.95833333,
+        0.95833333, 0.95833333, 0.95833333, 0.95833333]),
+ &#39;mean_test_score&#39;: array([0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+        0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+        0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+        0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+        0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+        0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+        0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+        0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+        0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+        0.94166667, 0.93333333, 0.925     , 0.925     , 0.925     ,
+        0.925     , 0.925     , 0.925     , 0.925     ]),
+ &#39;std_test_score&#39;: array([0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+        0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.04859127,
+        0.05527708, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+        0.03118048, 0.03118048, 0.03118048, 0.04859127, 0.05527708,
+        0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+        0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+        0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+        0.03118048, 0.04859127, 0.05527708, 0.03118048, 0.03118048,
+        0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+        0.05651942, 0.06236096, 0.03118048, 0.03118048, 0.03118048,
+        0.03118048, 0.03118048, 0.03118048, 0.03118048]),
+ &#39;rank_test_score&#39;: array([3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+        3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+        3, 1, 2, 3, 3, 3, 3, 3, 3, 3], dtype=int32)}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can reformat it into a dataframe for further analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dt_opt</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+<span class="n">dt_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_fit_time</th>
+      <th>std_fit_time</th>
+      <th>mean_score_time</th>
+      <th>std_score_time</th>
+      <th>param_criterion</th>
+      <th>param_max_depth</th>
+      <th>param_min_samples_leaf</th>
+      <th>params</th>
+      <th>split0_test_score</th>
+      <th>split1_test_score</th>
+      <th>split2_test_score</th>
+      <th>split3_test_score</th>
+      <th>split4_test_score</th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>rank_test_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000560</td>
+      <td>0.000150</td>
+      <td>0.000439</td>
+      <td>0.000406</td>
+      <td>gini</td>
+      <td>2</td>
+      <td>2</td>
+      <td>{'criterion': 'gini', 'max_depth': 2, 'min_sam...</td>
+      <td>0.916667</td>
+      <td>0.958333</td>
+      <td>0.875</td>
+      <td>0.916667</td>
+      <td>0.958333</td>
+      <td>0.925</td>
+      <td>0.03118</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000471</td>
+      <td>0.000005</td>
+      <td>0.000244</td>
+      <td>0.000014</td>
+      <td>gini</td>
+      <td>2</td>
+      <td>4</td>
+      <td>{'criterion': 'gini', 'max_depth': 2, 'min_sam...</td>
+      <td>0.916667</td>
+      <td>0.958333</td>
+      <td>0.875</td>
+      <td>0.916667</td>
+      <td>0.958333</td>
+      <td>0.925</td>
+      <td>0.03118</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-correction admonition">
+<p class="admonition-title">Correction</p>
+<p>The parameters in this function were in the wrong
+order in this function in class</p>
+</div>
+<p>I changed the markers and the color of the error bars for readability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dt_df</span><span class="p">[</span><span class="s1">&#39;mean_fit_time&#39;</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">dt_df</span><span class="p">[</span><span class="s1">&#39;mean_score_time&#39;</span><span class="p">],</span>
+     <span class="n">xerr</span><span class="o">=</span><span class="n">dt_df</span><span class="p">[</span><span class="s1">&#39;std_fit_time&#39;</span><span class="p">],</span><span class="n">yerr</span><span class="o">=</span><span class="n">dt_df</span><span class="p">[</span><span class="s1">&#39;std_score_time&#39;</span><span class="p">],</span>
+             <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="n">ecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;fit time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;score time&#39;</span><span class="p">)</span>
+<span class="c1"># save the limits so we can reuse them</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2021-11-15_18_0.png" src="../_images/2021-11-15_18_0.png" />
+</div>
+</div>
+<p>The “points” are at the mean fit and score times. The lines are the “standard deviation” or how much we expect that number to vary, since means are an estimate.
+Because the data shows an upward trend, this plot tells us that mostly, the models that are slower to fit are also slower to apply. This makes sense for decision trees, deeper trees take longer to learn and longer to traverse when predicting.
+Because the error bars mostly overlap the other points, this tells us that mostly the variation in time is not a reliable difference. If we re-ran the GridSearch, we could get them in different orders.</p>
+<p>To interpret the error bar plot, let’s look at a line plot of just the means, with the same limits so that it’s easier to compare to the plot above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dt_df</span><span class="p">[</span><span class="s1">&#39;mean_fit_time&#39;</span><span class="p">],</span>
+            <span class="n">dt_df</span><span class="p">[</span><span class="s1">&#39;mean_score_time&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;fit time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;score time&#39;</span><span class="p">)</span>
+<span class="c1"># match the axis limits to above</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span><span class="n">xmax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0003949629400725487, 0.0007257951165680764)
+</pre></div>
+</div>
+<img alt="../_images/2021-11-15_20_1.png" src="../_images/2021-11-15_20_1.png" />
+</div>
+</div>
+<p>this plot shows the mean times, without the error bars.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_df</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-15_22_1.png" src="../_images/2021-11-15_22_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_df</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     0.925000
+1     0.925000
+2     0.925000
+3     0.925000
+4     0.925000
+5     0.925000
+6     0.925000
+7     0.925000
+8     0.925000
+9     0.925000
+10    0.925000
+11    0.925000
+12    0.925000
+13    0.925000
+14    0.925000
+15    0.925000
+16    0.925000
+17    0.925000
+18    0.925000
+19    0.925000
+20    0.925000
+21    0.925000
+22    0.925000
+23    0.925000
+24    0.925000
+25    0.925000
+26    0.925000
+27    0.925000
+28    0.925000
+29    0.925000
+30    0.925000
+31    0.925000
+32    0.925000
+33    0.925000
+34    0.925000
+35    0.925000
+36    0.925000
+37    0.925000
+38    0.925000
+39    0.925000
+40    0.925000
+41    0.925000
+42    0.925000
+43    0.925000
+44    0.925000
+45    0.941667
+46    0.933333
+47    0.925000
+48    0.925000
+49    0.925000
+50    0.925000
+51    0.925000
+52    0.925000
+53    0.925000
+Name: mean_test_score, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s compare with a different model, we’ll use the parameter optimized version for that model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">],</span> <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+<span class="n">svm_opt</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svm_clf</span><span class="p">,</span><span class="n">param_grid</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2223</span><span class="o">/</span><span class="mf">492760704.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">svm_clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">],</span> <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">svm_opt</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svm_clf</span><span class="p">,</span><span class="n">param_grid</span><span class="p">,)</span>
+
+<span class="ne">NameError</span>: name &#39;GridSearchCV&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>The error above is because we didn’t import <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> directly today, we imported the whole <code class="docutils literal notranslate"><span class="pre">model_selection</span></code> module, so we have to use that in order to access the class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">],</span> <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.75</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+<span class="n">svm_opt</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svm_clf</span><span class="p">,</span><span class="n">param_grid</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">model_selection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>module
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_opt</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;scoring&#39;: None,
+ &#39;estimator&#39;: DecisionTreeClassifier(),
+ &#39;n_jobs&#39;: None,
+ &#39;refit&#39;: True,
+ &#39;cv&#39;: None,
+ &#39;verbose&#39;: 0,
+ &#39;pre_dispatch&#39;: &#39;2*n_jobs&#39;,
+ &#39;error_score&#39;: nan,
+ &#39;return_train_score&#39;: False,
+ &#39;param_grid&#39;: {&#39;criterion&#39;: [&#39;gini&#39;, &#39;entropy&#39;],
+  &#39;max_depth&#39;: [2, 3, 4],
+  &#39;min_samples_leaf&#39;: [2, 4, 6, 8, 10, 12, 14, 16, 18]},
+ &#39;multimetric_&#39;: False,
+ &#39;best_index_&#39;: 45,
+ &#39;best_score_&#39;: 0.9416666666666668,
+ &#39;best_params_&#39;: {&#39;criterion&#39;: &#39;entropy&#39;,
+  &#39;max_depth&#39;: 4,
+  &#39;min_samples_leaf&#39;: 2},
+ &#39;best_estimator_&#39;: DecisionTreeClassifier(criterion=&#39;entropy&#39;, max_depth=4, min_samples_leaf=2),
+ &#39;refit_time_&#39;: 0.00037932395935058594,
+ &#39;scorer_&#39;: &lt;function sklearn.metrics._scorer._passthrough_scorer(estimator, *args, **kwargs)&gt;,
+ &#39;cv_results_&#39;: {&#39;mean_fit_time&#39;: array([0.00056038, 0.00047112, 0.00047841, 0.0004611 , 0.00045967,
+         0.00047212, 0.00045815, 0.00045371, 0.00045443, 0.00048866,
+         0.00046883, 0.00047522, 0.00047407, 0.00047474, 0.00046926,
+         0.00047345, 0.00046983, 0.00046   , 0.00047941, 0.00047607,
+         0.00047646, 0.00047798, 0.00046873, 0.00047593, 0.00047565,
+         0.00046201, 0.00045218, 0.00047679, 0.00046649, 0.0004631 ,
+         0.0004663 , 0.00046678, 0.00047126, 0.00046768, 0.00052056,
+         0.00049729, 0.00049658, 0.00048485, 0.00048299, 0.00048833,
+         0.00048056, 0.00048161, 0.00048213, 0.00047479, 0.00045991,
+         0.00049915, 0.00049257, 0.00048118, 0.00049071, 0.0004847 ,
+         0.00048127, 0.00047927, 0.00047565, 0.00046301]),
+  &#39;std_fit_time&#39;: array([1.50378262e-04, 4.69387997e-06, 1.73208103e-05, 4.79926591e-06,
+         8.52325579e-06, 1.29462825e-05, 3.14351077e-06, 2.36503539e-06,
+         5.04862249e-06, 1.21781260e-05, 4.97969608e-06, 5.35120927e-06,
+         8.90626636e-06, 1.20964480e-05, 5.18723440e-06, 6.65081009e-06,
+         8.05078505e-06, 1.20306686e-05, 4.10855469e-06, 1.67504960e-06,
+         1.10092603e-05, 6.26528462e-06, 3.05324756e-06, 1.04875994e-05,
+         9.99426113e-06, 1.31138021e-05, 7.39881653e-06, 1.35688452e-05,
+         4.71466335e-06, 4.23983051e-06, 9.25285274e-06, 9.29086337e-06,
+         1.95460198e-05, 1.73830527e-05, 7.64814695e-06, 4.05416475e-05,
+         1.39701081e-05, 2.23961231e-06, 3.86032002e-06, 1.10903343e-05,
+         3.82541106e-06, 6.74012317e-06, 1.21236727e-05, 2.24974177e-06,
+         1.03375833e-06, 1.08060180e-05, 6.03721792e-06, 5.04276431e-06,
+         9.94225486e-06, 6.59002064e-06, 9.02293845e-06, 1.62218572e-05,
+         6.83891549e-06, 5.70413648e-06]),
+  &#39;mean_score_time&#39;: array([0.00043859, 0.00024362, 0.0002336 , 0.00023251, 0.00023594,
+         0.00023685, 0.00023079, 0.0002295 , 0.00023828, 0.00023408,
+         0.00023041, 0.00023785, 0.00023155, 0.00023394, 0.00023451,
+         0.00023222, 0.00023041, 0.00022888, 0.00023389, 0.0002347 ,
+         0.00022964, 0.00023117, 0.00023632, 0.0002316 , 0.00023165,
+         0.00023389, 0.00023689, 0.00023026, 0.00022926, 0.00022893,
+         0.0002357 , 0.00023026, 0.00022907, 0.00023618, 0.00023875,
+         0.00023699, 0.00023174, 0.00023022, 0.00023551, 0.00023427,
+         0.00023098, 0.00024033, 0.00023026, 0.00023017, 0.00023346,
+         0.00023479, 0.00023241, 0.00023561, 0.00023241, 0.00023308,
+         0.00023298, 0.00023308, 0.00023131, 0.0002346 ]),
+  &#39;std_score_time&#39;: array([4.05606852e-04, 1.39554523e-05, 3.41663058e-06, 2.72840872e-06,
+         9.57790077e-06, 9.75665224e-06, 1.05552405e-06, 1.32831462e-06,
+         1.08584941e-05, 3.38990642e-06, 1.00701867e-06, 9.41991776e-06,
+         1.75460524e-06, 4.78122885e-06, 6.47094553e-06, 2.50055515e-06,
+         1.19304619e-06, 1.39836104e-06, 7.13823792e-06, 7.48740632e-06,
+         9.81867804e-07, 8.86968386e-07, 9.67215721e-06, 1.23977661e-06,
+         1.09361123e-06, 8.09078990e-06, 8.31065747e-06, 1.59152215e-06,
+         1.33684595e-06, 1.36044909e-06, 7.47372846e-06, 2.11320112e-06,
+         1.89178795e-06, 1.60288227e-05, 8.60951905e-07, 6.08784930e-06,
+         2.00044412e-06, 1.21195460e-06, 8.98354119e-06, 4.45428186e-06,
+         1.08106461e-06, 8.80148915e-06, 1.40160927e-06, 1.76236330e-06,
+         8.60344270e-06, 2.84268542e-06, 2.38609238e-06, 1.06083140e-05,
+         1.71528871e-06, 1.43527193e-06, 3.23898462e-06, 4.84077793e-06,
+         1.42573513e-06, 1.04088211e-05]),
+  &#39;param_criterion&#39;: masked_array(data=[&#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;,
+                     &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;,
+                     &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;,
+                     &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;, &#39;gini&#39;,
+                     &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;,
+                     &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;,
+                     &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;,
+                     &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;,
+                     &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;, &#39;entropy&#39;,
+                     &#39;entropy&#39;, &#39;entropy&#39;],
+               mask=[False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False],
+         fill_value=&#39;?&#39;,
+              dtype=object),
+  &#39;param_max_depth&#39;: masked_array(data=[2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+                     4, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+                     3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+               mask=[False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False],
+         fill_value=&#39;?&#39;,
+              dtype=object),
+  &#39;param_min_samples_leaf&#39;: masked_array(data=[2, 4, 6, 8, 10, 12, 14, 16, 18, 2, 4, 6, 8, 10, 12, 14,
+                     16, 18, 2, 4, 6, 8, 10, 12, 14, 16, 18, 2, 4, 6, 8, 10,
+                     12, 14, 16, 18, 2, 4, 6, 8, 10, 12, 14, 16, 18, 2, 4,
+                     6, 8, 10, 12, 14, 16, 18],
+               mask=[False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False, False, False,
+                     False, False, False, False, False, False],
+         fill_value=&#39;?&#39;,
+              dtype=object),
+  &#39;params&#39;: [{&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 2},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 4},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 6},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 8},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 10},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 12},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 14},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 16},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 18},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 2},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 4},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 6},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 8},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 10},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 12},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 14},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 16},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 18},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 2},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 4},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 6},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 8},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 10},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 12},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 14},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 16},
+   {&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 18},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 2},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 4},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 6},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 8},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 10},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 12},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 14},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 16},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 18},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 2},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 4},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 6},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 8},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 10},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 12},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 14},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 16},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 18},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 2},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 4},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 6},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 8},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 10},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 12},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 14},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 16},
+   {&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 18}],
+  &#39;split0_test_score&#39;: array([0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.95833333,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.95833333, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.95833333, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.95833333, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667]),
+  &#39;split1_test_score&#39;: array([0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.91666667, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         1.        , 1.        , 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333]),
+  &#39;split2_test_score&#39;: array([0.875     , 0.875     , 0.875     , 0.875     , 0.875     ,
+         0.875     , 0.875     , 0.875     , 0.875     , 0.83333333,
+         0.83333333, 0.875     , 0.875     , 0.875     , 0.875     ,
+         0.875     , 0.875     , 0.875     , 0.83333333, 0.83333333,
+         0.875     , 0.875     , 0.875     , 0.875     , 0.875     ,
+         0.875     , 0.875     , 0.875     , 0.875     , 0.875     ,
+         0.875     , 0.875     , 0.875     , 0.875     , 0.875     ,
+         0.875     , 0.83333333, 0.83333333, 0.875     , 0.875     ,
+         0.875     , 0.875     , 0.875     , 0.875     , 0.875     ,
+         0.83333333, 0.83333333, 0.875     , 0.875     , 0.875     ,
+         0.875     , 0.875     , 0.875     , 0.875     ]),
+  &#39;split3_test_score&#39;: array([0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.95833333, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.95833333, 0.91666667, 0.91666667, 0.91666667, 0.91666667,
+         0.91666667, 0.91666667, 0.91666667, 0.91666667]),
+  &#39;split4_test_score&#39;: array([0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         1.        , 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 1.        ,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 1.        , 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 1.        , 0.95833333, 0.95833333, 0.95833333,
+         0.95833333, 0.95833333, 0.95833333, 0.95833333]),
+  &#39;mean_test_score&#39;: array([0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+         0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+         0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+         0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+         0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+         0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+         0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+         0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+         0.925     , 0.925     , 0.925     , 0.925     , 0.925     ,
+         0.94166667, 0.93333333, 0.925     , 0.925     , 0.925     ,
+         0.925     , 0.925     , 0.925     , 0.925     ]),
+  &#39;std_test_score&#39;: array([0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+         0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.04859127,
+         0.05527708, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+         0.03118048, 0.03118048, 0.03118048, 0.04859127, 0.05527708,
+         0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+         0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+         0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+         0.03118048, 0.04859127, 0.05527708, 0.03118048, 0.03118048,
+         0.03118048, 0.03118048, 0.03118048, 0.03118048, 0.03118048,
+         0.05651942, 0.06236096, 0.03118048, 0.03118048, 0.03118048,
+         0.03118048, 0.03118048, 0.03118048, 0.03118048]),
+  &#39;rank_test_score&#39;: array([3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+         3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+         3, 1, 2, 3, 3, 3, 3, 3, 3, 3], dtype=int32)},
+ &#39;n_splits_&#39;: 5}
+</pre></div>
+</div>
+</div>
+</div>
+<p>This doesn’t have attributes yet, even though they are the same type, because we have not fit it tot data yet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">svm_opt</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">dt_opt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(sklearn.model_selection._search.GridSearchCV,
+ sklearn.model_selection._search.GridSearchCV)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can fit the model to the training data of this second model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit the model and  put the CV results in a dataframe</span>
+<span class="n">svm_opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_X_train</span><span class="p">,</span><span class="n">iris_y_train</span><span class="p">)</span>
+<span class="n">sv_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">svm_opt</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sv_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_fit_time</th>
+      <th>std_fit_time</th>
+      <th>mean_score_time</th>
+      <th>std_score_time</th>
+      <th>param_C</th>
+      <th>param_kernel</th>
+      <th>params</th>
+      <th>split0_test_score</th>
+      <th>split1_test_score</th>
+      <th>split2_test_score</th>
+      <th>split3_test_score</th>
+      <th>split4_test_score</th>
+      <th>split5_test_score</th>
+      <th>split6_test_score</th>
+      <th>split7_test_score</th>
+      <th>split8_test_score</th>
+      <th>split9_test_score</th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>rank_test_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000660</td>
+      <td>0.000054</td>
+      <td>0.000305</td>
+      <td>0.000027</td>
+      <td>0.5</td>
+      <td>linear</td>
+      <td>{'C': 0.5, 'kernel': 'linear'}</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.916667</td>
+      <td>0.833333</td>
+      <td>1.0</td>
+      <td>0.916667</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.966667</td>
+      <td>0.055277</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000757</td>
+      <td>0.000030</td>
+      <td>0.000334</td>
+      <td>0.000025</td>
+      <td>0.5</td>
+      <td>rbf</td>
+      <td>{'C': 0.5, 'kernel': 'rbf'}</td>
+      <td>0.916667</td>
+      <td>0.916667</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.916667</td>
+      <td>0.833333</td>
+      <td>1.0</td>
+      <td>1.000000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.958333</td>
+      <td>0.055902</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">sv_df</span><span class="p">[</span><span class="s1">&#39;mean_fit_time&#39;</span><span class="p">],</span><span class="n">xerr</span><span class="o">=</span><span class="n">sv_df</span><span class="p">[</span><span class="s1">&#39;std_fit_time&#39;</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">sv_df</span><span class="p">[</span><span class="s1">&#39;mean_score_time&#39;</span><span class="p">],</span><span class="n">yerr</span><span class="o">=</span><span class="n">sv_df</span><span class="p">[</span><span class="s1">&#39;std_score_time&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ErrorbarContainer object of 3 artists&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-15_35_1.png" src="../_images/2021-11-15_35_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sv_df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;mean_fit_time&#39;, &#39;std_fit_time&#39;, &#39;mean_score_time&#39;, &#39;std_score_time&#39;,
+       &#39;param_C&#39;, &#39;param_kernel&#39;, &#39;params&#39;, &#39;split0_test_score&#39;,
+       &#39;split1_test_score&#39;, &#39;split2_test_score&#39;, &#39;split3_test_score&#39;,
+       &#39;split4_test_score&#39;, &#39;split5_test_score&#39;, &#39;split6_test_score&#39;,
+       &#39;split7_test_score&#39;, &#39;split8_test_score&#39;, &#39;split9_test_score&#39;,
+       &#39;mean_test_score&#39;, &#39;std_test_score&#39;, &#39;rank_test_score&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see if the models that take longer to fit or score perform better.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_time</span> <span class="o">=</span> <span class="n">sv_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;param_C&#39;</span><span class="p">,</span> <span class="s1">&#39;param_kernel&#39;</span><span class="p">,</span> <span class="s1">&#39;params&#39;</span><span class="p">,],</span>
+                      <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean_fit_time&#39;</span><span class="p">,</span> <span class="s1">&#39;std_fit_time&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_score_time&#39;</span><span class="p">,</span> <span class="s1">&#39;std_score_time&#39;</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">sv_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean_fit_time&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">,</span>
+          <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;param_kernel&#39;</span><span class="p">,</span><span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe118455110&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-15_38_1.png" src="../_images/2021-11-15_38_1.png" />
+</div>
+</div>
+<p>This looks like mostly no.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">sv_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean_score_time&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">,</span>
+          <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;param_kernel&#39;</span><span class="p">,</span><span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe1183c3210&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-15_40_1.png" src="../_images/2021-11-15_40_1.png" />
+</div>
+</div>
+<p>Again, for score time, the slower models don’t appear to be better.  Remember though the time differences weren’t that different.</p>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>Try this same analysis for the decision tree, does it matter there?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sv_df_scores</span> <span class="o">=</span> <span class="n">sv_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;param_C&#39;</span><span class="p">,</span> <span class="s1">&#39;param_kernel&#39;</span><span class="p">,</span> <span class="s1">&#39;params&#39;</span><span class="p">,],</span>
+                    <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;split0_test_score&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;split1_test_score&#39;</span><span class="p">,</span> <span class="s1">&#39;split2_test_score&#39;</span><span class="p">,</span> <span class="s1">&#39;split3_test_score&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;split4_test_score&#39;</span><span class="p">],</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">)</span>
+<span class="n">sv_df_scores</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>param_C</th>
+      <th>param_kernel</th>
+      <th>params</th>
+      <th>variable</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.5</td>
+      <td>linear</td>
+      <td>{'C': 0.5, 'kernel': 'linear'}</td>
+      <td>split0_test_score</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.5</td>
+      <td>rbf</td>
+      <td>{'C': 0.5, 'kernel': 'rbf'}</td>
+      <td>split0_test_score</td>
+      <td>0.916667</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.75</td>
+      <td>linear</td>
+      <td>{'C': 0.75, 'kernel': 'linear'}</td>
+      <td>split0_test_score</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.75</td>
+      <td>rbf</td>
+      <td>{'C': 0.75, 'kernel': 'rbf'}</td>
+      <td>split0_test_score</td>
+      <td>0.916667</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>linear</td>
+      <td>{'C': 1, 'kernel': 'linear'}</td>
+      <td>split0_test_score</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">sv_df_scores</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;param_C&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span>
+            <span class="n">col</span><span class="o">=</span><span class="s1">&#39;param_kernel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe118267610&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-15_43_1.png" src="../_images/2021-11-15_43_1.png" />
+</div>
+</div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>Try interpretting the plot above, what does it say? what can you conclude from it.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_df</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-15_45_1.png" src="../_images/2021-11-15_45_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sv_df</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-15_46_1.png" src="../_images/2021-11-15_46_1.png" />
+</div>
+</div>
+<p>From these last two plots we see that the SVM performance is more sensitive to its parameters, where for the parameters tested, the decision tree is not impacted.</p>
+<p>What can we say based on this?  We’ll pick up from here on Wednesday.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2021-11-12.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">31. </span>SVM and Parameter Optimizing</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../assignments/01-python-syllabus.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Professor Sarah M Brown<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
