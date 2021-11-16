@@ -23,11 +23,25 @@ substitutions:
   - skill
 * - test the model on test data and interpret in context
   - classification, clustering, OR regression (2)
-* - evaluate fit of the model while varying the cross validation parameters
+* - choose and justify appropriate parameters parameter grid for the context
+  - classification, clustering, OR regression (2) AND process (2)
+* - evaluate fit of the model while varying the cross validation parameters and interpret
   - evaluate (2)
-* - optimize at model parameter (s)
+* - optimize model parameter (s) and interpret
   - optimize (2)
+* - ask releveant questions of the data domain and interpret results in context
+  - process (2)
 ```
+
+
+Note you can only earn one of classification, clustering, OR regression, but to
+earn one of those you must both interpret the model and the parameters.
+
+For process you must situate your overall analysis in context (which you should
+  do even if you already have the process achievement; you should *always* do
+  this) and explain how you're picking parameters to evaluate. Your reasons
+  only have to be reasonable, they don't have to be correct.  It's okay if what
+  you try doesn't improve the model, but then you have to interpret that.
 
 ## Instructions
 
