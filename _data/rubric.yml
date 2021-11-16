@@ -13,7 +13,7 @@
   mastery: Compare different ways that data science can facilitate decision making
   portfolios: [2,3,4]
   clo: [process]
-  assignments: [1,2,7,10,11]
+  assignments: [1,2,7,8,9,10,11]
 - skill: access data in multiple formats
   keyword: access
   aware: load data from at least one format; identify the most common data formats

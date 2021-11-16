@@ -23,10 +23,12 @@ substitutions:
   - skill
 * - test the model on test data and interpret in context
   - classification, clustering, OR regression (2)
-* - evaluate fit of the model while varying the cross validation parameters
+* - evaluate fit of the model while varying the cross validation parameters and interpret
   - evaluate (2)
-* - optimize at model parameter (s)
+* - optimize model parameter (s) and interpret
   - optimize (2)
+* - ask releveant questions of the data domain and interpret results in context
+  - process (2)
 ```
 
 ## Instructions
