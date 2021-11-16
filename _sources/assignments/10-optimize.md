@@ -16,7 +16,7 @@ substitutions:
 - [2021-11-12](../notes/2021-11-12)
 
 ## Asseessment
-```{list-table} apply SVMs and tune model parameters
+```{list-table} Optimize model parameters
 :header-rows: 1
 
 * - task
