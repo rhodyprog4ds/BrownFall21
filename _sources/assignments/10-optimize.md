@@ -31,6 +31,8 @@ substitutions:
   - optimize (2)
 * - ask releveant questions of the data domain and interpret results in context
   - process (2)
+* - use EDA techniques to examine the experimental results
+  - summarize (2), visualize (2)
 ```
 
 
