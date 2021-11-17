@@ -79,15 +79,14 @@ In each chapter(for a file) of your portfolio, you should identify which skills 
 
 You can view a (fake) example [in this repository](https://github.com/rhodyprog4ds/portfolio-example) as a [pdf](https://github.com/rhodyprog4ds/portfolio-example/blob/gh-pages/portfolio.pdf) or as a [rendered website](https://rhodyprog4ds.github.io/portfolio-example/intro.html)
 
-## Current: Check 2
+## Current: Check 3
 
-
-The first portfolio check will be due {{ p2due }} and will cover the following skills.
+The third submission will be graded on the following criteria and due on  {{ p3due }}:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-portfolio_df[portfolio_df['P2']==1]
+portfolio_df['Level 3'][portfolio_df['P3']==1].reset_index().set_index('keyword')
 ```
 
 Submision Checklist:
@@ -95,12 +94,13 @@ Submision Checklist:
 
 
 - [ ] update your gh action or precommit hook
-- [ ] complete your KWL chart ({ref})
+- [ ] complete your KWL chart
+- [ ] add notebooks
 
 ## Upcoming Checks
 
 <!-- - Check 2: {{ p2due }}   -->
-- Check 3: {{ p3due }}  
+<!-- - Check 3: {{ p3due }}   -->
 - Check 4: {{ p4due }}  
 
 
@@ -112,15 +112,18 @@ portfolio_df['Level 3'][portfolio_df['P2']==1].reset_index().set_index('keyword'
 ```
 
 
-
-
-The third submission will be graded on the following criteria and due on December 4:
+The first portfolio check will be due {{ p2due }} and will cover the following skills.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-portfolio_df['Level 3'][portfolio_df['P3']==1].reset_index().set_index('keyword')
+portfolio_df[portfolio_df['P2']==1]
 ```
+
+
+
+
+
 
 
 ```{code-cell} ipython3
