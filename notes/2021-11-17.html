@@ -52,7 +52,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="next" title="34. Learning Curves" href="2021-11-19.html" />
     <link rel="prev" title="32. Model Comparison" href="2021-11-15.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -288,6 +288,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    33. Model Selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-19.html">
+   34. Learning Curves
   </a>
  </li>
 </ul>
@@ -682,7 +687,7 @@ programming and how to effectively teach it.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.0, 0.9916666666666666)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9833333333333332, 0.9583333333333333)
 </pre></div>
 </div>
 </div>
@@ -696,7 +701,7 @@ programming and how to effectively teach it.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
@@ -708,7 +713,7 @@ programming and how to effectively teach it.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8666666666666667
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9333333333333333
 </pre></div>
 </div>
 </div>
@@ -764,49 +769,49 @@ programming and how to effectively teach it.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.000873</td>
-      <td>0.000056</td>
-      <td>0.000429</td>
-      <td>0.000014</td>
+      <td>0.000793</td>
+      <td>0.000048</td>
+      <td>0.000368</td>
+      <td>0.000021</td>
       <td>0.5</td>
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.916667</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>1.000000</td>
       <td>1.0</td>
       <td>1.000000</td>
-      <td>0.000000</td>
+      <td>1.0</td>
+      <td>0.916667</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.983333</td>
+      <td>0.033333</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.001261</td>
-      <td>0.000635</td>
-      <td>0.000556</td>
-      <td>0.000234</td>
+      <td>0.000931</td>
+      <td>0.000020</td>
+      <td>0.000418</td>
+      <td>0.000013</td>
       <td>0.5</td>
       <td>rbf</td>
       <td>{'C': 0.5, 'kernel': 'rbf'}</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.916667</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>1.000000</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>0.916667</td>
       <td>1.0</td>
-      <td>0.983333</td>
-      <td>0.033333</td>
-      <td>13</td>
+      <td>0.916667</td>
+      <td>1.0</td>
+      <td>0.916667</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.975000</td>
+      <td>0.038188</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -821,13 +826,13 @@ programming and how to effectively teach it.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    14.000000
-mean      0.991667
-std       0.004623
-min       0.983333
-25%       0.991667
-50%       0.991667
-75%       0.991667
-max       1.000000
+mean      0.976190
+std       0.003026
+min       0.975000
+25%       0.975000
+50%       0.975000
+75%       0.975000
+max       0.983333
 Name: mean_test_score, dtype: float64
 </pre></div>
 </div>
@@ -841,13 +846,13 @@ Name: mean_test_score, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    90.000000
-mean      0.966204
-std       0.006653
-min       0.950000
-25%       0.966667
-50%       0.966667
-75%       0.966667
-max       0.991667
+mean      0.927685
+std       0.006936
+min       0.925000
+25%       0.925000
+50%       0.925000
+75%       0.925000
+max       0.958333
 Name: mean_test_score, dtype: float64
 </pre></div>
 </div>
@@ -898,7 +903,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.0, 0.9916666666666666)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9833333333333332, 0.9583333333333333)
 </pre></div>
 </div>
 </div>
@@ -924,7 +929,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.0, 1.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.7602869057331314, 1.0)
 </pre></div>
 </div>
 </div>
@@ -940,7 +945,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9754015312651511, 1.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9225798693726877, 0.9940867972939789)
 </pre></div>
 </div>
 </div>
@@ -964,7 +969,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.7450226200631684, 0.988310713270165)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8440710066609742, 1.0)
 </pre></div>
 </div>
 </div>
@@ -1004,7 +1009,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2328/2188489612.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2462/2188489612.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="n">n_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">200</span><span class="p">)])</span>
                               <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1063,10 +1068,10 @@ of parameters.</p>
             <p class="prev-next-title"><span class="section-number">32. </span>Model Comparison</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../assignments/01-python-syllabus.html" title="next page">
+    <a class='right-next' id="next-link" href="2021-11-19.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+        <p class="prev-next-title"><span class="section-number">34. </span>Learning Curves</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
