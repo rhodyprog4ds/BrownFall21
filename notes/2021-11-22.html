@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intro to NLP- representing text data &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>35. Intro to NLP- representing text data &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,6 +52,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="34. Learning Curves" href="2021-11-19.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -147,7 +149,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -291,6 +293,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
    34. Learning Curves
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   35. Intro to NLP- representing text data
   </a>
  </li>
 </ul>
@@ -582,7 +589,44 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#terms">
-   Terms
+   35.1. Terms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bag-of-words-representionat">
+   35.2. Bag of Words Representionat
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-can-we-find-the-most-commonly-used-word">
+   35.3. How can we find the most commonly used word?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distances-in-text">
+   35.4. Distances in text
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-classroom">
+   35.5. Questions After Classroom
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-this-be-used-for-training-a-classifier">
+     35.5.1. How can this be used for training a classifier?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-are-ram-tokens-tracked">
+     35.5.2. How are ram tokens tracked?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   35.6. More Practice
   </a>
  </li>
 </ul>
@@ -597,7 +641,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="intro-to-nlp-representing-text-data">
-<h1>Intro to NLP- representing text data<a class="headerlink" href="#intro-to-nlp-representing-text-data" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">35. </span>Intro to NLP- representing text data<a class="headerlink" href="#intro-to-nlp-representing-text-data" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
@@ -638,22 +682,22 @@
 </div>
 </div>
 </div>
+<p>How can we analyze these? All of the machine leanring models we have seen only use numerical features organized into a table with one row per samplea and one column per feature.</p>
+<p>That’s actually generally true.  ALl ML models require numerical features, at some point. The process of taking data that is not numerical and tabular, which is called unstrucutred, into strucutred (tabular) format we require is called feature extraction.  There are many, many ways to do that.  We’ll see a few over the course of the rest of the semester.  Some more advanced models hide the feature extraction, by putting it in the same function, but it’s always there.</p>
 <div class="section" id="terms">
-<h2>Terms<a class="headerlink" href="#terms" title="Permalink to this headline">¶</a></h2>
-<p>document: unit of text we’re analyzing (one sample)</p>
-<p>token: sequence of characters in some particular document that are grouped together as a useful semantic unit for processing (basically a word)</p>
-<p>stop words: no meaning, we don’t need them (like a, the, an,). Note that this is context dependent</p>
-<p>dicationary: all of the possible words that a given system knows how to process</p>
+<h2><span class="section-number">35.1. </span>Terms<a class="headerlink" href="#terms" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>document: unit of text we’re analyzing (one sample)</p></li>
+<li><p>token: sequence of characters in some particular document that are grouped together as a useful semantic unit for processing (basically a word)</p></li>
+<li><p>stop words: no meaning, we don’t need them (like a, the, an,). Note that this is context dependent</p></li>
+<li><p>dictionary: all of the possible words that a given system knows how to process</p></li>
+</ul>
+<p>We’ll start by taking out one sentence and anlyzeing that:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">sentence_dict</span><span class="p">[</span><span class="s1">&#39;Professor Brown&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span>
+
+<span class="n">s1</span>
 </pre></div>
 </div>
 </div>
@@ -663,6 +707,14 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="bag-of-words-representionat">
+<h2><span class="section-number">35.2. </span>Bag of Words Representionat<a class="headerlink" href="#bag-of-words-representionat" title="Permalink to this headline">¶</a></h2>
+<p>We’re going to learn a represetnation called the bag of words.  It ignores the order of the words within a document. To do this, we’ll first extract all of the tokens (tokenize) the docuemtns and then count how mnay times each word appears.  This will be our numerical representation of the data.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+</div>
+<p>Then we initialize our transformer</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
@@ -670,6 +722,7 @@
 </div>
 </div>
 </div>
+<p>We can use the fit transform method to fit the vectorizer model and apply it to this sentence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="n">s1</span><span class="p">])</span>
@@ -683,6 +736,7 @@
 </div>
 </div>
 </div>
+<p>To see the output better, we use the toarray method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="n">s1</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
@@ -693,6 +747,17 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 1, 1]])
 </pre></div>
 </div>
+</div>
+</div>
+<p>We can also examine attributes of the object.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that we keep using the same tools over and over to explore how things work.  You can do this on your own, when you’re learning new things. Example
+code is readily available online but not all of it is well documented or
+clearly explained.</p>
+<p>Also, in a job, much, much, more of your time will be spent reading code than writing code from scratch. These strategies will help you get familiar with a new code base and get up to speed faster.</p>
 </div>
 </div>
 <div class="cell docutils container">
@@ -707,16 +772,16 @@
 </div>
 </div>
 </div>
+<p>We see that what it does is creates an ordered (the values are the order) list of words as the parameters of this model (ending in <code class="docutils literal notranslate"><span class="pre">_</span></code> is an attribute of the object or parameter of the model)</p>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>What other model parameters have we seen? How have we used model parameters in the past?</p>
+</div>
+<p>To see what happens a bit more, let’s add a second senntence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="n">sentence_dict</span><span class="p">[</span><span class="s1">&#39;Kang Liu&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s2</span>
+<span class="n">s2</span>
 </pre></div>
 </div>
 </div>
@@ -739,6 +804,7 @@
 </div>
 </div>
 </div>
+<p>Now we can see that it puts the words in the <code class="docutils literal notranslate"><span class="pre">vocabulary_</span></code> attribute (aka the <a class="reference internal" href="../resources/glossary.html#term-dictionary"><span class="xref std std-term">dictionary</span></a>) in alphabetical order.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
@@ -752,16 +818,12 @@
 </div>
 </div>
 </div>
+<p>From this we can see that the representation is the count of how many times each word appears.</p>
+<p>Now we can apply it to all of the sentences, or our whole <a class="reference internal" href="../resources/glossary.html#term-corpus"><span class="xref std std-term">corpus</span></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sentence_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span>
+<span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -777,6 +839,7 @@
 </div>
 </div>
 </div>
+<p>We can get the dictionary out in order using the <code class="docutils literal notranslate"><span class="pre">get_feature_names</span></code> method. This method has a generic name, not specific to text, because it’s a property of transformers in general.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
@@ -879,17 +942,13 @@
 </div>
 </div>
 </div>
+<p>We can use a dataframe again to see this more easily. We can put labels on both the index and the column headings.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mat</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">(),</span>
                           <span class="n">index</span><span class="o">=</span><span class="n">sentence_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_df</span>
+
+<span class="n">sentence_df</span>
 </pre></div>
 </div>
 </div>
@@ -1325,6 +1384,10 @@
 <p>16 rows × 87 columns</p>
 </div></div></div>
 </div>
+</div>
+<div class="section" id="how-can-we-find-the-most-commonly-used-word">
+<h2><span class="section-number">35.3. </span>How can we find the most commonly used word?<a class="headerlink" href="#how-can-we-find-the-most-commonly-used-word" title="Permalink to this headline">¶</a></h2>
+<p>One guess</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
@@ -1348,30 +1411,80 @@ Length: 87, dtype: int64
 </div>
 </div>
 </div>
+<p>This is the maximum number of times each word appears in single “document”, but it’s also not sorted, it’s alphabetical.</p>
+<p>This shows the word that appears the most times.:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>looking    1
+start      1
+some       1
+so         1
+seen       1
+          ..
+my         2
+done       2
+am         2
+all        2
+nom        3
+Length: 87, dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
+<p>To get what we want we need to sum, which by default is along the columns, or per word.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;to&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>all        2
+am         7
+and        1
+are        1
+be         1
+          ..
+weekend    1
+well       4
+when       1
+work       1
+you        1
+Length: 87, dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
+<p>Agaain it’s unsorted, but we can apply max</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">max</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method NDFrame._add_numeric_operations.&lt;locals&gt;.max of all        2
+am         7
+and        1
+are        1
+be         1
+          ..
+weekend    1
+well       4
+when       1
+work       1
+you        1
+Length: 87, dtype: int64&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>this gives only t the value though, we want the word. When we summed we got back a Series with the words in the index:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
@@ -1395,6 +1508,23 @@ Length: 87, dtype: int64
 </div>
 </div>
 </div>
+<p>So we can use idxmax</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;to&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="distances-in-text">
+<h2><span class="section-number">35.4. </span>Distances in text<a class="headerlink" href="#distances-in-text" title="Permalink to this headline">¶</a></h2>
+<p>We can now use a distance function to calculate how far apaart the different sentences are.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euclidean_distances</span><span class="p">(</span><span class="n">sentence_df</span><span class="p">)</span>
@@ -1470,6 +1600,7 @@ Length: 87, dtype: int64
 </div>
 </div>
 </div>
+<p>We can make this eaiser to read by making it a Data Frame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dist_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">euclidean_distances</span><span class="p">(</span><span class="n">sentence_df</span><span class="p">),</span>
@@ -1824,7 +1955,7 @@ Length: 87, dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>WHo wrote the most similar question to me?</p>
+<p>Who wrote the most similar question to me?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dist_df</span><span class="p">[</span><span class="s1">&#39;Professor Brown&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Professor Brown&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span>
@@ -1837,6 +1968,30 @@ Length: 87, dtype: int64
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="questions-after-classroom">
+<h2><span class="section-number">35.5. </span>Questions After Classroom<a class="headerlink" href="#questions-after-classroom" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-can-this-be-used-for-training-a-classifier">
+<h3><span class="section-number">35.5.1. </span>How can this be used for training a classifier?<a class="headerlink" href="#how-can-this-be-used-for-training-a-classifier" title="Permalink to this headline">¶</a></h3>
+<div class="toggle docutils container">
+<p>To train a classifier, we would also need target variables, but the <code class="docutils literal notranslate"><span class="pre">mat</span></code> variable we had above can be used as the <code class="docutils literal notranslate"><span class="pre">X</span></code> for any <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> estimator object.
+To train more complex tasks you would need appropriate data: for example labeled articles that are real and fake to train a fake news classifier (this is provided for a12).</p>
+</div>
+</div>
+<div class="section" id="how-are-ram-tokens-tracked">
+<h3><span class="section-number">35.5.2. </span>How are ram tokens tracked?<a class="headerlink" href="#how-are-ram-tokens-tracked" title="Permalink to this headline">¶</a></h3>
+<div class="toggle docutils container">
+<p>Ram Tokens are tracked in the <a class="reference external" href="http://drsmb.co/ramtoken">Ram Token Bank: http://drsmb.co/ramtoken</a> form.  You’ll get e-mails when you earn or use them, however no one has submitted for any. You still can though (espeically if you were advised to and forgot).</p>
+</div>
+</div>
+</div>
+<div class="section" id="more-practice">
+<h2><span class="section-number">35.6. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Which two people wrote the most similar sentences?</p></li>
+<li><p>Do you think this representation captures all cases of similary? Can you generate a case where it doesn’t do well?</p></li>
+<li><p>Try</p></li>
+</ol>
 </div>
 </div>
 
@@ -1864,7 +2019,21 @@ Length: 87, dtype: int64
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2021-11-19.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">34. </span>Learning Curves</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../assignments/01-python-syllabus.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>

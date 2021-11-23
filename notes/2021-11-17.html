@@ -295,6 +295,11 @@
    34. Learning Curves
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-22.html">
+   35. Intro to NLP- representing text data
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -687,7 +692,7 @@ programming and how to effectively teach it.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9916666666666666, 0.9583333333333333)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9833333333333332, 0.9583333333333333)
 </pre></div>
 </div>
 </div>
@@ -713,7 +718,7 @@ programming and how to effectively teach it.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9333333333333333
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8333333333333334
 </pre></div>
 </div>
 </div>
@@ -769,49 +774,49 @@ programming and how to effectively teach it.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.000634</td>
-      <td>0.000032</td>
-      <td>0.000292</td>
-      <td>0.00002</td>
+      <td>0.00072</td>
+      <td>0.000050</td>
+      <td>0.000322</td>
+      <td>0.000025</td>
       <td>0.5</td>
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
-      <td>1.0</td>
       <td>0.916667</td>
       <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
+      <td>0.916667</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>1.000000</td>
+      <td>1.0</td>
       <td>1.000000</td>
-      <td>0.991667</td>
-      <td>0.025000</td>
+      <td>1.0</td>
+      <td>0.983333</td>
+      <td>0.033333</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.000731</td>
-      <td>0.000025</td>
-      <td>0.000330</td>
-      <td>0.00003</td>
+      <td>0.00083</td>
+      <td>0.000037</td>
+      <td>0.000370</td>
+      <td>0.000019</td>
       <td>0.5</td>
       <td>rbf</td>
       <td>{'C': 0.5, 'kernel': 'rbf'}</td>
-      <td>1.0</td>
       <td>1.000000</td>
       <td>0.916667</td>
       <td>0.916667</td>
-      <td>0.916667</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>0.916667</td>
+      <td>1.0</td>
       <td>0.916667</td>
-      <td>0.958333</td>
-      <td>0.041667</td>
-      <td>13</td>
+      <td>1.0</td>
+      <td>0.966667</td>
+      <td>0.040825</td>
+      <td>10</td>
     </tr>
   </tbody>
 </table>
@@ -826,13 +831,13 @@ programming and how to effectively teach it.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    14.000000
-mean      0.981548
-std       0.012734
-min       0.958333
-25%       0.975000
-50%       0.987500
-75%       0.991667
-max       0.991667
+mean      0.975000
+std       0.007309
+min       0.966667
+25%       0.966667
+50%       0.975000
+75%       0.983333
+max       0.983333
 Name: mean_test_score, dtype: float64
 </pre></div>
 </div>
@@ -846,12 +851,12 @@ Name: mean_test_score, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    90.000000
-mean      0.950741
-std       0.002385
-min       0.950000
-25%       0.950000
-50%       0.950000
-75%       0.950000
+mean      0.957222
+std       0.003789
+min       0.941667
+25%       0.958333
+50%       0.958333
+75%       0.958333
 max       0.958333
 Name: mean_test_score, dtype: float64
 </pre></div>
@@ -903,7 +908,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9916666666666666, 0.9583333333333333)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9833333333333332, 0.9583333333333333)
 </pre></div>
 </div>
 </div>
@@ -969,7 +974,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8440710066609742, 1.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.6999722251151381, 0.9666944415515286)
 </pre></div>
 </div>
 </div>
@@ -1009,7 +1014,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2388/2188489612.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2452/2188489612.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="n">n_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">200</span><span class="p">)])</span>
                               <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax

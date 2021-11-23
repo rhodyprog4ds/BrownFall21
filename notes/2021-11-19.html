@@ -52,7 +52,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="next" title="35. Intro to NLP- representing text data" href="2021-11-22.html" />
     <link rel="prev" title="33. Model Selection" href="2021-11-17.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -293,6 +293,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    34. Learning Curves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-22.html">
+   35. Intro to NLP- representing text data
   </a>
  </li>
 </ul>
@@ -577,6 +582,26 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   34.1. Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-would-i-use-an-svm">
+     34.1.1. When would I use an SVM?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -842,7 +867,7 @@ L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f75c7fb7c90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f1d40f78a50&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
@@ -1000,6 +1025,7 @@ model_selection.KFold()
 </div>
 </div>
 </div>
+<p>then we can look at the DataFrame</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_learning_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1038,55 +1064,58 @@ model_selection.KFold()
       <td>143</td>
       <td>0.999510</td>
       <td>0.923611</td>
-      <td>0.004349</td>
-      <td>0.010783</td>
+      <td>0.005858</td>
+      <td>0.011878</td>
     </tr>
     <tr>
       <th>1</th>
       <td>467</td>
       <td>0.999101</td>
       <td>0.978278</td>
-      <td>0.027616</td>
-      <td>0.020201</td>
+      <td>0.032321</td>
+      <td>0.024849</td>
     </tr>
     <tr>
       <th>2</th>
       <td>790</td>
       <td>0.998848</td>
       <td>0.986278</td>
-      <td>0.052645</td>
-      <td>0.030248</td>
+      <td>0.059938</td>
+      <td>0.036068</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1113</td>
       <td>0.998913</td>
       <td>0.989500</td>
-      <td>0.081143</td>
-      <td>0.037414</td>
+      <td>0.095047</td>
+      <td>0.043790</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1437</td>
       <td>0.998859</td>
       <td>0.991306</td>
-      <td>0.116007</td>
-      <td>0.044260</td>
+      <td>0.133986</td>
+      <td>0.053026</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+<p>We can use our skills in transforming data to make it easier to exmine just a subset of the scores.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>This is <em>one</em> thing we can analyze, but there are others. To earn prepare on assignment 11,  manipulate your reuslts a different way.</p>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_learning_df_scores</span> <span class="o">=</span> <span class="n">svm_learning_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;train_size&#39;</span><span class="p">],</span><span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;train_score&#39;</span><span class="p">,</span><span class="s1">&#39;test_score&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_learning_df_scores</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">svm_learning_df_scores</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1131,6 +1160,19 @@ model_selection.KFold()
 </table>
 </div></div></div>
 </div>
+<p>This new DataFrame allows us to make convenient plots.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Getting used to thinking though these sorts of manipulations can take time, but
+is valuable. Investing time to learn these things will help you both write
+shorter, more readable, easy to examine, code (which is nicer to your co-workers)
+and help you develop flexible mental representation.  The flexiblity of your
+mental model of material is the way learning scientists distinguish compentent
+practioners from experts.</p>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">svm_learning_df_scores</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span><span class="s1">&#39;train_size&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">)</span>
@@ -1141,7 +1183,7 @@ model_selection.KFold()
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;train_size&#39;, ylabel=&#39;value&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-11-19_36_1.png" src="../_images/2021-11-19_36_1.png" />
+<img alt="../_images/2021-11-19_38_1.png" src="../_images/2021-11-19_38_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1158,6 +1200,7 @@ model_selection.KFold()
 </div>
 </div>
 </div>
+<p>We can do the same for Gaussian Naive Bayes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb_learning_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">train_sizes_gnb</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;train_size&#39;</span><span class="p">])</span>
@@ -1181,7 +1224,26 @@ model_selection.KFold()
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;train_size&#39;, ylabel=&#39;value&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-11-19_39_1.png" src="../_images/2021-11-19_39_1.png" />
+<img alt="../_images/2021-11-19_42_1.png" src="../_images/2021-11-19_42_1.png" />
+</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-question-in-class admonition">
+<p class="admonition-title">Question in Class</p>
+<p>This was a question after class, but the answer makes more sense inline here.</p>
+</div>
+</div>
+<p>These scores are overall not as high as the SVM (note the values on the y axis. )</p>
+<div class="section" id="questions-after-class">
+<h2><span class="section-number">34.1. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="when-would-i-use-an-svm">
+<h3><span class="section-number">34.1.1. </span>When would I use an SVM?<a class="headerlink" href="#when-would-i-use-an-svm" title="Permalink to this headline">¶</a></h3>
+<div class="toggle docutils container">
+<p>SVMs are a very powerful model and they’re good when you need relatively quick
+training (and test) time, a model that takes a small amount of memory (eg running
+the prediction on a mobile device or smart device), with high accuracy.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1218,10 +1280,10 @@ model_selection.KFold()
             <p class="prev-next-title"><span class="section-number">33. </span>Model Selection</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../assignments/01-python-syllabus.html" title="next page">
+    <a class='right-next' id="next-link" href="2021-11-22.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+        <p class="prev-next-title"><span class="section-number">35. </span>Intro to NLP- representing text data</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
