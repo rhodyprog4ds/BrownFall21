@@ -44,6 +44,7 @@ parts:
       - file: notes/2021-11-15
       - file: notes/2021-11-17
       - file: notes/2021-11-19
+      - file: notes/2021-11-22
   - caption: Assignments
     numbered: True
     chapters:
