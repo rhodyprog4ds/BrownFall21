@@ -300,6 +300,11 @@
    35. Intro to NLP- representing text data
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-29.html">
+   36. More NLP &amp; Solving problems with ML
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -872,7 +877,7 @@ L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f4a3419ca10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fe297eae6d0&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
@@ -990,60 +995,6 @@ model_selection.KFold()
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2321</span><span class="o">/</span><span class="mf">2321808296.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">train_sizes</span><span class="o">=</span><span class="n">train_sizes</span><span class="p">,</span>
-<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">return_times</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/model_selection/_validation.py</span> in <span class="ni">learning_curve</span><span class="nt">(estimator, X, y, groups, train_sizes, cv, scoring, exploit_incremental_learning, n_jobs, pre_dispatch, verbose, shuffle, random_state, error_score, return_times, fit_params)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1567</span>                 <span class="n">return_times</span><span class="o">=</span><span class="n">return_times</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1568</span>             <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1569</span>             <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">train_test_proportions</span>
-<span class="g g-Whitespace">   </span><span class="mi">1570</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1571</span>         <span class="n">results</span> <span class="o">=</span> <span class="n">_aggregate_score_dicts</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1054</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1055</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1056</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1057</span>             <span class="c1"># Make sure that we get a last message telling us we are done</span>
-<span class="g g-Whitespace">   </span><span class="mi">1058</span>             <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/joblib/parallel.py</span> in <span class="ni">retrieve</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">933</span>             <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">934</span>                 <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">&#39;supports_timeout&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">935</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">936</span>                 <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/joblib/_parallel_backends.py</span> in <span class="ni">wrap_future_result</span><span class="nt">(future, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="n">AsyncResults</span><span class="o">.</span><span class="n">get</span> <span class="kn">from</span> <span class="nn">multiprocessing.</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">542</span><span class="s2">             return future.result(timeout=timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="s2">         except CfTimeoutError as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="s2">             raise TimeoutError from e</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/concurrent/futures/_base.py</span> in <span class="ni">result</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">428</span><span class="s2">                 return self.__get_result()</span>
-<span class="g g-Whitespace">    </span><span class="mi">429</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">430</span><span class="s2">             self._condition.wait(timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">431</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">432</span><span class="s2">             if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">294</span><span class="s2">         try:    # restore state no matter what (e.g., KeyboardInterrupt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">295</span><span class="s2">             if timeout is None:</span>
-<span class="ne">--&gt; </span><span class="mi">296</span><span class="s2">                 waiter.acquire()</span>
-<span class="g g-Whitespace">    </span><span class="mi">297</span><span class="s2">                 gotit = True</span>
-<span class="g g-Whitespace">    </span><span class="mi">298</span><span class="s2">             else:</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
 </div>
 <p>It returns the list of the counts for each training size (we input percentages and it returns counts)</p>
 <div class="cell docutils container">
@@ -1052,11 +1003,21 @@ model_selection.KFold()
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 143,  467,  790, 1113, 1437])
+</pre></div>
+</div>
+</div>
 </div>
 <p>The other parameters, it returns a list for each length that’s 100 long because our cross validation was 100 iterations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit_times_svm</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5, 100)
 </pre></div>
 </div>
 </div>
@@ -1081,6 +1042,76 @@ model_selection.KFold()
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>train_size</th>
+      <th>train_score</th>
+      <th>test_score</th>
+      <th>fit_time</th>
+      <th>score_times</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>143</td>
+      <td>0.999510</td>
+      <td>0.923611</td>
+      <td>0.003670</td>
+      <td>0.006592</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>467</td>
+      <td>0.999101</td>
+      <td>0.978278</td>
+      <td>0.023070</td>
+      <td>0.018093</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>790</td>
+      <td>0.998848</td>
+      <td>0.986278</td>
+      <td>0.043494</td>
+      <td>0.027122</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1113</td>
+      <td>0.998913</td>
+      <td>0.989500</td>
+      <td>0.069415</td>
+      <td>0.032736</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1437</td>
+      <td>0.998859</td>
+      <td>0.991306</td>
+      <td>0.100612</td>
+      <td>0.037551</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We can use our skills in transforming data to make it easier to exmine just a subset of the scores.</p>
 <div class="margin sidebar">
@@ -1098,6 +1129,46 @@ model_selection.KFold()
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>train_size</th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>143</td>
+      <td>train_score</td>
+      <td>0.999510</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>467</td>
+      <td>train_score</td>
+      <td>0.999101</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>This new DataFrame allows us to make convenient plots.</p>
 <div class="margin sidebar">
@@ -1117,6 +1188,12 @@ practioners from experts.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">svm_learning_df_scores</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span><span class="s1">&#39;train_size&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;train_size&#39;, ylabel=&#39;value&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-19_38_1.png" src="../_images/2021-11-19_38_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1152,6 +1229,12 @@ practioners from experts.</p>
 <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gnb_learning_scores</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span><span class="s1">&#39;train_size&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;train_size&#39;, ylabel=&#39;value&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-19_42_1.png" src="../_images/2021-11-19_42_1.png" />
 </div>
 </div>
 <div class="margin sidebar">

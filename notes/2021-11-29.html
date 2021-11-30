@@ -1,0 +1,1577 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>36. More NLP &amp; Solving problems with ML &#8212; Programming for Data Science at URI Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="35. Intro to NLP- representing text data" href="2021-11-22.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/310_2021.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Programming for Data Science at URI Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   About this Book
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/about.html">
+   Basic Facts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/tools.html">
+   Tools and Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/achievements.html">
+   Data Science Achievements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/grading.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/policies.html">
+   Grading Policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/uri_resources.html">
+   Support
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/uri_statements.html">
+   General URI Policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/communication.html">
+   Course Communications
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-08.html">
+   1. Welcome to Programming to Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-10.html">
+   2. Jupyter Notebook Tour &amp; Python Review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-13.html">
+   3. Getting help, object inspection, loading data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-15.html">
+   4. Pandas DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-17.html">
+   5. More Loading Data, Indexing, and Iterables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-20.html">
+   6. Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-22.html">
+   7. Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-24.html">
+   8. Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-27.html">
+   9. Reshaping Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-09-29.html">
+   10. More Reshaping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-01.html">
+   11. Missing Data and Inconsistent coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-04.html">
+   12. Building Datasets From multiple Sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-06.html">
+   13. Reviewing Merges &amp; Databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-08.html">
+   14. Web Scraping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-13.html">
+   15. Intro to Machine learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-15.html">
+   16. Interpetting and Evaluating Naive Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-18.html">
+   17. Making Predictions in Generative Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-20.html">
+   18. Midsemester feedback and Decision Trees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-22.html">
+   19. Decision Tree Setting and more Evaluation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-25.html">
+   25. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-10-29.html">
+   26. Interpretting Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-01.html">
+   27. Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-03.html">
+   28. Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-05.html">
+   29. Evaluating Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-08.html">
+   30. ML Task Review and Cross Validation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-12.html">
+   31. SVM and Parameter Optimizing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-15.html">
+   32. Model Comparison
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-17.html">
+   33. Model Selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-19.html">
+   34. Learning Curves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-11-22.html">
+   35. Intro to NLP- representing text data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   36. More NLP &amp; Solving problems with ML
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/01-python-syllabus.html">
+   1. Portfolio Setup, Data Science, and Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/02-python-access.html">
+   2. Practicing Python and Accessing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/03-eda.html">
+   3. Assignment 3: Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/04-prepare.html">
+   4. Assignment 4:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/05-construct.html">
+   5. Assignment 5: Constructing Datasets and Using Databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/06-classification.html">
+   6. Assignment 6: Understanding Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/07-decision-tree.html">
+   7. Assignment 7: Decision Trees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/08-regression.html">
+   8. Assignment 8: Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/09-clustering.html">
+   9. Assignment 9: Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/10-optimize.html">
+   10. Assignment 10: Tuning Model Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/11-compare.html">
+   11. Assignment 11: Model Comparison
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/12-fake-news.html">
+   12. Assignment 12: Fake News
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Portfolio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/index.html">
+   Portfolio Dates and Key Facts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/intro_reflection.html">
+   Submission Introductions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/formatting.html">
+   Formatting Tips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/check1ideas.html">
+   Portfolio Check 1 Ideas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../portfolio/check2ideas.html">
+   Check 2 Ideas
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/index.html">
+   FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/syllabus.html">
+   Syllabus and Grading FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/github.html">
+   Git and GitHub
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/debugging.html">
+   Code Errors
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/python.html">
+   References on Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/cheatsheet.html">
+   Cheatsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/datasets.html">
+   Data Sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/tips.html">
+   General Tips and Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/learning.html">
+   How to Study in this class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/gettinghelp.html">
+   Getting Help with Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/terminal.html">
+   Terminals and Environments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/organization.html">
+   Getting Organized for class
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall20/letters/">
+   Advice from FA2020 Students
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notes/2021-11-29.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notes/2021-11-29.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rhodyprog4ds/BrownFall21/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fnotes/2021-11-29.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/notes/2021-11-29.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rhodyprog4ds/BrownFall21/main?urlpath=tree/notes/2021-11-29.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-representations">
+   36.1. Comparing representations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sparse-matrices">
+   36.2. Sparse Matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   36.3. More Practice
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="more-nlp-solving-problems-with-ml">
+<h1><span class="section-number">36. </span>More NLP &amp; Solving problems with ML<a class="headerlink" href="#more-nlp-solving-problems-with-ml" title="Permalink to this headline">¶</a></h1>
+<p>Imagine you work for a news agency, current articles are stored in a database in
+a table where they are indexed by a unique identifier. A separate table indicates
+the primary category for most articles, but some are missing. Your assignment is to create an automatic category generator to save editors time. Your manager suggests that
+an SVM or decision tree is probably best, but is unsure what text representations
+will perform best. You are expected to produce an accessible report with tables and plots that visualize the performance and impact of various modeling choices.</p>
+<p>Write the import statements you would need to solve this problem. Include
+whole libraries or modules as is most appropriate.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction</span> <span class="kn">import</span> <span class="n">text</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+<p>Given the following vocabulary,</p>
+<p>[‘and’, ‘are’, ‘cat’, ‘cats’, ‘dogs’, ‘pets’, ‘popular’, ‘videos’]</p>
+<p>represent “Cats and dogs are pets” in vector format.</p>
+<p>[1,1,0,1,1,1,0,0]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction</span> <span class="kn">import</span> <span class="n">text</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">euclidean_distances</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">MultinomialNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># import a python utility for examingin ojbects for the notes</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">getsizeof</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">ng_X</span><span class="p">,</span><span class="n">ng_y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_20newsgroups</span><span class="p">(</span><span class="n">categories</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;comp.graphics&#39;</span><span class="p">,</span><span class="s1">&#39;sci.crypt&#39;</span><span class="p">],</span>
+                    <span class="n">return_X_y</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ng_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_y</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 1, 0, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;From: robert@cpuserver.acsc.com (Robert Grant)\nSubject: Virtual Reality for X on the CHEAP!\nOrganization: USCACSC, Los Angeles\nLines: 187\nDistribution: world\nReply-To: robert@cpuserver.acsc.com (Robert Grant)\nNNTP-Posting-Host: cpuserver.acsc.com\n\nHi everyone,\n\nI thought that some people may be interested in my VR\nsoftware on these groups:\n\n*******Announcing the release of Multiverse-1.0.2*******\n\nMultiverse is a multi-user, non-immersive, X-Windows based Virtual Reality\nsystem, primarily focused on entertainment/research.\n\nFeatures:\n\n   Client-Server based model, using Berkeley Sockets.\n   No limit to the number of users (apart from performance).\n   Generic clients.\n   Customizable servers.\n   Hierachical Objects (allowing attachment of cameras and light sources).\n   Multiple light sources (ambient, point and spot).\n   Objects can have extension code, to handle unique functionality, easily\n        attached.\n\nFunctionality:\n\n  Client:\n   The client is built around a &#39;fast&#39; render loop. Basically it changes things\n   when told to by the server and then renders an image from the user&#39;s\n   viewpoint. It also provides the server with information about the user&#39;s\n   actions - which can then be communicated to other clients and therefore to\n   other users.\n\n   The client is designed to be generic - in other words you don&#39;t need to\n   develop a new client when you want to enter a new world. This means that\n   resources can be spent on enhancing the client software rather than adapting\n   it. The adaptations, as will be explained in a moment, occur in the servers.\n\n   This release of the client software supports the following functionality:\n\n    o Hierarchical Objects (with associated addressing)\n\n    o Multiple Light Sources and Types (Ambient, Point and Spot)\n\n    o User Interface Panels\n\n    o Colour Polygonal Rendering with Phong Shading (optional wireframe for\n\tfaster frame rates)\n\n    o Mouse and Keyboard Input\n\n   (Some people may be disappointed that this software doesn&#39;t support the\n   PowerGlove as an input device - this is not because it can&#39;t, but because\n   I don&#39;t have one! This will, however, be one of the first enhancements!)\n\n  Server(s):\n   This is where customization can take place. The following basic support is\n   provided in this release for potential world server developers:\n\n    o Transparent Client Management\n\n    o Client Message Handling\n\n   This may not sound like much, but it takes away the headache of\naccepting and\n   terminating clients and receiving messages from them - the\napplication writer\n   can work with the assumption that things are happening locally.\n\n   Things get more interesting in the object extension functionality. This is\n   what is provided to allow you to animate your objects:\n\n    o Server Selectable Extension Installation:\n        What this means is that you can decide which objects have extended\n        functionality in your world. Basically you call the extension\n        initialisers you want.\n\n    o Event Handler Registration:\n        When you develop extensions for an object you basically write callback\n        functions for the events that you want the object to respond to.\n        (Current events supported: INIT, MOVE, CHANGE, COLLIDE &amp; TERMINATE)\n\n    o Collision Detection Registration:\n        If you want your object to respond to collision events just provide\n        some basic information to the collision detection management software.\n        Your callback will be activated when a collision occurs.\n\n    This software is kept separate from the worldServer applications because\n    the application developer wants to build a library of extended objects\n    from which to choose.\n\n    The following is all you need to make a World Server application:\n\n    o Provide an initWorld function:\n        This is where you choose what object extensions will be supported, plus\n        any initialization you want to do.\n\n    o Provide a positionObject function:\n        This is where you determine where to place a new client.\n\n    o Provide an installWorldObjects function:\n        This is where you load the world (.wld) file for a new client.\n\n    o Provide a getWorldType function:\n        This is where you tell a new client what persona they should have.\n\n    o Provide an animateWorld function:\n        This is where you can go wild! At a minimum you should let the objects\n        move (by calling a move function) and let the server sleep for a bit\n        (to avoid outrunning the clients).\n\n    That&#39;s all there is to it! And to prove it here are the line counts for the\n    three world servers I&#39;ve provided:\n\n        generic - 81 lines\n        dactyl - 270 lines (more complicated collision detection due to the\n                           stairs! Will probably be improved with future\n                           versions)\n        dogfight - 72 lines\n\nLocation:\n\n   This software is located at the following site:\n   ftp.u.washington.edu\n\n   Directory:\n   pub/virtual-worlds\n\n   File:\n   multiverse-1.0.2.tar.Z\n\nFutures:\n\n   Client:\n\n    o Texture mapping.\n\n    o More realistic rendering: i.e. Z-Buffering (or similar), Gouraud shading\n\n    o HMD support.\n\n    o Etc, etc....\n\n   Server:\n\n    o Physical Modelling (gravity, friction etc).\n\n    o Enhanced Object Management/Interaction\n\n    o Etc, etc....\n\n   Both:\n\n    o Improved Comms!!!\n\nI hope this provides people with a good understanding of the Multiverse\nsoftware,\nunfortunately it comes with practically zero documentation, and I&#39;m not sure\nwhether that will ever be able to be rectified! :-(\n\nI hope people enjoy this software and that it is useful in our explorations of\nthe Virtual Universe - I&#39;ve certainly found fascinating developing it, and I\nwould *LOVE* to add support for the PowerGlove...and an HMD :-)!!\n\nFinally one major disclaimer:\n\nThis is totally amateur code. By that I mean there is no support for this code\nother than what I, out the kindness of my heart, or you, out of pure\ndesperation, provide. I cannot be held responsible for anything good or bad\nthat may happen through the use of this code - USE IT AT YOUR OWN RISK!\n\nDisclaimer over!\n\nOf course if you love it, I would like to here from you. And anyone with\nPOSITIVE contributions/criticisms is also encouraged to contact me. Anyone who\nhates it: &gt; /dev/null!\n\n************************************************************************\n*********\nAnd if anyone wants to let me do this for a living: you know where to\nwrite :-)!\n************************************************************************\n*********\n\nThanks,\n\nRobert.\n\nrobert@acsc.com\n^^^^^^^^^^^^^^^\n&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re going to instantiate the object and fit it two the whole dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_vec</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">CountVectorizer</span><span class="p">()</span>
+
+<span class="n">count_vec</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ng_X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CountVectorizer()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>I changed the following a little bit from class so that we can use the same test/train split for the two different types of transformation so that we can compare them more easily.</p>
+<p>This also helps illustrate when using the fit and transform separately is helpful.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_X_train</span><span class="p">,</span> <span class="n">ng_X_test</span><span class="p">,</span> <span class="n">ng_y_train</span><span class="p">,</span> <span class="n">ng_y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+                                        <span class="n">ng_X</span><span class="p">,</span> <span class="n">ng_y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can use the transformation that we fit to the whole dataset to transform the train and test portions of the data separately.</p>
+<p>The transform method also returns the sparse matrix directly so we no longer need the <code class="docutils literal notranslate"><span class="pre">toarray</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_vec_train</span> <span class="o">=</span> <span class="n">count_vec</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">ng_X_train</span><span class="p">)</span>
+<span class="n">ng_vec_test</span> <span class="o">=</span> <span class="n">count_vec</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">ng_X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_vec_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;1x24257 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
+	with 84 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ng_vec_train</span><span class="p">,</span><span class="n">ng_y_train</span><span class="p">)</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">ng_vec_test</span><span class="p">,</span><span class="n">ng_y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9830508474576272
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">TfidfTransformer</span><span class="p">()</span>
+<span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">ng_X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2456</span><span class="o">/</span><span class="mf">2043128607.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">tfidf</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">TfidfTransformer</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">ng_X</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/base.py</span> in <span class="ni">fit_transform</span><span class="nt">(self, X, y, **fit_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span>         <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span>             <span class="c1"># fit method of arity 1 (unsupervised transformation)</span>
+<span class="ne">--&gt; </span><span class="mi">847</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">848</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">849</span>             <span class="c1"># fit method of arity 2 (supervised transformation)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/feature_extraction/text.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1613</span>         <span class="c1"># dtype NPY_INTP which is int32 for 32bit platforms. See #20923</span>
+<span class="g g-Whitespace">   </span><span class="mi">1614</span>         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1615</span>             <span class="n">X</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span> <span class="s2">&quot;csc&quot;</span><span class="p">),</span> <span class="n">accept_large_sparse</span><span class="o">=</span><span class="ow">not</span> <span class="n">_IS_32BIT</span>
+<span class="g g-Whitespace">   </span><span class="mi">1616</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">sp</span><span class="o">.</span><span class="n">issparse</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/base.py</span> in <span class="ni">_validate_data</span><span class="nt">(self, X, y, reset, validate_separately, **check_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">559</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Validation should be done on X, y or both.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">560</span>         <span class="k">elif</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">no_val_y</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">561</span>             <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">check_params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">562</span>             <span class="n">out</span> <span class="o">=</span> <span class="n">X</span>
+<span class="g g-Whitespace">    </span><span class="mi">563</span>         <span class="k">elif</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">no_val_y</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_array</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">763</span>                     <span class="s2">&quot;Reshape your data either using array.reshape(-1, 1) if &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span>                     <span class="s2">&quot;your data has a single feature or array.reshape(1, -1) &quot;</span>
+<span class="ne">--&gt; </span><span class="mi">765</span>                     <span class="s2">&quot;if it contains a single sample.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span>                 <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span> 
+
+<span class="ne">ValueError</span>: Expected 2D array, got 1D array instead:
+<span class="n">array</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;From: robert@cpuserver.acsc.com (Robert Grant)</span><span class="se">\n</span><span class="s2">Subject: Virtual Reality for X on the CHEAP!</span><span class="se">\n</span><span class="s2">Organization: USCACSC, Los Angeles</span><span class="se">\n</span><span class="s2">Lines: 187</span><span class="se">\n</span><span class="s2">Distribution: world</span><span class="se">\n</span><span class="s2">Reply-To: robert@cpuserver.acsc.com (Robert Grant)</span><span class="se">\n</span><span class="s2">NNTP-Posting-Host: cpuserver.acsc.com</span><span class="se">\n\n</span><span class="s2">Hi everyone,</span><span class="se">\n\n</span><span class="s2">I thought that some people may be interested in my VR</span><span class="se">\n</span><span class="s2">software on these groups:</span><span class="se">\n\n</span><span class="s2">*******Announcing the release of Multiverse-1.0.2*******</span><span class="se">\n\n</span><span class="s2">Multiverse is a multi-user, non-immersive, X-Windows based Virtual Reality</span><span class="se">\n</span><span class="s2">system, primarily focused on entertainment/research.</span><span class="se">\n\n</span><span class="s2">Features:</span><span class="se">\n\n</span><span class="s2">   Client-Server based model, using Berkeley Sockets.</span><span class="se">\n</span><span class="s2">   No limit to the number of users (apart from performance).</span><span class="se">\n</span><span class="s2">   Generic clients.</span><span class="se">\n</span><span class="s2">   Customizable servers.</span><span class="se">\n</span><span class="s2">   Hierachical Objects (allowing attachment of cameras and light sources).</span><span class="se">\n</span><span class="s2">   Multiple light sources (ambient, point and spot).</span><span class="se">\n</span><span class="s2">   Objects can have extension code, to handle unique functionality, easily</span><span class="se">\n</span><span class="s2">        attached.</span><span class="se">\n\n</span><span class="s2">Functionality:</span><span class="se">\n\n</span><span class="s2">  Client:</span><span class="se">\n</span><span class="s2">   The client is built around a &#39;fast&#39; render loop. Basically it changes things</span><span class="se">\n</span><span class="s2">   when told to by the server and then renders an image from the user&#39;s</span><span class="se">\n</span><span class="s2">   viewpoint. It also provides the server with information about the user&#39;s</span><span class="se">\n</span><span class="s2">   actions - which can then be communicated to other clients and therefore to</span><span class="se">\n</span><span class="s2">   other users.</span><span class="se">\n\n</span><span class="s2">   The client is designed to be generic - in other words you don&#39;t need to</span><span class="se">\n</span><span class="s2">   develop a new client when you want to enter a new world. This means that</span><span class="se">\n</span><span class="s2">   resources can be spent on enhancing the client software rather than adapting</span><span class="se">\n</span><span class="s2">   it. The adaptations, as will be explained in a moment, occur in the servers.</span><span class="se">\n\n</span><span class="s2">   This release of the client software supports the following functionality:</span><span class="se">\n\n</span><span class="s2">    o Hierarchical Objects (with associated addressing)</span><span class="se">\n\n</span><span class="s2">    o Multiple Light Sources and Types (Ambient, Point and Spot)</span><span class="se">\n\n</span><span class="s2">    o User Interface Panels</span><span class="se">\n\n</span><span class="s2">    o Colour Polygonal Rendering with Phong Shading (optional wireframe for</span><span class="se">\n\t</span><span class="s2">faster frame rates)</span><span class="se">\n\n</span><span class="s2">    o Mouse and Keyboard Input</span><span class="se">\n\n</span><span class="s2">   (Some people may be disappointed that this software doesn&#39;t support the</span><span class="se">\n</span><span class="s2">   PowerGlove as an input device - this is not because it can&#39;t, but because</span><span class="se">\n</span><span class="s2">   I don&#39;t have one! This will, however, be one of the first enhancements!)</span><span class="se">\n\n</span><span class="s2">  Server(s):</span><span class="se">\n</span><span class="s2">   This is where customization can take place. The following basic support is</span><span class="se">\n</span><span class="s2">   provided in this release for potential world server developers:</span><span class="se">\n\n</span><span class="s2">    o Transparent Client Management</span><span class="se">\n\n</span><span class="s2">    o Client Message Handling</span><span class="se">\n\n</span><span class="s2">   This may not sound like much, but it takes away the headache of</span><span class="se">\n</span><span class="s2">accepting and</span><span class="se">\n</span><span class="s2">   terminating clients and receiving messages from them - the</span><span class="se">\n</span><span class="s2">application writer</span><span class="se">\n</span><span class="s2">   can work with the assumption that things are happening locally.</span><span class="se">\n\n</span><span class="s2">   Things get more interesting in the object extension functionality. This is</span><span class="se">\n</span><span class="s2">   what is provided to allow you to animate your objects:</span><span class="se">\n\n</span><span class="s2">    o Server Selectable Extension Installation:</span><span class="se">\n</span><span class="s2">        What this means is that you can decide which objects have extended</span><span class="se">\n</span><span class="s2">        functionality in your world. Basically you call the extension</span><span class="se">\n</span><span class="s2">        initialisers you want.</span><span class="se">\n\n</span><span class="s2">    o Event Handler Registration:</span><span class="se">\n</span><span class="s2">        When you develop extensions for an object you basically write callback</span><span class="se">\n</span><span class="s2">        functions for the events that you want the object to respond to.</span><span class="se">\n</span><span class="s2">        (Current events supported: INIT, MOVE, CHANGE, COLLIDE &amp; TERMINATE)</span><span class="se">\n\n</span><span class="s2">    o Collision Detection Registration:</span><span class="se">\n</span><span class="s2">        If you want your object to respond to collision events just provide</span><span class="se">\n</span><span class="s2">        some basic information to the collision detection management software.</span><span class="se">\n</span><span class="s2">        Your callback will be activated when a collision occurs.</span><span class="se">\n\n</span><span class="s2">    This software is kept separate from the worldServer applications because</span><span class="se">\n</span><span class="s2">    the application developer wants to build a library of extended objects</span><span class="se">\n</span><span class="s2">    from which to choose.</span><span class="se">\n\n</span><span class="s2">    The following is all you need to make a World Server application:</span><span class="se">\n\n</span><span class="s2">    o Provide an initWorld function:</span><span class="se">\n</span><span class="s2">        This is where you choose what object extensions will be supported, plus</span><span class="se">\n</span><span class="s2">        any initialization you want to do.</span><span class="se">\n\n</span><span class="s2">    o Provide a positionObject function:</span><span class="se">\n</span><span class="s2">        This is where you determine where to place a new client.</span><span class="se">\n\n</span><span class="s2">    o Provide an installWorldObjects function:</span><span class="se">\n</span><span class="s2">        This is where you load the world (.wld) file for a new client.</span><span class="se">\n\n</span><span class="s2">    o Provide a getWorldType function:</span><span class="se">\n</span><span class="s2">        This is where you tell a new client what persona they should have.</span><span class="se">\n\n</span><span class="s2">    o Provide an animateWorld function:</span><span class="se">\n</span><span class="s2">        This is where you can go wild! At a minimum you should let the objects</span><span class="se">\n</span><span class="s2">        move (by calling a move function) and let the server sleep for a bit</span><span class="se">\n</span><span class="s2">        (to avoid outrunning the clients).</span><span class="se">\n\n</span><span class="s2">    That&#39;s all there is to it! And to prove it here are the line counts for the</span><span class="se">\n</span><span class="s2">    three world servers I&#39;ve provided:</span><span class="se">\n\n</span><span class="s2">        generic - 81 lines</span><span class="se">\n</span><span class="s2">        dactyl - 270 lines (more complicated collision detection due to the</span><span class="se">\n</span><span class="s2">                           stairs! Will probably be improved with future</span><span class="se">\n</span><span class="s2">                           versions)</span><span class="se">\n</span><span class="s2">        dogfight - 72 lines</span><span class="se">\n\n</span><span class="s2">Location:</span><span class="se">\n\n</span><span class="s2">   This software is located at the following site:</span><span class="se">\n</span><span class="s2">   ftp.u.washington.edu</span><span class="se">\n\n</span><span class="s2">   Directory:</span><span class="se">\n</span><span class="s2">   pub/virtual-worlds</span><span class="se">\n\n</span><span class="s2">   File:</span><span class="se">\n</span><span class="s2">   multiverse-1.0.2.tar.Z</span><span class="se">\n\n</span><span class="s2">Futures:</span><span class="se">\n\n</span><span class="s2">   Client:</span><span class="se">\n\n</span><span class="s2">    o Texture mapping.</span><span class="se">\n\n</span><span class="s2">    o More realistic rendering: i.e. Z-Buffering (or similar), Gouraud shading</span><span class="se">\n\n</span><span class="s2">    o HMD support.</span><span class="se">\n\n</span><span class="s2">    o Etc, etc....</span><span class="se">\n\n</span><span class="s2">   Server:</span><span class="se">\n\n</span><span class="s2">    o Physical Modelling (gravity, friction etc).</span><span class="se">\n\n</span><span class="s2">    o Enhanced Object Management/Interaction</span><span class="se">\n\n</span><span class="s2">    o Etc, etc....</span><span class="se">\n\n</span><span class="s2">   Both:</span><span class="se">\n\n</span><span class="s2">    o Improved Comms!!!</span><span class="se">\n\n</span><span class="s2">I hope this provides people with a good understanding of the Multiverse</span><span class="se">\n</span><span class="s2">software,</span><span class="se">\n</span><span class="s2">unfortunately it comes with practically zero documentation, and I&#39;m not sure</span><span class="se">\n</span><span class="s2">whether that will ever be able to be rectified! :-(</span><span class="se">\n\n</span><span class="s2">I hope people enjoy this software and that it is useful in our explorations of</span><span class="se">\n</span><span class="s2">the Virtual Universe - I&#39;ve certainly found fascinating developing it, and I</span><span class="se">\n</span><span class="s2">would *LOVE* to add support for the PowerGlove...and an HMD :-)!!</span><span class="se">\n\n</span><span class="s2">Finally one major disclaimer:</span><span class="se">\n\n</span><span class="s2">This is totally amateur code. By that I mean there is no support for this code</span><span class="se">\n</span><span class="s2">other than what I, out the kindness of my heart, or you, out of pure</span><span class="se">\n</span><span class="s2">desperation, provide. I cannot be held responsible for anything good or bad</span><span class="se">\n</span><span class="s2">that may happen through the use of this code - USE IT AT YOUR OWN RISK!</span><span class="se">\n\n</span><span class="s2">Disclaimer over!</span><span class="se">\n\n</span><span class="s2">Of course if you love it, I would like to here from you. And anyone with</span><span class="se">\n</span><span class="s2">POSITIVE contributions/criticisms is also encouraged to contact me. Anyone who</span><span class="se">\n</span><span class="s2">hates it: &gt; /dev/null!</span><span class="se">\n\n</span><span class="s2">************************************************************************</span><span class="se">\n</span><span class="s2">*********</span><span class="se">\n</span><span class="s2">And if anyone wants to let me do this for a living: you know where to</span><span class="se">\n</span><span class="s2">write :-)!</span><span class="se">\n</span><span class="s2">************************************************************************</span><span class="se">\n</span><span class="s2">*********</span><span class="se">\n\n</span><span class="s2">Thanks,</span><span class="se">\n\n</span><span class="s2">Robert.</span><span class="se">\n\n</span><span class="s2">robert@acsc.com</span><span class="se">\n</span><span class="s2">^^^^^^^^^^^^^^^</span><span class="se">\n</span><span class="s2">&quot;</span>
+ <span class="s2">&quot;From: lulagos@cipres.cec.uchile.cl (admirador)</span><span class="se">\n</span><span class="s2">Subject: OAK VGA 1Mb. Please, I needd VESA TSR!!! 8^)</span><span class="se">\n</span><span class="s2">Originator: lulagos@cipres</span><span class="se">\n</span><span class="s2">Nntp-Posting-Host: cipres.cec.uchile.cl</span><span class="se">\n</span><span class="s2">Organization: Centro de Computacion (CEC), Universidad de Chile</span><span class="se">\n</span><span class="s2">Lines: 15</span><span class="se">\n\n\n\t</span><span class="s2">Hi there!...</span><span class="se">\n\t\t</span><span class="s2">Well, i have a 386/40 with SVGA 1Mb. (OAK chip 077) and i don&#39;t</span><span class="se">\n\t\t</span><span class="s2">have VESA TSR program for this card. I need it . </span><span class="se">\n\t\t\t</span><span class="s2">Please... if anybody can help me, mail me at:</span><span class="se">\n\t\t\t</span><span class="s2">lulagos@araucaria.cec.uchile.cl</span><span class="se">\n\n\t\t\t\t\t\t\t\t\t\t\t\t</span><span class="s2">Thanks.</span><span class="se">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span><span class="s2">Mackk. </span><span class="se">\n</span><span class="s2">   _   /| </span><span class="se">\n</span><span class="s2">   </span><span class="se">\\</span><span class="s2">&#39;o.O&#39; </span><span class="se">\n</span><span class="s2">   =(___)=</span><span class="se">\n</span><span class="s2">      U   </span><span class="se">\n</span><span class="s2">     Ack!</span><span class="se">\n</span><span class="s2">&quot;</span>
+ <span class="s1">&#39;From: wcs@anchor.ho.att.com (Bill Stewart +1-908-949-0705)</span><span class="se">\n</span><span class="s1">Subject: Re: Clipper considered harmful</span><span class="se">\n</span><span class="s1">Organization: Sorcerer</span><span class="se">\&#39;</span><span class="s1">s Apprentice Cleaning Services</span><span class="se">\n</span><span class="s1">Distribution: inet</span><span class="se">\n</span><span class="s1">In-Reply-To: shirriff@sprite.berkeley.edu</span><span class="se">\&#39;</span><span class="s1">s message of 21 Apr 1993 00:36:44 GMT</span><span class="se">\n</span><span class="s1">Nntp-Posting-Host: rainier.ho.att.com</span><span class="se">\n</span><span class="s1">Lines: 24</span><span class="se">\n\n</span><span class="s1">In article &lt;1r24us$oeh@agate.berkeley.edu&gt; shirriff@sprite.berkeley.edu (Ken Shirriff) writes:</span><span class="se">\n</span><span class="s1">   In article &lt;15469@optilink.COM&gt; brad@optilink.COM (Brad Yearwood) writes:</span><span class="se">\n</span><span class="s1">   &gt;Finally, because there is essentially no possibility of intercepting in</span><span class="se">\n</span><span class="s1">   &gt;realtime the scrutable content of communications between stolen instruments,</span><span class="se">\n</span><span class="s1">   &gt;there will exist strong motivation to record and archive _all_ communications</span><span class="se">\n</span><span class="s1">   &gt;in the network for ex-post-facto scrutiny (once some criminal act is</span><span class="se">\n</span><span class="s1">   &gt;discovered, and the instruments involved have been identified).</span><span class="se">\n\n</span><span class="s1">&quot;All&quot; is a *very* big number.  The AT&amp;T Long Distance network has</span><span class="se">\n</span><span class="s1">around 20,000 T3 trunks (45 Mbit/sec), which is on the order of 10**12 bits/sec.</span><span class="se">\n</span><span class="s1">That doesn</span><span class="se">\&#39;</span><span class="s1">t even count the amount of traffic in the LOCAL phone companies,</span><span class="se">\n</span><span class="s1">or our long-distance competitors.  It</span><span class="se">\&#39;</span><span class="s1">s about 200 Exabytes tapes / second,</span><span class="se">\n</span><span class="s1">which is pretty large even for the NSA :-)</span><span class="se">\n\n</span><span class="s1">On the other hand, I can easily see them recording the traffic for</span><span class="se">\n</span><span class="s1">&quot;interesting&quot; people, such as dissidents, suspected criminals,</span><span class="se">\n</span><span class="s1">foreign telephone calls, and anybody noticed using encryption.</span><span class="se">\n</span><span class="s1">As Ken Shiriff speculates, recording encrypted traffic will probably</span><span class="se">\n</span><span class="s1">be judged not to be an invasion of privacy pretty soon ....</span><span class="se">\n</span><span class="s1">--</span><span class="se">\n</span><span class="s1">#</span><span class="se">\t\t\t\t</span><span class="s1">Pray for peace;      Bill</span><span class="se">\n</span><span class="s1"># Bill Stewart 1-908-949-0705 wcs@anchor.att.com AT&amp;T Bell Labs 4M312 Holmdel NJ</span><span class="se">\n</span><span class="s1">#</span><span class="se">\t</span><span class="s1">              No, I</span><span class="se">\&#39;</span><span class="s1">m *from* New Jersey, I only *work* in cyberspace....</span><span class="se">\n</span><span class="s1"># White House Commect Line 1-202-456-1111  fax 1-202-456-2461</span><span class="se">\n</span><span class="s1">&#39;</span>
+ <span class="o">...</span>
+ <span class="s2">&quot;From: gtoal@gtoal.com (Graham Toal)</span><span class="se">\n</span><span class="s2">Subject: Re: PGP ideas for IBM systems</span><span class="se">\n</span><span class="s2">Lines: 7</span><span class="se">\n\n</span><span class="s2">:    I&#39;ve been thinking about how difficult it would be to make PGP available</span><span class="se">\n</span><span class="s2">: in some form on EBCDIC machines.</span><span class="se">\n\n</span><span class="s2">Don&#39;t encourage them.  Let EBCDIC machines die an honorable death :)</span><span class="se">\n\n</span><span class="s2">G</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+ <span class="s2">&quot;From: doug@hparc0.aus.hp.com (Doug Parsons)</span><span class="se">\n</span><span class="s2">Subject: Re: 3d-Studio V2.01 : Any differences with previous version</span><span class="se">\n</span><span class="s2">Organization: HP Australasian Response Centre (Melbourne)</span><span class="se">\n</span><span class="s2">X-Newsreader: TIN [version 1.1 PL8.5]</span><span class="se">\n</span><span class="s2">Lines: 10</span><span class="se">\n\n</span><span class="s2">FOMBARON marc (fombaron@ufrima.imag.fr) wrote:</span><span class="se">\n</span><span class="s2">: Are there significant differences between V2.01 and V2.00 ?</span><span class="se">\n</span><span class="s2">: Thank you for helping</span><span class="se">\n\n\n</span><span class="s2">No.  As I recall, the only differences are in the 3ds.set parameters - some</span><span class="se">\n</span><span class="s2">of the defaults have changed slightly.  I&#39;ll look when I get home and let</span><span class="se">\n</span><span class="s2">you know, but there isn&#39;t enough to actually warrant upgrading.</span><span class="se">\n\n</span><span class="s2">douginoz</span><span class="se">\n</span><span class="s2">&quot;</span>
+ <span class="s1">&#39;From: rboudrie@chpc.org (Rob Boudrie)</span><span class="se">\n</span><span class="s1">Subject: Re: Once tapped, your code is no good any more.</span><span class="se">\n</span><span class="s1">Organization: Center For High Perf. Computing of WPI; Marlboro Ma</span><span class="se">\n</span><span class="s1">Distribution: na</span><span class="se">\n</span><span class="s1">Lines: 26</span><span class="se">\n\n</span><span class="s1">In article &lt;C5so84.Hxv@demon.co.uk&gt; Graham Toal &lt;gtoal@gtoal.com&gt; writes:</span><span class="se">\n</span><span class="s1">&gt;In article &lt;2073@rwing.UUCP&gt; pat@rwing.UUCP (Pat Myrto) writes:</span><span class="se">\n</span><span class="s1">&gt;:If the Clinton Clipper is so very good, why not make its algrithm public</span><span class="se">\n</span><span class="s1">&gt;:so many people can exchange ideas and examine it, rather than a few</span><span class="se">\n</span><span class="s1">&gt;:isolated </span><span class="se">\&#39;</span><span class="s1">respected experts</span><span class="se">\&#39;</span><span class="s1"> (respected by whom?  for what?  Perhaps a</span><span class="se">\n\n</span><span class="s1">One more time...</span><span class="se">\n\n</span><span class="s1">    If they released the algorithm, it would be possible for someone</span><span class="se">\n</span><span class="s1">    to come up with an implementation which was identical, but</span><span class="se">\n</span><span class="s1">    lacking an escrowed key.</span><span class="se">\n\n</span><span class="s1">    Note that the press announcement mentioned that the algorithm was</span><span class="se">\n</span><span class="s1">    being kept secret for security of the key escrow system.  In this</span><span class="se">\n</span><span class="s1">    case security means &quot;an escrowed key for EVERY clipper chip&quot;.</span><span class="se">\n\n\n</span><span class="s1">    Assuming you believed all that is said about the effective of</span><span class="se">\n</span><span class="s1">    the algorithm, and the escrow system, which would you buy :</span><span class="se">\n\n</span><span class="s1">     (a)  Chip from firm A with the escrowed key</span><span class="se">\n</span><span class="s1">     (b)  Second source chip from reputable firm B with no key</span><span class="se">\n</span><span class="s1">          in government escrow.</span><span class="se">\n\n</span><span class="s1">    There would obviously be powerful economic incentives for a second</span><span class="se">\n</span><span class="s1">    source, non escrowed, vendor.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span>
+<span class="n">Reshape</span> <span class="n">your</span> <span class="n">data</span> <span class="n">either</span> <span class="n">using</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">your</span> <span class="n">data</span> <span class="n">has</span> <span class="n">a</span> <span class="n">single</span> <span class="n">feature</span> <span class="ow">or</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">it</span> <span class="n">contains</span> <span class="n">a</span> <span class="n">single</span> <span class="n">sample</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can to figure out why, we can compare what that method takes as input to what the count vectorizer takes as input. While working, the easiest way to do this is using the jupyter help (shift+tab, or ?) but for the notes, I’ll print them out differently.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">fit</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[:</span><span class="mi">7</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Learn the idf vector (global term weights).
+
+        Parameters
+        ----------
+        X : sparse matrix of shape n_samples, n_features)
+            A matrix of term/token counts.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">count_vec</span><span class="o">.</span><span class="n">fit</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[:</span><span class="mi">7</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Learn a vocabulary dictionary of all tokens in the raw documents.
+
+        Parameters
+        ----------
+        raw_documents : iterable
+            An iterable which generates either str, unicode or file objects.
+</pre></div>
+</div>
+</div>
+</div>
+<p>We wanted the TfidfVectorizer, not the transformer, so that it accepts documents not features. We will again, instantiate the object and then fit on the whole dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">TfidfVectorizer</span><span class="p">()</span>
+
+<span class="n">tfidf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ng_X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TfidfVectorizer()
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see this works, because the code runs, but for completeness , we can also check the input again to compare with the above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">fit</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[:</span><span class="mi">6</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Learn vocabulary and idf from training set.
+
+        Parameters
+        ----------
+        raw_documents : iterable
+            An iterable which generates either str, unicode or file objects.
+</pre></div>
+</div>
+</div>
+</div>
+<p>This now takes documents as we wanted. Since we split the data before transforming, we can then apply the new fit using the transform on the train/test splits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_tfidf_train</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">ng_X_train</span><span class="p">)</span>
+<span class="n">ng_tfidf_test</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">ng_X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since these splits were made before we can use the same targets we used above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ng_tfidf_train</span><span class="p">,</span><span class="n">ng_y_train</span><span class="p">)</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">ng_tfidf_test</span><span class="p">,</span><span class="n">ng_y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9288135593220339
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="comparing-representations">
+<h2><span class="section-number">36.1. </span>Comparing representations<a class="headerlink" href="#comparing-representations" title="Permalink to this headline">¶</a></h2>
+<p>To start, we will look at one element from each in order to compare them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_tfidf_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;1x24257 sparse matrix of type &#39;&lt;class &#39;numpy.float64&#39;&gt;&#39;
+	with 84 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_vec_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;1x24257 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
+	with 84 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To start they both have 84 elements, since it is two different representations of the same document, that makes sense.  We can check a few others as well</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_tfidf_train</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;1x24257 sparse matrix of type &#39;&lt;class &#39;numpy.float64&#39;&gt;&#39;
+	with 202 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_vec_train</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;1x24257 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
+	with 202 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ng_vec_train</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="n">ng_tfidf_train</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s pick out a common word so that the calculation is meaningful and do the tfidf calucation. To find a common word in the dictionary, we’ll first filter the vocabulary to keep only the words that occur at least 300 times in the training set. We sum along the columns of the matrix, transform it to an array, then iterate over the sum, enumerated (assigning the number to each element of the sum) and use that to get the word out, if its total is over 300.  I saw that this is actually a sort of long list, so I chose to only print out the first 25. We print them out with the index so we can use it for the one we choose.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="n">count_vec</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()[</span><span class="n">i</span><span class="p">],</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> 
+         <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ng_vec_train</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+ <span class="k">if</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">300</span><span class="p">][:</span><span class="mi">25</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;about&#39;, 3326),
+ (&#39;all&#39;, 3819),
+ (&#39;also&#39;, 3874),
+ (&#39;an&#39;, 3964),
+ (&#39;and&#39;, 4003),
+ (&#39;any&#39;, 4115),
+ (&#39;are&#39;, 4263),
+ (&#39;article&#39;, 4347),
+ (&#39;as&#39;, 4363),
+ (&#39;at&#39;, 4456),
+ (&#39;available&#39;, 4612),
+ (&#39;be&#39;, 4851),
+ (&#39;been&#39;, 4887),
+ (&#39;bit&#39;, 5096),
+ (&#39;but&#39;, 5582),
+ (&#39;by&#39;, 5605),
+ (&#39;can&#39;, 5779),
+ (&#39;chip&#39;, 6191),
+ (&#39;clipper&#39;, 6393),
+ (&#39;com&#39;, 6568),
+ (&#39;computer&#39;, 6786),
+ (&#39;could&#39;, 7180),
+ (&#39;cs&#39;, 7426),
+ (&#39;data&#39;, 7687),
+ (&#39;db&#39;, 7730)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use computer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">computer_idx</span> <span class="o">=</span> <span class="mi">6786</span>
+<span class="n">count_vec</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()[</span><span class="n">computer_idx</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;computer&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_vec_train</span><span class="p">[:,</span><span class="n">computer_idx</span><span class="p">]</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 0, 5, 0, 0, 0, 0, 0, 0]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_tfidf_train</span><span class="p">[:,</span><span class="n">computer_idx</span><span class="p">]</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.        , 0.        , 0.06907742, 0.        ,
+        0.        , 0.        , 0.        , 0.        , 0.        ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, we can see they have non zero elements in the same places, meaning that in both representations the column refers to the same thing.</p>
+<p>We can compare the untransformed to the count vectorizer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">ng_X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_vec_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that it is just a count of the number of total words, not unique words, but total</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_tfidf_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.558255873996122
+</pre></div>
+</div>
+</div>
+</div>
+<p>The tf-idf matrix, however is normalized to make the sums smaller. Each row is not the same, but it is more similar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">ng_vec_train</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fb8a2d30910&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-29_49_1.png" src="../_images/2021-11-29_49_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">ng_tfidf_train</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fb8a186dcd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-11-29_50_1.png" src="../_images/2021-11-29_50_1.png" />
+</div>
+</div>
+<p>We can see that the <code class="docutils literal notranslate"><span class="pre">tf-idf</span></code> makes the totals across documents more spread out.</p>
+<p>When we sum across words, we then get to see how</p>
+<p>From the documentation we see that the idf is not exactly the inverse of the number of documents, it’s also rescaled some.</p>
+<div class="math notranslate nohighlight">
+\[ idf = \log \frac{1 +n }{1 +df} + 1 \]</div>
+<p>In this implementation, each row is the normalized as well, to keep them small, so that documents of different sizes are more comparable.  For example, if we return to what we did last week.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load http://drsmb.co/310read</span>
+
+<span class="c1"># add an entry to the following dictionary with a name as the key and a sentence as the value</span>
+<span class="c1"># share a sentence about how you&#39;re doing this week</span>
+<span class="c1"># remember this will be python code, don&#39;t use</span>
+<span class="c1"># You can remain anonymous (this page &amp; the notes will be fully public)</span>
+<span class="c1"># by attributing it to a celebrity or psuedonym, but include *some* sort of attribution</span>
+<span class="n">sentence_dict</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s1">&#39;Professor Brown&#39;</span><span class="p">:</span><span class="s2">&quot;I&#39;m excited for Thanksgiving.&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Matt Langton&#39;</span><span class="p">:</span><span class="s2">&quot;I&#39;m doing pretty good, I&#39;ll be taking the days off to catch up on various classwork.&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Evan&#39;</span><span class="p">:</span><span class="s2">&quot;I&#39;m just here so my grade doesn&#39;t get fined&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Greg Bassett&#39;</span><span class="p">:</span><span class="s2">&quot;I&#39;m doing well, my birthday is today. I&#39;m looking forward to seeing my family this Thursday, I haven&#39;t seen a lot of them in a long time.&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Noah N&#39;</span><span class="p">:</span><span class="s2">&quot;I&#39;m doing well! I can&#39;t wait to take opportuity of this long weekend to catch up on various HW&#39;s, projects, etc.&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Tuyetlinh&#39;</span><span class="p">:</span><span class="s2">&quot;I&#39;m struggling to get all my work done before break, but I&#39;m excited to have that time off when I&#39;m all done.&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Kenza Bouabdallah&#39;</span><span class="p">:</span><span class="s2">&quot;I am doing good. How are you ?&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Chris Kerfoot&#39;</span><span class="p">:</span><span class="s2">&quot;I&#39;m doing pretty good. I&#39;m happy to have some days off this week because of Thanksgiving!&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Kang Liu&#39;</span><span class="p">:</span> <span class="s2">&quot;New week, new start&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Aiden Hill&#39;</span><span class="p">:</span><span class="s2">&quot;I am very much enjoying this class.&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Muhammad S&#39;</span><span class="p">:</span><span class="s2">&quot;I am doing pretty well. I am looking forward to taking a few days off.&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Max Mastrorocco&#39;</span><span class="p">:</span><span class="s2">&quot;Cannot wait for a break.&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Daniel&#39;</span><span class="p">:</span><span class="s2">&quot;I am doing well. I am ready and excited for break!&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Nate&#39;</span><span class="p">:</span><span class="s2">&quot;I&#39;m just vibing right now, ready for break &quot;</span><span class="p">,</span>
+<span class="s1">&#39;Jacob&#39;</span><span class="p">:</span><span class="s2">&quot;I am going to eat Turkey.&quot;</span><span class="p">,</span>
+<span class="s1">&#39;Anon&#39;</span><span class="p">:</span><span class="s2">&quot;nom nom nom&quot;</span>
+<span class="p">}</span>
+<span class="c1"># create a new count vecorizer so that we can return to the news analysis</span>
+<span class="n">count_vec_ex</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">tfidf_ex</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="n">mat_c</span> <span class="o">=</span> <span class="n">count_vec_ex</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sentence_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="n">mat_t</span> <span class="o">=</span> <span class="n">tfidf_ex</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sentence_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="c1"># sentence_df = pd.DataFrame(data = mat_c, </span>
+<span class="c1">#                            columns =counts.get_feature_names_out(),</span>
+<span class="c1">#                           index=sentence_dict.keys())</span>
+
+<span class="n">dist_df_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">euclidean_distances</span><span class="p">(</span><span class="n">mat_c</span><span class="p">),</span>
+            <span class="n">index</span><span class="o">=</span> <span class="n">sentence_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span> <span class="n">sentence_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">dist_df_tfidf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">euclidean_distances</span><span class="p">(</span><span class="n">mat_t</span><span class="p">),</span>
+            <span class="n">index</span><span class="o">=</span> <span class="n">sentence_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span> <span class="n">sentence_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="n">ref</span> <span class="o">=</span> <span class="s1">&#39;Professor Brown&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_closest</span> <span class="o">=</span> <span class="n">dist_df_count</span><span class="p">[</span><span class="n">ref</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span>
+<span class="n">count_closest</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Max Mastrorocco&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_closest</span> <span class="o">=</span> <span class="n">dist_df_tfidf</span><span class="p">[</span><span class="n">ref</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span>
+<span class="n">tfidf_closest</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Daniel&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_dict</span><span class="p">[</span><span class="n">ref</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;I&#39;m excited for Thanksgiving.&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_dict</span><span class="p">[</span><span class="n">count_closest</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Cannot wait for a break.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence_dict</span><span class="p">[</span><span class="n">tfidf_closest</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I am doing well. I am ready and excited for break!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, the closest sentence actually shares a wrod that’s similar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dist_df_count</span><span class="p">[</span><span class="n">ref</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max Mastrorocco      2.236068
+Nate                 2.828427
+Jacob                2.828427
+Kenza Bouabdallah    3.000000
+Kang Liu             3.000000
+Aiden Hill           3.000000
+Daniel               3.162278
+Evan                 3.316625
+Anon                 3.464102
+Chris Kerfoot        3.872983
+Muhammad S           4.123106
+Matt Langton         4.242641
+Noah N               4.898979
+Tuyetlinh            5.099020
+Greg Bassett         5.196152
+Name: Professor Brown, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dist_df_tfidf</span><span class="p">[</span><span class="n">ref</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daniel               1.153404
+Max Mastrorocco      1.248303
+Chris Kerfoot        1.279299
+Nate                 1.299060
+Tuyetlinh            1.341626
+Noah N               1.414214
+Kenza Bouabdallah    1.414214
+Aiden Hill           1.414214
+Muhammad S           1.414214
+Jacob                1.414214
+Anon                 1.414214
+Matt Langton         1.414214
+Evan                 1.414214
+Greg Bassett         1.414214
+Kang Liu             1.414214
+Name: Professor Brown, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, the distances are all much smaller and Chris who also talked about Thanksgiving is much higher on the list too.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat_c</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 3, 15,  8, 22, 19, 19,  6, 14,  4,  6, 12,  4,  9,  7,  5,  3])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat_t</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.72586983, 3.81967092, 2.81780765, 4.4761216 , 4.1953457 ,
+       3.75971487, 2.39375957, 3.68712845, 1.61308516, 2.41468677,
+       3.22271608, 1.97816206, 2.73725829, 2.62109557, 2.17780895,
+       1.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The sums are again much closer so the total length isn’t as much of the signal. Since it’s smaller, we can also sum along words.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sent_word_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">count_vec_ex</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">(),</span>
+                           <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;word&#39;</span><span class="p">])</span>
+<span class="n">sent_word_df</span><span class="p">[</span><span class="s1">&#39;count_tot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_c</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sent_word_df</span><span class="p">[</span><span class="s1">&#39;tfidf_tot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_t</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sent_word_df</span><span class="p">[</span><span class="s1">&#39;doc_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">mat_c</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sent_word_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;doc_count&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>word</th>
+      <th>count_tot</th>
+      <th>tfidf_tot</th>
+      <th>doc_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>73</th>
+      <td>to</td>
+      <td>9</td>
+      <td>1.513881</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>doing</td>
+      <td>7</td>
+      <td>1.326396</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>am</td>
+      <td>7</td>
+      <td>1.943291</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>off</td>
+      <td>4</td>
+      <td>0.860791</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>this</td>
+      <td>4</td>
+      <td>0.899345</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>happy</td>
+      <td>1</td>
+      <td>0.327365</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>grade</td>
+      <td>1</td>
+      <td>0.374658</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>going</td>
+      <td>1</td>
+      <td>0.517461</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>fined</td>
+      <td>1</td>
+      <td>0.374658</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>you</td>
+      <td>1</td>
+      <td>0.479913</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>87 rows × 4 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="sparse-matrices">
+<h2><span class="section-number">36.2. </span>Sparse Matrices<a class="headerlink" href="#sparse-matrices" title="Permalink to this headline">¶</a></h2>
+<p>To understand the sparse matrices, we can examine the size of the objects as a sparse matrix and after exporting to array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">getsizeof</span><span class="p">(</span><span class="n">ng_vec_train</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">getsizeof</span><span class="p">(</span><span class="n">ng_vec_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>194176
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is another reason it is better to use the sparse matrices (as returned by <code class="docutils literal notranslate"><span class="pre">transform</span></code>, but not by <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ng_tfidf_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0., ..., 0., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="more-practice">
+<h2><span class="section-number">36.3. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>On the sentence dataset, try implementing the tf-idf calculation.</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2021-11-22.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">35. </span>Intro to NLP- representing text data</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../assignments/01-python-syllabus.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Professor Sarah M Brown<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
