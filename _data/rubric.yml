@@ -114,7 +114,7 @@
   keyword: workflow
   aware: Solve well strucutred fully specified problems with a single tool pipeline
   compentent: Solve well-strucutred, open-ended problems, apply common structure to learn new features of standard tools
-  mastery:independently: Independenltly scope and solve realistic data science problems OR independently learn releated tools  and describe strengths and weakensses of common tools
+  mastery: Independenltly scope and solve realistic data science problems OR independently learn releated tools  and describe strengths and weakensses of common tools
   portfolios: [3,4]
   clo: [process, communicate]
   assignments: [10,11,12,13]
