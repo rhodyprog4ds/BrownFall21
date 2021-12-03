@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,19 +34,19 @@
     
   <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -99,7 +99,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Syllabus
  </span>
@@ -146,7 +146,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Notes
  </span>
@@ -313,7 +313,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Assignments
  </span>
@@ -380,7 +380,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Portfolio
  </span>
@@ -412,7 +412,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   FAQ
  </span>
@@ -439,7 +439,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Resources
  </span>
@@ -649,7 +649,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="svm-and-parameter-optimizing">
+  <div class="section" id="svm-and-parameter-optimizing">
 <h1><span class="section-number">31. </span>SVM and Parameter Optimizing<a class="headerlink" href="#svm-and-parameter-optimizing" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -772,14 +772,14 @@ The dictionary has the parameter names as the keys and the values are the values
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mean_fit_time&#39;: array([0.00263805, 0.0031332 , 0.00258312, 0.00247965, 0.00245223,
-        0.00242443]),
- &#39;std_fit_time&#39;: array([0.00041226, 0.00041955, 0.00021068, 0.00010123, 0.00018412,
-        0.00013243]),
- &#39;mean_score_time&#39;: array([0.002108  , 0.00220151, 0.00198445, 0.00194626, 0.00186715,
-        0.00181599]),
- &#39;std_score_time&#39;: array([2.08308516e-04, 9.63452281e-05, 1.64790507e-04, 6.17875720e-05,
-        9.98586953e-05, 4.41939305e-05]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mean_fit_time&#39;: array([0.00198812, 0.00183773, 0.00171967, 0.00179343, 0.00171885,
+        0.00174241]),
+ &#39;std_fit_time&#39;: array([4.56167493e-04, 1.60793845e-05, 1.69591880e-05, 1.28413584e-05,
+        2.07397306e-05, 1.96670906e-05]),
+ &#39;mean_score_time&#39;: array([0.00130057, 0.00132322, 0.00127773, 0.00129662, 0.00127177,
+        0.00129566]),
+ &#39;std_score_time&#39;: array([3.68962284e-05, 1.29599743e-05, 1.12682987e-05, 7.44782397e-06,
+        1.95801902e-05, 1.27500229e-05]),
  &#39;param_C&#39;: masked_array(data=[0.5, 0.5, 1, 1, 10, 10],
               mask=[False, False, False, False, False, False],
         fill_value=&#39;?&#39;,
@@ -794,21 +794,21 @@ The dictionary has the parameter names as the keys and the values are the values
   {&#39;C&#39;: 1, &#39;kernel&#39;: &#39;rbf&#39;},
   {&#39;C&#39;: 10, &#39;kernel&#39;: &#39;linear&#39;},
   {&#39;C&#39;: 10, &#39;kernel&#39;: &#39;rbf&#39;}],
- &#39;split0_test_score&#39;: array([0.91304348, 0.86956522, 0.91304348, 0.86956522, 0.95652174,
-        0.91304348]),
- &#39;split1_test_score&#39;: array([0.95652174, 1.        , 0.95652174, 1.        , 0.91304348,
-        0.91304348]),
- &#39;split2_test_score&#39;: array([1.        , 0.95454545, 1.        , 0.95454545, 1.        ,
-        1.        ]),
- &#39;split3_test_score&#39;: array([0.95454545, 0.95454545, 0.95454545, 0.95454545, 0.90909091,
+ &#39;split0_test_score&#39;: array([1.        , 0.95652174, 0.95652174, 0.95652174, 1.        ,
+        0.95652174]),
+ &#39;split1_test_score&#39;: array([0.95652174, 0.95652174, 0.95652174, 0.95652174, 1.        ,
+        0.95652174]),
+ &#39;split2_test_score&#39;: array([0.95454545, 0.90909091, 0.95454545, 0.90909091, 0.95454545,
         0.95454545]),
- &#39;split4_test_score&#39;: array([1.        , 0.90909091, 1.        , 1.        , 1.        ,
-        1.        ]),
- &#39;mean_test_score&#39;: array([0.96482213, 0.93754941, 0.96482213, 0.95573123, 0.95573123,
-        0.95612648]),
- &#39;std_test_score&#39;: array([0.03265119, 0.04451863, 0.03265119, 0.04763789, 0.03979356,
-        0.03889617]),
- &#39;rank_test_score&#39;: array([1, 6, 1, 4, 4, 3], dtype=int32)}
+ &#39;split3_test_score&#39;: array([0.90909091, 0.86363636, 0.90909091, 0.90909091, 0.90909091,
+        0.90909091]),
+ &#39;split4_test_score&#39;: array([0.95454545, 0.95454545, 0.95454545, 0.95454545, 0.86363636,
+        0.95454545]),
+ &#39;mean_test_score&#39;: array([0.95494071, 0.92806324, 0.94624506, 0.93715415, 0.94545455,
+        0.94624506]),
+ &#39;std_test_score&#39;: array([0.02875885, 0.03696445, 0.01859809, 0.0229249 , 0.05300865,
+        0.01859809]),
+ &#39;rank_test_score&#39;: array([1, 6, 2, 5, 4, 2], dtype=int32)}
 </pre></div>
 </div>
 </div>
@@ -859,111 +859,111 @@ The dictionary has the parameter names as the keys and the values are the values
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.002638</td>
-      <td>0.000412</td>
-      <td>0.002108</td>
-      <td>0.000208</td>
+      <td>0.001988</td>
+      <td>0.000456</td>
+      <td>0.001301</td>
+      <td>0.000037</td>
       <td>0.5</td>
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
-      <td>0.913043</td>
+      <td>1.000000</td>
       <td>0.956522</td>
-      <td>1.000000</td>
       <td>0.954545</td>
-      <td>1.000000</td>
-      <td>0.964822</td>
-      <td>0.032651</td>
+      <td>0.909091</td>
+      <td>0.954545</td>
+      <td>0.954941</td>
+      <td>0.028759</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.003133</td>
-      <td>0.000420</td>
-      <td>0.002202</td>
-      <td>0.000096</td>
+      <td>0.001838</td>
+      <td>0.000016</td>
+      <td>0.001323</td>
+      <td>0.000013</td>
       <td>0.5</td>
       <td>rbf</td>
       <td>{'C': 0.5, 'kernel': 'rbf'}</td>
-      <td>0.869565</td>
-      <td>1.000000</td>
-      <td>0.954545</td>
-      <td>0.954545</td>
+      <td>0.956522</td>
+      <td>0.956522</td>
       <td>0.909091</td>
-      <td>0.937549</td>
-      <td>0.044519</td>
+      <td>0.863636</td>
+      <td>0.954545</td>
+      <td>0.928063</td>
+      <td>0.036964</td>
       <td>6</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.002583</td>
-      <td>0.000211</td>
-      <td>0.001984</td>
-      <td>0.000165</td>
+      <td>0.001720</td>
+      <td>0.000017</td>
+      <td>0.001278</td>
+      <td>0.000011</td>
       <td>1</td>
       <td>linear</td>
       <td>{'C': 1, 'kernel': 'linear'}</td>
-      <td>0.913043</td>
       <td>0.956522</td>
-      <td>1.000000</td>
+      <td>0.956522</td>
       <td>0.954545</td>
-      <td>1.000000</td>
-      <td>0.964822</td>
-      <td>0.032651</td>
-      <td>1</td>
+      <td>0.909091</td>
+      <td>0.954545</td>
+      <td>0.946245</td>
+      <td>0.018598</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.002480</td>
-      <td>0.000101</td>
-      <td>0.001946</td>
-      <td>0.000062</td>
+      <td>0.001793</td>
+      <td>0.000013</td>
+      <td>0.001297</td>
+      <td>0.000007</td>
       <td>1</td>
       <td>rbf</td>
       <td>{'C': 1, 'kernel': 'rbf'}</td>
-      <td>0.869565</td>
-      <td>1.000000</td>
+      <td>0.956522</td>
+      <td>0.956522</td>
+      <td>0.909091</td>
+      <td>0.909091</td>
       <td>0.954545</td>
-      <td>0.954545</td>
-      <td>1.000000</td>
-      <td>0.955731</td>
-      <td>0.047638</td>
-      <td>4</td>
+      <td>0.937154</td>
+      <td>0.022925</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.002452</td>
-      <td>0.000184</td>
-      <td>0.001867</td>
-      <td>0.000100</td>
+      <td>0.001719</td>
+      <td>0.000021</td>
+      <td>0.001272</td>
+      <td>0.000020</td>
       <td>10</td>
       <td>linear</td>
       <td>{'C': 10, 'kernel': 'linear'}</td>
-      <td>0.956522</td>
-      <td>0.913043</td>
       <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.954545</td>
       <td>0.909091</td>
-      <td>1.000000</td>
-      <td>0.955731</td>
-      <td>0.039794</td>
+      <td>0.863636</td>
+      <td>0.945455</td>
+      <td>0.053009</td>
       <td>4</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.002424</td>
-      <td>0.000132</td>
-      <td>0.001816</td>
-      <td>0.000044</td>
+      <td>0.001742</td>
+      <td>0.000020</td>
+      <td>0.001296</td>
+      <td>0.000013</td>
       <td>10</td>
       <td>rbf</td>
       <td>{'C': 10, 'kernel': 'rbf'}</td>
-      <td>0.913043</td>
-      <td>0.913043</td>
-      <td>1.000000</td>
+      <td>0.956522</td>
+      <td>0.956522</td>
       <td>0.954545</td>
-      <td>1.000000</td>
-      <td>0.956126</td>
-      <td>0.038896</td>
-      <td>3</td>
+      <td>0.909091</td>
+      <td>0.954545</td>
+      <td>0.946245</td>
+      <td>0.018598</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -990,7 +990,7 @@ The dictionary has the parameter names as the keys and the values are the values
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9736842105263158
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
@@ -1034,7 +1034,7 @@ The dictionary has the parameter names as the keys and the values are the values
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 2}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 4}
 </pre></div>
 </div>
 </div>
