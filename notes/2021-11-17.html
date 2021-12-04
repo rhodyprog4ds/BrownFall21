@@ -310,6 +310,11 @@
    37. Neural Networks
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-12-03.html">
+   38. Predicting with Neural Networks
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -707,7 +712,7 @@ programming and how to effectively teach it.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9916666666666666, 0.9666666666666666)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.975, 0.925)
 </pre></div>
 </div>
 </div>
@@ -721,7 +726,7 @@ programming and how to effectively teach it.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9666666666666667
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9333333333333333
 </pre></div>
 </div>
 </div>
@@ -733,7 +738,7 @@ programming and how to effectively teach it.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9333333333333333
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9
 </pre></div>
 </div>
 </div>
@@ -790,48 +795,48 @@ programming and how to effectively teach it.</p>
     <tr>
       <th>0</th>
       <td>0.000620</td>
-      <td>0.000034</td>
-      <td>0.000286</td>
-      <td>0.000014</td>
+      <td>0.000032</td>
+      <td>0.000281</td>
+      <td>0.000007</td>
       <td>0.5</td>
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
-      <td>1.000000</td>
+      <td>0.916667</td>
+      <td>0.916667</td>
+      <td>1.0</td>
       <td>1.000000</td>
       <td>1.0</td>
-      <td>1.0</td>
       <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.0</td>
       <td>0.916667</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.991667</td>
-      <td>0.025000</td>
+      <td>1.0</td>
+      <td>0.975000</td>
+      <td>0.038188</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.000718</td>
-      <td>0.000017</td>
-      <td>0.000328</td>
-      <td>0.000007</td>
+      <td>0.000010</td>
+      <td>0.000305</td>
+      <td>0.000002</td>
       <td>0.5</td>
       <td>rbf</td>
       <td>{'C': 0.5, 'kernel': 'rbf'}</td>
       <td>0.916667</td>
+      <td>0.916667</td>
+      <td>1.0</td>
+      <td>0.916667</td>
+      <td>1.0</td>
+      <td>0.833333</td>
       <td>0.833333</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.916667</td>
-      <td>0.916667</td>
       <td>1.0</td>
-      <td>0.916667</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.950000</td>
-      <td>0.055277</td>
-      <td>13</td>
+      <td>0.941667</td>
+      <td>0.065085</td>
+      <td>14</td>
     </tr>
   </tbody>
 </table>
@@ -846,13 +851,13 @@ programming and how to effectively teach it.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    14.000000
-mean      0.973214
-std       0.013936
-min       0.950000
-25%       0.966667
-50%       0.975000
-75%       0.981250
-max       0.991667
+mean      0.961905
+std       0.009078
+min       0.941667
+25%       0.958333
+50%       0.966667
+75%       0.966667
+max       0.975000
 Name: mean_test_score, dtype: float64
 </pre></div>
 </div>
@@ -866,13 +871,13 @@ Name: mean_test_score, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    90.000000
-mean      0.947778
-std       0.008816
-min       0.941667
-25%       0.941667
-50%       0.941667
-75%       0.958333
-max       0.966667
+mean      0.924907
+std       0.000878
+min       0.916667
+25%       0.925000
+50%       0.925000
+75%       0.925000
+max       0.925000
 Name: mean_test_score, dtype: float64
 </pre></div>
 </div>
@@ -923,7 +928,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9916666666666666, 0.9666666666666666)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.975, 0.925)
 </pre></div>
 </div>
 </div>
@@ -965,7 +970,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9345490587118275, 0.9987842746215057)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8778733090489053, 0.9721266909510948)
 </pre></div>
 </div>
 </div>
@@ -989,7 +994,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8440710066609742, 1.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.7926463787289875, 1.0)
 </pre></div>
 </div>
 </div>
@@ -1029,7 +1034,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2294/2188489612.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2325/2188489612.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="n">n_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">200</span><span class="p">)])</span>
                               <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax

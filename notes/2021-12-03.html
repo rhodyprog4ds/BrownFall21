@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Predicting with Neural Networks &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>38. Predicting with Neural Networks &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -43,6 +43,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -52,6 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Portfolio Setup, Data Science, and Python" href="../assignments/01-python-syllabus.html" />
+    <link rel="prev" title="37. Neural Networks" href="2021-12-01.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -147,7 +151,7 @@
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2021-09-08.html">
    1. Welcome to Programming to Data Science
@@ -306,6 +310,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
    37. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   38. Predicting with Neural Networks
   </a>
  </li>
 </ul>
@@ -595,6 +604,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reconstructing-the-predict-method">
+   38.1. Reconstructing the Predict method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-features-and-more-hidden-neurons">
+   38.2. More Features and More Hidden Neurons
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-what-is-a-numerical-optimiztion-algorithm">
+   38.3. (optional) What is a numerical optimiztion algorithm?
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -604,7 +636,7 @@
               <div>
                 
   <div class="section" id="predicting-with-neural-networks">
-<h1>Predicting with Neural Networks<a class="headerlink" href="#predicting-with-neural-networks" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">38. </span>Predicting with Neural Networks<a class="headerlink" href="#predicting-with-neural-networks" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">expit</span>
@@ -621,38 +653,56 @@
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span>
 <span class="c1"># from skearn.model_selection import train_test_split</span>
 
-<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">getsizeof</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Today, were going to use <em>very</em> simple data in order to examin how a neural
+network works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
                           <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">hue</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7facd05cefd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../_images/2021-12-03_2_1.png" src="../_images/2021-12-03_2_1.png" />
+<img alt="../_images/2021-12-03_3_1.png" src="../_images/2021-12-03_3_1.png" />
+</div>
+</div>
+<p>First, we’ll train and score a tiny neural net: with 1 hidden layer of 1 neuron.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is actually eqiuvalent to another classifier, called logistic Regression</p>
+</div>
+<div class="admonition-correction admonition">
+<p class="admonition-title">Correction</p>
+<p>I’ve removed the parameter <code class="docutils literal notranslate"><span class="pre">learning_rate_init=0.1</span></code> and <code class="docutils literal notranslate"><span class="pre">random_state=1</span></code>
+because sklearn actually only
+uses the learning rate and randomizaiont for some of the optimization algorithms:
+adam and sgd, which we are not using.</p>
+<p>These algorithms are good in high dimensional problems, our problem is simple,
+so we don’t need the advnaced parameters or algorithms.</p>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span>
-  <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
-  <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-  <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
-  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span>
-  <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-  <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-  <span class="n">learning_rate_init</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-  <span class="n">activation</span><span class="o">=</span> <span class="s1">&#39;identity&#39;</span>
+  <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="c1"># 1 hidden layer, 1 aritficial neuron</span>
+  <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="c1"># maximum 100 interations in optimization</span>
+  <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="c1"># regularization</span>
+  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span> <span class="c1">#optimization algorithm  </span>
+  <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="c1"># how much detail to print</span>
+  <span class="n">activation</span><span class="o">=</span> <span class="s1">&#39;identity&#39;</span> <span class="c1"># how to transform the hidden layer beofore passing it to the next layer</span>
 <span class="p">)</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
@@ -670,35 +720,46 @@ Machine precision = 2.220D-16
 
 At X0         0 variables are exactly at the bounds
 
-At iterate    0    f=  6.32788D-01    |proj g|=  2.91544D-01
+At iterate    0    f=  1.52804D+00    |proj g|=  8.45167D-01
 
-At iterate    1    f=  3.35088D-01    |proj g|=  2.35449D-01
+At iterate    1    f=  7.55836D-01    |proj g|=  3.18095D-01
 
-At iterate    2    f=  1.05920D-01    |proj g|=  4.94459D-02
+At iterate    2    f=  6.32365D-01    |proj g|=  2.09057D-01
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> This problem is unconstrained.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At iterate    3    f=  4.64621D-01    |proj g|=  2.88205D-01
 
-At iterate    3    f=  9.85237D-02    |proj g|=  4.04533D-02
+At iterate    4    f=  1.69447D-01    |proj g|=  7.15993D-02
 
-At iterate    4    f=  8.44635D-02    |proj g|=  3.47573D-02
+At iterate    5    f=  1.02918D-01    |proj g|=  4.50078D-02
 
-At iterate    5    f=  5.57031D-02    |proj g|=  1.73370D-02
+At iterate    6    f=  7.91968D-02    |proj g|=  4.66045D-02
 
-At iterate    6    f=  5.34230D-02    |proj g|=  1.04731D-02
+At iterate    7    f=  6.39752D-02    |proj g|=  1.02619D-02
 
-At iterate    7    f=  5.15416D-02    |proj g|=  6.85965D-03
+At iterate    8    f=  6.13937D-02    |proj g|=  1.00813D-02
 
-At iterate    8    f=  5.01827D-02    |proj g|=  1.12827D-02
+At iterate    9    f=  5.65211D-02    |proj g|=  2.42912D-02
 
-At iterate    9    f=  4.85440D-02    |proj g|=  7.09723D-03
+At iterate   10    f=  5.48421D-02    |proj g|=  1.92122D-02
 
-At iterate   10    f=  4.79637D-02    |proj g|=  3.63648D-03
+At iterate   11    f=  5.06156D-02    |proj g|=  7.02290D-03
 
-At iterate   11    f=  4.79104D-02    |proj g|=  9.42768D-04
+At iterate   12    f=  4.86699D-02    |proj g|=  4.06435D-03
 
-At iterate   12    f=  4.79058D-02    |proj g|=  5.77602D-04
+At iterate   13    f=  4.80179D-02    |proj g|=  1.80084D-03
 
-At iterate   13    f=  4.79045D-02    |proj g|=  1.12079D-04
+At iterate   14    f=  4.79487D-02    |proj g|=  3.77354D-04
 
-At iterate   14    f=  4.79044D-02    |proj g|=  1.39328D-05
+At iterate   15    f=  4.79467D-02    |proj g|=  1.06029D-04
+
+At iterate   16    f=  4.79466D-02    |proj g|=  4.71725D-05
 
            * * *
 
@@ -713,20 +774,18 @@ F     = final function value
            * * *
 
    N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
-    5     14     18      1     0     0   1.393D-05   4.790D-02
-  F =   4.7904356244154220E-002
+    5     16     18      1     0     0   4.717D-05   4.795D-02
+  F =   4.7946634615573011E-002
 
 CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL            
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> This problem is unconstrained.
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
-</pre></div>
 </div>
 </div>
-</div>
+<p>Now we can see that it actually has another activation, that we didn’t change
+the output layer still has a logistic activation layer, which we want.  If we
+didn’t then the output layer wouldn’t be able to be interpretted as a probability,
+because probability always needs to be between 0 and 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">out_activation_</span>
@@ -739,6 +798,56 @@ CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL
 </div>
 </div>
 </div>
+<p>The logistic function looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_logistic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y_logistic</span> <span class="o">=</span> <span class="n">expit</span><span class="p">(</span><span class="n">x_logistic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_logistic</span><span class="p">,</span><span class="n">y_logistic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f52f1b56410&gt;]
+</pre></div>
+</div>
+<img alt="../_images/2021-12-03_9_1.png" src="../_images/2021-12-03_9_1.png" />
+</div>
+</div>
+<p>The fit method learned the following weights:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([[-9.44149911],
+        [ 0.27135913]]),
+ array([[-1.39065646]])]
+</pre></div>
+</div>
+</div>
+</div>
+<p>and biases</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([-2.95588525]), array([1.57929177])]
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are called coefficients and intercepts because the weights are mutliplied
+by the inputs and the biases you can interpret as geometrically as shifting things,
+like a line intercept (recall y=mx+b)</p>
+<div class="section" id="reconstructing-the-predict-method">
+<h2><span class="section-number">38.1. </span>Reconstructing the Predict method<a class="headerlink" href="#reconstructing-the-predict-method" title="Permalink to this headline">¶</a></h2>
+<p>we’ll use an acutally new point, we can make one up</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
@@ -751,6 +860,7 @@ CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL
 </div>
 </div>
 </div>
+<p>we want a numpy array so we will cast it</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
@@ -770,71 +880,57 @@ CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL
 </div>
 </div>
 </div>
+<p>numpy’s <code class="docutils literal notranslate"><span class="pre">matmul</span></code> does matrix multiplicaion (multiply columns by rows element wise and sum)</p>
+<div class="math notranslate nohighlight">
+\[f(x) = W_2g(W_1^T x +b_1) + b_2 \]</div>
+<p>the <span class="math notranslate nohighlight">\(g\)</span> is the activation function, which we set to identity <span class="math notranslate nohighlight">\(g(x) = x\)</span> so we don’t have to do more</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">pt</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([[-4.28708146],
-        [ 0.12348133]]),
- array([[-3.06595372]])]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2475/81862389.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">pt</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                                                    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
 </div>
+<p>but we’re not quite done, the output layer still transforms using the logistic
+function, which is also known as <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.expit.html"><code class="docutils literal notranslate"><span class="pre">expit</span></code></a> and we have imported from scipy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expit</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">pt</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([-2.31857838]), array([-1.41144772])]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027604]])
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can compare this to the classifier’s output. It outputs a probability for
+each class, we only comptued the probabilyt of the <code class="docutils literal notranslate"><span class="pre">1</span></code> class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-8.20396314]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99723964e-01, 2.76035858e-04]])
 </pre></div>
 </div>
 </div>
 </div>
+<p>and we can see how it predicts on that point.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expit</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027349]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99726508e-01, 2.73492415e-04]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -844,32 +940,529 @@ CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL
 </div>
 </div>
 </div>
+<p>A single artificial neuron like the function below. where it has parameters
+that have to be determined before we can use it on an input vector.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span>
-  <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
-  <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-  <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
-  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span>
-  <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-  <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-  <span class="n">learning_rate_init</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-  <span class="n">activation</span><span class="o">=</span> 
-<span class="p">)</span>
-<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">aritificial_neuron_template</span><span class="p">(</span><span class="n">activation</span><span class="p">,</span><span class="n">weights</span><span class="p">,</span><span class="n">bias</span><span class="p">,</span><span class="n">inputs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    simple artificial neuron</span>
 
-<span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    activation : function</span>
+<span class="sd">        activation function of the neuron</span>
+<span class="sd">    weights : numpy aray</span>
+<span class="sd">        wights for summing inputs</span>
+<span class="sd">    bias: numpy array</span>
+<span class="sd">        bias term added to the weighted sum</span>
+<span class="sd">    inputs : numpy array</span>
+<span class="sd">        input to the neuron</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">activation</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span><span class="n">bias</span><span class="p">)</span>
+
+<span class="c1"># two common activation functions</span>
+<span class="n">identity_activation</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>
+<span class="n">logistic_activation</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">expit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we instantiate the multilyer perceptron object, <code class="docutils literal notranslate"><span class="pre">MLPClassifier</span></code>, we pick
+the activation function and when we give data to the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method, we get
+the weights and biases.</p>
+<p>A neural network passes the data to the hidden layer, and the output of the
+hidden layer to the output layer.  In our neural network, we have just one neuron
+at each layer.</p>
+<p>So the <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method is the same as the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                 <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">identity_activation</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                   <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">pt</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2444/3241236577.py&quot;</span><span class="gt">, line </span><span class="mi">10</span>
-    <span class="p">)</span>
-    <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027604]])
 </pre></div>
 </div>
 </div>
+</div>
+<p>To make this easier to read, we can make the intermediate neurons their own
+lambda functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hidden_neuron</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">identity_activation</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="n">output_neuron</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">expit</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">output_neuron</span><span class="p">(</span><span class="n">hidden_neuron</span><span class="p">(</span><span class="n">pt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027604]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can confirm that this works the same as the predict probability method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99723964e-01, 2.76035858e-04]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="more-features-and-more-hidden-neurons">
+<h2><span class="section-number">38.2. </span>More Features and More Hidden Neurons<a class="headerlink" href="#more-features-and-more-hidden-neurons" title="Permalink to this headline">¶</a></h2>
+<p>First, we’ll sample more features and then train a new classifier</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">pt_4d</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.5</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">clf_4d</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span>
+    <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">max_iter</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">activation</span><span class="o">=</span> <span class="s1">&#39;identity&#39;</span>
+<span class="p">)</span>
+
+<span class="n">clf_4d</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+
+<span class="n">clf_4d</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2475</span><span class="o">/</span><span class="mf">3721524382.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                                                     <span class="n">random_state</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pt_4d</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.5</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">clf_4d</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span>
+
+<span class="ne">NameError</span>: name &#39;train_test_split&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can look at this data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x0&#39;</span><span class="p">,</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span><span class="s1">&#39;x3&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f52f1b23a50&gt;
+</pre></div>
+</div>
+<img alt="../_images/2021-12-03_38_1.png" src="../_images/2021-12-03_38_1.png" />
+</div>
+</div>
+<p>and based on this, we’ll pick a new pair of points to  test on:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_4d</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This neural network is just like the one before:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hidden_neuron_4d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">identity_activation</span><span class="p">,</span>
+                                                         <span class="n">clf_4d</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">clf_4d</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="n">output_neuron_4d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
+                                                         <span class="n">clf_4d</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">clf_4d</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">output_neuron_4d</span><span class="p">(</span><span class="n">hidden_neuron_4d</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2475</span><span class="o">/</span><span class="mf">2138475403.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">output_neuron_4d</span><span class="p">(</span><span class="n">hidden_neuron_4d</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">))</span>
+
+<span class="nn">/tmp/ipykernel_2475/2138475403.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">hidden_neuron_4d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">identity_activation</span><span class="p">,</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>                                                          <span class="n">clf_4d</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">clf_4d</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">output_neuron_4d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                                                          <span class="n">clf_4d</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">clf_4d</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;clf_4d&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_4d</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2475</span><span class="o">/</span><span class="mf">898774351.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">clf_4d</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;clf_4d&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, remember this one was not as accurate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_4d</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2475</span><span class="o">/</span><span class="mf">1039820928.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">clf_4d</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;clf_4d&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>To try imporving it, we will add more layers and a different activation function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_4d_4h</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span>
+    <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+    <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;logistic&#39;</span>
+<span class="p">)</span>
+
+<span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+
+<span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =           17     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  7.43452D-01    |proj g|=  8.46402D-02
+
+At iterate    1    f=  6.84350D-01    |proj g|=  1.10117D-01
+
+At iterate    2    f=  6.25666D-01    |proj g|=  9.30116D-02
+
+At iterate    3    f=  4.92605D-01    |proj g|=  1.20802D-01
+
+At iterate    4    f=  3.20389D-01    |proj g|=  1.52506D-01
+
+At iterate    5    f=  9.97698D-02    |proj g|=  4.35106D-02
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> This problem is unconstrained.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At iterate    6    f=  7.36525D-02    |proj g|=  9.55505D-03
+
+At iterate    7    f=  6.96539D-02    |proj g|=  1.64879D-02
+
+At iterate    8    f=  6.47992D-02    |proj g|=  1.44372D-02
+
+At iterate    9    f=  5.33488D-02    |proj g|=  1.10582D-02
+
+At iterate   10    f=  4.22029D-02    |proj g|=  1.25106D-02
+
+At iterate   11    f=  4.06316D-02    |proj g|=  2.44485D-02
+
+At iterate   12    f=  3.69584D-02    |proj g|=  4.54212D-03
+
+At iterate   13    f=  3.65099D-02    |proj g|=  2.79389D-03
+
+At iterate   14    f=  3.60475D-02    |proj g|=  3.78474D-03
+
+At iterate   15    f=  3.54451D-02    |proj g|=  3.53858D-03
+
+At iterate   16    f=  3.41428D-02    |proj g|=  1.90054D-03
+
+At iterate   17    f=  3.20853D-02    |proj g|=  4.90079D-03
+
+At iterate   18    f=  3.19413D-02    |proj g|=  4.85226D-03
+
+At iterate   19    f=  3.07978D-02    |proj g|=  4.97076D-03
+
+At iterate   20    f=  2.95300D-02    |proj g|=  6.15370D-03
+
+At iterate   21    f=  2.86840D-02    |proj g|=  4.24801D-03
+
+At itera
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>te   22    f=  2.84160D-02    |proj g|=  2.77990D-03
+
+At iterate   23    f=  2.81525D-02    |proj g|=  2.54749D-03
+
+At iterate   24    f=  2.73948D-02    |proj g|=  1.32540D-03
+
+At iterate   25    f=  2.67581D-02    |proj g|=  2.54291D-03
+
+At iterate   26    f=  2.65593D-02    |proj g|=  2.25779D-03
+
+At iterate   27    f=  2.63085D-02    |proj g|=  1.02537D-03
+
+At iterate   28    f=  2.60358D-02    |proj g|=  7.49427D-04
+
+At iterate   29    f=  2.58479D-02    |proj g|=  4.13526D-04
+
+At iterate   30    f=  2.57212D-02    |proj g|=  2.66403D-04
+
+At iterate   31    f=  2.56298D-02    |proj g|=  6.85022D-04
+
+At iterate   32    f=  2.55168D-02    |proj g|=  7.63571D-04
+
+At iterate   33    f=  2.52017D-02    |proj g|=  1.09211D-03
+
+At iterate   34    f=  2.50936D-02    |proj g|=  1.95593D-03
+
+At iterate   35    f=  2.50385D-02    |proj g|=  2.66023D-03
+
+At iterate   36    f=  2.47949D-02    |proj g|=  8.24344D-04
+
+At iterate   37    f=  2.45830D-02    |proj g|=  1.70163D-04
+
+At iterate   38    f=  2.44388D-02    |proj g|=  4.37379D-04
+
+At iterate   39    f=  2.41721D-02    |proj g|=  1.25587D-03
+
+At iterate   40    f=  2.39635D-02    |proj g|=  7.63048D-04
+
+At iterate   41    f=  2.33916D-02    |proj g|=  1.44976D-03
+
+At iterate   42    f=  2.32813D-02    |proj g|=  1.41503D-03
+
+At iterate   43    f=  2.30787D-02    |proj g|=  6.33282D-04
+
+At iterate   44    f=  2.28646D-02    |proj g|=  4.59862D-04
+
+At iterate   45    f=  2.25034D-02    |proj g|=  1.12226D-03
+
+At iterate   46    f=  2.21268D-02    |proj g|=  1.37114D-03
+
+At iterate   47    f=  2.19823D-02    |proj g|=  8.42600D-04
+
+At iterate   48    f=  2.18579D-02    |proj g|=  8.60455D-04
+
+At iterate   49    f=  2.17472D-02    |proj g|=  5.05210D-04
+
+At iterate   50    f=  2.16850D-02    |proj g|=  2.98039D-04
+
+At iterate   51    f=  2.16727D-02    |proj g|=  7.76402D-05
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+   17     51     61      1     0     0   7.764D-05   2.167D-02
+  F =   2.1672710951251471E-002
+
+CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL            
+</pre></div>
+</div>
+</div>
+</div>
+<p>we see some improvment.</p>
+<p>This network is more complicated. It has 5 total neurons:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hidden_neuron_4d_h0</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
+                                                         <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="n">hidden_neuron_4d_h1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
+                                                         <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="n">hidden_neuron_4d_h2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
+                                                         <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">2</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="n">hidden_neuron_4d_h3</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
+                                                         <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">3</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="n">output_neuron_4d_4h</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
+                                                         <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we have to take the output of all 4 hidden neurons into the output neuron,
+because they are a single layer, not in sequence.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_neuron_4d_4h</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">hidden_neuron_4d_h0</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
+                 <span class="n">hidden_neuron_4d_h1</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
+                 <span class="n">hidden_neuron_4d_h2</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
+                 <span class="n">hidden_neuron_4d_h3</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2475</span><span class="o">/</span><span class="mf">4049144657.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">output_neuron_4d_4h</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">hidden_neuron_4d_h0</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>                  <span class="n">hidden_neuron_4d_h1</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                  <span class="n">hidden_neuron_4d_h2</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                  <span class="n">hidden_neuron_4d_h3</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+<span class="nn">/tmp/ipykernel_2475/2777926706.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">hidden_neuron_4d_h0</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>                                                          <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">hidden_neuron_4d_h1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                                                          <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">hidden_neuron_4d_h2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
+
+<span class="nn">/tmp/ipykernel_2475/1765182718.py</span> in <span class="ni">aritificial_neuron_template</span><span class="nt">(activation, weights, bias, inputs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> 
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="s1">&#39;&#39;&#39;</span>
+<span class="ne">---&gt; </span><span class="mi">17</span><span class="s1">     return activation(np.matmul(inputs,weights) +bias)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="s1"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span><span class="s1"> # two common activation functions</span>
+
+<span class="nn">ValueError: matmul: Input operand 1 has a mismatch</span> in <span class="ni">its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) </span><span class="nt">(size 2 is different from 4)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And again, we see this is the probability of predicting 1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2475</span><span class="o">/</span><span class="mf">3474441194.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py</span> in <span class="ni">predict_proba</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1241</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1242</span><span class="sd">         check_is_fitted(self)</span>
+<span class="ne">-&gt; </span><span class="mi">1243</span><span class="sd">         y_pred = self._forward_pass_fast(X)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1244</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1245</span><span class="sd">         if self.n_outputs_ == 1:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py</span> in <span class="ni">_forward_pass_fast</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span><span class="sd">             The decision function of the samples for each class in the model.</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">159</span>         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span> <span class="s2">&quot;csc&quot;</span><span class="p">],</span> <span class="n">reset</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> 
+<span class="g g-Whitespace">    </span><span class="mi">161</span>         <span class="c1"># Initialize first layer</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/base.py</span> in <span class="ni">_validate_data</span><span class="nt">(self, X, y, reset, validate_separately, **check_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span> 
+<span class="g g-Whitespace">    </span><span class="mi">579</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">check_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ensure_2d&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">580</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_n_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="n">reset</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">581</span> 
+<span class="g g-Whitespace">    </span><span class="mi">582</span>         <span class="k">return</span> <span class="n">out</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/base.py</span> in <span class="ni">_check_n_features</span><span class="nt">(self, X, reset)</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span>         <span class="k">if</span> <span class="n">n_features</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">395</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">396</span>                 <span class="sa">f</span><span class="s2">&quot;X has </span><span class="si">{</span><span class="n">n_features</span><span class="si">}</span><span class="s2"> features, but </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span>                 <span class="sa">f</span><span class="s2">&quot;is expecting </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="si">}</span><span class="s2"> features as input.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>             <span class="p">)</span>
+
+<span class="ne">ValueError</span>: X has 4 features, but MLPClassifier is expecting 2 features as input.
+</pre></div>
+</div>
+</div>
+</div>
+<!-- ```{code-cell} ipython3
+clf = MLPClassifier(
+  hidden_layer_sizes=(1),
+  max_iter=100,
+  alpha=1e-4,
+  solver="lbfgs",
+  verbose=10,
+  activation= 'logistic'
+)
+clf.fit(X_train, y_train)
+
+clf.score(X_test, y_test)
+``` -->
+</div>
+<div class="section" id="optional-what-is-a-numerical-optimiztion-algorithm">
+<h2><span class="section-number">38.3. </span>(optional) What is a numerical optimiztion algorithm?<a class="headerlink" href="#optional-what-is-a-numerical-optimiztion-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>Numerical Optimization algorithms are at the core of many of the fit methods.</p>
+<p>One way we can optimize a function is to take the derivative, set it equal to
+zero and sovle for the parameter.  If we know the funciton is convex (like a
+bowl or valley shape) then the place where the derivative (slope) is 0 is
+the bottom or lowest point of the valley.</p>
+<p>Numerial optimzaiton is for when we can’t analytically solve that problem once
+we set it equal to zero. Optimizaiton algorithms are sort of like search algorithms
+but can work in high dimensions and use strategy based on calculus.</p>
+<p>The basic idea in many numerical optimization algorithms is to start at a point
+(initial setting of the coefficients in this case) and then compute the value
+of the function then change the coefficients a little and compute again. We can
+use those two point to see if the direction we “moved” or the way we changed the
+parameters made it better or worse. If it was better, we change them more in the
+same direction, (if we made both smaller then we make them both smaller again)
+if it got worse, we change in a different direction.</p>
+<p>You can think of this like trying to find the bottom of a valley, without being
+able to see, just check your altitude. You take a step left, right, forward or
+back and then see if your altitude went up or down.</p>
+<p>LBGFS acutally uses the derivative, so it’s like you can see the direction of
+the hill you’re on, but you have to keep taking steps and then if you reacha point
+where you can’t go down anymore you know you are done.  When the algorithm
+finds it can’t get better, that’s called convergence.</p>
+<p>Stochastic gradient descent works in high dimensions where it’s too hard to
+do the derivative, but you can randomly move in different directions (or take
+the partial derivate in a small numbe rof defintions). Adam is a specical version fo that with better strategy.</p>
+<p>Numerical optimization is a whole research area.  In graduate school, I took a
+whole semester long course just learning different algorithms for this.</p>
 </div>
 </div>
 
@@ -897,7 +1490,21 @@ CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2021-12-01.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">37. </span>Neural Networks</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../assignments/01-python-syllabus.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Portfolio Setup, Data Science, and Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
