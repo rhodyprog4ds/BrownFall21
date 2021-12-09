@@ -30,7 +30,7 @@ All class notes can be downloaded in multiple formats, including as a notebook. 
 Notes will have exercises marked like this
 ```
 
-```{admonition} Question from class
+```{admonition} Question from Class
 Questions that are asked in class, but unanswered at that time will be answered in the notes and marked with a box like this. Long answers will be in the main notes
 ```
 
