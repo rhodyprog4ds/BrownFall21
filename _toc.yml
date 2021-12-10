@@ -50,6 +50,7 @@ parts:
       - file: notes/2021-12-03
       - file: notes/2021-12-06
       - file: notes/2021-12-08
+      - file: notes/2021-12-10
   - caption: Assignments
     numbered: True
     chapters:
