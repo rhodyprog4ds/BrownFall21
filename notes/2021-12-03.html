@@ -322,6 +322,16 @@
    39. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-12-08.html">
+   40. Neural Networks with Keras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-12-10.html">
+   41. Convolutional Neural Netowrks
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -725,13 +735,25 @@ Machine precision = 2.220D-16
 
 At X0         0 variables are exactly at the bounds
 
-At iterate    0    f=  1.54597D+00    |proj g|=  8.11909D-01
+At iterate    0    f=  4.23332D-01    |proj g|=  3.14200D-01
 
-At iterate    1    f=  8.72638D-01    |proj g|=  2.61843D-01
+At iterate    1    f=  1.46977D-01    |proj g|=  8.71647D-02
 
-At iterate    2    f=  7.10620D-01    |proj g|=  2.39543D-01
+At iterate    2    f=  8.77685D-02    |proj g|=  4.22158D-02
 
-At iterate    3    f=  2.59079D-01    |proj g|=  1.76928D-01
+At iterate    3    f=  6.67777D-02    |proj g|=  2.09278D-02
+
+At iterate    4    f=  5.77858D-02    |proj g|=  1.76798D-02
+
+At iterate    5    f=  5.23822D-02    |proj g|=  1.18999D-02
+
+At iterate    6    f=  4.97929D-02    |proj g|=  8.35703D-03
+
+At iterate    7    f=  4.88585D-02    |proj g|=  8.74979D-03
+
+At iterate    8    f=  4.79681D-02    |proj g|=  5.86741D-03
+
+At iterate    9    f=  4.79108D-02    |proj g|=  1.52605D-03
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> This problem is unconstrained.
@@ -740,27 +762,9 @@ At iterate    3    f=  2.59079D-01    |proj g|=  1.76928D-01
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At iterate    4    f=  4.99043D-02    |proj g|=  8.77455D-03
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At iterate   10    f=  4.79036D-02    |proj g|=  1.38911D-04
 
-At iterate    5    f=  4.93547D-02    |proj g|=  5.53621D-03
-
-At iterate    6    f=  4.91912D-02    |proj g|=  3.26318D-03
-
-At iterate    7    f=  4.90645D-02    |proj g|=  3.45414D-03
-
-At iterate    8    f=  4.87868D-02    |proj g|=  4.63652D-03
-
-At iterate    9    f=  4.85317D-02    |proj g|=  4.23024D-03
-
-At iterate   10    f=  4.82784D-02    |proj g|=  3.16555D-03
-
-At iterate   11    f=  4.80445D-02    |proj g|=  3.79553D-03
-
-At iterate   12    f=  4.79353D-02    |proj g|=  9.85135D-04
-
-At iterate   13    f=  4.79223D-02    |proj g|=  2.13254D-04
-
-At iterate   14    f=  4.79203D-02    |proj g|=  1.17409D-05
+At iterate   11    f=  4.79035D-02    |proj g|=  1.43740D-05
 
            * * *
 
@@ -775,8 +779,8 @@ F     = final function value
            * * *
 
    N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
-    5     14     15      1     0     0   1.174D-05   4.792D-02
-  F =   4.7920305146572938E-002
+    5     11     12      1     0     0   1.437D-05   4.790D-02
+  F =   4.7903482810364120E-002
 
 CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL            
 </pre></div>
@@ -809,7 +813,7 @@ because probability always needs to be between 0 and 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f20e4225f90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f51e670b790&gt;]
 </pre></div>
 </div>
 <img alt="../_images/2021-12-03_9_1.png" src="../_images/2021-12-03_9_1.png" />
@@ -823,9 +827,9 @@ because probability always needs to be between 0 and 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([[ 6.93238211],
-        [-0.19941102]]),
- array([[1.89489916]])]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([[-3.84094322],
+        [ 0.1105853 ]]),
+ array([[-3.42073886]])]
 </pre></div>
 </div>
 </div>
@@ -838,7 +842,7 @@ because probability always needs to be between 0 and 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([2.28257814]), array([1.36724917])]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([-1.43859861]), array([0.77370254])]
 </pre></div>
 </div>
 </div>
@@ -892,7 +896,7 @@ like a line intercept (recall y=mx+b)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2995/81862389.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2647/81862389.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">pt</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
                                                     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -909,7 +913,7 @@ function, which is also known as <a class="reference external" href="https://doc
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027475]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.0002744]])
 </pre></div>
 </div>
 </div>
@@ -923,7 +927,7 @@ each class, we only comptued the probabilyt of the <code class="docutils literal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99725254e-01, 2.74746200e-04]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99725602e-01, 2.74397622e-04]])
 </pre></div>
 </div>
 </div>
@@ -986,7 +990,7 @@ at each layer.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027475]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.0002744]])
 </pre></div>
 </div>
 </div>
@@ -1003,7 +1007,7 @@ lambda functions.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027475]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.0002744]])
 </pre></div>
 </div>
 </div>
@@ -1016,7 +1020,7 @@ lambda functions.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99725254e-01, 2.74746200e-04]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99725602e-01, 2.74397622e-04]])
 </pre></div>
 </div>
 </div>
@@ -1050,7 +1054,7 @@ lambda functions.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2995</span><span class="o">/</span><span class="mf">3721524382.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2647</span><span class="o">/</span><span class="mf">3721524382.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>                                                     <span class="n">random_state</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -1072,7 +1076,7 @@ lambda functions.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f20e4258890&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f51e91710d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-12-03_38_1.png" src="../_images/2021-12-03_38_1.png" />
@@ -1102,12 +1106,12 @@ lambda functions.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2995</span><span class="o">/</span><span class="mf">2138475403.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2647</span><span class="o">/</span><span class="mf">2138475403.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> 
 <span class="g g-Whitespace">      </span><span class="mi">6</span> 
 <span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">output_neuron_4d</span><span class="p">(</span><span class="n">hidden_neuron_4d</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">))</span>
 
-<span class="nn">/tmp/ipykernel_2995/2138475403.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
+<span class="nn">/tmp/ipykernel_2647/2138475403.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">hidden_neuron_4d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">identity_activation</span><span class="p">,</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>                                                          <span class="n">clf_4d</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">clf_4d</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">output_neuron_4d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
@@ -1128,7 +1132,7 @@ lambda functions.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2995</span><span class="o">/</span><span class="mf">898774351.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2647</span><span class="o">/</span><span class="mf">898774351.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">clf_4d</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;clf_4d&#39; is not defined
@@ -1146,7 +1150,7 @@ lambda functions.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2995</span><span class="o">/</span><span class="mf">1039820928.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2647</span><span class="o">/</span><span class="mf">1039820928.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">clf_4d</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;clf_4d&#39; is not defined
@@ -1174,12 +1178,6 @@ lambda functions.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> This problem is unconstrained.
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RUNNING THE L-BFGS-B CODE
 
            * * *
@@ -1189,159 +1187,92 @@ Machine precision = 2.220D-16
 
 At X0         0 variables are exactly at the bounds
 
-At iterate    0    f=  7.89653D-01    |proj g|=  1.44857D-01
+At iterate    0    f=  7.06231D-01    |proj g|=  6.70642D-02
 
-At iterate    1    f=  7.29766D-01    |proj g|=  6.71760D-02
+At iterate    1    f=  6.36052D-01    |proj g|=  1.36767D-01
 
-At iterate    2    f=  7.08258D-01    |proj g|=  5.64210D-02
+At iterate    2    f=  3.08528D-01    |proj g|=  9.74622D-02
 
-At iterate    3    f=  6.41239D-01    |proj g|=  5.80119D-02
+At iterate    3    f=  1.08324D-01    |proj g|=  3.44220D-02
 
-At iterate    4    f=  1.57850D-01    |proj g|=  9.69220D-02
+At iterate    4    f=  7.90743D-02    |proj g|=  3.20636D-02
 
-At iterate    5    f=  1.01471D-01    |proj g|=  8.18608D-02
+At iterate    5    f=  7.09305D-02    |proj g|=  9.59120D-03
 
-At iterate    6    f=  7.68056D-02    |proj g|=  5.76440D-02
+At iterate    6    f=  6.82623D-02    |proj g|=  8.73319D-03
 
-At iterate    7    f=  6.66308D-02    |proj g|=  2.51296D-02
+At iterate    7    f=  5.63789D-02    |proj g|=  4.17658D-03
 
-At iterate    8    f=  6.32210D-02    |proj g|=  3.18641D-02
+At iterate    8    f=  5.26999D-02    |proj g|=  1.01417D-02
 
-At iterate    9    f=  5.54969D-02    |proj g|=  1.14552D-02
+At iterate    9    f=  5.01675D-02    |proj g|=  5.84425D-03
 
-At iterate   10    f=  5.35072D-02    |proj g|=  7.51493D-03
+At iterate   10    f=  4.88128D-02    |proj g|=  3.54815D-03
 
-At iterate   11    f=  5.02019D-02    |proj g|=  6.48396D-03
+At iterate   11    f=  4.75515D-02    |proj g|=  5.12976D-03
 
-At iterate   12    f=  4.91962D-02    |proj g|=  6.75342D-03
+At iterate   12    f=  4.69894D-02    |proj g|=  2.09150D-03
 
-At iterate   13    f=  4.89251D-02    |proj g|=  1.07551D-03
+At iterate   13    f=  4.66031D-02    |proj g|=  2.54255D-03
 
-At iterate   14    f=  4.89020D-02    |proj g|=  1.04422D-03
+At iterate   14    f=  3.75869D-02    |proj g|=  1.02502D-02
 
-At iterate   15    f=  4.87128D-02    |proj g|=  1.29590D-03
+At iterate   15    f=  3.26356D-02    |proj g|=  1.21006D-02
 
-At iterate   16    f=  4.84710D-02    |proj g|=  4.32430D-03
+At iterate   16    f=  2.73451D-02    |proj g|=  2.70078D-03
 
-At iterate   17    f=  4.74331D-02    |proj g|=  2.60252D-03
+At iterate   17    f=  2.71765D-02    |proj g|=  2.13841D-03
 
-At iterate   18    f=  4.67495D-02    |proj g|=  1.17670D-02
+At iterate   18    f=  2.68613D-02    |proj g|=  1.75365D-03
 
-At iterate   19    f=  4.59222D-02    |proj g|=  9.56256D-03
+At iterate   19    f=  2.65689D-02    |proj g|=  6.16861D-04
 
-At iterate   20    f=  4.55536D-02    |proj g|=  5.57008D-03
+At iterate   20    f=  2.63870D-02    |proj g|=  6.64209D-04
 
-At iterate   21    f=  4.42266D-02    |proj g|=  1.13520D-02
+At iterate   21    f=  2.61667D-02    |proj g|=  1.90172D-04
 
-At iterate   22    f=  4.28864D-02    |proj g|=  6.86371D-03
+At iterate   22    f=  2.61453D-02    |proj g|=  1.69874D-04
 
-At iterate   23    f=  4.05146D-02    |proj g|=  4.40440D-03
+At iterate   23    f=  2.60935D-02    |proj g|=  1.79784D-04
 
-At iterate   24    f=  3.90287D-02    |proj g|=  1.17663D-02
+At iterate   24    f=  2.59629D-02    |proj g|=  1.12488D-03
 
-At iterate   25    f=  3.66378D-02    |proj g|=  4.60968D-03
+At iterate   25    f=  2.55827D-02    |proj g|=  1.39081D-03
 
-At iterate   26    f=  3.62239D-02    |proj g|=  4.67102D-03
+At iterate   26    f=  2.43911D-02    |proj g|=  1.63124D-03
 
-At iterate   27    f=  3.58620D-02    |proj g|=  2.55356D-03
+At iterate   27    f=  2.36313D-02    |proj g|=  1.91681D-03
 
-At iterate   28    f=  3.52470D-02    |proj g|=  4.05449D-03
+At iterate   28    f=  2.35883D-02    |proj g|=  1.87747D-03
 
-At iterate   29    f=  3.49520D-02    |proj g|=  7.62880D-04
+At iterate   29    f=  2.33350D-02    |proj g|=  1.60467D-03
 
-At iterate   30    f=  3.49004D-02    |proj g|=  9.81147D-04
+At iterate   30    f=  2.29051D-02    |proj g|=  1.00197D-03
 
-At iterate   31    f=  3.48506D-02    |proj g|=  1.07276D-03
+At iterate   31    f=  2.27255D-02    |proj g|=  9.77243D-04
 
-At iterate   32    f=  3.46559D-02    |proj g|=  1.25972D-03
+At iterate   32    f=  2.24862D-02    |proj g|=  2.76035D-03
 
-At iterate   33    f=  3.43199D-02    |proj g|=  7.15873D-04
+At iterate   33    f=  2.22322D-02    |proj g|=  1.54221D-03
 
-At iterate   34    f=  3.30999D-02    |proj g|=  1.18156D-03
+At iterate   34    f=  2.20493D-02    |proj g|=  5.86099D-04
 
-At iterate   35    f=  3.23907D-02    |proj g|=  1.24331D-03
+At iterate   35    f=  2.20145D-02    |proj g|=  3.90243D-04
 
-At iterate   36    f=  3.15293D-02    |proj g|=  2.39817D-03
+At iterate   36    f=  2.19711D-02    |proj g|=  3.56517D-04
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> This problem is unconstrained.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.96
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At iterate   37    f=  2.19611D-02    |proj g|=  1.64629D-04
 
-At iterate   37    f=  3.13788D-02    |proj g|=  2.52483D-03
+At iterate   38    f=  2.19592D-02    |proj g|=  1.74599D-04
 
-At iterate   38    f=  3.06551D-02    |proj g|=  2.98419D-03
-
-At iterate   39    f=  3.03040D-02    |proj g|=  3.47347D-03
-
-At iterate   40    f=  2.97005D-02    |proj g|=  1.68361D-03
-
-At iterate   41    f=  2.92833D-02    |proj g|=  8.72155D-04
-
-At iterate   42    f=  2.92137D-02    |proj g|=  7.86988D-04
-
-At iterate   43    f=  2.91701D-02    |proj g|=  4.46963D-04
-
-At iterate   44    f=  2.91091D-02    |proj g|=  6.07407D-04
-
-At iterate   45    f=  2.88907D-02    |proj g|=  1.92876D-03
-
-At iterate   46    f=  2.80915D-02    |proj g|=  3.24220D-03
-
-At iterate   47    f=  2.75385D-02    |proj g|=  2.50939D-03
-
-At iterate   48    f=  2.73346D-02    |proj g|=  1.38720D-03
-
-At iterate   49    f=  2.71568D-02    |proj g|=  3.13835D-04
-
-At iterate   50    f=  2.71340D-02    |proj g|=  3.06651D-04
-
-At iterate   51    f=  2.70542D-02    |proj g|=  4.93155D-04
-
-At iterate   52    f=  2.69999D-02    |proj g|=  6.39703D-04
-
-At iterate   53    f=  2.69093D-02    |proj g|=  5.43706D-04
-
-At iterate   54    f=  2.67896D-02    |proj g|=  3.22909D-04
-
-At iterate   55    f=  2.67245D-02    |proj g|=  9.07691D-04
-
-At iterate   56    f=  2.65734D-02    |proj g|=  1.70090D-03
-
-At iterate   57    f=  2.62928D-02    |proj g|=  1.81714D-03
-
-At iterate   58    f=  2.60464D-02    |proj g|=  1.23171D-03
-
-At iterate   59    f=  2.58972D-02    |proj g|=  1.12993D-03
-
-At iterate   60    f=  2.58104D-02    |proj g|=  6.99731D-04
-
-At iterate   61    f=  2.57438D-02    |proj g|=  2.41542D-04
-
-At iterate   62    f=  2.57202D-02    |proj g|=  2.25601D-04
-
-At iterate   63    f=  2.55605D-02    |proj g|=  5.92593D-04
-
-At iterate   64    f=  2.53064D-02    |proj g|=  9.27831D-04
-
-At iterate   65    f=  2.48496D-02    |proj g|=  1.31725D-03
-
-At iterate   66    f=  2.43505D-02    |proj g|=  1.71666D-03
-
-At iterate   67    f=  2.41170D-02    |proj g|=  2.16179D-03
-
-At iterate   68    f=  2.38188D-02    |proj g|=  1.96515D-03
-
-At iterate   69    f=  2.33586D-02    |proj g|=  6.24548D-04
-
-At iterate   70    f=  2.32953D-02    |proj g|=  3.76840D-04
-
-At iterate   71    f=  2.31727D-02    |proj g|=  5.43798D-04
-
-At iterate   72    f=  2.29711D-02    |proj g|=  7.43480D-04
-
-At iterate   73    f=  2.28381D-02    |proj g|=  5.33544D-04
-
-At iterate   74    f=  2.27415D-02    |proj g|=  2.84490D-04
-
-At iterate   75    f=  2.26898D-02    |proj g|=  2.86036D-04
-
-At iterate   76    f=  2.25978D-02    |proj g|=  8.41786D-05
+At iterate   39    f=  2.19524D-02    |proj g|=  6.23788D-05
 
            * * *
 
@@ -1356,8 +1287,8 @@ F     = final function value
            * * *
 
    N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
-   17     76    104      1     0     0   8.418D-05   2.260D-02
-  F =   2.2597824203177179E-002
+   17     39     55      1     0     0   6.238D-05   2.195D-02
+  F =   2.1952412525950062E-002
 
 CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL            
 </pre></div>
@@ -1396,20 +1327,20 @@ because they are a single layer, not in sequence.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2995</span><span class="o">/</span><span class="mf">4049144657.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2647</span><span class="o">/</span><span class="mf">4049144657.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">output_neuron_4d_4h</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">hidden_neuron_4d_h0</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>                  <span class="n">hidden_neuron_4d_h1</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>                  <span class="n">hidden_neuron_4d_h2</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>                  <span class="n">hidden_neuron_4d_h3</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_2995/2777926706.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
+<span class="nn">/tmp/ipykernel_2647/2777926706.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">hidden_neuron_4d_h0</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>                                                          <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">hidden_neuron_4d_h1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>                                                          <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">hidden_neuron_4d_h2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
 
-<span class="nn">/tmp/ipykernel_2995/1765182718.py</span> in <span class="ni">aritificial_neuron_template</span><span class="nt">(activation, weights, bias, inputs)</span>
+<span class="nn">/tmp/ipykernel_2647/1765182718.py</span> in <span class="ni">aritificial_neuron_template</span><span class="nt">(activation, weights, bias, inputs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> 
 <span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="s1">&#39;&#39;&#39;</span>
 <span class="ne">---&gt; </span><span class="mi">17</span><span class="s1">     return activation(np.matmul(inputs,weights) +bias)</span>
@@ -1431,7 +1362,7 @@ because they are a single layer, not in sequence.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2995</span><span class="o">/</span><span class="mf">3474441194.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2647</span><span class="o">/</span><span class="mf">3474441194.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py</span> in <span class="ni">predict_proba</span><span class="nt">(self, X)</span>

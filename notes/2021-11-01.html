@@ -322,6 +322,16 @@
    39. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-12-08.html">
+   40. Neural Networks with Keras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-12-10.html">
+   41. Convolutional Neural Netowrks
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -683,7 +693,7 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f1381394310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fe2296e1210&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-11-01_3_1.png" src="../_images/2021-11-01_3_1.png" />
@@ -723,28 +733,28 @@ for other types of centers.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.33</td>
-      <td>1.98</td>
+      <td>1.68</td>
+      <td>1.55</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>5.65</td>
-      <td>1.65</td>
+      <td>1.48</td>
+      <td>6.12</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2.27</td>
-      <td>6.71</td>
+      <td>2.11</td>
+      <td>1.52</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5.42</td>
-      <td>2.24</td>
+      <td>5.83</td>
+      <td>1.54</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>6.46</td>
-      <td>5.70</td>
+      <td>5.47</td>
+      <td>2.27</td>
     </tr>
   </tbody>
 </table>
@@ -773,10 +783,10 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.11, 5.95],
-       [3.1 , 2.57],
-       [1.53, 2.04],
-       [6.3 , 5.96]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.56, 1.23],
+       [1.69, 6.05],
+       [5.51, 2.07],
+       [1.27, 5.59]])
 </pre></div>
 </div>
 </div>
@@ -790,53 +800,53 @@ first by taking the difference, squaring it, then summing along each row.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0      38.6093
- 1      18.7016
- 2      15.3232
- 3      14.2402
- 4       0.1850
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0       0.1168
+ 1      23.9185
+ 2       0.3866
+ 3      18.3290
+ 4      16.3697
          ...   
- 195    16.3250
- 196    36.0817
- 197    15.6850
- 198    12.0105
- 199    16.3945
+ 195     3.0325
+ 196    30.5204
+ 197    18.6457
+ 198    24.4217
+ 199    45.8289
  Length: 200, dtype: float64,
- 0       3.4810
- 1       7.3489
- 2      17.8285
- 3       5.4913
- 4      21.0865
+ 0      20.2501
+ 1       0.0490
+ 2      20.6973
+ 3      37.4797
+ 4      28.5768
          ...   
- 195    14.5093
- 196     2.6834
- 197    12.5525
- 198     7.2200
- 199    10.7330
+ 195    21.7936
+ 196    47.3269
+ 197     1.0610
+ 198    40.9960
+ 199    20.4404
  Length: 200, dtype: float64,
- 0       0.0436
- 1      17.1265
- 2      22.3565
- 3      15.1721
- 4      37.7005
+ 0      14.9393
+ 1      32.6434
+ 2      11.8625
+ 3       0.3833
+ 4       0.0416
          ...   
- 195    17.9425
- 196     0.0004
- 197    25.7053
- 198    11.5922
- 199    13.5412
+ 195     5.2840
+ 196     2.5049
+ 197    20.2970
+ 198     1.0000
+ 199    17.1364
  Length: 200, dtype: float64,
- 0      40.5413
- 1      18.9986
- 2      16.8034
- 3      14.6128
- 4       0.0932
+ 0      16.4897
+ 1       0.3250
+ 2      17.2705
+ 3      37.1961
+ 4      28.6624
          ...   
- 195    17.8868
- 196    37.9289
- 197    15.6136
- 198    13.3493
- 199    17.9713
+ 195    19.4440
+ 196    48.2697
+ 197     1.5850
+ 198    41.4800
+ 199    24.7172
  Length: 200, dtype: float64]
 </pre></div>
 </div>
@@ -879,38 +889,38 @@ corresponding mean. We can stack these into one DataFrame.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>38.6093</td>
-      <td>3.4810</td>
-      <td>0.0436</td>
-      <td>40.5413</td>
+      <td>0.1168</td>
+      <td>20.2501</td>
+      <td>14.9393</td>
+      <td>16.4897</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>18.7016</td>
-      <td>7.3489</td>
-      <td>17.1265</td>
-      <td>18.9986</td>
+      <td>23.9185</td>
+      <td>0.0490</td>
+      <td>32.6434</td>
+      <td>0.3250</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>15.3232</td>
-      <td>17.8285</td>
-      <td>22.3565</td>
-      <td>16.8034</td>
+      <td>0.3866</td>
+      <td>20.6973</td>
+      <td>11.8625</td>
+      <td>17.2705</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>14.2402</td>
-      <td>5.4913</td>
-      <td>15.1721</td>
-      <td>14.6128</td>
+      <td>18.3290</td>
+      <td>37.4797</td>
+      <td>0.3833</td>
+      <td>37.1961</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.1850</td>
-      <td>21.0865</td>
-      <td>37.7005</td>
-      <td>0.0932</td>
+      <td>16.3697</td>
+      <td>28.5768</td>
+      <td>0.0416</td>
+      <td>28.6624</td>
     </tr>
   </tbody>
 </table>
@@ -926,11 +936,11 @@ minimum across each row and returns the index (location) of that minimum.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
 1    1
 2    0
-3    1
-4    3
+3    2
+4    2
 dtype: int64
 </pre></div>
 </div>
@@ -972,33 +982,33 @@ dtype: int64
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.33</td>
-      <td>1.98</td>
-      <td>2</td>
+      <td>1.68</td>
+      <td>1.55</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>5.65</td>
-      <td>1.65</td>
+      <td>1.48</td>
+      <td>6.12</td>
       <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2.27</td>
-      <td>6.71</td>
+      <td>2.11</td>
+      <td>1.52</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5.42</td>
-      <td>2.24</td>
-      <td>1</td>
+      <td>5.83</td>
+      <td>1.54</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>6.46</td>
-      <td>5.70</td>
-      <td>3</td>
+      <td>5.47</td>
+      <td>2.27</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -1063,10 +1073,10 @@ groupby.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5.18159091, 5.90954545],
-       [3.77912088, 3.66527473],
-       [1.8275    , 2.03675   ],
-       [6.48      , 5.122     ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9303125 , 1.96625   ],
+       [2.92913793, 6.17068966],
+       [6.11746269, 3.75268657],
+       [1.50818182, 5.46454545]])
 </pre></div>
 </div>
 </div>
@@ -1164,6 +1174,8 @@ was okay for the steps to be in the other order.</p>
 <img alt="../_images/2021-11-01_30_3.png" src="../_images/2021-11-01_30_3.png" />
 <img alt="../_images/2021-11-01_30_4.png" src="../_images/2021-11-01_30_4.png" />
 <img alt="../_images/2021-11-01_30_5.png" src="../_images/2021-11-01_30_5.png" />
+<img alt="../_images/2021-11-01_30_6.png" src="../_images/2021-11-01_30_6.png" />
+<img alt="../_images/2021-11-01_30_7.png" src="../_images/2021-11-01_30_7.png" />
 </div>
 </div>
 <p>This algorithm is random.  So each time we run it, it looks a little different.</p>

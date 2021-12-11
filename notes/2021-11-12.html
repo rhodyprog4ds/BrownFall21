@@ -322,6 +322,16 @@
    39. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-12-08.html">
+   40. Neural Networks with Keras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2021-12-10.html">
+   41. Convolutional Neural Netowrks
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -782,14 +792,14 @@ The dictionary has the parameter names as the keys and the values are the values
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mean_fit_time&#39;: array([0.00176353, 0.00177999, 0.00165734, 0.00173001, 0.00166345,
-        0.00170345]),
- &#39;std_fit_time&#39;: array([1.08106188e-04, 6.22523648e-06, 1.62086763e-05, 2.51837743e-05,
-        9.68695596e-06, 2.86099911e-05]),
- &#39;mean_score_time&#39;: array([0.00123935, 0.00125618, 0.00122395, 0.00126796, 0.00121355,
-        0.00122581]),
- &#39;std_score_time&#39;: array([3.10161954e-05, 2.10194882e-05, 3.05803220e-05, 1.76193750e-05,
-        2.70762062e-05, 2.34793765e-05]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mean_fit_time&#39;: array([0.0025116 , 0.00252013, 0.00229897, 0.0027132 , 0.00235915,
+        0.00242515]),
+ &#39;std_fit_time&#39;: array([3.12782954e-04, 8.81972682e-05, 6.89796661e-05, 6.47515488e-04,
+        6.45365228e-05, 9.05806623e-05]),
+ &#39;mean_score_time&#39;: array([0.00172973, 0.00177789, 0.00176764, 0.00174327, 0.00184431,
+        0.0017303 ]),
+ &#39;std_score_time&#39;: array([8.90227007e-05, 2.35458114e-05, 9.09113521e-05, 1.44249348e-05,
+        1.88978970e-04, 2.00785251e-05]),
  &#39;param_C&#39;: masked_array(data=[0.5, 0.5, 1, 1, 10, 10],
               mask=[False, False, False, False, False, False],
         fill_value=&#39;?&#39;,
@@ -804,19 +814,19 @@ The dictionary has the parameter names as the keys and the values are the values
   {&#39;C&#39;: 1, &#39;kernel&#39;: &#39;rbf&#39;},
   {&#39;C&#39;: 10, &#39;kernel&#39;: &#39;linear&#39;},
   {&#39;C&#39;: 10, &#39;kernel&#39;: &#39;rbf&#39;}],
- &#39;split0_test_score&#39;: array([1., 1., 1., 1., 1., 1.]),
- &#39;split1_test_score&#39;: array([0.95652174, 0.91304348, 0.95652174, 0.91304348, 0.95652174,
-        0.95652174]),
- &#39;split2_test_score&#39;: array([0.95454545, 0.95454545, 0.95454545, 0.90909091, 0.95454545,
-        0.95454545]),
- &#39;split3_test_score&#39;: array([1., 1., 1., 1., 1., 1.]),
- &#39;split4_test_score&#39;: array([1.        , 0.86363636, 1.        , 0.90909091, 0.90909091,
+ &#39;split0_test_score&#39;: array([0.91304348, 0.86956522, 0.91304348, 0.86956522, 0.91304348,
+        0.91304348]),
+ &#39;split1_test_score&#39;: array([1.        , 0.86956522, 1.        , 0.95652174, 1.        ,
         1.        ]),
- &#39;mean_test_score&#39;: array([0.98221344, 0.94624506, 0.98221344, 0.94624506, 0.96403162,
-        0.98221344]),
- &#39;std_test_score&#39;: array([0.02179296, 0.05248738, 0.02179296, 0.04391445, 0.03391848,
-        0.02179296]),
- &#39;rank_test_score&#39;: array([1, 5, 1, 5, 4, 1], dtype=int32)}
+ &#39;split2_test_score&#39;: array([1., 1., 1., 1., 1., 1.]),
+ &#39;split3_test_score&#39;: array([1., 1., 1., 1., 1., 1.]),
+ &#39;split4_test_score&#39;: array([1.        , 0.95454545, 1.        , 1.        , 1.        ,
+        1.        ]),
+ &#39;mean_test_score&#39;: array([0.9826087 , 0.93873518, 0.9826087 , 0.96521739, 0.9826087 ,
+        0.9826087 ]),
+ &#39;std_test_score&#39;: array([0.03478261, 0.05886542, 0.03478261, 0.05070393, 0.03478261,
+        0.03478261]),
+ &#39;rank_test_score&#39;: array([1, 6, 1, 5, 1, 1], dtype=int32)}
 </pre></div>
 </div>
 </div>
@@ -867,110 +877,110 @@ The dictionary has the parameter names as the keys and the values are the values
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.001764</td>
-      <td>0.000108</td>
-      <td>0.001239</td>
-      <td>0.000031</td>
+      <td>0.002512</td>
+      <td>0.000313</td>
+      <td>0.001730</td>
+      <td>0.000089</td>
       <td>0.5</td>
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
+      <td>0.913043</td>
+      <td>1.000000</td>
       <td>1.0</td>
-      <td>0.956522</td>
-      <td>0.954545</td>
       <td>1.0</td>
       <td>1.000000</td>
-      <td>0.982213</td>
-      <td>0.021793</td>
+      <td>0.982609</td>
+      <td>0.034783</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.001780</td>
-      <td>0.000006</td>
-      <td>0.001256</td>
-      <td>0.000021</td>
+      <td>0.002520</td>
+      <td>0.000088</td>
+      <td>0.001778</td>
+      <td>0.000024</td>
       <td>0.5</td>
       <td>rbf</td>
       <td>{'C': 0.5, 'kernel': 'rbf'}</td>
+      <td>0.869565</td>
+      <td>0.869565</td>
       <td>1.0</td>
-      <td>0.913043</td>
+      <td>1.0</td>
       <td>0.954545</td>
-      <td>1.0</td>
-      <td>0.863636</td>
-      <td>0.946245</td>
-      <td>0.052487</td>
-      <td>5</td>
+      <td>0.938735</td>
+      <td>0.058865</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.001657</td>
-      <td>0.000016</td>
-      <td>0.001224</td>
-      <td>0.000031</td>
+      <td>0.002299</td>
+      <td>0.000069</td>
+      <td>0.001768</td>
+      <td>0.000091</td>
       <td>1</td>
       <td>linear</td>
       <td>{'C': 1, 'kernel': 'linear'}</td>
+      <td>0.913043</td>
+      <td>1.000000</td>
       <td>1.0</td>
-      <td>0.956522</td>
-      <td>0.954545</td>
       <td>1.0</td>
       <td>1.000000</td>
-      <td>0.982213</td>
-      <td>0.021793</td>
+      <td>0.982609</td>
+      <td>0.034783</td>
       <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.001730</td>
-      <td>0.000025</td>
-      <td>0.001268</td>
-      <td>0.000018</td>
+      <td>0.002713</td>
+      <td>0.000648</td>
+      <td>0.001743</td>
+      <td>0.000014</td>
       <td>1</td>
       <td>rbf</td>
       <td>{'C': 1, 'kernel': 'rbf'}</td>
+      <td>0.869565</td>
+      <td>0.956522</td>
       <td>1.0</td>
-      <td>0.913043</td>
-      <td>0.909091</td>
       <td>1.0</td>
-      <td>0.909091</td>
-      <td>0.946245</td>
-      <td>0.043914</td>
+      <td>1.000000</td>
+      <td>0.965217</td>
+      <td>0.050704</td>
       <td>5</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.001663</td>
-      <td>0.000010</td>
-      <td>0.001214</td>
-      <td>0.000027</td>
+      <td>0.002359</td>
+      <td>0.000065</td>
+      <td>0.001844</td>
+      <td>0.000189</td>
       <td>10</td>
       <td>linear</td>
       <td>{'C': 10, 'kernel': 'linear'}</td>
+      <td>0.913043</td>
+      <td>1.000000</td>
       <td>1.0</td>
-      <td>0.956522</td>
-      <td>0.954545</td>
       <td>1.0</td>
-      <td>0.909091</td>
-      <td>0.964032</td>
-      <td>0.033918</td>
-      <td>4</td>
+      <td>1.000000</td>
+      <td>0.982609</td>
+      <td>0.034783</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.001703</td>
-      <td>0.000029</td>
-      <td>0.001226</td>
-      <td>0.000023</td>
+      <td>0.002425</td>
+      <td>0.000091</td>
+      <td>0.001730</td>
+      <td>0.000020</td>
       <td>10</td>
       <td>rbf</td>
       <td>{'C': 10, 'kernel': 'rbf'}</td>
+      <td>0.913043</td>
+      <td>1.000000</td>
       <td>1.0</td>
-      <td>0.956522</td>
-      <td>0.954545</td>
       <td>1.0</td>
       <td>1.000000</td>
-      <td>0.982213</td>
-      <td>0.021793</td>
+      <td>0.982609</td>
+      <td>0.034783</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -998,7 +1008,7 @@ The dictionary has the parameter names as the keys and the values are the values
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9736842105263158
 </pre></div>
 </div>
 </div>
@@ -1042,7 +1052,7 @@ The dictionary has the parameter names as the keys and the values are the values
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 2}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 2}
 </pre></div>
 </div>
 </div>
