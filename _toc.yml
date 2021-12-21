@@ -93,6 +93,7 @@ parts:
     - file: resources/organization
     - url: https://rhodyprog4ds.github.io/BrownFall20/letters/
       title: Advice from FA2020 Students
+    - file: letters/index
 
 
 
