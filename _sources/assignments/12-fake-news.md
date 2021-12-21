@@ -13,6 +13,7 @@ substitutions:
 - First feedback: {{ early }}
 __Final due date: {{ date }}__
 
+Submit by the first feedback deadline to get feedback and then continue revising your work.  After the final due date that feedback will be final. 
 
 ## Evaluation
 ```{list-table} use text to predict fake from real news
