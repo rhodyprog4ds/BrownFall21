@@ -81,27 +81,28 @@ You can view a (fake) example [in this repository](https://github.com/rhodyprog4
 
 ## Current: Check 3
 
-The third submission will be graded on the following criteria and due on  {{ p3due }}:
+The third submission will be graded on the following criteria* and due on  {{ p4due }} :
 
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-portfolio_df['Level 3'][portfolio_df['P3']==1].reset_index().set_index('keyword')
+portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword')
 ```
 
-Submision Checklist:
+* it can also be graded against the level 1 or 2 criteria from the syllabus/Data Science Achievements
 
+## Submision Checklist:
 
 
 - [ ] update your gh action or precommit hook
 - [ ] complete your KWL chart
-- [ ] add notebooks
+- [ ] add notebooks or markdown files for your work
 
-## Upcoming Checks
+<!-- ## Upcoming Checks -->
 
 <!-- - Check 2: {{ p2due }}   -->
 <!-- - Check 3: {{ p3due }}   -->
-- Check 4: {{ p4due }}  
+<!-- - Check 4: {{ p4due }}   -->
 
 
 <!--

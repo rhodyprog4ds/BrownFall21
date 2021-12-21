@@ -73,6 +73,7 @@ parts:
     - file: portfolio/formatting
     - file: portfolio/check1ideas
     - file: portfolio/check2ideas
+    - file: portfolio/check4ideas
   - caption: FAQ
     chapters:
     - file: faq/index
