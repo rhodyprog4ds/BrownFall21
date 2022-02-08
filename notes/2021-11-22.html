@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>35. Intro to NLP- representing text data &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>30. Intro to NLP- representing text data &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -52,8 +52,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="36. More NLP &amp; Solving problems with ML" href="2021-11-29.html" />
-    <link rel="prev" title="34. Learning Curves" href="2021-11-19.html" />
+    <link rel="next" title="31. More NLP &amp; Solving problems with ML" href="2021-11-29.html" />
+    <link rel="prev" title="29. Learning Curves" href="2021-11-19.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -247,87 +247,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-25.html">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-29.html">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-01.html">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-12.html">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-17.html">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-29.html">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-03.html">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -572,7 +572,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -625,7 +625,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -634,44 +634,44 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#terms">
-   35.1. Terms
+   30.1. Terms
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bag-of-words-representionat">
-   35.2. Bag of Words Representionat
+   30.2. Bag of Words Representionat
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-can-we-find-the-most-commonly-used-word">
-   35.3. How can we find the most commonly used word?
+   30.3. How can we find the most commonly used word?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distances-in-text">
-   35.4. Distances in text
+   30.4. Distances in text
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#questions-after-classroom">
-   35.5. Questions After Classroom
+   30.5. Questions After Classroom
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-can-this-be-used-for-training-a-classifier">
-     35.5.1. How can this be used for training a classifier?
+     30.5.1. How can this be used for training a classifier?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-are-ram-tokens-tracked">
-     35.5.2. How are ram tokens tracked?
+     30.5.2. How are ram tokens tracked?
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-practice">
-   35.6. More Practice
+   30.6. More Practice
   </a>
  </li>
 </ul>
@@ -682,11 +682,71 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Intro to NLP- representing text data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terms">
+   30.1. Terms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bag-of-words-representionat">
+   30.2. Bag of Words Representionat
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-can-we-find-the-most-commonly-used-word">
+   30.3. How can we find the most commonly used word?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distances-in-text">
+   30.4. Distances in text
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-classroom">
+   30.5. Questions After Classroom
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-this-be-used-for-training-a-classifier">
+     30.5.1. How can this be used for training a classifier?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-are-ram-tokens-tracked">
+     30.5.2. How are ram tokens tracked?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   30.6. More Practice
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="intro-to-nlp-representing-text-data">
-<h1><span class="section-number">35. </span>Intro to NLP- representing text data<a class="headerlink" href="#intro-to-nlp-representing-text-data" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">30. </span>Intro to NLP- representing text data<a class="headerlink" href="#intro-to-nlp-representing-text-data" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
@@ -730,7 +790,7 @@
 <p>How can we analyze these? All of the machine leanring models we have seen only use numerical features organized into a table with one row per samplea and one column per feature.</p>
 <p>That’s actually generally true.  ALl ML models require numerical features, at some point. The process of taking data that is not numerical and tabular, which is called unstrucutred, into strucutred (tabular) format we require is called feature extraction.  There are many, many ways to do that.  We’ll see a few over the course of the rest of the semester.  Some more advanced models hide the feature extraction, by putting it in the same function, but it’s always there.</p>
 <div class="section" id="terms">
-<h2><span class="section-number">35.1. </span>Terms<a class="headerlink" href="#terms" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">30.1. </span>Terms<a class="headerlink" href="#terms" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>document: unit of text we’re analyzing (one sample)</p></li>
 <li><p>token: sequence of characters in some particular document that are grouped together as a useful semantic unit for processing (basically a word)</p></li>
@@ -754,7 +814,7 @@
 </div>
 </div>
 <div class="section" id="bag-of-words-representionat">
-<h2><span class="section-number">35.2. </span>Bag of Words Representionat<a class="headerlink" href="#bag-of-words-representionat" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">30.2. </span>Bag of Words Representionat<a class="headerlink" href="#bag-of-words-representionat" title="Permalink to this headline">¶</a></h2>
 <p>We’re going to learn a represetnation called the bag of words.  It ignores the order of the words within a document. To do this, we’ll first extract all of the tokens (tokenize) the docuemtns and then count how mnay times each word appears.  This will be our numerical representation of the data.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1436,7 +1496,7 @@ clearly explained.</p>
 </div>
 </div>
 <div class="section" id="how-can-we-find-the-most-commonly-used-word">
-<h2><span class="section-number">35.3. </span>How can we find the most commonly used word?<a class="headerlink" href="#how-can-we-find-the-most-commonly-used-word" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">30.3. </span>How can we find the most commonly used word?<a class="headerlink" href="#how-can-we-find-the-most-commonly-used-word" title="Permalink to this headline">¶</a></h2>
 <p>One guess</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1573,7 +1633,7 @@ Length: 87, dtype: int64&gt;
 </div>
 </div>
 <div class="section" id="distances-in-text">
-<h2><span class="section-number">35.4. </span>Distances in text<a class="headerlink" href="#distances-in-text" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">30.4. </span>Distances in text<a class="headerlink" href="#distances-in-text" title="Permalink to this headline">¶</a></h2>
 <p>We can now use a distance function to calculate how far apaart the different sentences are.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2020,23 +2080,23 @@ Length: 87, dtype: int64&gt;
 </div>
 </div>
 <div class="section" id="questions-after-classroom">
-<h2><span class="section-number">35.5. </span>Questions After Classroom<a class="headerlink" href="#questions-after-classroom" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">30.5. </span>Questions After Classroom<a class="headerlink" href="#questions-after-classroom" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="how-can-this-be-used-for-training-a-classifier">
-<h3><span class="section-number">35.5.1. </span>How can this be used for training a classifier?<a class="headerlink" href="#how-can-this-be-used-for-training-a-classifier" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">30.5.1. </span>How can this be used for training a classifier?<a class="headerlink" href="#how-can-this-be-used-for-training-a-classifier" title="Permalink to this headline">¶</a></h3>
 <div class="toggle docutils container">
 <p>To train a classifier, we would also need target variables, but the <code class="docutils literal notranslate"><span class="pre">mat</span></code> variable we had above can be used as the <code class="docutils literal notranslate"><span class="pre">X</span></code> for any <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> estimator object.
 To train more complex tasks you would need appropriate data: for example labeled articles that are real and fake to train a fake news classifier (this is provided for a12).</p>
 </div>
 </div>
 <div class="section" id="how-are-ram-tokens-tracked">
-<h3><span class="section-number">35.5.2. </span>How are ram tokens tracked?<a class="headerlink" href="#how-are-ram-tokens-tracked" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">30.5.2. </span>How are ram tokens tracked?<a class="headerlink" href="#how-are-ram-tokens-tracked" title="Permalink to this headline">¶</a></h3>
 <div class="toggle docutils container">
 <p>Ram Tokens are tracked in the <a class="reference external" href="http://drsmb.co/ramtoken">Ram Token Bank: http://drsmb.co/ramtoken</a> form.  You’ll get e-mails when you earn or use them, however no one has submitted for any. You still can though (espeically if you were advised to and forgot).</p>
 </div>
 </div>
 </div>
 <div class="section" id="more-practice">
-<h2><span class="section-number">35.6. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">30.6. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Which two people wrote the most similar sentences?</p></li>
 <li><p>Do you think this representation captures all cases of similary? Can you generate a case where it doesn’t do well?</p></li>
@@ -2067,37 +2127,35 @@ To train more complex tasks you would need appropriate data: for example labeled
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-11-19.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">34. </span>Learning Curves</p>
+            <p class="prev-next-title"><span class="section-number">29. </span>Learning Curves</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="2021-11-29.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">36. </span>More NLP &amp; Solving problems with ML</p>
+        <p class="prev-next-title"><span class="section-number">31. </span>More NLP &amp; Solving problems with ML</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -247,87 +247,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-25.html">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-29.html">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-01.html">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-12.html">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-17.html">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-22.html">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-29.html">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-03.html">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -572,7 +572,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -625,7 +625,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -743,7 +743,128 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Exploratory Data Analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#staying-organized">
+   6.1. Staying Organized
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-frame-from-lists-of-lists">
+   6.2. Data Frame from lists of Lists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summarizing-data">
+   6.3. Summarizing Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-about-the-nonnumerical-variables">
+   6.4. What about the nonnumerical variables?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   6.5. Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-questions">
+     6.5.1. General Questions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-know-what-functions-are-compatible-with-other-functions">
+       6.5.1.1. How to know what functions are compatible with other functions?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#best-place-to-find-all-the-individual-functions-based-on-the-describe-function">
+       6.5.1.2. Best place to find all the individual functions based on the .describe() function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#are-there-panda-functions-to-read-files-other-than-csv">
+       6.5.1.3. Are there panda functions to read files other than CSV?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clarifying">
+     6.5.2. Clarifying
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#is-sent-attr-in-the-dataframe-loop-its-own-variable-that-we-assign-or-is-it-a-base-python-function">
+       6.5.2.1. Is sent_attr in the DataFrame loop its own variable that we assign, or is it a base Python function?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#difference-between-load-and-how-weve-been-importing-links-to-datasets-in-previous-classes">
+       6.5.2.2. Difference between %load and how we’ve been importing links to datasets in previous classes?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-i-ran-sent-attr-split-for-sent-attr-in-sentence-list-in-jupyter-i-got-a-nameerror">
+       6.5.2.3. When I ran [sent_attr.split(‘-’) for sent_attr in sentence_list] in Jupyter, I got a nameerror
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coure-admin-and-assignment-questions">
+     6.5.3. Coure Admin and Assignment Questions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-are-the-achievements-we-earn-in-class-going-to-be-inputted-in-brightspace">
+       6.5.3.1. when are the achievements we earn in class going to be inputted in brightspace?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#is-there-anything-we-have-to-do-for-the-assignment-after-commiting-the-changes-to">
+       6.5.3.2. Is there anything we have to do for the assignment after commiting the changes to
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-we-push-the-homework-are-we-pushing-it-to-the-portfolio">
+       6.5.3.3. When we push the homework are we pushing it to the portfolio?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#still-a-little-unsure-about-what-the-num-numerical-specifically-is-is-it-just-the-number-of-numerical-columns">
+       6.5.3.4. Still a little unsure about what the num_numerical specifically is, is it just the number of numerical columns?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   6.6. More Practice
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="exploratory-data-analysis">
@@ -1824,8 +1945,8 @@ assignment. That’s why it’s importtant to accept each assignment.</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-09-17.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1842,19 +1963,17 @@ assignment. That’s why it’s importtant to accept each assignment.</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

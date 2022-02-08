@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>27. Clustering &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>22. Clustering &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="28. Clustering" href="2021-11-03.html" />
-    <link rel="prev" title="26. Interpretting Regression" href="2021-10-29.html" />
+    <link rel="next" title="23. Clustering" href="2021-11-03.html" />
+    <link rel="prev" title="21. Interpretting Regression" href="2021-10-29.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -249,87 +249,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-25.html">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-29.html">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-12.html">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-17.html">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-22.html">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-29.html">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-03.html">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -574,7 +574,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -627,7 +627,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -636,12 +636,12 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-does-kmeans-work">
-   27.1. How does Kmeans work?
+   22.1. How does Kmeans work?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#questions-after-class">
-   27.2. Questions After Class
+   22.2. Questions After Class
   </a>
  </li>
 </ul>
@@ -652,11 +652,39 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Clustering</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-kmeans-work">
+   22.1. How does Kmeans work?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   22.2. Questions After Class
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="clustering">
-<h1><span class="section-number">27. </span>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">22. </span>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -681,7 +709,7 @@ equations and <span class="math notranslate nohighlight">\(N + K*d\)</span> unkn
 clusters and a mean (center) for each one.  There are other K-centers algorithms
 for other types of centers.</p>
 <div class="section" id="how-does-kmeans-work">
-<h2><span class="section-number">27.1. </span>How does Kmeans work?<a class="headerlink" href="#how-does-kmeans-work" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.1. </span>How does Kmeans work?<a class="headerlink" href="#how-does-kmeans-work" title="Permalink to this headline">¶</a></h2>
 <p>We will start with some synthetics data and then see how the clustering works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -703,7 +731,7 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fd70cc4b4d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f43245d1a50&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-11-01_3_1.png" src="../_images/2021-11-01_3_1.png" />
@@ -743,28 +771,28 @@ for other types of centers.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>5.51</td>
-      <td>6.49</td>
+      <td>2.06</td>
+      <td>2.49</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.50</td>
-      <td>2.11</td>
+      <td>2.48</td>
+      <td>2.69</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.81</td>
-      <td>6.74</td>
+      <td>6.32</td>
+      <td>6.72</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.29</td>
-      <td>1.78</td>
+      <td>2.20</td>
+      <td>5.93</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5.60</td>
-      <td>2.10</td>
+      <td>5.44</td>
+      <td>1.35</td>
     </tr>
   </tbody>
 </table>
@@ -793,10 +821,10 @@ for other types of centers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.12, 5.6 ],
-       [1.55, 5.81],
-       [2.2 , 5.73],
-       [6.08, 1.59]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5.47, 2.04],
+       [6.03, 4.97],
+       [5.67, 6.05],
+       [1.69, 5.12]])
 </pre></div>
 </div>
 </div>
@@ -810,53 +838,53 @@ first by taking the difference, squaring it, then summing along each row.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0       1.1642
- 1      25.2845
- 2      19.8757
- 3      37.9213
- 4      12.5204
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0      11.8306
+ 1       9.3626
+ 2      22.6249
+ 3      25.8250
+ 4       0.4770
          ...   
- 195    17.9082
- 196    30.5649
- 197     1.6145
- 198    10.7098
- 199    27.5060
+ 195    26.5850
+ 196    24.9605
+ 197    22.6370
+ 198    11.0266
+ 199    10.1576
  Length: 200, dtype: float64,
- 0      16.1440
- 1      14.5925
- 2       0.9325
- 3      16.3085
- 4      30.1666
+ 0      21.9113
+ 1      17.8009
+ 2       3.1466
+ 3      15.5905
+ 4      13.4525
          ...   
- 195     1.7764
- 196    21.7753
- 197    21.6445
- 198    31.8240
- 199     8.2394
+ 195    15.9041
+ 196    13.6980
+ 197    14.4225
+ 198    26.2469
+ 199    26.8645
  Length: 200, dtype: float64,
- 0      11.5337
- 1      13.1944
- 2       1.1722
- 3      16.4306
- 4      24.7369
+ 0      25.7057
+ 1      21.4657
+ 2       0.8714
+ 3      12.0553
+ 4      22.1429
          ...   
- 195     1.6433
- 196    20.0234
- 197    16.3540
- 198    25.9241
- 199     8.1441
+ 195    12.1817
+ 196    10.1124
+ 197    11.7225
+ 198    32.0717
+ 199    33.4525
  Length: 200, dtype: float64,
- 0      24.3349
- 1      13.0868
- 2      44.7554
- 3      22.9802
- 4       0.4905
+ 0       7.0538
+ 1       6.5290
+ 2      23.9969
+ 3       0.9162
+ 4      28.2754
          ...   
- 195    44.9789
- 196    11.7242
- 197    27.8784
- 198     0.5557
- 199    21.8929
+ 195     1.0322
+ 196     1.5049
+ 197     0.5506
+ 198    12.7010
+ 199    15.0548
  Length: 200, dtype: float64]
 </pre></div>
 </div>
@@ -899,38 +927,38 @@ corresponding mean. We can stack these into one DataFrame.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.1642</td>
-      <td>16.1440</td>
-      <td>11.5337</td>
-      <td>24.3349</td>
+      <td>11.8306</td>
+      <td>21.9113</td>
+      <td>25.7057</td>
+      <td>7.0538</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>25.2845</td>
-      <td>14.5925</td>
-      <td>13.1944</td>
-      <td>13.0868</td>
+      <td>9.3626</td>
+      <td>17.8009</td>
+      <td>21.4657</td>
+      <td>6.5290</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>19.8757</td>
-      <td>0.9325</td>
-      <td>1.1722</td>
-      <td>44.7554</td>
+      <td>22.6249</td>
+      <td>3.1466</td>
+      <td>0.8714</td>
+      <td>23.9969</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>37.9213</td>
-      <td>16.3085</td>
-      <td>16.4306</td>
-      <td>22.9802</td>
+      <td>25.8250</td>
+      <td>15.5905</td>
+      <td>12.0553</td>
+      <td>0.9162</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>12.5204</td>
-      <td>30.1666</td>
-      <td>24.7369</td>
-      <td>0.4905</td>
+      <td>0.4770</td>
+      <td>13.4525</td>
+      <td>22.1429</td>
+      <td>28.2754</td>
     </tr>
   </tbody>
 </table>
@@ -946,11 +974,11 @@ minimum across each row and returns the index (location) of that minimum.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    3
 1    3
-2    1
-3    1
-4    3
+2    2
+3    3
+4    0
 dtype: int64
 </pre></div>
 </div>
@@ -992,33 +1020,33 @@ dtype: int64
   <tbody>
     <tr>
       <th>0</th>
-      <td>5.51</td>
-      <td>6.49</td>
-      <td>0</td>
+      <td>2.06</td>
+      <td>2.49</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.50</td>
-      <td>2.11</td>
+      <td>2.48</td>
+      <td>2.69</td>
       <td>3</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.81</td>
-      <td>6.74</td>
-      <td>1</td>
+      <td>6.32</td>
+      <td>6.72</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.29</td>
-      <td>1.78</td>
-      <td>1</td>
+      <td>2.20</td>
+      <td>5.93</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5.60</td>
-      <td>2.10</td>
-      <td>3</td>
+      <td>5.44</td>
+      <td>1.35</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -1083,10 +1111,10 @@ groupby.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5.94346154, 5.97192308],
-       [1.5005    , 5.39775   ],
-       [2.11272727, 4.45727273],
-       [5.31375   , 1.90453125]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4.93361111, 1.83986111],
+       [6.345     , 5.34916667],
+       [5.8690625 , 6.098125  ],
+       [1.99428571, 4.69416667]])
 </pre></div>
 </div>
 </div>
@@ -1182,6 +1210,18 @@ was okay for the steps to be in the other order.</p>
 <img alt="../_images/2021-11-01_30_1.png" src="../_images/2021-11-01_30_1.png" />
 <img alt="../_images/2021-11-01_30_2.png" src="../_images/2021-11-01_30_2.png" />
 <img alt="../_images/2021-11-01_30_3.png" src="../_images/2021-11-01_30_3.png" />
+<img alt="../_images/2021-11-01_30_4.png" src="../_images/2021-11-01_30_4.png" />
+<img alt="../_images/2021-11-01_30_5.png" src="../_images/2021-11-01_30_5.png" />
+<img alt="../_images/2021-11-01_30_6.png" src="../_images/2021-11-01_30_6.png" />
+<img alt="../_images/2021-11-01_30_7.png" src="../_images/2021-11-01_30_7.png" />
+<img alt="../_images/2021-11-01_30_8.png" src="../_images/2021-11-01_30_8.png" />
+<img alt="../_images/2021-11-01_30_9.png" src="../_images/2021-11-01_30_9.png" />
+<img alt="../_images/2021-11-01_30_10.png" src="../_images/2021-11-01_30_10.png" />
+<img alt="../_images/2021-11-01_30_11.png" src="../_images/2021-11-01_30_11.png" />
+<img alt="../_images/2021-11-01_30_12.png" src="../_images/2021-11-01_30_12.png" />
+<img alt="../_images/2021-11-01_30_13.png" src="../_images/2021-11-01_30_13.png" />
+<img alt="../_images/2021-11-01_30_14.png" src="../_images/2021-11-01_30_14.png" />
+<img alt="../_images/2021-11-01_30_15.png" src="../_images/2021-11-01_30_15.png" />
 </div>
 </div>
 <p>This algorithm is random.  So each time we run it, it looks a little different.</p>
@@ -1191,7 +1231,7 @@ was okay for the steps to be in the other order.</p>
 <p><img alt="scatterplot of gaussian data in 4 clusters running kmeans" src="../_images/demo_kmeans4.gif" /></p>
 </div>
 <div class="section" id="questions-after-class">
-<h2><span class="section-number">27.2. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.2. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-ram-token-opportunity admonition">
 <p class="admonition-title">Ram token Opportunity</p>
 <p>Contribute a question as an issue or contribute a solution to one of the try it yourself above.</p>
@@ -1221,37 +1261,35 @@ was okay for the steps to be in the other order.</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-10-29.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">26. </span>Interpretting Regression</p>
+            <p class="prev-next-title"><span class="section-number">21. </span>Interpretting Regression</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="2021-11-03.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">28. </span>Clustering</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Clustering</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

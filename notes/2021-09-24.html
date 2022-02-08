@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -247,87 +247,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-25.html">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-29.html">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-01.html">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-12.html">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-17.html">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-22.html">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-29.html">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-03.html">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -572,7 +572,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -625,7 +625,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -670,7 +670,55 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Exploratory Data Analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summarizing-with-two-variables">
+   8.1. Summarizing with two variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-doe-groupby-work">
+   8.2. How doe Groupby Work?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#customizing-data-summaries">
+   8.3. Customizing Data Summaries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-summaries-for-visualization">
+   8.4. Using summaries for visualization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   8.5. Questions after class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   8.6. More Practice
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="exploratory-data-analysis">
@@ -784,7 +832,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe5f1146f10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f4261d34810&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-09-24_10_1.png" src="../_images/2021-09-24_10_1.png" />
@@ -822,7 +870,7 @@ which is histogram</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe5f14e08d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f4261df0f90&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-09-24_13_1.png" src="../_images/2021-09-24_13_1.png" />
@@ -913,7 +961,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fe5ee1a5550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f425ecc4210&gt;
 </pre></div>
 </div>
 </div>
@@ -1851,7 +1899,7 @@ Name: Number.of.Bags, dtype: int64
 <span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1825</span><span class="o">/</span><span class="mf">4170084615.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1832</span><span class="o">/</span><span class="mf">4170084615.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Farm.Name&#39;</span><span class="p">,</span><span class="s1">&#39;Lot.Number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
@@ -1900,7 +1948,7 @@ Name: Number.of.Bags, dtype: int64
 <span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1825</span><span class="o">/</span><span class="mf">48982150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1832</span><span class="o">/</span><span class="mf">48982150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">coffee_df</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">,</span><span class="s1">&#39;Farm.Name&#39;</span><span class="p">,</span><span class="s1">&#39;Lot.Number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
@@ -2112,7 +2160,7 @@ The shape tells us how many rows there are, while count tells us how many are no
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1825/3556086896.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1832/3556086896.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
     <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -2293,8 +2341,8 @@ memory usage: 450.8+ KB
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-09-22.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -2311,19 +2359,17 @@ memory usage: 450.8+ KB
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

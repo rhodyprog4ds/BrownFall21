@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -247,87 +247,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-25.html">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-29.html">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-01.html">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-12.html">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-17.html">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-22.html">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-29.html">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-03.html">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -572,7 +572,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -625,7 +625,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -734,7 +734,119 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Midsemester feedback and Decision Trees</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feedback">
+   18.1. Feedback
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#key-takeaways">
+     18.1.1. Key takeaways
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reminders-based-on-requests">
+     18.1.2. Reminders based on requests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-going-forward">
+     18.1.3. Changes going forward
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requests-i-will-not-fulfill">
+     18.1.4. Requests I will not fulfill
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notes">
+     18.1.5. Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a6-data-review">
+   18.2. A6 data review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lets-explore-that-last-one">
+   18.3. Let’s explore that last one…
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-a-decision-tree">
+   18.4. Learning a Decision Tree
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examining-a-decision-tree">
+   18.5. Examining a Decision Tree
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-parameters">
+   18.6. Training parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   18.7. Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-it-best-used-on">
+     18.7.1. What is it best used on?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-there-a-maximum-amount-of-branches-for-a-tree">
+     18.7.2. Is there a maximum amount of branches for a tree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-do-the-decision-trees-work-for-some-data-but-not-others">
+     18.7.3. Why do the decision trees work for some data but not others.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-could-we-really-use-these-trees-for">
+     18.7.4. What could we really use these trees for?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-is-the-tree-created">
+     18.7.5. How is the tree created?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#do-i-use-a-gnb-when-i-know-the-distribution-is-gaussian">
+     18.7.6. Do I use a gnb when I know the distribution is gaussian?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="midsemester-feedback-and-decision-trees">
@@ -1358,10 +1470,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;seaborn.axisgrid.PairGrid at 0x7f745b278f90&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f745b292590&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f7459f78450&gt;,
- &lt;seaborn.axisgrid.PairGrid at 0x7f7458f10690&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;seaborn.axisgrid.PairGrid at 0x7f189f2fd990&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7f189e8f3790&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7f189deb33d0&gt;,
+ &lt;seaborn.axisgrid.PairGrid at 0x7f189d002350&gt;]
 </pre></div>
 </div>
 <img alt="../_images/2021-10-20_13_1.png" src="../_images/2021-10-20_13_1.png" />
@@ -1396,7 +1508,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f745898e050&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f189dea4810&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-20_15_1.png" src="../_images/2021-10-20_15_1.png" />
@@ -1422,7 +1534,7 @@ you can read about the <a class="reference external" href="https://seaborn.pydat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7f745a4dc6d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7f189d9d20d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-20_17_1.png" src="../_images/2021-10-20_17_1.png" />
@@ -1503,21 +1615,21 @@ something that I had to look up on <a class="reference external" href="https://s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(553.0178571428571, 978.48, &#39;X[0] &lt;= 5.88\nsamples = 100.0%\nvalue = [0.493, 0.507]\nclass = B&#39;),
- Text(388.60714285714283, 761.0400000000001, &#39;X[1] &lt;= 5.325\nsamples = 70.7%\nvalue = [0.557, 0.443]\nclass = A&#39;),
- Text(239.14285714285714, 543.6, &#39;X[0] &lt;= 4.07\nsamples = 40.0%\nvalue = [0.733, 0.267]\nclass = A&#39;),
- Text(119.57142857142857, 326.1600000000001, &#39;X[1] &lt;= 3.98\nsamples = 28.7%\nvalue = [0.953, 0.047]\nclass = A&#39;),
- Text(59.785714285714285, 108.72000000000003, &#39;samples = 27.3%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(179.35714285714286, 108.72000000000003, &#39;samples = 1.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(358.7142857142857, 326.1600000000001, &#39;X[1] &lt;= 3.89\nsamples = 11.3%\nvalue = [0.176, 0.824]\nclass = B&#39;),
- Text(298.92857142857144, 108.72000000000003, &#39;samples = 9.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(418.5, 108.72000000000003, &#39;samples = 2.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(538.0714285714286, 543.6, &#39;X[0] &lt;= 4.085\nsamples = 30.7%\nvalue = [0.326, 0.674]\nclass = B&#39;),
- Text(478.2857142857143, 326.1600000000001, &#39;samples = 20.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(597.8571428571429, 326.1600000000001, &#39;samples = 10.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(717.4285714285714, 761.0400000000001, &#39;X[1] &lt;= 3.805\nsamples = 29.3%\nvalue = [0.341, 0.659]\nclass = B&#39;),
- Text(657.6428571428571, 543.6, &#39;samples = 19.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(777.2142857142857, 543.6, &#39;samples = 10.0%\nvalue = [1.0, 0.0]\nclass = A&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.6607142857142857, 0.9, &#39;X[0] &lt;= 5.88\nsamples = 100.0%\nvalue = [0.493, 0.507]\nclass = B&#39;),
+ Text(0.4642857142857143, 0.7, &#39;X[1] &lt;= 5.325\nsamples = 70.7%\nvalue = [0.557, 0.443]\nclass = A&#39;),
+ Text(0.2857142857142857, 0.5, &#39;X[0] &lt;= 4.07\nsamples = 40.0%\nvalue = [0.733, 0.267]\nclass = A&#39;),
+ Text(0.14285714285714285, 0.3, &#39;X[1] &lt;= 3.98\nsamples = 28.7%\nvalue = [0.953, 0.047]\nclass = A&#39;),
+ Text(0.07142857142857142, 0.1, &#39;samples = 27.3%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.21428571428571427, 0.1, &#39;samples = 1.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.42857142857142855, 0.3, &#39;X[1] &lt;= 3.89\nsamples = 11.3%\nvalue = [0.176, 0.824]\nclass = B&#39;),
+ Text(0.35714285714285715, 0.1, &#39;samples = 9.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.5, 0.1, &#39;samples = 2.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.6428571428571429, 0.5, &#39;X[0] &lt;= 4.085\nsamples = 30.7%\nvalue = [0.326, 0.674]\nclass = B&#39;),
+ Text(0.5714285714285714, 0.3, &#39;samples = 20.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.7142857142857143, 0.3, &#39;samples = 10.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.8571428571428571, 0.7, &#39;X[1] &lt;= 3.805\nsamples = 29.3%\nvalue = [0.341, 0.659]\nclass = B&#39;),
+ Text(0.7857142857142857, 0.5, &#39;samples = 19.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.9285714285714286, 0.5, &#39;samples = 10.0%\nvalue = [1.0, 0.0]\nclass = A&#39;)]
 </pre></div>
 </div>
 <img alt="../_images/2021-10-20_25_1.png" src="../_images/2021-10-20_25_1.png" />
@@ -1682,8 +1794,8 @@ something that I had to look up on <a class="reference external" href="https://s
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-10-18.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1700,19 +1812,17 @@ something that I had to look up on <a class="reference external" href="https://s
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

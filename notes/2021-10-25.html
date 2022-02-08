@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>25. Linear Regression &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>20. Linear Regression &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -54,7 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="26. Interpretting Regression" href="2021-10-29.html" />
+    <link rel="next" title="21. Interpretting Regression" href="2021-10-29.html" />
     <link rel="prev" title="19. Decision Tree Setting and more Evaluation" href="2021-10-22.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -249,87 +249,87 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-29.html">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-01.html">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-12.html">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-17.html">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-22.html">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-29.html">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-03.html">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -574,7 +574,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -627,7 +627,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -636,42 +636,42 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#setting-upa-linear-regression">
-   25.1. Setting upa linear regression
+   20.1. Setting upa linear regression
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#evaluating-regression-mean-squared-error">
-   25.2. Evaluating Regression - Mean Squared Error
+   20.2. Evaluating Regression - Mean Squared Error
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#evaluating-regression-r2">
-   25.3. Evaluating Regression - R2
+   20.3. Evaluating Regression - R2
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multivariate-regression">
-   25.4. Multivariate Regression
+   20.4. Multivariate Regression
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-score-does-linear-regression-use">
-   25.5. What score does linear regression use?
+   20.5. What score does linear regression use?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#questions-after-class">
-   25.6. Questions After class
+   20.6. Questions After class
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-i-should-use-these-with-data-most-effectively-what-is-the-proper-use-of-these-methods">
-     25.6.1. How I should use these with data most effectively? What is the proper use of these methods?
+     20.6.1. How I should use these with data most effectively? What is the proper use of these methods?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#why-is-that-even-when-random-state-is-set-to-0-numbers-are-still-a-little-different-compared-to-yours-and-my-neighbor-even">
-     25.6.2. Why is that even when random state is set to 0 numbers are still a little different compared to yours and my neighbor even
+     20.6.2. Why is that even when random state is set to 0 numbers are still a little different compared to yours and my neighbor even
     </a>
    </li>
   </ul>
@@ -684,11 +684,71 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Linear Regression</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-upa-linear-regression">
+   20.1. Setting upa linear regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluating-regression-mean-squared-error">
+   20.2. Evaluating Regression - Mean Squared Error
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluating-regression-r2">
+   20.3. Evaluating Regression - R2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multivariate-regression">
+   20.4. Multivariate Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-score-does-linear-regression-use">
+   20.5. What score does linear regression use?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   20.6. Questions After class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-i-should-use-these-with-data-most-effectively-what-is-the-proper-use-of-these-methods">
+     20.6.1. How I should use these with data most effectively? What is the proper use of these methods?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-is-that-even-when-random-state-is-set-to-0-numbers-are-still-a-little-different-compared-to-yours-and-my-neighbor-even">
+     20.6.2. Why is that even when random state is set to 0 numbers are still a little different compared to yours and my neighbor even
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="linear-regression">
-<h1><span class="section-number">25. </span>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">20. </span>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -704,7 +764,7 @@
 </div>
 </div>
 <div class="section" id="setting-upa-linear-regression">
-<h2><span class="section-number">25.1. </span>Setting upa linear regression<a class="headerlink" href="#setting-upa-linear-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.1. </span>Setting upa linear regression<a class="headerlink" href="#setting-upa-linear-regression" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
@@ -916,7 +976,7 @@ prediction, we’ll also add a line for the prediction.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fc382501550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f218da9afd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-25_24_1.png" src="../_images/2021-10-25_24_1.png" />
@@ -924,7 +984,7 @@ prediction, we’ll also add a line for the prediction.</p>
 </div>
 </div>
 <div class="section" id="evaluating-regression-mean-squared-error">
-<h2><span class="section-number">25.2. </span>Evaluating Regression - Mean Squared Error<a class="headerlink" href="#evaluating-regression-mean-squared-error" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.2. </span>Evaluating Regression - Mean Squared Error<a class="headerlink" href="#evaluating-regression-mean-squared-error" title="Permalink to this headline">¶</a></h2>
 <p>From the plot, we can see that there is some error for each point, so accuracy
 that we’ve been using, won’t work.  One idea is to look at how much error there
 is in each prediction, we can look at that visually first.</p>
@@ -987,7 +1047,7 @@ one then take the average.</p>
 </div>
 </div>
 <div class="section" id="evaluating-regression-r2">
-<h2><span class="section-number">25.3. </span>Evaluating Regression - R2<a class="headerlink" href="#evaluating-regression-r2" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.3. </span>Evaluating Regression - R2<a class="headerlink" href="#evaluating-regression-r2" title="Permalink to this headline">¶</a></h2>
 <p>We can also use the <span class="math notranslate nohighlight">\(R^2\)</span> regression coefficient.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1048,7 +1108,7 @@ particular type of plot.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fc3802e0c90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f218b8b2fd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-25_36_1.png" src="../_images/2021-10-25_36_1.png" />
@@ -1056,7 +1116,7 @@ particular type of plot.</p>
 </div>
 </div>
 <div class="section" id="multivariate-regression">
-<h2><span class="section-number">25.4. </span>Multivariate Regression<a class="headerlink" href="#multivariate-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.4. </span>Multivariate Regression<a class="headerlink" href="#multivariate-regression" title="Permalink to this headline">¶</a></h2>
 <p>We can also load data from Scikit learn.</p>
 <p>This dataset includes 10 features measured on a given date and an measure of
 diabetes disease progression measured one year later. The predictor we can train
@@ -1103,7 +1163,7 @@ with this data might be someting a doctor uses to calculate a patient’s risk.<
 </div>
 </div>
 <div class="section" id="what-score-does-linear-regression-use">
-<h2><span class="section-number">25.5. </span>What score does linear regression use?<a class="headerlink" href="#what-score-does-linear-regression-use" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.5. </span>What score does linear regression use?<a class="headerlink" href="#what-score-does-linear-regression-use" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regr_diabetes</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">diabetes_X_test</span><span class="p">,</span><span class="n">diabetes_y_test</span><span class="p">)</span>
@@ -1111,7 +1171,7 @@ with this data might be someting a doctor uses to calculate a patient’s risk.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47759445072036766
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.48005046800253115
 </pre></div>
 </div>
 </div>
@@ -1130,7 +1190,7 @@ with this data might be someting a doctor uses to calculate a patient’s risk.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47759445072036766
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.48005046800253115
 </pre></div>
 </div>
 </div>
@@ -1142,7 +1202,7 @@ with this data might be someting a doctor uses to calculate a patient’s risk.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2870.920844884138
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2674.1181249762944
 </pre></div>
 </div>
 </div>
@@ -1154,9 +1214,9 @@ r2, we can say that this is not a perfect predictor, but a Doctor, who better
 understands the score would have to help interpret the core.</p>
 </div>
 <div class="section" id="questions-after-class">
-<h2><span class="section-number">25.6. </span>Questions After class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.6. </span>Questions After class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="how-i-should-use-these-with-data-most-effectively-what-is-the-proper-use-of-these-methods">
-<h3><span class="section-number">25.6.1. </span>How I should use these with data most effectively? What is the proper use of these methods?<a class="headerlink" href="#how-i-should-use-these-with-data-most-effectively-what-is-the-proper-use-of-these-methods" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">20.6.1. </span>How I should use these with data most effectively? What is the proper use of these methods?<a class="headerlink" href="#how-i-should-use-these-with-data-most-effectively-what-is-the-proper-use-of-these-methods" title="Permalink to this headline">¶</a></h3>
 <div class="toggle docutils container">
 <p>To answer continuous prediction tasks, like the ones we saw today. The notes
 above include more interpretation than we discussed in class, so read carefully
@@ -1164,7 +1224,7 @@ for that.</p>
 </div>
 </div>
 <div class="section" id="why-is-that-even-when-random-state-is-set-to-0-numbers-are-still-a-little-different-compared-to-yours-and-my-neighbor-even">
-<h3><span class="section-number">25.6.2. </span>Why is that even when random state is set to 0 numbers are still a little different compared to yours and my neighbor even<a class="headerlink" href="#why-is-that-even-when-random-state-is-set-to-0-numbers-are-still-a-little-different-compared-to-yours-and-my-neighbor-even" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">20.6.2. </span>Why is that even when random state is set to 0 numbers are still a little different compared to yours and my neighbor even<a class="headerlink" href="#why-is-that-even-when-random-state-is-set-to-0-numbers-are-still-a-little-different-compared-to-yours-and-my-neighbor-even" title="Permalink to this headline">¶</a></h3>
 <div class="toggle docutils container">
 <p><a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-random_state">random state</a>
 sets the seed that’s used internally and should work to
@@ -1200,8 +1260,8 @@ error, maybe you somehow set a default for display that’s different.</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-10-22.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1213,24 +1273,22 @@ error, maybe you somehow set a default for display that’s different.</p>
     <a class='right-next' id="next-link" href="2021-10-29.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">26. </span>Interpretting Regression</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Interpretting Regression</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

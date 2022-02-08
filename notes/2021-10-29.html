@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>26. Interpretting Regression &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>21. Interpretting Regression &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="27. Clustering" href="2021-11-01.html" />
-    <link rel="prev" title="25. Linear Regression" href="2021-10-25.html" />
+    <link rel="next" title="22. Clustering" href="2021-11-01.html" />
+    <link rel="prev" title="20. Linear Regression" href="2021-10-25.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -249,87 +249,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-25.html">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-01.html">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-12.html">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-17.html">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-22.html">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-29.html">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-03.html">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -574,7 +574,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -627,7 +627,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -636,42 +636,42 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#examining-residuals">
-   26.1. Examining Residuals
+   21.1. Examining Residuals
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#polynomial-regression">
-   26.2. Polynomial regression
+   21.2. Polynomial regression
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#examining-coefficients">
-   26.3. Examining Coefficients
+   21.3. Examining Coefficients
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sparse-regression">
-   26.4. Sparse Regression
+   21.4. Sparse Regression
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#questions-after-class">
-   26.5. Questions After Class
+   21.5. Questions After Class
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#when-do-we-do-regression">
-     26.5.1. When do we do regression?
+     21.5.1. When do we do regression?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-should-i-look-for-in-datasets-to-know-whether-a-linear-model-or-non-linear-model-is-best">
-     26.5.2. What should I look for in datasets to know whether a linear model or non-linear model is best?
+     21.5.2. What should I look for in datasets to know whether a linear model or non-linear model is best?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-can-we-tell-if-a-dataset-is-going-to-be-useful-through-tweaking-or-is-just-not-worth-it">
-     26.5.3. How can we tell if a dataset is going to be useful through tweaking or is just not worth it?
+     21.5.3. How can we tell if a dataset is going to be useful through tweaking or is just not worth it?
     </a>
    </li>
   </ul>
@@ -684,11 +684,71 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Interpretting Regression</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examining-residuals">
+   21.1. Examining Residuals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#polynomial-regression">
+   21.2. Polynomial regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examining-coefficients">
+   21.3. Examining Coefficients
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sparse-regression">
+   21.4. Sparse Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   21.5. Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-do-we-do-regression">
+     21.5.1. When do we do regression?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-should-i-look-for-in-datasets-to-know-whether-a-linear-model-or-non-linear-model-is-best">
+     21.5.2. What should I look for in datasets to know whether a linear model or non-linear model is best?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-we-tell-if-a-dataset-is-going-to-be-useful-through-tweaking-or-is-just-not-worth-it">
+     21.5.3. How can we tell if a dataset is going to be useful through tweaking or is just not worth it?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="interpretting-regression">
-<h1><span class="section-number">26. </span>Interpretting Regression<a class="headerlink" href="#interpretting-regression" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">21. </span>Interpretting Regression<a class="headerlink" href="#interpretting-regression" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -857,7 +917,7 @@ We’ll start by looking at the residuals</p>
 </div>
 </div>
 <div class="section" id="examining-residuals">
-<h2><span class="section-number">26.1. </span>Examining Residuals<a class="headerlink" href="#examining-residuals" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.1. </span>Examining Residuals<a class="headerlink" href="#examining-residuals" title="Permalink to this headline">¶</a></h2>
 <p>The error, the difference between the predictions and the truth is called the
 residual.</p>
 <div class="cell docutils container">
@@ -945,7 +1005,7 @@ Name: tip, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe3b9c41e10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f3868e36bd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-29_17_1.png" src="../_images/2021-10-29_17_1.png" />
@@ -958,7 +1018,7 @@ A good fit, would have residuals that are evenly distributed, not correlated
 with the feature(s) in this case, the total bill.</p>
 </div>
 <div class="section" id="polynomial-regression">
-<h2><span class="section-number">26.2. </span>Polynomial regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.2. </span>Polynomial regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this headline">¶</a></h2>
 <p>Polynomial regression is still a linear problem.  Linear regression solves for
 the <span class="math notranslate nohighlight">\(\beta_i\)</span> for a <span class="math notranslate nohighlight">\(d\)</span> dimensional problem.</p>
 <div class="math notranslate nohighlight">
@@ -1061,7 +1121,7 @@ and it’s squared value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe3b9bc0f50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f3868d1ca10&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-29_30_1.png" src="../_images/2021-10-29_30_1.png" />
@@ -1092,7 +1152,7 @@ We will examine this further in the next step, but first we will drop the linear
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe3b9b43450&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f3868cd2890&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-29_33_1.png" src="../_images/2021-10-29_33_1.png" />
@@ -1104,7 +1164,7 @@ We will examine this further in the next step, but first we will drop the linear
 </div>
 </div>
 <div class="section" id="examining-coefficients">
-<h2><span class="section-number">26.3. </span>Examining Coefficients<a class="headerlink" href="#examining-coefficients" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.3. </span>Examining Coefficients<a class="headerlink" href="#examining-coefficients" title="Permalink to this headline">¶</a></h2>
 <p>Now we can compare the coefficients.
 We saw above that the quadratic didn’t help much, so let’s look at those.</p>
 <div class="cell docutils container">
@@ -1220,7 +1280,7 @@ regr_all_tips.coef_
 ``` -->
 </div>
 <div class="section" id="sparse-regression">
-<h2><span class="section-number">26.4. </span>Sparse Regression<a class="headerlink" href="#sparse-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.4. </span>Sparse Regression<a class="headerlink" href="#sparse-regression" title="Permalink to this headline">¶</a></h2>
 <p>An extreme is for some coefficients to be zero.
 The LASSO model, constrains some of the coefficients to be 0, so it learns
 simultanesouly how to combine the features to predict the target and which
@@ -1247,7 +1307,7 @@ Here is a preview, but you can investigate it further on your own.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2156</span><span class="o">/</span><span class="mf">3624267071.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2168</span><span class="o">/</span><span class="mf">3624267071.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">tips_lasso</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.0025</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">tips_lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tips_all_X_train</span><span class="p">,</span><span class="n">tips_all_y_train</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">tips_lasso_y_pred</span> <span class="o">=</span> <span class="n">tips_lasso</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">tips_all_X_test</span><span class="p">,)</span>
@@ -1269,7 +1329,7 @@ Here is a preview, but you can investigate it further on your own.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2156</span><span class="o">/</span><span class="mf">1282835438.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2168</span><span class="o">/</span><span class="mf">1282835438.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tips_X_test</span><span class="p">,</span><span class="n">tips_y_test</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tips_X_test</span><span class="p">,</span><span class="n">tips_y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tips_X_test</span><span class="p">,</span><span class="n">tips_lasso_y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
@@ -1289,7 +1349,7 @@ Here is a preview, but you can investigate it further on your own.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2156</span><span class="o">/</span><span class="mf">1981322900.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2168</span><span class="o">/</span><span class="mf">1981322900.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tips_lasso</span><span class="o">.</span><span class="n">coef_</span> <span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">tips_lasso</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
 
 <span class="ne">AttributeError</span>: &#39;Lasso&#39; object has no attribute &#39;coef_&#39;
@@ -1306,7 +1366,7 @@ Here is a preview, but you can investigate it further on your own.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2156</span><span class="o">/</span><span class="mf">3228345519.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2168</span><span class="o">/</span><span class="mf">3228345519.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tips_onehot</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">tips_interacion</span><span class="o">.</span><span class="n">shape</span>
 
 <span class="ne">NameError</span>: name &#39;tips_onehot&#39; is not defined
@@ -1324,7 +1384,7 @@ Here is a preview, but you can investigate it further on your own.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2156</span><span class="o">/</span><span class="mf">2901223600.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2168</span><span class="o">/</span><span class="mf">2901223600.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tips_interacion</span><span class="o">.</span><span class="n">head</span>
 
 <span class="ne">NameError</span>: name &#39;tips_interacion&#39; is not defined
@@ -1343,15 +1403,15 @@ show lasso
 ``` -->
 </div>
 <div class="section" id="questions-after-class">
-<h2><span class="section-number">26.5. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">21.5. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="when-do-we-do-regression">
-<h3><span class="section-number">26.5.1. </span>When do we do regression?<a class="headerlink" href="#when-do-we-do-regression" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">21.5.1. </span>When do we do regression?<a class="headerlink" href="#when-do-we-do-regression" title="Permalink to this headline">¶</a></h3>
 <div class="toggle docutils container">
 <p>we do regresion, when we want to predict a continuous value</p>
 </div>
 </div>
 <div class="section" id="what-should-i-look-for-in-datasets-to-know-whether-a-linear-model-or-non-linear-model-is-best">
-<h3><span class="section-number">26.5.2. </span>What should I look for in datasets to know whether a linear model or non-linear model is best?<a class="headerlink" href="#what-should-i-look-for-in-datasets-to-know-whether-a-linear-model-or-non-linear-model-is-best" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">21.5.2. </span>What should I look for in datasets to know whether a linear model or non-linear model is best?<a class="headerlink" href="#what-should-i-look-for-in-datasets-to-know-whether-a-linear-model-or-non-linear-model-is-best" title="Permalink to this headline">¶</a></h3>
 <div class="toggle docutils container">
 <p>If you know a reason to choose one from domain knowledge, always use that. From
 data alone, a reasonable thing to do is to fit a linear model and then examine
@@ -1359,7 +1419,7 @@ the residuals and use a more complex model if that makes sense.</p>
 </div>
 </div>
 <div class="section" id="how-can-we-tell-if-a-dataset-is-going-to-be-useful-through-tweaking-or-is-just-not-worth-it">
-<h3><span class="section-number">26.5.3. </span>How can we tell if a dataset is going to be useful through tweaking or is just not worth it?<a class="headerlink" href="#how-can-we-tell-if-a-dataset-is-going-to-be-useful-through-tweaking-or-is-just-not-worth-it" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">21.5.3. </span>How can we tell if a dataset is going to be useful through tweaking or is just not worth it?<a class="headerlink" href="#how-can-we-tell-if-a-dataset-is-going-to-be-useful-through-tweaking-or-is-just-not-worth-it" title="Permalink to this headline">¶</a></h3>
 <div class="toggle docutils container">
 <p>This is a <strong>very</strong> good question, but does not have a simple answer. In some
 cases, a moderate fit quality is enough, because there’s low risk of making
@@ -1392,37 +1452,35 @@ risk.</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-10-25.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">25. </span>Linear Regression</p>
+            <p class="prev-next-title"><span class="section-number">20. </span>Linear Regression</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="2021-11-01.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">27. </span>Clustering</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Clustering</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

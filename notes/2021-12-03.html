@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>38. Predicting with Neural Networks &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>33. Predicting with Neural Networks &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="39. Review, IDEA, &amp; Preparing for Deep Learning" href="2021-12-06.html" />
-    <link rel="prev" title="37. Neural Networks" href="2021-12-01.html" />
+    <link rel="next" title="34. Review, IDEA, &amp; Preparing for Deep Learning" href="2021-12-06.html" />
+    <link rel="prev" title="32. Neural Networks" href="2021-12-01.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -249,87 +249,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-25.html">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-29.html">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-01.html">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-12.html">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-17.html">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-22.html">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-29.html">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -574,7 +574,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -627,7 +627,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -636,17 +636,17 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reconstructing-the-predict-method">
-   38.1. Reconstructing the Predict method
+   33.1. Reconstructing the Predict method
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-features-and-more-hidden-neurons">
-   38.2. More Features and More Hidden Neurons
+   33.2. More Features and More Hidden Neurons
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#optional-what-is-a-numerical-optimiztion-algorithm">
-   38.3. (optional) What is a numerical optimiztion algorithm?
+   33.3. (optional) What is a numerical optimiztion algorithm?
   </a>
  </li>
 </ul>
@@ -657,11 +657,44 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Predicting with Neural Networks</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reconstructing-the-predict-method">
+   33.1. Reconstructing the Predict method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-features-and-more-hidden-neurons">
+   33.2. More Features and More Hidden Neurons
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-what-is-a-numerical-optimiztion-algorithm">
+   33.3. (optional) What is a numerical optimiztion algorithm?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="predicting-with-neural-networks">
-<h1><span class="section-number">38. </span>Predicting with Neural Networks<a class="headerlink" href="#predicting-with-neural-networks" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">33. </span>Predicting with Neural Networks<a class="headerlink" href="#predicting-with-neural-networks" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">expit</span>
@@ -745,43 +778,36 @@ Machine precision = 2.220D-16
 
 At X0         0 variables are exactly at the bounds
 
-At iterate    0    f=  9.90455D-01    |proj g|=  7.83778D-01
+At iterate    0    f=  7.02009D-01    |proj g|=  2.02613D-01
 
-At iterate    1    f=  7.88342D-01    |proj g|=  2.63173D-01
+At iterate    1    f=  6.51190D-01    |proj g|=  1.45165D-01
 
-At iterate    2    f=  7.09482D-01    |proj g|=  1.58822D-01
+At iterate    2    f=  1.68442D-01    |proj g|=  9.25723D-02
 
-At iterate    3    f=  6.70138D-01    |proj g|=  1.28442D-01
+At iterate    3    f=  5.77285D-02    |proj g|=  1.79961D-02
 
-At iterate    4    f=  6.03916D-01    |proj g|=  2.71620D-01
+At iterate    4    f=  5.40532D-02    |proj g|=  1.67195D-02
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> This problem is unconstrained.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At iterate    5    f=  5.26247D-02    |proj g|=  7.62188D-03
 
-At iterate    5    f=  2.85300D-01    |proj g|=  3.06812D-01
+At iterate    6    f=  5.17834D-02    |proj g|=  6.57007D-03
 
-At iterate    6    f=  1.95495D-01    |proj g|=  1.95099D-01
+At iterate    7    f=  4.95785D-02    |proj g|=  6.82387D-03
 
-At iterate    7    f=  8.30373D-02    |proj g|=  3.68303D-02
+At iterate    8    f=  4.83615D-02    |proj g|=  5.13416D-03
 
-At iterate    8    f=  6.28961D-02    |proj g|=  3.90859D-02
+At iterate    9    f=  4.79350D-02    |proj g|=  6.83930D-04
 
-At iterate    9    f=  4.97849D-02    |proj g|=  1.73991D-02
+At iterate   10    f=  4.79126D-02    |proj g|=  2.27157D-04
 
-At iterate   10    f=  4.92235D-02    |proj g|=  1.56198D-02
-
-At iterate   11    f=  4.85483D-02    |proj g|=  1.42957D-03
-
-At iterate   12    f=  4.85136D-02    |proj g|=  1.96329D-03
-
-At iterate   13    f=  4.83806D-02    |proj g|=  3.61776D-03
-
-At iterate   14    f=  4.82242D-02    |proj g|=  4.32804D-03
-
-At iterate   15    f=  4.80144D-02    |proj g|=  5.88935D-03
-
-At iterate   16    f=  4.79246D-02    |proj g|=  1.52522D-03
-
-At iterate   17    f=  4.79093D-02    |proj g|=  2.96435D-04
-
-At iterate   18    f=  4.79088D-02    |proj g|=  9.95318D-06
+At iterate   11    f=  4.79116D-02    |proj g|=  8.76213D-05
 
            * * *
 
@@ -796,16 +822,10 @@ F     = final function value
            * * *
 
    N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
-    5     18     20      1     0     0   9.953D-06   4.791D-02
-  F =   4.7908755014742462E-002
+    5     11     16      1     0     0   8.762D-05   4.791D-02
+  F =   4.7911643539543775E-002
 
 CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL            
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> This problem is unconstrained.
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
@@ -836,7 +856,7 @@ because probability always needs to be between 0 and 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f81ed6f8d50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f5aefa7f090&gt;]
 </pre></div>
 </div>
 <img alt="../_images/2021-12-03_9_1.png" src="../_images/2021-12-03_9_1.png" />
@@ -850,9 +870,9 @@ because probability always needs to be between 0 and 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([[ 5.31491031],
-        [-0.15298481]]),
- array([[2.47253417]])]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([[ 5.78237728],
+        [-0.16720856]]),
+ array([[2.27521011]])]
 </pre></div>
 </div>
 </div>
@@ -865,7 +885,7 @@ because probability always needs to be between 0 and 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([-0.53815877]), array([7.02636448])]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([2.35331124]), array([0.35297462])]
 </pre></div>
 </div>
 </div>
@@ -874,7 +894,7 @@ because probability always needs to be between 0 and 1.</p>
 by the inputs and the biases you can interpret as geometrically as shifting things,
 like a line intercept (recall y=mx+b)</p>
 <div class="section" id="reconstructing-the-predict-method">
-<h2><span class="section-number">38.1. </span>Reconstructing the Predict method<a class="headerlink" href="#reconstructing-the-predict-method" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">33.1. </span>Reconstructing the Predict method<a class="headerlink" href="#reconstructing-the-predict-method" title="Permalink to this headline">¶</a></h2>
 <p>we’ll use an acutally new point, we can make one up</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -919,7 +939,7 @@ like a line intercept (recall y=mx+b)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2497/81862389.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2531/81862389.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">pt</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">clf</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
                                                     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -936,7 +956,7 @@ function, which is also known as <a class="reference external" href="https://doc
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027401]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027192]])
 </pre></div>
 </div>
 </div>
@@ -950,7 +970,7 @@ each class, we only comptued the probabilyt of the <code class="docutils literal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99725989e-01, 2.74010748e-04]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99728083e-01, 2.71917381e-04]])
 </pre></div>
 </div>
 </div>
@@ -1013,7 +1033,7 @@ at each layer.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027401]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027192]])
 </pre></div>
 </div>
 </div>
@@ -1030,7 +1050,7 @@ lambda functions.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027401]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00027192]])
 </pre></div>
 </div>
 </div>
@@ -1043,14 +1063,14 @@ lambda functions.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99725989e-01, 2.74010748e-04]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.99728083e-01, 2.71917381e-04]])
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="more-features-and-more-hidden-neurons">
-<h2><span class="section-number">38.2. </span>More Features and More Hidden Neurons<a class="headerlink" href="#more-features-and-more-hidden-neurons" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">33.2. </span>More Features and More Hidden Neurons<a class="headerlink" href="#more-features-and-more-hidden-neurons" title="Permalink to this headline">¶</a></h2>
 <p>First, we’ll sample more features and then train a new classifier</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1077,7 +1097,7 @@ lambda functions.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2497</span><span class="o">/</span><span class="mf">3721524382.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2531</span><span class="o">/</span><span class="mf">3721524382.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>                                                     <span class="n">random_state</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -1099,7 +1119,7 @@ lambda functions.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f81ed65d190&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f5aef9e3dd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-12-03_38_1.png" src="../_images/2021-12-03_38_1.png" />
@@ -1129,12 +1149,12 @@ lambda functions.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2497</span><span class="o">/</span><span class="mf">2138475403.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2531</span><span class="o">/</span><span class="mf">2138475403.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> 
 <span class="g g-Whitespace">      </span><span class="mi">6</span> 
 <span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">output_neuron_4d</span><span class="p">(</span><span class="n">hidden_neuron_4d</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">))</span>
 
-<span class="nn">/tmp/ipykernel_2497/2138475403.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
+<span class="nn">/tmp/ipykernel_2531/2138475403.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">hidden_neuron_4d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">identity_activation</span><span class="p">,</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>                                                          <span class="n">clf_4d</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">clf_4d</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">output_neuron_4d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
@@ -1155,7 +1175,7 @@ lambda functions.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2497</span><span class="o">/</span><span class="mf">898774351.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2531</span><span class="o">/</span><span class="mf">898774351.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">clf_4d</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;clf_4d&#39; is not defined
@@ -1173,7 +1193,7 @@ lambda functions.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2497</span><span class="o">/</span><span class="mf">1039820928.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2531</span><span class="o">/</span><span class="mf">1039820928.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">clf_4d</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;clf_4d&#39; is not defined
@@ -1210,7 +1230,99 @@ Machine precision = 2.220D-16
 
 At X0         0 variables are exactly at the bounds
 
-At iterate    0    f=  9.36747D-01    |proj g|=  3.16058D-01
+At iterate    0    f=  7.19343D-01    |proj g|=  1.49258D-01
+
+At iterate    1    f=  6.91302D-01    |proj g|=  1.42699D-01
+
+At iterate    2    f=  6.23358D-01    |proj g|=  7.77550D-02
+
+At iterate    3    f=  5.44110D-01    |proj g|=  8.20937D-02
+
+At iterate    4    f=  2.50046D-01    |proj g|=  1.06402D-01
+
+At iterate    5    f=  9.30214D-02    |proj g|=  3.07797D-02
+
+At iterate    6    f=  7.84225D-02    |proj g|=  1.55497D-02
+
+At iterate    7    f=  6.56356D-02    |proj g|=  1.05068D-02
+
+At iterate    8    f=  5.46186D-02    |proj g|=  3.99030D-03
+
+At iterate    9    f=  5.09958D-02    |proj g|=  5.97128D-03
+
+At iterate   10    f=  4.69165D-02    |proj g|=  3.62143D-03
+
+At iterate   11    f=  4.42263D-02    |proj g|=  1.68172D-02
+
+At iterate   12    f=  4.13913D-02    |proj g|=  3.82716D-03
+
+At iterate   13    f=  4.02959D-02    |proj g|=  4.18243D-03
+
+At iterate   14    f=  2.83726D-02    |proj g|=  2.26502D-03
+
+At iterate   15    f=  2.78198D-02    |proj g|=  2.95969D-03
+
+At iterate   16    f=  2.71835D-02    |proj g|=  2.75245D-03
+
+At iterate   17    f=  2.55809D-02    |proj g|=  1.29893D-03
+
+At iterate   18    f=  2.50793D-02    |proj g|=  8.22308D-04
+
+At iterate   19    f=  2.46771D-02    |proj g|=  5.02395D-04
+
+At iterate   20    f=  2.43360D-02    |proj g|=  6.65184D-04
+
+At iterate   21    f=  2.41225D-02    |proj g|=  5.25047D-04
+
+At iterate   22    f=  2.40194D-02    |proj g|=  3.26548D-04
+
+At iterate   23    f=  2.39594D-02    |proj g|=  2.34617D-04
+
+At iterate   24    f=  2.38820D-02    |proj g|=  1.03607D-04
+
+At iterate   25    f=  2.37677D-02    |proj g|=  1.67005D-04
+
+At iterate   26    f=  2.36434D-02    |proj g|=  7.14786D-04
+
+At iterate   27    f=  2.35849D-02    |proj g|=  3.55561D-04
+
+At iterate   28    f=  2.34584D-02    |proj g|=  6.65011D-04
+
+At iterate   29    f=  2.33518D-02    |proj g|=  9.45143D-04
+
+At iterate   30    f=  2.33076D-02    |proj g|=  9.97151D-04
+
+At iterate   31    f=  2.32591D-02    |proj g|=  9.55824D-04
+
+At iterate   32    f=  2.28250D-02    |proj g|=  6.79772D-04
+
+At iterate   33    f=  2.27589D-02    |proj g|=  1.43059D-04
+
+At iterate   34    f=  2.27444D-02    |proj g|=  1.08002D-03
+
+At iterate   35    f=  2.26803D-02    |proj g|=  8.40955D-04
+
+At iterate   36    f=  2.25933D-02    |proj g|=  5.17574D-04
+
+At iterate   37    f=  2.24176D-02    |proj g|=  6.46505D-04
+
+At iterate   38    f=  2.17846D-02    |proj g|=  1.60416D-03
+
+At iterate   39    f=  2.15779D-02    |proj g|=  1.19621D-03
+
+At iterate   40    f=  2.15538D-02    |proj g|=  1.06188D-03
+
+At iterate   41    f=  2.14521D-02    |proj g|=  1.06308D-04
+
+At iterate   42    f=  2.14437D-02    |proj g|=  1.33576D-04
+
+At iterate   43    f=  2.13338D-02    |proj g|=  7.49692D-04
+
+At iterate   44    f=  2.12854D-02    |proj g|=  5.86263D-04
+
+At iterate   45    f=  2.12111D-02    |proj g|=  2.25776D-04
+
+At iterate   46    f=  2.11850D-02    |proj g|=  1.28448D-04
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> This problem is unconstrained.
@@ -1219,156 +1331,7 @@ At iterate    0    f=  9.36747D-01    |proj g|=  3.16058D-01
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At iterate    1    f=  6.56871D-01    |proj g|=  5.67641D-02
-
-At iterate    2    f=  6.30329D-01    |proj g|=  7.99106D-02
-
-At iterate    3    f=  2.80856D-01    |proj g|=  1.72718D-01
-
-At iterate    4    f=  8.90609D-02    |proj g|=  3.89347D-02
-
-At iterate    5    f=  7.97103D-02    |proj g|=  2.76588D-02
-
-At iterate    6    f=  6.88588D-02    |proj g|=  1.50870D-02
-
-At iterate    7    f=  6.66572D-02    |proj g|=  6.60980D-03
-
-At iterate    8    f=  6.50632D-02    |proj g|=  6.74494D-03
-
-At iterate    9    f=  6.23021D-02    |proj g|=  7.04373D-03
-
-At iterate   10    f=  5.38239D-02    |proj g|=  9.96559D-03
-
-At iterate   11    f=  5.28912D-02    |proj g|=  8.05206D-03
-
-At iterate   12    f=  5.24812D-02    |proj g|=  2.71873D-03
-
-At iterate   13    f=  5.23726D-02    |proj g|=  1.67616D-03
-
-At iterate   14    f=  5.22226D-02    |proj g|=  1.66161D-03
-
-At iterate   15    f=  5.20438D-02    |proj g|=  1.40644D-03
-
-At iterate   16    f=  5.16964D-02    |proj g|=  2.49090D-03
-
-At iterate   17    f=  5.10848D-02    |proj g|=  4.12581D-03
-
-At iterate   18    f=  5.01655D-02    |proj g|=  4.47311D-03
-
-At iter
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ate   19    f=  4.89539D-02    |proj g|=  7.34091D-03
-
-At iterate   20    f=  4.65563D-02    |proj g|=  6.11820D-03
-
-At iterate   21    f=  4.44703D-02    |proj g|=  4.72255D-03
-
-At iterate   22    f=  4.22620D-02    |proj g|=  4.77667D-03
-
-At iterate   23    f=  3.99738D-02    |proj g|=  1.10391D-02
-
-At iterate   24    f=  3.79735D-02    |proj g|=  2.07649D-03
-
-At iterate   25    f=  3.70746D-02    |proj g|=  2.69139D-03
-
-At iterate   26    f=  3.53039D-02    |proj g|=  7.33644D-03
-
-At iterate   27    f=  3.37882D-02    |proj g|=  1.24402D-02
-
-At iterate   28    f=  3.15448D-02    |proj g|=  4.65850D-03
-
-At iterate   29    f=  2.99917D-02    |proj g|=  2.90435D-03
-
-At iterate   30    f=  2.87133D-02    |proj g|=  1.83797D-03
-
-At iterate   31    f=  2.76760D-02    |proj g|=  1.40486D-03
-
-At iterate   32    f=  2.70066D-02    |proj g|=  5.38717D-04
-
-At iterate   33    f=  2.67133D-02    |proj g|=  8.63705D-04
-
-At iterate   34    f=  2.65489D-02    |proj g|=  3.16783D-04
-
-At iterate   35    f=  2.64817D-02    |proj g|=  2.51096D-04
-
-At iterate   36    f=  2.63307D-02    |proj g|=  1.53289D-04
-
-At iterate   37    f=  2.61562D-02    |proj g|=  1.92463D-03
-
-At iterate   38    f=  2.60889D-02    |proj g|=  7.61730D-04
-
-At iterate   39    f=  2.60542D-02    |proj g|=  7.30248D-04
-
-At iterate   40    f=  2.60124D-02    |proj g|=  2.58996D-04
-
-At iterate   41    f=  2.59427D-02    |proj g|=  6.50276D-04
-
-At iterate   42    f=  2.57658D-02    |proj g|=  1.37113D-03
-
-At iterate   43    f=  2.55432D-02    |proj g|=  1.60986D-03
-
-At iterate   44    f=  2.47151D-02    |proj g|=  2.89541D-03
-
-At iterate   45    f=  2.45333D-02    |proj g|=  2.10863D-03
-
-At iterate   46    f=  2.41673D-02    |proj g|=  2.99093D-03
-
-At iterate   47    f=  2.39133D-02    |proj g|=  9.74392D-04
-
-At iterate   48    f=  2.38276D-02    |proj g|=  4.89850D-04
-
-At iterate   49    f=  2.34778D-02    |proj g|=  7.83947D-04
-
-At iterate   50    f=  2.33244D-02    |proj g|=  1.10410D-03
-
-At iterate   51    f=  2.31452D-02    |proj g|=  1.13422D-03
-
-At iterate   52    f=  2.29449D-02    |proj g|=  1.12155D-03
-
-At iterate   53    f=  2.27627D-02    |proj g|=  7.97296D-04
-
-At iterate   54    f=  2.26983D-02    |proj g|=  1.51014D-03
-
-At iterate   55    f=  2.25922D-02    |proj g|=  7.91701D-04
-
-At iterate   56    f=  2.25232D-02    |proj g|=  2.19527D-04
-
-At iterate   57    f=  2.23951D-02    |proj g|=  4.37337D-04
-
-At iterate   58    f=  2.22306D-02    |proj g|=  5.87284D-04
-
-At iterate   59    f=  2.21310D-02    |proj g|=  4.14209D-04
-
-At iterate   60    f=  2.20165D-02    |proj g|=  4.15824D-04
-
-At iterate   61    f=  2.18182D-02    |proj g|=  3.94002D-04
-
-At iterate   62    f=  2.15394D-02    |proj g|=  6.35240D-04
-
-At iterate   63    f=  2.14318D-02    |proj g|=  6.11707D-04
-
-At iterate   64    f=  2.12947D-02    |proj g|=  3.86913D-04
-
-At iterate   65    f=  2.12368D-02    |proj g|=  2.57765D-04
-
-At iterate   66    f=  2.12255D-02    |proj g|=  1.81049D-04
-
-At iterate   67    f=  2.12105D-02    |proj g|=  2.00805D-04
-
-At iterate   68    f=  2.12030D-02    |proj g|=  1.45324D-04
-
-At iterate   69    f=  2.11914D-02    |proj g|=  1.09676D-04
-
-At iterate   70    f=  2.11796D-02    |proj g|=  1.08139D-04
-
-At iterate   71    f=  2.11522D-02    |proj g|=  1.55388D-04
-
-At iterate   72    f=  2.11049D-02    |proj g|=  2.05866D-04
-
-At iterate   73    f=  2.10763D-02    |proj g|=  1.10150D-04
-
-At iterate   74    f=  2.10599D-02    |proj g|=  5.76167D-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At iterate   47    f=  2.11556D-02    |proj g|=  8.71115D-05
 
            * * *
 
@@ -1383,8 +1346,8 @@ F     = final function value
            * * *
 
    N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
-   17     74     84      1     0     0   5.762D-05   2.106D-02
-  F =   2.1059868440462325E-002
+   17     47     67      1     0     0   8.711D-05   2.116D-02
+  F =   2.1155635929501235E-002
 
 CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL            
 </pre></div>
@@ -1423,20 +1386,20 @@ because they are a single layer, not in sequence.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2497</span><span class="o">/</span><span class="mf">4049144657.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2531</span><span class="o">/</span><span class="mf">4049144657.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">output_neuron_4d_4h</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">hidden_neuron_4d_h0</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>                  <span class="n">hidden_neuron_4d_h1</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>                  <span class="n">hidden_neuron_4d_h2</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">),</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>                  <span class="n">hidden_neuron_4d_h3</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_2497/2777926706.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
+<span class="nn">/tmp/ipykernel_2531/2777926706.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">hidden_neuron_4d_h0</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>                                                          <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">hidden_neuron_4d_h1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>                                                          <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span><span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">hidden_neuron_4d_h2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">aritificial_neuron_template</span><span class="p">(</span><span class="n">logistic_activation</span><span class="p">,</span>
 
-<span class="nn">/tmp/ipykernel_2497/1765182718.py</span> in <span class="ni">aritificial_neuron_template</span><span class="nt">(activation, weights, bias, inputs)</span>
+<span class="nn">/tmp/ipykernel_2531/1765182718.py</span> in <span class="ni">aritificial_neuron_template</span><span class="nt">(activation, weights, bias, inputs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> 
 <span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="s1">&#39;&#39;&#39;</span>
 <span class="ne">---&gt; </span><span class="mi">17</span><span class="s1">     return activation(np.matmul(inputs,weights) +bias)</span>
@@ -1458,7 +1421,7 @@ because they are a single layer, not in sequence.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2497</span><span class="o">/</span><span class="mf">3474441194.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2531</span><span class="o">/</span><span class="mf">3474441194.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">clf_4d_4h</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">pt_4d</span><span class="p">)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py</span> in <span class="ni">predict_proba</span><span class="nt">(self, X)</span>
@@ -1476,18 +1439,18 @@ because they are a single layer, not in sequence.</p>
 <span class="g g-Whitespace">    </span><span class="mi">161</span>         <span class="c1"># Initialize first layer</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/base.py</span> in <span class="ni">_validate_data</span><span class="nt">(self, X, y, reset, validate_separately, **check_params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span> 
-<span class="g g-Whitespace">    </span><span class="mi">579</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">check_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ensure_2d&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">580</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_n_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="n">reset</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span> 
-<span class="g g-Whitespace">    </span><span class="mi">582</span>         <span class="k">return</span> <span class="n">out</span>
+<span class="g g-Whitespace">    </span><span class="mi">583</span> 
+<span class="g g-Whitespace">    </span><span class="mi">584</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">check_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ensure_2d&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">585</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_n_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="n">reset</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">586</span> 
+<span class="g g-Whitespace">    </span><span class="mi">587</span>         <span class="k">return</span> <span class="n">out</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/base.py</span> in <span class="ni">_check_n_features</span><span class="nt">(self, X, reset)</span>
-<span class="g g-Whitespace">    </span><span class="mi">394</span>         <span class="k">if</span> <span class="n">n_features</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">395</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">396</span>                 <span class="sa">f</span><span class="s2">&quot;X has </span><span class="si">{</span><span class="n">n_features</span><span class="si">}</span><span class="s2"> features, but </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span>                 <span class="sa">f</span><span class="s2">&quot;is expecting </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="si">}</span><span class="s2"> features as input.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span>         <span class="k">if</span> <span class="n">n_features</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">401</span>                 <span class="sa">f</span><span class="s2">&quot;X has </span><span class="si">{</span><span class="n">n_features</span><span class="si">}</span><span class="s2"> features, but </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>                 <span class="sa">f</span><span class="s2">&quot;is expecting </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="si">}</span><span class="s2"> features as input.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span>             <span class="p">)</span>
 
 <span class="ne">ValueError</span>: X has 4 features, but MLPClassifier is expecting 2 features as input.
 </pre></div>
@@ -1509,7 +1472,7 @@ clf.score(X_test, y_test)
 ``` -->
 </div>
 <div class="section" id="optional-what-is-a-numerical-optimiztion-algorithm">
-<h2><span class="section-number">38.3. </span>(optional) What is a numerical optimiztion algorithm?<a class="headerlink" href="#optional-what-is-a-numerical-optimiztion-algorithm" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">33.3. </span>(optional) What is a numerical optimiztion algorithm?<a class="headerlink" href="#optional-what-is-a-numerical-optimiztion-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>Numerical Optimization algorithms are at the core of many of the fit methods.</p>
 <p>One way we can optimize a function is to take the derivative, set it equal to
 zero and sovle for the parameter.  If we know the funciton is convex (like a
@@ -1562,37 +1525,35 @@ whole semester long course just learning different algorithms for this.</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-12-01.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">37. </span>Neural Networks</p>
+            <p class="prev-next-title"><span class="section-number">32. </span>Neural Networks</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="2021-12-06.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">39. </span>Review, IDEA, &amp; Preparing for Deep Learning</p>
+        <p class="prev-next-title"><span class="section-number">34. </span>Review, IDEA, &amp; Preparing for Deep Learning</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

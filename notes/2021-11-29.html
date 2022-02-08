@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>36. More NLP &amp; Solving problems with ML &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>31. More NLP &amp; Solving problems with ML &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="37. Neural Networks" href="2021-12-01.html" />
-    <link rel="prev" title="35. Intro to NLP- representing text data" href="2021-11-22.html" />
+    <link rel="next" title="32. Neural Networks" href="2021-12-01.html" />
+    <link rel="prev" title="30. Intro to NLP- representing text data" href="2021-11-22.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -249,87 +249,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-25.html">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-29.html">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-01.html">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-12.html">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-17.html">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-22.html">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-03.html">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -574,7 +574,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -627,7 +627,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -636,17 +636,17 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparing-representations">
-   36.1. Comparing representations
+   31.1. Comparing representations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sparse-matrices">
-   36.2. Sparse Matrices
+   31.2. Sparse Matrices
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-practice">
-   36.3. More Practice
+   31.3. More Practice
   </a>
  </li>
 </ul>
@@ -657,11 +657,44 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>More NLP & Solving problems with ML</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-representations">
+   31.1. Comparing representations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sparse-matrices">
+   31.2. Sparse Matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-practice">
+   31.3. More Practice
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="more-nlp-solving-problems-with-ml">
-<h1><span class="section-number">36. </span>More NLP &amp; Solving problems with ML<a class="headerlink" href="#more-nlp-solving-problems-with-ml" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">31. </span>More NLP &amp; Solving problems with ML<a class="headerlink" href="#more-nlp-solving-problems-with-ml" title="Permalink to this headline">¶</a></h1>
 <p>Imagine you work for a news agency, current articles are stored in a database in
 a table where they are indexed by a unique identifier. A separate table indicates
 the primary category for most articles, but some are missing. Your assignment is to create an automatic category generator to save editors time. Your manager suggests that
@@ -817,16 +850,16 @@ whole libraries or modules as is most appropriate.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2448</span><span class="o">/</span><span class="mf">2043128607.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2477</span><span class="o">/</span><span class="mf">2043128607.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">tfidf</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">TfidfTransformer</span><span class="p">()</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">ng_X</span><span class="p">)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/base.py</span> in <span class="ni">fit_transform</span><span class="nt">(self, X, y, **fit_params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">845</span>         <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">846</span>             <span class="c1"># fit method of arity 1 (unsupervised transformation)</span>
-<span class="ne">--&gt; </span><span class="mi">847</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">848</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">849</span>             <span class="c1"># fit method of arity 2 (supervised transformation)</span>
+<span class="g g-Whitespace">    </span><span class="mi">850</span>         <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">851</span>             <span class="c1"># fit method of arity 1 (unsupervised transformation)</span>
+<span class="ne">--&gt; </span><span class="mi">852</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">853</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span>             <span class="c1"># fit method of arity 2 (supervised transformation)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/feature_extraction/text.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1613</span>         <span class="c1"># dtype NPY_INTP which is int32 for 32bit platforms. See #20923</span>
@@ -836,18 +869,18 @@ whole libraries or modules as is most appropriate.</p>
 <span class="g g-Whitespace">   </span><span class="mi">1617</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">sp</span><span class="o">.</span><span class="n">issparse</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/base.py</span> in <span class="ni">_validate_data</span><span class="nt">(self, X, y, reset, validate_separately, **check_params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">559</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Validation should be done on X, y or both.&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">560</span>         <span class="k">elif</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">no_val_y</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">561</span>             <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">check_params</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span>             <span class="n">out</span> <span class="o">=</span> <span class="n">X</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span>         <span class="k">elif</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">no_val_y</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">564</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Validation should be done on X, y or both.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span>         <span class="k">elif</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">no_val_y</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">566</span>             <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">check_params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span>             <span class="n">out</span> <span class="o">=</span> <span class="n">X</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span>         <span class="k">elif</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">no_val_y</span><span class="p">:</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_array</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator)</span>
-<span class="g g-Whitespace">    </span><span class="mi">763</span>                     <span class="s2">&quot;Reshape your data either using array.reshape(-1, 1) if &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">764</span>                     <span class="s2">&quot;your data has a single feature or array.reshape(1, -1) &quot;</span>
-<span class="ne">--&gt; </span><span class="mi">765</span>                     <span class="s2">&quot;if it contains a single sample.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">766</span>                 <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">767</span> 
+<span class="g g-Whitespace">    </span><span class="mi">771</span>                     <span class="s2">&quot;Reshape your data either using array.reshape(-1, 1) if &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">772</span>                     <span class="s2">&quot;your data has a single feature or array.reshape(1, -1) &quot;</span>
+<span class="ne">--&gt; </span><span class="mi">773</span>                     <span class="s2">&quot;if it contains a single sample.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">774</span>                 <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">775</span> 
 
 <span class="ne">ValueError</span>: Expected 2D array, got 1D array instead:
 <span class="n">array</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;From: robert@cpuserver.acsc.com (Robert Grant)</span><span class="se">\n</span><span class="s2">Subject: Virtual Reality for X on the CHEAP!</span><span class="se">\n</span><span class="s2">Organization: USCACSC, Los Angeles</span><span class="se">\n</span><span class="s2">Lines: 187</span><span class="se">\n</span><span class="s2">Distribution: world</span><span class="se">\n</span><span class="s2">Reply-To: robert@cpuserver.acsc.com (Robert Grant)</span><span class="se">\n</span><span class="s2">NNTP-Posting-Host: cpuserver.acsc.com</span><span class="se">\n\n</span><span class="s2">Hi everyone,</span><span class="se">\n\n</span><span class="s2">I thought that some people may be interested in my VR</span><span class="se">\n</span><span class="s2">software on these groups:</span><span class="se">\n\n</span><span class="s2">*******Announcing the release of Multiverse-1.0.2*******</span><span class="se">\n\n</span><span class="s2">Multiverse is a multi-user, non-immersive, X-Windows based Virtual Reality</span><span class="se">\n</span><span class="s2">system, primarily focused on entertainment/research.</span><span class="se">\n\n</span><span class="s2">Features:</span><span class="se">\n\n</span><span class="s2">   Client-Server based model, using Berkeley Sockets.</span><span class="se">\n</span><span class="s2">   No limit to the number of users (apart from performance).</span><span class="se">\n</span><span class="s2">   Generic clients.</span><span class="se">\n</span><span class="s2">   Customizable servers.</span><span class="se">\n</span><span class="s2">   Hierachical Objects (allowing attachment of cameras and light sources).</span><span class="se">\n</span><span class="s2">   Multiple light sources (ambient, point and spot).</span><span class="se">\n</span><span class="s2">   Objects can have extension code, to handle unique functionality, easily</span><span class="se">\n</span><span class="s2">        attached.</span><span class="se">\n\n</span><span class="s2">Functionality:</span><span class="se">\n\n</span><span class="s2">  Client:</span><span class="se">\n</span><span class="s2">   The client is built around a &#39;fast&#39; render loop. Basically it changes things</span><span class="se">\n</span><span class="s2">   when told to by the server and then renders an image from the user&#39;s</span><span class="se">\n</span><span class="s2">   viewpoint. It also provides the server with information about the user&#39;s</span><span class="se">\n</span><span class="s2">   actions - which can then be communicated to other clients and therefore to</span><span class="se">\n</span><span class="s2">   other users.</span><span class="se">\n\n</span><span class="s2">   The client is designed to be generic - in other words you don&#39;t need to</span><span class="se">\n</span><span class="s2">   develop a new client when you want to enter a new world. This means that</span><span class="se">\n</span><span class="s2">   resources can be spent on enhancing the client software rather than adapting</span><span class="se">\n</span><span class="s2">   it. The adaptations, as will be explained in a moment, occur in the servers.</span><span class="se">\n\n</span><span class="s2">   This release of the client software supports the following functionality:</span><span class="se">\n\n</span><span class="s2">    o Hierarchical Objects (with associated addressing)</span><span class="se">\n\n</span><span class="s2">    o Multiple Light Sources and Types (Ambient, Point and Spot)</span><span class="se">\n\n</span><span class="s2">    o User Interface Panels</span><span class="se">\n\n</span><span class="s2">    o Colour Polygonal Rendering with Phong Shading (optional wireframe for</span><span class="se">\n\t</span><span class="s2">faster frame rates)</span><span class="se">\n\n</span><span class="s2">    o Mouse and Keyboard Input</span><span class="se">\n\n</span><span class="s2">   (Some people may be disappointed that this software doesn&#39;t support the</span><span class="se">\n</span><span class="s2">   PowerGlove as an input device - this is not because it can&#39;t, but because</span><span class="se">\n</span><span class="s2">   I don&#39;t have one! This will, however, be one of the first enhancements!)</span><span class="se">\n\n</span><span class="s2">  Server(s):</span><span class="se">\n</span><span class="s2">   This is where customization can take place. The following basic support is</span><span class="se">\n</span><span class="s2">   provided in this release for potential world server developers:</span><span class="se">\n\n</span><span class="s2">    o Transparent Client Management</span><span class="se">\n\n</span><span class="s2">    o Client Message Handling</span><span class="se">\n\n</span><span class="s2">   This may not sound like much, but it takes away the headache of</span><span class="se">\n</span><span class="s2">accepting and</span><span class="se">\n</span><span class="s2">   terminating clients and receiving messages from them - the</span><span class="se">\n</span><span class="s2">application writer</span><span class="se">\n</span><span class="s2">   can work with the assumption that things are happening locally.</span><span class="se">\n\n</span><span class="s2">   Things get more interesting in the object extension functionality. This is</span><span class="se">\n</span><span class="s2">   what is provided to allow you to animate your objects:</span><span class="se">\n\n</span><span class="s2">    o Server Selectable Extension Installation:</span><span class="se">\n</span><span class="s2">        What this means is that you can decide which objects have extended</span><span class="se">\n</span><span class="s2">        functionality in your world. Basically you call the extension</span><span class="se">\n</span><span class="s2">        initialisers you want.</span><span class="se">\n\n</span><span class="s2">    o Event Handler Registration:</span><span class="se">\n</span><span class="s2">        When you develop extensions for an object you basically write callback</span><span class="se">\n</span><span class="s2">        functions for the events that you want the object to respond to.</span><span class="se">\n</span><span class="s2">        (Current events supported: INIT, MOVE, CHANGE, COLLIDE &amp; TERMINATE)</span><span class="se">\n\n</span><span class="s2">    o Collision Detection Registration:</span><span class="se">\n</span><span class="s2">        If you want your object to respond to collision events just provide</span><span class="se">\n</span><span class="s2">        some basic information to the collision detection management software.</span><span class="se">\n</span><span class="s2">        Your callback will be activated when a collision occurs.</span><span class="se">\n\n</span><span class="s2">    This software is kept separate from the worldServer applications because</span><span class="se">\n</span><span class="s2">    the application developer wants to build a library of extended objects</span><span class="se">\n</span><span class="s2">    from which to choose.</span><span class="se">\n\n</span><span class="s2">    The following is all you need to make a World Server application:</span><span class="se">\n\n</span><span class="s2">    o Provide an initWorld function:</span><span class="se">\n</span><span class="s2">        This is where you choose what object extensions will be supported, plus</span><span class="se">\n</span><span class="s2">        any initialization you want to do.</span><span class="se">\n\n</span><span class="s2">    o Provide a positionObject function:</span><span class="se">\n</span><span class="s2">        This is where you determine where to place a new client.</span><span class="se">\n\n</span><span class="s2">    o Provide an installWorldObjects function:</span><span class="se">\n</span><span class="s2">        This is where you load the world (.wld) file for a new client.</span><span class="se">\n\n</span><span class="s2">    o Provide a getWorldType function:</span><span class="se">\n</span><span class="s2">        This is where you tell a new client what persona they should have.</span><span class="se">\n\n</span><span class="s2">    o Provide an animateWorld function:</span><span class="se">\n</span><span class="s2">        This is where you can go wild! At a minimum you should let the objects</span><span class="se">\n</span><span class="s2">        move (by calling a move function) and let the server sleep for a bit</span><span class="se">\n</span><span class="s2">        (to avoid outrunning the clients).</span><span class="se">\n\n</span><span class="s2">    That&#39;s all there is to it! And to prove it here are the line counts for the</span><span class="se">\n</span><span class="s2">    three world servers I&#39;ve provided:</span><span class="se">\n\n</span><span class="s2">        generic - 81 lines</span><span class="se">\n</span><span class="s2">        dactyl - 270 lines (more complicated collision detection due to the</span><span class="se">\n</span><span class="s2">                           stairs! Will probably be improved with future</span><span class="se">\n</span><span class="s2">                           versions)</span><span class="se">\n</span><span class="s2">        dogfight - 72 lines</span><span class="se">\n\n</span><span class="s2">Location:</span><span class="se">\n\n</span><span class="s2">   This software is located at the following site:</span><span class="se">\n</span><span class="s2">   ftp.u.washington.edu</span><span class="se">\n\n</span><span class="s2">   Directory:</span><span class="se">\n</span><span class="s2">   pub/virtual-worlds</span><span class="se">\n\n</span><span class="s2">   File:</span><span class="se">\n</span><span class="s2">   multiverse-1.0.2.tar.Z</span><span class="se">\n\n</span><span class="s2">Futures:</span><span class="se">\n\n</span><span class="s2">   Client:</span><span class="se">\n\n</span><span class="s2">    o Texture mapping.</span><span class="se">\n\n</span><span class="s2">    o More realistic rendering: i.e. Z-Buffering (or similar), Gouraud shading</span><span class="se">\n\n</span><span class="s2">    o HMD support.</span><span class="se">\n\n</span><span class="s2">    o Etc, etc....</span><span class="se">\n\n</span><span class="s2">   Server:</span><span class="se">\n\n</span><span class="s2">    o Physical Modelling (gravity, friction etc).</span><span class="se">\n\n</span><span class="s2">    o Enhanced Object Management/Interaction</span><span class="se">\n\n</span><span class="s2">    o Etc, etc....</span><span class="se">\n\n</span><span class="s2">   Both:</span><span class="se">\n\n</span><span class="s2">    o Improved Comms!!!</span><span class="se">\n\n</span><span class="s2">I hope this provides people with a good understanding of the Multiverse</span><span class="se">\n</span><span class="s2">software,</span><span class="se">\n</span><span class="s2">unfortunately it comes with practically zero documentation, and I&#39;m not sure</span><span class="se">\n</span><span class="s2">whether that will ever be able to be rectified! :-(</span><span class="se">\n\n</span><span class="s2">I hope people enjoy this software and that it is useful in our explorations of</span><span class="se">\n</span><span class="s2">the Virtual Universe - I&#39;ve certainly found fascinating developing it, and I</span><span class="se">\n</span><span class="s2">would *LOVE* to add support for the PowerGlove...and an HMD :-)!!</span><span class="se">\n\n</span><span class="s2">Finally one major disclaimer:</span><span class="se">\n\n</span><span class="s2">This is totally amateur code. By that I mean there is no support for this code</span><span class="se">\n</span><span class="s2">other than what I, out the kindness of my heart, or you, out of pure</span><span class="se">\n</span><span class="s2">desperation, provide. I cannot be held responsible for anything good or bad</span><span class="se">\n</span><span class="s2">that may happen through the use of this code - USE IT AT YOUR OWN RISK!</span><span class="se">\n\n</span><span class="s2">Disclaimer over!</span><span class="se">\n\n</span><span class="s2">Of course if you love it, I would like to here from you. And anyone with</span><span class="se">\n</span><span class="s2">POSITIVE contributions/criticisms is also encouraged to contact me. Anyone who</span><span class="se">\n</span><span class="s2">hates it: &gt; /dev/null!</span><span class="se">\n\n</span><span class="s2">************************************************************************</span><span class="se">\n</span><span class="s2">*********</span><span class="se">\n</span><span class="s2">And if anyone wants to let me do this for a living: you know where to</span><span class="se">\n</span><span class="s2">write :-)!</span><span class="se">\n</span><span class="s2">************************************************************************</span><span class="se">\n</span><span class="s2">*********</span><span class="se">\n\n</span><span class="s2">Thanks,</span><span class="se">\n\n</span><span class="s2">Robert.</span><span class="se">\n\n</span><span class="s2">robert@acsc.com</span><span class="se">\n</span><span class="s2">^^^^^^^^^^^^^^^</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -953,7 +986,7 @@ whole libraries or modules as is most appropriate.</p>
 </div>
 </div>
 <div class="section" id="comparing-representations">
-<h2><span class="section-number">36.1. </span>Comparing representations<a class="headerlink" href="#comparing-representations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">31.1. </span>Comparing representations<a class="headerlink" href="#comparing-representations" title="Permalink to this headline">¶</a></h2>
 <p>To start, we will look at one element from each in order to compare them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1149,7 +1182,7 @@ whole libraries or modules as is most appropriate.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f8e74609a90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f808198da10&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-11-29_49_1.png" src="../_images/2021-11-29_49_1.png" />
@@ -1162,7 +1195,7 @@ whole libraries or modules as is most appropriate.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f8e731cee50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f80804d9b90&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-11-29_50_1.png" src="../_images/2021-11-29_50_1.png" />
@@ -1499,7 +1532,7 @@ Name: Professor Brown, dtype: float64
 </div>
 </div>
 <div class="section" id="sparse-matrices">
-<h2><span class="section-number">36.2. </span>Sparse Matrices<a class="headerlink" href="#sparse-matrices" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">31.2. </span>Sparse Matrices<a class="headerlink" href="#sparse-matrices" title="Permalink to this headline">¶</a></h2>
 <p>To understand the sparse matrices, we can examine the size of the objects as a sparse matrix and after exporting to array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1540,7 +1573,7 @@ Name: Professor Brown, dtype: float64
 </div>
 </div>
 <div class="section" id="more-practice">
-<h2><span class="section-number">36.3. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">31.3. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>On the sentence dataset, try implementing the tf-idf calculation.</p></li>
 </ol>
@@ -1569,37 +1602,35 @@ Name: Professor Brown, dtype: float64
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-11-22.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">35. </span>Intro to NLP- representing text data</p>
+            <p class="prev-next-title"><span class="section-number">30. </span>Intro to NLP- representing text data</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="2021-12-01.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">37. </span>Neural Networks</p>
+        <p class="prev-next-title"><span class="section-number">32. </span>Neural Networks</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

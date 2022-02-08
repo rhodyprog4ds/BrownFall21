@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>33. Model Selection &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>28. Model Selection &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -52,8 +52,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="34. Learning Curves" href="2021-11-19.html" />
-    <link rel="prev" title="32. Model Comparison" href="2021-11-15.html" />
+    <link rel="next" title="29. Learning Curves" href="2021-11-19.html" />
+    <link rel="prev" title="27. Model Comparison" href="2021-11-15.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -247,87 +247,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-25.html">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-29.html">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-01.html">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-12.html">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-22.html">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-29.html">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-03.html">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -572,7 +572,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -625,7 +625,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -634,22 +634,22 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#when-do-differences-matter">
-   33.1. When do differences matter?
+   28.1. When do differences matter?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#questions-after-class">
-   33.2. Questions After Class
+   28.2. Questions After Class
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#when-would-i-choose-to-use-an-svm">
-     33.2.1. When would I choose to use an svm?
+     28.2.1. When would I choose to use an svm?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-can-we-tell-how-many-parameter-settings-we-tried">
-     33.2.2. How can we tell how many parameter settings we tried?
+     28.2.2. How can we tell how many parameter settings we tried?
     </a>
    </li>
   </ul>
@@ -662,11 +662,51 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Model Selection</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#when-do-differences-matter">
+   28.1. When do differences matter?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   28.2. Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-would-i-choose-to-use-an-svm">
+     28.2.1. When would I choose to use an svm?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-we-tell-how-many-parameter-settings-we-tried">
+     28.2.2. How can we tell how many parameter settings we tried?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="model-selection">
-<h1><span class="section-number">33. </span>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">28. </span>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this headline">¶</a></h1>
 <p>We’ll pick up from where we left off on Monday.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -737,7 +777,7 @@ programming and how to effectively teach it.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.975, 0.925)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9916666666666666, 0.9583333333333333)
 </pre></div>
 </div>
 </div>
@@ -751,7 +791,7 @@ programming and how to effectively teach it.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9666666666666667
 </pre></div>
 </div>
 </div>
@@ -819,49 +859,49 @@ programming and how to effectively teach it.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.000628</td>
-      <td>0.000038</td>
-      <td>0.000289</td>
-      <td>0.000014</td>
+      <td>0.000787</td>
+      <td>0.000066</td>
+      <td>0.000409</td>
+      <td>0.000050</td>
       <td>0.5</td>
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.0</td>
       <td>0.916667</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.833333</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.916667</td>
       <td>1.000000</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>0.975000</td>
-      <td>0.053359</td>
-      <td>1</td>
+      <td>1.000000</td>
+      <td>0.983333</td>
+      <td>0.033333</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.000734</td>
-      <td>0.000017</td>
-      <td>0.000311</td>
-      <td>0.000015</td>
+      <td>0.000957</td>
+      <td>0.000119</td>
+      <td>0.000405</td>
+      <td>0.000014</td>
       <td>0.5</td>
       <td>rbf</td>
       <td>{'C': 0.5, 'kernel': 'rbf'}</td>
-      <td>0.833333</td>
-      <td>0.916667</td>
-      <td>1.0</td>
       <td>0.916667</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.833333</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.916667</td>
       <td>0.916667</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>0.941667</td>
-      <td>0.065085</td>
-      <td>13</td>
+      <td>0.916667</td>
+      <td>0.966667</td>
+      <td>0.040825</td>
+      <td>9</td>
     </tr>
   </tbody>
 </table>
@@ -876,13 +916,13 @@ programming and how to effectively teach it.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    14.000000
-mean      0.962500
-std       0.010717
-min       0.941667
-25%       0.958333
-50%       0.966667
-75%       0.966667
-max       0.975000
+mean      0.975595
+std       0.010056
+min       0.958333
+25%       0.966667
+50%       0.979167
+75%       0.983333
+max       0.991667
 Name: mean_test_score, dtype: float64
 </pre></div>
 </div>
@@ -896,13 +936,13 @@ Name: mean_test_score, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    90.000000
-mean      0.917407
-std       0.002385
-min       0.916667
-25%       0.916667
-50%       0.916667
-75%       0.916667
-max       0.925000
+mean      0.914907
+std       0.018338
+min       0.900000
+25%       0.900000
+50%       0.908333
+75%       0.925000
+max       0.958333
 Name: mean_test_score, dtype: float64
 </pre></div>
 </div>
@@ -926,7 +966,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="section" id="when-do-differences-matter">
-<h2><span class="section-number">33.1. </span>When do differences matter?<a class="headerlink" href="#when-do-differences-matter" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">28.1. </span>When do differences matter?<a class="headerlink" href="#when-do-differences-matter" title="Permalink to this headline">¶</a></h2>
 <p>We can check calculate a confidence interval to determine more precisely when the performance of two models is meaningfully different.</p>
 <p>This function calculates the 95% confidence interval.  The range within which we are 95% confident the quantity we have estimated is truly within in.  When we have more samples in the test set used to calculate the score, we are more confident in the estimate, so the interval is narrower.</p>
 <div class="cell docutils container">
@@ -953,7 +993,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.975, 0.925)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9916666666666666, 0.9583333333333333)
 </pre></div>
 </div>
 </div>
@@ -979,7 +1019,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.6224709067064851, 1.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.7602869057331314, 1.0)
 </pre></div>
 </div>
 </div>
@@ -995,7 +1035,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8778733090489053, 0.9721266909510948)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9225798693726877, 0.9940867972939789)
 </pre></div>
 </div>
 </div>
@@ -1059,7 +1099,7 @@ of parameters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2347/2188489612.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2379/2188489612.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="n">n_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">200</span><span class="p">)])</span>
                               <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1069,16 +1109,16 @@ of parameters.</p>
 </div>
 </div>
 <div class="section" id="questions-after-class">
-<h2><span class="section-number">33.2. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">28.2. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="when-would-i-choose-to-use-an-svm">
-<h3><span class="section-number">33.2.1. </span>When would I choose to use an svm?<a class="headerlink" href="#when-would-i-choose-to-use-an-svm" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">28.2.1. </span>When would I choose to use an svm?<a class="headerlink" href="#when-would-i-choose-to-use-an-svm" title="Permalink to this headline">¶</a></h3>
 <div class="toggle docutils container">
 <p>SVMs are often very accurate, and while in some cases a decision tree may be considered more interpretable, an SVM is not necessarily too hard to interpret.</p>
 <p>If accuracy is important, the SVM is often a really good choice.</p>
 </div>
 </div>
 <div class="section" id="how-can-we-tell-how-many-parameter-settings-we-tried">
-<h3><span class="section-number">33.2.2. </span>How can we tell how many parameter settings we tried?<a class="headerlink" href="#how-can-we-tell-how-many-parameter-settings-we-tried" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">28.2.2. </span>How can we tell how many parameter settings we tried?<a class="headerlink" href="#how-can-we-tell-how-many-parameter-settings-we-tried" title="Permalink to this headline">¶</a></h3>
 <div class="toggle docutils container">
 <p>We can calculate it in advance from the parameter grid or the length of the output DataFrame/lists in the dictionary.</p>
 </div>
@@ -1108,37 +1148,35 @@ of parameters.</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-11-15.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">32. </span>Model Comparison</p>
+            <p class="prev-next-title"><span class="section-number">27. </span>Model Comparison</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="2021-11-19.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">34. </span>Learning Curves</p>
+        <p class="prev-next-title"><span class="section-number">29. </span>Learning Curves</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

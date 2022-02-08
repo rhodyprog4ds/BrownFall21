@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>31. SVM and Parameter Optimizing &#8212; Programming for Data Science at URI Fall 2021</title>
+    <title>26. SVM and Parameter Optimizing &#8212; Programming for Data Science at URI Fall 2021</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,7 +42,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="32. Model Comparison" href="2021-11-15.html" />
-    <link rel="prev" title="30. ML Task Review and Cross Validation" href="2021-11-08.html" />
+    <link rel="next" title="27. Model Comparison" href="2021-11-15.html" />
+    <link rel="prev" title="25. ML Task Review and Cross Validation" href="2021-11-08.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -249,87 +249,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-25.html">
-   25. Linear Regression
+   20. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-10-29.html">
-   26. Interpretting Regression
+   21. Interpretting Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-01.html">
-   27. Clustering
+   22. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-03.html">
-   28. Clustering
+   23. Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-05.html">
-   29. Evaluating Clustering
+   24. Evaluating Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-08.html">
-   30. ML Task Review and Cross Validation
+   25. ML Task Review and Cross Validation
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   31. SVM and Parameter Optimizing
+   26. SVM and Parameter Optimizing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-15.html">
-   32. Model Comparison
+   27. Model Comparison
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-17.html">
-   33. Model Selection
+   28. Model Selection
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-19.html">
-   34. Learning Curves
+   29. Learning Curves
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-22.html">
-   35. Intro to NLP- representing text data
+   30. Intro to NLP- representing text data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-11-29.html">
-   36. More NLP &amp; Solving problems with ML
+   31. More NLP &amp; Solving problems with ML
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-01.html">
-   37. Neural Networks
+   32. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-03.html">
-   38. Predicting with Neural Networks
+   33. Predicting with Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-06.html">
-   39. Review, IDEA, &amp; Preparing for Deep Learning
+   34. Review, IDEA, &amp; Preparing for Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-08.html">
-   40. Neural Networks with Keras
+   35. Neural Networks with Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2021-12-10.html">
-   41. Convolutional Neural Netowrks
+   36. Convolutional Neural Netowrks
   </a>
  </li>
 </ul>
@@ -574,7 +574,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -627,7 +627,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -636,34 +636,34 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#support-vectors">
-   31.1. Support Vectors
+   26.1. Support Vectors
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basic-idea">
-     31.1.1. Basic Idea
+     26.1.1. Basic Idea
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#svm-in-sklearn">
-     31.1.2. SVM in Sklearn
+     26.1.2. SVM in Sklearn
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grid-search-optimization">
-   31.2. Grid Search Optimization
+   26.2. Grid Search Optimization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#questions-after-class">
-   31.3. Questions after class
+   26.3. Questions after class
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#can-this-be-used-on-more-types-of-machine-learning-than-just-decision-trees-and-svm">
-     31.3.1. Can this be used on more types of machine learning than just decision trees and svm?
+     26.3.1. Can this be used on more types of machine learning than just decision trees and svm?
     </a>
    </li>
   </ul>
@@ -676,11 +676,63 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SVM and Parameter Optimizing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#support-vectors">
+   26.1. Support Vectors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-idea">
+     26.1.1. Basic Idea
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#svm-in-sklearn">
+     26.1.2. SVM in Sklearn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grid-search-optimization">
+   26.2. Grid Search Optimization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   26.3. Questions after class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-this-be-used-on-more-types-of-machine-learning-than-just-decision-trees-and-svm">
+     26.3.1. Can this be used on more types of machine learning than just decision trees and svm?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="svm-and-parameter-optimizing">
-<h1><span class="section-number">31. </span>SVM and Parameter Optimizing<a class="headerlink" href="#svm-and-parameter-optimizing" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">26. </span>SVM and Parameter Optimizing<a class="headerlink" href="#svm-and-parameter-optimizing" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -698,9 +750,9 @@
 </div>
 </div>
 <div class="section" id="support-vectors">
-<h2><span class="section-number">31.1. </span>Support Vectors<a class="headerlink" href="#support-vectors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">26.1. </span>Support Vectors<a class="headerlink" href="#support-vectors" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="basic-idea">
-<h3><span class="section-number">31.1.1. </span>Basic Idea<a class="headerlink" href="#basic-idea" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">26.1.1. </span>Basic Idea<a class="headerlink" href="#basic-idea" title="Permalink to this headline">¶</a></h3>
 <p>Imagine we have data that is like this
 <img alt="very separable data" src="../_images/svm01.svg" /></p>
 <p>We might want to choose a decision boundary to separate it. We could choose any one of these three gray lines and get 100% training accuracy.</p>
@@ -723,7 +775,7 @@
 <img alt="very separable data with a decision boundary" src="../_images/svm08.svg" /></p>
 </div>
 <div class="section" id="svm-in-sklearn">
-<h3><span class="section-number">31.1.2. </span>SVM in Sklearn<a class="headerlink" href="#svm-in-sklearn" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">26.1.2. </span>SVM in Sklearn<a class="headerlink" href="#svm-in-sklearn" title="Permalink to this headline">¶</a></h3>
 <p>First we’ll load the data and separate the featurs and target (<span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(y\)</span>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -766,7 +818,7 @@
 </div>
 </div>
 <div class="section" id="grid-search-optimization">
-<h2><span class="section-number">31.2. </span>Grid Search Optimization<a class="headerlink" href="#grid-search-optimization" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">26.2. </span>Grid Search Optimization<a class="headerlink" href="#grid-search-optimization" title="Permalink to this headline">¶</a></h2>
 <p>We can optimize, however to determing the different parameter settings.</p>
 <p>A simple way to do this is to fit the model for different parameters and score for each and compare.</p>
 <p>We’ll focus on the kernel, which controls the type of line, and <span class="math notranslate nohighlight">\(C\)</span> which controls the regularization.</p>
@@ -802,14 +854,14 @@ The dictionary has the parameter names as the keys and the values are the values
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mean_fit_time&#39;: array([0.00193591, 0.00185804, 0.00176349, 0.00181284, 0.00172129,
-        0.00176077]),
- &#39;std_fit_time&#39;: array([2.44032353e-04, 1.84569861e-05, 3.64322312e-05, 2.30093570e-05,
-        1.83235808e-05, 1.92587911e-05]),
- &#39;mean_score_time&#39;: array([0.00134039, 0.00132504, 0.00130725, 0.00130029, 0.00126829,
-        0.00128546]),
- &#39;std_score_time&#39;: array([6.91260946e-05, 2.41039179e-05, 5.11190784e-05, 8.16826367e-06,
-        1.26973059e-05, 1.52488020e-05]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mean_fit_time&#39;: array([0.00251231, 0.00278144, 0.00230594, 0.00249519, 0.00248733,
+        0.00228777]),
+ &#39;std_fit_time&#39;: array([2.34128288e-04, 3.61742239e-04, 1.15339940e-04, 1.13935906e-04,
+        1.69610756e-04, 5.29247574e-05]),
+ &#39;mean_score_time&#39;: array([0.00209966, 0.00197744, 0.00185695, 0.00179543, 0.00173335,
+        0.00184417]),
+ &#39;std_score_time&#39;: array([2.86690053e-04, 1.82008999e-04, 1.76749687e-04, 9.94340512e-05,
+        2.99161264e-05, 1.54824113e-04]),
  &#39;param_C&#39;: masked_array(data=[0.5, 0.5, 1, 1, 10, 10],
               mask=[False, False, False, False, False, False],
         fill_value=&#39;?&#39;,
@@ -824,20 +876,21 @@ The dictionary has the parameter names as the keys and the values are the values
   {&#39;C&#39;: 1, &#39;kernel&#39;: &#39;rbf&#39;},
   {&#39;C&#39;: 10, &#39;kernel&#39;: &#39;linear&#39;},
   {&#39;C&#39;: 10, &#39;kernel&#39;: &#39;rbf&#39;}],
- &#39;split0_test_score&#39;: array([1.        , 0.91304348, 1.        , 0.95652174, 0.91304348,
+ &#39;split0_test_score&#39;: array([1.        , 0.95652174, 1.        , 1.        , 1.        ,
         1.        ]),
- &#39;split1_test_score&#39;: array([0.95652174, 0.95652174, 0.95652174, 0.95652174, 0.95652174,
+ &#39;split1_test_score&#39;: array([0.95652174, 0.86956522, 0.95652174, 0.95652174, 0.95652174,
+        0.95652174]),
+ &#39;split2_test_score&#39;: array([1.        , 0.95454545, 1.        , 1.        , 1.        ,
         1.        ]),
- &#39;split2_test_score&#39;: array([1.        , 0.90909091, 0.90909091, 0.90909091, 0.86363636,
-        0.86363636]),
- &#39;split3_test_score&#39;: array([0.90909091, 0.90909091, 0.95454545, 0.95454545, 0.90909091,
+ &#39;split3_test_score&#39;: array([0.95454545, 0.95454545, 0.95454545, 0.95454545, 0.95454545,
         0.95454545]),
- &#39;split4_test_score&#39;: array([1., 1., 1., 1., 1., 1.]),
- &#39;mean_test_score&#39;: array([0.97312253, 0.93754941, 0.96403162, 0.95533597, 0.9284585 ,
-        0.96363636]),
- &#39;std_test_score&#39;: array([0.03617411, 0.03600094, 0.03391848, 0.02876428, 0.04630414,
-        0.05300865]),
- &#39;rank_test_score&#39;: array([1, 5, 2, 4, 6, 3], dtype=int32)}
+ &#39;split4_test_score&#39;: array([1.        , 0.95454545, 1.        , 0.95454545, 1.        ,
+        0.95454545]),
+ &#39;mean_test_score&#39;: array([0.98221344, 0.93794466, 0.98221344, 0.97312253, 0.98221344,
+        0.97312253]),
+ &#39;std_test_score&#39;: array([0.02179296, 0.03419829, 0.02179296, 0.02195722, 0.02179296,
+        0.02195722]),
+ &#39;rank_test_score&#39;: array([1, 6, 1, 4, 1, 4], dtype=int32)}
 </pre></div>
 </div>
 </div>
@@ -888,111 +941,111 @@ The dictionary has the parameter names as the keys and the values are the values
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.001936</td>
-      <td>0.000244</td>
-      <td>0.001340</td>
-      <td>0.000069</td>
+      <td>0.002512</td>
+      <td>0.000234</td>
+      <td>0.002100</td>
+      <td>0.000287</td>
       <td>0.5</td>
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
       <td>1.000000</td>
       <td>0.956522</td>
       <td>1.000000</td>
-      <td>0.909091</td>
-      <td>1.0</td>
-      <td>0.973123</td>
-      <td>0.036174</td>
+      <td>0.954545</td>
+      <td>1.000000</td>
+      <td>0.982213</td>
+      <td>0.021793</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.001858</td>
-      <td>0.000018</td>
-      <td>0.001325</td>
-      <td>0.000024</td>
+      <td>0.002781</td>
+      <td>0.000362</td>
+      <td>0.001977</td>
+      <td>0.000182</td>
       <td>0.5</td>
       <td>rbf</td>
       <td>{'C': 0.5, 'kernel': 'rbf'}</td>
-      <td>0.913043</td>
       <td>0.956522</td>
-      <td>0.909091</td>
-      <td>0.909091</td>
-      <td>1.0</td>
-      <td>0.937549</td>
-      <td>0.036001</td>
-      <td>5</td>
+      <td>0.869565</td>
+      <td>0.954545</td>
+      <td>0.954545</td>
+      <td>0.954545</td>
+      <td>0.937945</td>
+      <td>0.034198</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.001763</td>
-      <td>0.000036</td>
-      <td>0.001307</td>
-      <td>0.000051</td>
+      <td>0.002306</td>
+      <td>0.000115</td>
+      <td>0.001857</td>
+      <td>0.000177</td>
       <td>1</td>
       <td>linear</td>
       <td>{'C': 1, 'kernel': 'linear'}</td>
       <td>1.000000</td>
       <td>0.956522</td>
-      <td>0.909091</td>
+      <td>1.000000</td>
       <td>0.954545</td>
-      <td>1.0</td>
-      <td>0.964032</td>
-      <td>0.033918</td>
-      <td>2</td>
+      <td>1.000000</td>
+      <td>0.982213</td>
+      <td>0.021793</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.001813</td>
-      <td>0.000023</td>
-      <td>0.001300</td>
-      <td>0.000008</td>
+      <td>0.002495</td>
+      <td>0.000114</td>
+      <td>0.001795</td>
+      <td>0.000099</td>
       <td>1</td>
       <td>rbf</td>
       <td>{'C': 1, 'kernel': 'rbf'}</td>
+      <td>1.000000</td>
       <td>0.956522</td>
-      <td>0.956522</td>
-      <td>0.909091</td>
+      <td>1.000000</td>
       <td>0.954545</td>
-      <td>1.0</td>
-      <td>0.955336</td>
-      <td>0.028764</td>
+      <td>0.954545</td>
+      <td>0.973123</td>
+      <td>0.021957</td>
       <td>4</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.001721</td>
-      <td>0.000018</td>
-      <td>0.001268</td>
-      <td>0.000013</td>
+      <td>0.002487</td>
+      <td>0.000170</td>
+      <td>0.001733</td>
+      <td>0.000030</td>
       <td>10</td>
       <td>linear</td>
       <td>{'C': 10, 'kernel': 'linear'}</td>
-      <td>0.913043</td>
+      <td>1.000000</td>
       <td>0.956522</td>
-      <td>0.863636</td>
-      <td>0.909091</td>
-      <td>1.0</td>
-      <td>0.928458</td>
-      <td>0.046304</td>
-      <td>6</td>
+      <td>1.000000</td>
+      <td>0.954545</td>
+      <td>1.000000</td>
+      <td>0.982213</td>
+      <td>0.021793</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.001761</td>
-      <td>0.000019</td>
-      <td>0.001285</td>
-      <td>0.000015</td>
+      <td>0.002288</td>
+      <td>0.000053</td>
+      <td>0.001844</td>
+      <td>0.000155</td>
       <td>10</td>
       <td>rbf</td>
       <td>{'C': 10, 'kernel': 'rbf'}</td>
       <td>1.000000</td>
+      <td>0.956522</td>
       <td>1.000000</td>
-      <td>0.863636</td>
       <td>0.954545</td>
-      <td>1.0</td>
-      <td>0.963636</td>
-      <td>0.053009</td>
-      <td>3</td>
+      <td>0.954545</td>
+      <td>0.973123</td>
+      <td>0.021957</td>
+      <td>4</td>
     </tr>
   </tbody>
 </table>
@@ -1070,9 +1123,9 @@ The dictionary has the parameter names as the keys and the values are the values
 </div>
 </div>
 <div class="section" id="questions-after-class">
-<h2><span class="section-number">31.3. </span>Questions after class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">26.3. </span>Questions after class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="can-this-be-used-on-more-types-of-machine-learning-than-just-decision-trees-and-svm">
-<h3><span class="section-number">31.3.1. </span>Can this be used on more types of machine learning than just decision trees and svm?<a class="headerlink" href="#can-this-be-used-on-more-types-of-machine-learning-than-just-decision-trees-and-svm" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">26.3.1. </span>Can this be used on more types of machine learning than just decision trees and svm?<a class="headerlink" href="#can-this-be-used-on-more-types-of-machine-learning-than-just-decision-trees-and-svm" title="Permalink to this headline">¶</a></h3>
 <div class="toggle docutils container">
 <p>Yes, this can be used on any estimator in scikit learn. It can even be used on other models that adhere to the required <a class="reference external" href="https://scikit-learn.org/stable/developers/develop.html">API</a>.</p>
 <p>GridSearchCV repeatedly:</p>
@@ -1107,37 +1160,35 @@ The dictionary has the parameter names as the keys and the values are the values
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="2021-11-08.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">30. </span>ML Task Review and Cross Validation</p>
+            <p class="prev-next-title"><span class="section-number">25. </span>ML Task Review and Cross Validation</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="2021-11-15.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">32. </span>Model Comparison</p>
+        <p class="prev-next-title"><span class="section-number">27. </span>Model Comparison</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Professor Sarah M Brown<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Professor Sarah M Brown<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
