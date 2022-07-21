@@ -1,10 +1,10 @@
 div.admonition-try-it-yourself {
     border-left-color: rgba(var(--pst-color-info), 1);
 }
-div.admonition-try-it-yourself .admonition-title {
+div.admonition-try-it-yourself p.admonition-title {
     background-color: rgba(var(--pst-color-info), .1)
 }
-div.admonition-try-it-yourself .admonition-title:before {
+div.admonition-try-it-yourself p.admonition-title:before {
     color: rgba(var(--pst-color-info), 1);
     content: '\f121';
 }
@@ -16,7 +16,7 @@ div.admonition-further-reading {
 div.admonition-further-reading .admonition-title {
     background-color: rgba(var(--pst-color-info), .1)
 }
-div.admonition-further-reading .admonition-title:before {
+div.admonition-further-reading p.admonition-title:before {
     color: rgba(var(--pst-color-info), 1);
     content: '\f5da';
 }
