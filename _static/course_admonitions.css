@@ -4,7 +4,7 @@ div.admonition-try-it-yourself {
 div.admonition-try-it-yourself .admonition-title {
     background-color: rgba(var(--pst-color-info), .1)
 }
-.admonition-try-it-yourself .admonition-title:before {
+div.admonition-try-it-yourself .admonition-title:before {
     color: rgba(var(--pst-color-info), 1);
     content: '\f121';
 }
@@ -16,44 +16,44 @@ div.admonition-further-reading {
 div.admonition-further-reading .admonition-title {
     background-color: rgba(var(--pst-color-info), .1)
 }
-.admonition-further-reading .admonition-title:before {
+div.admonition-further-reading .admonition-title:before {
     color: rgba(var(--pst-color-info), 1);
     content: '\f5da';
 }
 
 
-.admonition-question-from-class {
+div.admonition-question-from-class {
     border-left-color: rgba(var(--pst-color-success), 1);
 }
-.admonition-question-from-class .admonition-title {
+div.admonition-question-from-class .admonition-title {
     background-color: rgba(var(--pst-color-success), .1)
 }
-.admonition-question-from-class .admonition-title:before {
+div.admonition-question-from-class .admonition-title:before {
     color: rgba(var(--pst-color-success), 1);
     content: '\f059';
 }
 
 
-.admonition-ram-token-opportunity {
+div.admonition-ram-token-opportunity {
     border-left-color: rgba(var(--pst-color-info), 1);
 }
-.admonition-ram-token-opportunity  .admonition-title {
+div.admonition-ram-token-opportunity  .admonition-title {
     background-color: rgba(var(--pst-color-info), .1)
 }
-.admonition-ram-token-opportunity  .admonition-title:before {
+div.admonition-ram-token-opportunity  .admonition-title:before {
     color: rgba(var(--pst-color-info), 1);
     content: '\f51e';
 }
 
 
 
-.admonition-think-ahead {
+div.admonition-think-ahead {
     border-left-color: rgba(var(--pst-color-success), 1);
 }
-.admonition-think-ahead  .admonition-title {
+div.admonition-think-ahead  .admonition-title {
     background-color: rgba(var(--pst-color-success), .1)
 }
-.admonition-think-ahead  .admonition-title:before {
+div.admonition-think-ahead  .admonition-title:before {
     color: rgba(var(--pst-color-success), 1);
     content: '\f07b';
 }
