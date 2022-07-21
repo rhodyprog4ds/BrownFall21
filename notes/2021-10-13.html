@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>15. Intro to Machine learning &#8212; Programming for Data Science at URI Fall 2021</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/course_admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="16. Interpetting and Evaluating Naive Bayes" href="2021-10-15.html" />
@@ -63,7 +64,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +87,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +108,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   About this Book
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    About this Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Syllabus
  </span>
@@ -146,7 +163,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Notes
  </span>
@@ -333,7 +350,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Assignments
  </span>
@@ -400,7 +417,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Portfolio
  </span>
@@ -437,7 +454,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   FAQ
  </span>
@@ -464,7 +481,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Resources
  </span>
@@ -528,112 +545,243 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/notes/2021-10-13.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notes/2021-10-13.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/rhodyprog4ds/BrownFall21/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fnotes/2021-10-13.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/notes/2021-10-13.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/rhodyprog4ds/BrownFall21/main?urlpath=tree/notes/2021-10-13.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/rhodyprog4ds/BrownFall21/main?urlpath=tree/notes/2021-10-13.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rhodyprog4ds/BrownFall21/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rhodyprog4ds/BrownFall21//issues/new?title=Issue%20on%20page%20%2Fnotes/2021-10-13.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rhodyprog4ds/BrownFall21/edit/main/notes/2021-10-13.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notes/2021-10-13.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/notes/2021-10-13.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-a-model">
    15.1. What is a Model?
@@ -746,12 +894,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Intro to Machine learning</h1>
@@ -880,11 +1027,12 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="intro-to-machine-learning">
-<h1><span class="section-number">15. </span>Intro to Machine learning<a class="headerlink" href="#intro-to-machine-learning" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-machine-learning">
+<h1><span class="section-number">15. </span>Intro to Machine learning<a class="headerlink" href="#intro-to-machine-learning" title="Permalink to this headline">#</a></h1>
 <p>When we <em>do</em> machine learning, this can also be called:</p>
 <ul class="simple">
 <li><p>data mining</p></li>
@@ -908,7 +1056,7 @@ a few reasons:</p>
 graduate level ML textbooks, details advantages of a model based perspective and
 a more mathematical version of a model based approach to machine learning.</p>
 </div>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -916,9 +1064,9 @@ a more mathematical version of a model based approach to machine learning.</p>
 to machine learning, but I think having the model based perspective first helps
 you avoid common pitfalls.</p>
 </div>
-</div>
-<div class="section" id="what-is-a-model">
-<h2><span class="section-number">15.1. </span>What is a Model?<a class="headerlink" href="#what-is-a-model" title="Permalink to this headline">¶</a></h2>
+</aside>
+<section id="what-is-a-model">
+<h2><span class="section-number">15.1. </span>What is a Model?<a class="headerlink" href="#what-is-a-model" title="Permalink to this headline">#</a></h2>
 <p>A model is a simplified representation of some part of the world. A famous quote about models is:</p>
 <blockquote class="epigraph">
 <div><p>All models are wrong, but some are useful
@@ -933,26 +1081,26 @@ you avoid common pitfalls.</p>
 <p class="admonition-title">Further Reading</p>
 <p>read more in the<a class="reference external" href="http://www.mbmlbook.com/LearningSkills_A_model_is_a_set_of_assumptions.html">Model Based Machine Learning Book</a></p>
 </div>
-</div>
-<div class="section" id="models-in-machine-learning">
-<h2><span class="section-number">15.2. </span>Models in Machine Learning<a class="headerlink" href="#models-in-machine-learning" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="models-in-machine-learning">
+<h2><span class="section-number">15.2. </span>Models in Machine Learning<a class="headerlink" href="#models-in-machine-learning" title="Permalink to this headline">#</a></h2>
 <p>Starting from a dataset, we first make an additional designation about how we will use the different variables (columns). We will call most of them the <em>features</em>, which we denote mathematically with <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> and we’ll choose one to be the <em>target</em> or <em>labels</em>, denoted by <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>.</p>
 <p>The core assumption for just about all machine learning is that there exists some function <span class="math notranslate nohighlight">\(f\)</span> so that for the <span class="math notranslate nohighlight">\(i\)</span>th sample</p>
 <div class="math notranslate nohighlight">
 \[
   y_i = f(\mathbf{x}_i)
 \]</div>
-</div>
-<div class="section" id="types-of-machine-learning">
-<h2><span class="section-number">15.3. </span>Types of Machine Learning<a class="headerlink" href="#types-of-machine-learning" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="types-of-machine-learning">
+<h2><span class="section-number">15.3. </span>Types of Machine Learning<a class="headerlink" href="#types-of-machine-learning" title="Permalink to this headline">#</a></h2>
 <p>Then with different additional assumptions we get different types of machine learning:</p>
 <ul class="simple">
 <li><p>if both features (<span class="math notranslate nohighlight">\(\mathbf{X}\)</span>) and target (<span class="math notranslate nohighlight">\(\mathbf{y}\)</span>) are observed (contained in our dataset) it’s <a class="reference external" href="https://en.wikipedia.org/wiki/Supervised_learning"><strong>supervised learning</strong></a> <a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html">code</a></p></li>
 <li><p>if only the features (<span class="math notranslate nohighlight">\(\mathbf{X}\)</span>) are observed, it’s <a class="reference external" href="https://en.wikipedia.org/wiki/Unsupervised_learning"><strong>unsupervised learning</strong></a> <a class="reference external" href="https://scikit-learn.org/stable/unsupervised_learning.html">code</a></p></li>
 </ul>
-</div>
-<div class="section" id="supervised-learning">
-<h2><span class="section-number">15.4. </span>Supervised Learning<a class="headerlink" href="#supervised-learning" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="supervised-learning">
+<h2><span class="section-number">15.4. </span>Supervised Learning<a class="headerlink" href="#supervised-learning" title="Permalink to this headline">#</a></h2>
 <p>we’ll focus on supervised learning first.  we can take that same core assumption and use it with additional information about our target variable to determine learning <strong>task</strong> we are working to do.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -962,15 +1110,15 @@ you avoid common pitfalls.</p>
 <li><p>if <span class="math notranslate nohighlight">\(y_i\)</span> are discrete (eg flower species) we are doing <strong>classification</strong></p></li>
 <li><p>if <span class="math notranslate nohighlight">\(y_i\)</span> are continuous (eg height) we are doing <strong>regression</strong></p></li>
 </ul>
-</div>
-<div class="section" id="machine-learning-pipeline">
-<h2><span class="section-number">15.5. </span>Machine Learning Pipeline<a class="headerlink" href="#machine-learning-pipeline" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="machine-learning-pipeline">
+<h2><span class="section-number">15.5. </span>Machine Learning Pipeline<a class="headerlink" href="#machine-learning-pipeline" title="Permalink to this headline">#</a></h2>
 <p>To do machine learning we start with <strong>training data</strong> which we put as input to the <strong>learning algorithm</strong>. A learning algorithm might be a generic optimization procedure or a specialized procedure for a specific model. The learning algorithm outputs a trained <strong>model</strong> or the parameters of the model. When we deploy a model we pair the <strong>fit model</strong> with a <strong>prediction algorithm</strong> or <strong>decision</strong> algorithm to evaluate a new sample in the world.</p>
 <p>In experimenting and design, we need <strong>testing data</strong> to evaluate how well our learning algorithm understood the world.  We need to use previously unseen data, because if we don’t we can’t tell if the prediction algorithm is using a rule that the learning algorithm produced or just looking up from a lookup table the result.  This can be thought of like the difference between memorization and understanding.</p>
 <p>When the model does well on the training data, but not on test data, we say that it does not generalize well.</p>
-</div>
-<div class="section" id="machine-learning-with-scikit-learn">
-<h2><span class="section-number">15.6. </span>Machine Learning with Scikit Learn<a class="headerlink" href="#machine-learning-with-scikit-learn" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="machine-learning-with-scikit-learn">
+<h2><span class="section-number">15.6. </span>Machine Learning with Scikit Learn<a class="headerlink" href="#machine-learning-with-scikit-learn" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1023,7 +1171,7 @@ you avoid common pitfalls.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f1ac8ee1a90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f8156608be0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2021-10-13_7_1.png" src="../_images/2021-10-13_7_1.png" />
@@ -1100,7 +1248,7 @@ What happens?</p>
 </div>
 </div>
 <p>Now we instantiate our classifier with the constructor method</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-try-it-yourself admonition">
 <p class="admonition-title">Try it Yourself</p>
@@ -1110,7 +1258,7 @@ What happens?</p>
 <li><p>Can you cascade this step?</p></li>
 </ol>
 </div>
-</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
@@ -1125,10 +1273,7 @@ What happens?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GaussianNB()
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GaussianNB()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">GaussianNB</label><div class="sk-toggleable__content"><pre>GaussianNB()</pre></div></div></div></div></div></div></div>
 </div>
 <p>This created an empty object, we can look at it’s contents:</p>
 <div class="cell docutils container">
@@ -1152,10 +1297,7 @@ fit method implements the actual learning algorithm.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GaussianNB()
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GaussianNB()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">GaussianNB</label><div class="sk-toggleable__content"><pre>GaussianNB()</pre></div></div></div></div></div></div></div>
 </div>
 <p>Once we fit we can see it knows about our dataset now</p>
 <div class="cell docutils container">
@@ -1237,13 +1379,13 @@ if it matches</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="questions-at-the-end-of-class">
-<h2><span class="section-number">15.7. </span>Questions at the End of Class<a class="headerlink" href="#questions-at-the-end-of-class" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="clarifying-questions">
-<h3><span class="section-number">15.7.1. </span>Clarifying Questions<a class="headerlink" href="#clarifying-questions" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="does-this-method-work-if-the-dataframe-has-more-than-one-categorical-variable">
-<h4><span class="section-number">15.7.1.1. </span>Does this method work if the dataframe has more than one categorical variable<a class="headerlink" href="#does-this-method-work-if-the-dataframe-has-more-than-one-categorical-variable" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="questions-at-the-end-of-class">
+<h2><span class="section-number">15.7. </span>Questions at the End of Class<a class="headerlink" href="#questions-at-the-end-of-class" title="Permalink to this headline">#</a></h2>
+<section id="clarifying-questions">
+<h3><span class="section-number">15.7.1. </span>Clarifying Questions<a class="headerlink" href="#clarifying-questions" title="Permalink to this headline">#</a></h3>
+<section id="does-this-method-work-if-the-dataframe-has-more-than-one-categorical-variable">
+<h4><span class="section-number">15.7.1.1. </span>Does this method work if the dataframe has more than one categorical variable<a class="headerlink" href="#does-this-method-work-if-the-dataframe-has-more-than-one-categorical-variable" title="Permalink to this headline">#</a></h4>
 <div class="toggle docutils container">
 <p>We can use categorical variables as features, Gaussian Naive Bayes assumes continuous valued features (in the model) but theere are other classifiers that do not, including
 other types of Naive Bayes.</p>
@@ -1252,9 +1394,9 @@ classifiers, one to predict each categorical variable.  For example, if our iris
 data also had a column with ‘color’ we could try to predict the color from the
 measurements.  Since we know that the measurements predict the species, predicting color might only work if the different species come in different colors.</p>
 </div>
-</div>
-<div class="section" id="were-the-train-and-test-variables-randomly-generated-from-the-library-based-off-of-the-dataset-we-used">
-<h4><span class="section-number">15.7.1.2. </span>Were the train and test variables randomly generated from the library based off of the dataset we used?<a class="headerlink" href="#were-the-train-and-test-variables-randomly-generated-from-the-library-based-off-of-the-dataset-we-used" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="were-the-train-and-test-variables-randomly-generated-from-the-library-based-off-of-the-dataset-we-used">
+<h4><span class="section-number">15.7.1.2. </span>Were the train and test variables randomly generated from the library based off of the dataset we used?<a class="headerlink" href="#were-the-train-and-test-variables-randomly-generated-from-the-library-based-off-of-the-dataset-we-used" title="Permalink to this headline">#</a></h4>
 <div class="toggle docutils container">
 <p>The test and train variables were created by randomly subsetting the data that
 we had.  For example, we could think of this as randomly permuting the samples
@@ -1272,18 +1414,18 @@ import numpy.random as rnd
 
 ``` -->
 </div>
-</div>
-<div class="section" id="is-this-method-we-learned-today-using-linear-regresssion">
-<h4><span class="section-number">15.7.1.3. </span>Is this method we learned today using linear regresssion?<a class="headerlink" href="#is-this-method-we-learned-today-using-linear-regresssion" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="is-this-method-we-learned-today-using-linear-regresssion">
+<h4><span class="section-number">15.7.1.3. </span>Is this method we learned today using linear regresssion?<a class="headerlink" href="#is-this-method-we-learned-today-using-linear-regresssion" title="Permalink to this headline">#</a></h4>
 <div class="toggle docutils container">
 <p>No, we’ll talk more about the model it does use on Friday and we’ll cover linear regression in a couple of weeks.</p>
 </div>
-</div>
-</div>
-<div class="section" id="foreshadowing-questions">
-<h3><span class="section-number">15.7.2. </span>Foreshadowing Questions<a class="headerlink" href="#foreshadowing-questions" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="if-we-were-to-use-a-larger-sample-size-for-the-test-would-this-improve-results">
-<h4><span class="section-number">15.7.2.1. </span>If we were to use a larger sample size for the test, would this improve results?<a class="headerlink" href="#if-we-were-to-use-a-larger-sample-size-for-the-test-would-this-improve-results" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="foreshadowing-questions">
+<h3><span class="section-number">15.7.2. </span>Foreshadowing Questions<a class="headerlink" href="#foreshadowing-questions" title="Permalink to this headline">#</a></h3>
+<section id="if-we-were-to-use-a-larger-sample-size-for-the-test-would-this-improve-results">
+<h4><span class="section-number">15.7.2.1. </span>If we were to use a larger sample size for the test, would this improve results?<a class="headerlink" href="#if-we-were-to-use-a-larger-sample-size-for-the-test-would-this-improve-results" title="Permalink to this headline">#</a></h4>
 <div class="toggle docutils container">
 <p>If we use more for the test set, we’d have less for training, so, in general,
 that would decrease performance.  In this particular dataset, we can probably
@@ -1292,9 +1434,9 @@ still do well with a small training set because the classes are separable.</p>
 true test performance, however.  We’ll explore these type of tradeoffs over the
 rest of the course.</p>
 </div>
-</div>
-<div class="section" id="how-robust-used-is-this-specific-machine-learning-algorithm-ie-are-there-more-powerful-open-source-ones-we-can-play-with">
-<h4><span class="section-number">15.7.2.2. </span>How robust/used is this specific machine learning algorithm? Ie are there more powerful open source ones we can play with<a class="headerlink" href="#how-robust-used-is-this-specific-machine-learning-algorithm-ie-are-there-more-powerful-open-source-ones-we-can-play-with" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="how-robust-used-is-this-specific-machine-learning-algorithm-ie-are-there-more-powerful-open-source-ones-we-can-play-with">
+<h4><span class="section-number">15.7.2.2. </span>How robust/used is this specific machine learning algorithm? Ie are there more powerful open source ones we can play with<a class="headerlink" href="#how-robust-used-is-this-specific-machine-learning-algorithm-ie-are-there-more-powerful-open-source-ones-we-can-play-with" title="Permalink to this headline">#</a></h4>
 <div class="toggle docutils container">
 <p>This specific model is not very robust, but it’s a good starter.  We will see
 more complex models wich are also more robust in the future.  There are many
@@ -1303,28 +1445,28 @@ what’s secret is typically the training data and some of the specific paramete
 provided to the learning algorithm.  Scikit learn (<code class="docutils literal notranslate"><span class="pre">sklearn</span></code>) provides many.
 Other popular ones, for deep learning are tensorflow and keras.</p>
 </div>
-</div>
-</div>
-<div class="section" id="logistical-questions">
-<h3><span class="section-number">15.7.3. </span>Logistical Questions<a class="headerlink" href="#logistical-questions" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="will-we-be-scraping-data-from-sites-and-try-to-implement-machine-learning">
-<h4><span class="section-number">15.7.3.1. </span>Will we be scraping data from sites and try to implement machine learning?<a class="headerlink" href="#will-we-be-scraping-data-from-sites-and-try-to-implement-machine-learning" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="logistical-questions">
+<h3><span class="section-number">15.7.3. </span>Logistical Questions<a class="headerlink" href="#logistical-questions" title="Permalink to this headline">#</a></h3>
+<section id="will-we-be-scraping-data-from-sites-and-try-to-implement-machine-learning">
+<h4><span class="section-number">15.7.3.1. </span>Will we be scraping data from sites and try to implement machine learning?<a class="headerlink" href="#will-we-be-scraping-data-from-sites-and-try-to-implement-machine-learning" title="Permalink to this headline">#</a></h4>
 <div class="toggle docutils container">
 <p>Not in class, for the sake of time, but this would be a great portfolio exercise.</p>
 <p>If you don’t earn construct level 2 in assignment 5, you can also earn it on assignment 7 by doing this.</p>
 </div>
-</div>
-<div class="section" id="will-sklearn-be-used-in-assignments">
-<h4><span class="section-number">15.7.3.2. </span>will sklearn be used in assignments<a class="headerlink" href="#will-sklearn-be-used-in-assignments" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="will-sklearn-be-used-in-assignments">
+<h4><span class="section-number">15.7.3.2. </span>will sklearn be used in assignments<a class="headerlink" href="#will-sklearn-be-used-in-assignments" title="Permalink to this headline">#</a></h4>
 <div class="toggle docutils container">
 <p>yes. we’ll be using sklearn for the rest of the semester.</p>
 </div>
-</div>
-</div>
-<div class="section" id="context-questions">
-<h3><span class="section-number">15.7.4. </span>Context Questions<a class="headerlink" href="#context-questions" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="when-did-google-change-to-machine-learning-for-their-search-queries">
-<h4><span class="section-number">15.7.4.1. </span>When did Google change to machine learning for their search queries?<a class="headerlink" href="#when-did-google-change-to-machine-learning-for-their-search-queries" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="context-questions">
+<h3><span class="section-number">15.7.4. </span>Context Questions<a class="headerlink" href="#context-questions" title="Permalink to this headline">#</a></h3>
+<section id="when-did-google-change-to-machine-learning-for-their-search-queries">
+<h4><span class="section-number">15.7.4.1. </span>When did Google change to machine learning for their search queries?<a class="headerlink" href="#when-did-google-change-to-machine-learning-for-their-search-queries" title="Permalink to this headline">#</a></h4>
 <div class="toggle docutils container">
 <p>The original page rank algorithm, focused
 mostly on ranking the pages by treating the internet like a graph. The major
@@ -1334,14 +1476,14 @@ other things. Valuing other things relies on the search history.  For sure by
 previous queries at least equally, if not more than the graph structure of the
 Internet.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="more-practice">
-<h2><span class="section-number">15.8. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="more-practice">
+<h2><span class="section-number">15.8. </span>More Practice<a class="headerlink" href="#more-practice" title="Permalink to this headline">#</a></h2>
 <p>See the try it yourself boxes above</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1365,9 +1507,11 @@ Internet.</p>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="2021-10-08.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1383,24 +1527,28 @@ Internet.</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Professor Sarah M Brown<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Professor Sarah M Brown<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
