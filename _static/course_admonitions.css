@@ -1,7 +1,7 @@
-.admonition-try-it-yourself {
+div.admonition-try-it-yourself {
     border-left-color: rgba(var(--pst-color-info), 1);
 }
-.admonition-try-it-yourself .admonition-title {
+div.admonition-try-it-yourself .admonition-title {
     background-color: rgba(var(--pst-color-info), .1)
 }
 .admonition-try-it-yourself .admonition-title:before {
@@ -10,10 +10,10 @@
 }
 
 
-.admonition-further-reading {
+div.admonition-further-reading {
     border-left-color: rgba(var(--pst-color-info), 1);
 }
-.admonition-further-reading .admonition-title {
+div.admonition-further-reading .admonition-title {
     background-color: rgba(var(--pst-color-info), .1)
 }
 .admonition-further-reading .admonition-title:before {
